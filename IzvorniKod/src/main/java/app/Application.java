@@ -25,9 +25,9 @@ public class Application {
 	}
 
 	public void interactWithUserRepo() {
-		User employee = new User("ivan", "ivan", "pavlovic", "hehexd");
+		User employee = new User("ivan", "ivan", "pavlovic", "hehexd","sdfs");
 		UserRepo.save(employee);
-		Enthusiast emp=new Enthusiast("sdf","df","ds","sdf");
+		Enthusiast emp=new Enthusiast("sdf","df","ds","sdf","dfsf");
 		UserRepo.save(emp);
 	}
 }
