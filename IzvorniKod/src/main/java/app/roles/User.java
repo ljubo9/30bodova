@@ -1,12 +1,20 @@
-  package roles;
+  package app.roles;
 
-public abstract class Person {
+import jakarta.persistence.*;
+
+
+@Entity
+@Table(name="Users")
+public  class User {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int Id;
 	private String username;
 	private String password;
 	private String name;
 	private String surname;
 	
-	public Person(String username, String password, String name, String surname) {
+	public User(String username, String password, String name, String surname) {
 		// TODO Auto-generated constructor stub
 		this.username = username;
 		this.password = password;
@@ -26,7 +34,9 @@ public abstract class Person {
 	public String getSurname() {
 		return surname;
 	}
-	
-	public abstract Role getRole();
-	
+
+	public Role getRole() {
+		return null;
+	}
+
 }

@@ -1,6 +1,9 @@
-package roles;
+package app.roles;
 
-public class Client extends Person {
+import jakarta.persistence.Entity;
+
+@Entity
+public class Client extends User {
 
 	public Client(String username, String password, String name, String surname) {
 		super(username, password, name, surname);

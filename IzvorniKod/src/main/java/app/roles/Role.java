@@ -1,4 +1,5 @@
-package roles;
+package app.roles;
+
 
 public enum Role {
 	CLIENT,

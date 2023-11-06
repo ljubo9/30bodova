@@ -1,6 +1,9 @@
-package roles;
+package app.roles;
 
-public class Nutritionist extends Person {
+import jakarta.persistence.Entity;
+
+@Entity
+public class Nutritionist extends User {
 
 	public Nutritionist(String username, String password, String name, String surname) {
 		super(username, password, name, surname);
