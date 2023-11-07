@@ -14,7 +14,7 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}*/
 	@Autowired
-	private UserRepository UserRepo;
+	private UserService UserRepo;
 	private User user1;
 	public static void main(String[] args) {
 		SpringApplication application = new SpringApplication(Application.class);
@@ -25,7 +25,7 @@ public class Application {
 	}
 
 	public void interactWithUserRepo() {
-
+		
 	}
 }
 

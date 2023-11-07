@@ -35,6 +35,20 @@ public class SpecialUser extends User{
 		return email;
 	}
 	
+	
+	
+	public void setPhoto_url(String photo_url) {
+		this.photo_url = photo_url;
+	}
+
+	public void setBiography(String biography) {
+		this.biography = biography;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public boolean isConfirmed() {
 		return confirmed;
 	}

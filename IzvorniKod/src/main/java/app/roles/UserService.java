@@ -28,6 +28,29 @@ public class UserService implements UserDetailsService{
 		 userRepository.save(user);
 	 }
 
+	 public void changeInfo(User userup){
+
+		Optional<User> user1=userRepository.findById(userup.getId());
+		if (!user1.isPresent()) throw new IllegalArgumentException("New values not provided.");
+		User user = user1.get();
+		user.setName(userup.getName());
+		user.setPassword(userup.getPassword());
+		user.setSurname(userup.getSurname());
+		user.setUsername(userup.getUsername());
+		
+		if (userup instanceof SpecialUser) {
+			SpecialUser specialUser = (SpecialUser) user;
+			SpecialUser specialUserUp = (SpecialUser) userup;
+			specialUser.setPhoto_url(specialUserUp.getPhoto_url());
+			specialUser.setBiography(specialUserUp.getBiography());
+			specialUser.setEmail(specialUserUp.getEmail());
+			user = specialUser;
+		}
+
+		userRepository.save(user);
+
+	 }
+
 	private void checkUserDataValid(User user) {
 		// TODO Auto-generated method stub
 		if (user instanceof SpecialUser) {

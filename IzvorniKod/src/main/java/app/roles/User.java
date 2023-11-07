@@ -42,7 +42,9 @@ public class User implements UserDetails {
 		this.surname = surname;
 		this.role = null;
 	}
-	
+	public User(){
+
+	}
 	public User(String username, String password, String name, String surname, Role role) {
 		// TODO Auto-generated constructor stub
 		this(username, password, name, surname);
@@ -65,7 +67,26 @@ public class User implements UserDetails {
 	public Role getRole() {
 		return role;
 	}
-	
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub

@@ -10,10 +10,5 @@ public class Client extends User {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public Role getRole() {
-		// TODO Auto-generated method stub
-		return Role.CLIENT;
-	}
 
 }
