@@ -3,6 +3,7 @@
 import jakarta.persistence.*;
 
 
+
 @Entity 
 @Table(name="Users")
 @Inheritance
@@ -41,7 +42,8 @@ public class User {
 	public String getSurname() {
 		return surname;
 	}
-
+	public int getId() {return Id;}
+	
 	public Role getRole() {
 		return null;
 	}
