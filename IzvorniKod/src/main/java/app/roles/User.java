@@ -3,11 +3,19 @@
 import jakarta.persistence.*;
 
 
-@Entity
+@Entity 
 @Table(name="Users")
-public  class User {
+@Inheritance
+public class User {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@SequenceGenerator(
+			name = "user_sequence",
+			sequenceName = "student_sequence",
+			allocationSize = 1
+	)
+	@GeneratedValue(
+			strategy = GenerationType.SEQUENCE,
+			generator = "user_sequence")
 	private int Id;
 	private String username;
 	private String password;
@@ -20,7 +28,6 @@ public  class User {
 		this.password = password;
 		this.name = name;
 		this.surname = surname;
-		
 	}
 	public String getUsername() {
 		return username;

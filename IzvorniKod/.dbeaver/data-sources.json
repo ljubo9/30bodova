@@ -1,0 +1,36 @@
+{
+	"folders": {},
+	"connections": {
+		"postgres-jdbc-18ba5d38df6-384f4a0fddfbf686": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "kuhajit",
+			"save-password": true,
+			"configuration": {
+				"host": "dpg-cl411miuuipc738ojj50-a.frankfurt-postgres.render.com",
+				"port": "5432",
+				"database": "kuhajit",
+				"url": "jdbc:postgresql://dpg-cl411miuuipc738ojj50-a.frankfurt-postgres.render.com:5432/kuhajit",
+				"configurationType": "MANUAL",
+				"home": "postgresql-x64-15",
+				"type": "dev",
+				"provider-properties": {},
+				"auth-model": "native"
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"smart-commit": false,
+			"smart-commit-recover": false,
+			"auto-close-transactions": true,
+			"close-transactions-period": 1800
+		}
+	}
+}
