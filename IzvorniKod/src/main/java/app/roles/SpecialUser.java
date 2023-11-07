@@ -12,12 +12,11 @@ public class SpecialUser extends User{
 	}
 	
 	public SpecialUser(String username, String password, String name, String surname, Role role,  String photo_url, String biography, String email) {
-		super(username, password, name, surname, role);
+		super(username, password, name, surname,email,role);
 		// TODO Auto-generated constructor stub
 		if (photo_url == null || biography == null || email == null) throw new IllegalArgumentException("All fields must be filled out.");
 		this.photo_url = photo_url;
 		this.biography = biography;
-		this.email = email;
 		this.confirmed = false;
 	}
 	

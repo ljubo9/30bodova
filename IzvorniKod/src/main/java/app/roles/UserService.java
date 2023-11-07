@@ -25,6 +25,21 @@ public class UserService {
 		 userRepository.save(user);
 	 }
 
+	 public void changeInfo(User userup){
+
+		Optional<User> user1=userRepository.findUserByEmail(userup.getEmail());
+		User user = user1.get();
+
+		user.setName(userup.getName());
+		user.setEmail(userup.getEmail());
+		user.setPassword(userup.getPassword());
+		user.setSurname(userup.getSurname());
+		user.setUsername(userup.getUsername());
+
+		userRepository.save(user);
+
+	 }
+
 	private void checkUserDataValid(User user) {
 		// TODO Auto-generated method stub
 		if (user instanceof SpecialUser) {
