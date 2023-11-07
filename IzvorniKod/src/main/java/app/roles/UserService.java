@@ -27,7 +27,7 @@ public class UserService {
 
 	 public void changeInfo(User userup){
 
-		Optional<User> user1=userRepository.findUserByEmail(userup.getEmail());
+		Optional<User> user1=userRepository.findById(userup.getId());
 		User user = user1.get();
 
 		user.setName(userup.getName());
