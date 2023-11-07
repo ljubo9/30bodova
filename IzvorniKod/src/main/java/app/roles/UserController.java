@@ -1,7 +1,7 @@
 package app.roles;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class UserController {
@@ -12,7 +12,14 @@ public class UserController {
 		 this.userService = userService;
 	}
 	
-	public void registerNewUser(User user) {
+	@PostMapping(path = "/register")
+	public void registerNewUser(@RequestBody final User user) {
+		userService.addUser(user);
+	}
+	
+	@PostMapping(path = "/login")
+	public void login() {
 		
 	}
+	
 }
