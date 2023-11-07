@@ -5,8 +5,8 @@ import jakarta.persistence.Entity;
 @Entity
 public class Client extends User {
 
-	public Client(String username, String password, String name, String surname,String email) {
-		super(username, password, name, surname,email);
+	public Client(String username, String password, String name, String surname) {
+		super(username, password, name, surname);
 		// TODO Auto-generated constructor stub
 	}
 
