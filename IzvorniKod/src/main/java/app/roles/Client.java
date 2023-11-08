@@ -10,9 +10,9 @@ public class Client extends User {
 		// TODO Auto-generated constructor stub
 	}
 
+
 	public Client() {
 		
 	}
-
 
 }
