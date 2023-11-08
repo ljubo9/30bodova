@@ -1,16 +1,16 @@
-\babel@toc {croatian}{}\relax 
+\babel@toc {croatian}{}
 \contentsline {chapter}{\numberline {1}Dnevnik promjena dokumentacije}{2}{chapter.1}%
 \contentsline {chapter}{\numberline {2}Opis projektnog zadatka}{3}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Potencijalna korist ovog projekta}{3}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Postojeća slična rješenja}{3}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Skup korisnika koji bi mogao biti zainteresiran za ostvareno rješenje}{4}{section.2.3}%
+\contentsline {section}{\numberline {2.3}Skup korisnika koji bi mogao biti zainteresiran za ostvareno rješenje}{5}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Opseg projektnog zadatka}{5}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Moguće nadogradnje projektnog zadatka}{7}{section.2.5}%
-\contentsline {chapter}{\numberline {3}Specifikacija programske potpore}{8}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Funkcionalni zahtjevi}{8}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Obrasci uporabe}{10}{subsection.3.1.1}%
-\contentsline {subsubsection}{Opis obrazaca uporabe}{10}{subsubsection*.2}%
-\contentsline {subsubsection}{Dijagrami obrazaca uporabe}{17}{subsubsection*.3}%
-\contentsline {subsection}{\numberline {3.1.2}Sekvencijski dijagrami}{18}{subsection.3.1.2}%
-\contentsline {section}{\numberline {3.2}Ostali zahtjevi}{21}{section.3.2}%
-\contentsline {chapter}{Popis literature}{22}{chapter*.4}%
+\contentsline {section}{\numberline {2.5}Moguće nadogradnje projektnog zadatka}{8}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Specifikacija programske potpore}{9}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Funkcionalni zahtjevi}{9}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Obrasci uporabe}{11}{subsection.3.1.1}%
+\contentsline {subsubsection}{Opis obrazaca uporabe}{11}{subsubsection*.2}%
+\contentsline {subsubsection}{Dijagrami obrazaca uporabe}{18}{subsubsection*.3}%
+\contentsline {subsection}{\numberline {3.1.2}Sekvencijski dijagrami}{19}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}Ostali zahtjevi}{22}{section.3.2}%
+\contentsline {chapter}{Popis literature}{23}{chapter*.4}%
