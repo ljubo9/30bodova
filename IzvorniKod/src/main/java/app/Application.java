@@ -25,7 +25,7 @@ public class Application {
 	}
 
 	public void interactWithUserRepo() {
-		userRepo.addUser(new Client("Fran", "lozinka", "Širić", "Širić"));
+		//userRepo.addUser(new Client("Fran", "lozinka", "Širić", "Širić"));
 	}
 }
 
