@@ -32,7 +32,7 @@ public class User implements UserDetails {
 	@Enumerated(EnumType.STRING)
 	private Role role;
 	
-	public User(String username, String password, String name, String surname) {
+	private User(String username, String password, String name, String surname) {
 		// TODO Auto-generated constructor stub
 		if (username == null || password == null ||
 		    name == null || surname == null) throw new IllegalArgumentException("All fields must be filled out");
@@ -42,9 +42,7 @@ public class User implements UserDetails {
 		this.surname = surname;
 		this.role = null;
 	}
-	public User(){
-
-	}
+	
 	public User(String username, String password, String name, String surname, Role role) {
 		// TODO Auto-generated constructor stub
 		this(username, password, name, surname);
@@ -62,7 +60,8 @@ public class User implements UserDetails {
 	public String getSurname() {
 		return surname;
 	}
-	public int getId() {return Id;}
+	public int getId() {
+		return Id;}
 	
 	public Role getRole() {
 		return role;

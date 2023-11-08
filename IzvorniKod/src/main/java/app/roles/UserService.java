@@ -7,16 +7,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserService implements UserDetailsService{
 	
 	private final UserRepository userRepository;
+	private final BCryptPasswordEncoder encoder;
+
 	
 	@Autowired
-	public UserService(UserRepository userRepository) {
+	public UserService(UserRepository userRepository, BCryptPasswordEncoder encoder) {
 		this.userRepository = userRepository;
+		this.encoder = encoder;
 	}
 	
 	 public List<User> getUsers() {
@@ -34,7 +38,7 @@ public class UserService implements UserDetailsService{
 		if (!user1.isPresent()) throw new IllegalArgumentException("New values not provided.");
 		User user = user1.get();
 		user.setName(userup.getName());
-		user.setPassword(userup.getPassword());
+		user.setPassword(encoder.encode(userup.getPassword()));
 		user.setSurname(userup.getSurname());
 		user.setUsername(userup.getUsername());
 		
