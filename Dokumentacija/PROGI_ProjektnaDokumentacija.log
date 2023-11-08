@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.11.8)  8 NOV 2023 14:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.11.8)  8 NOV 2023 15:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1158,34 +1158,54 @@ Poglavlje 1.
 > Step: execute table commands.
 > Step: calculate cell and line sizes.
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 15--15
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 16--16
 []\OT1/jkp/m/n/12 21.10.2023. 
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 15--15
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 16--16
 []\OT1/jkp/m/n/12 22.10.2023. 
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 15--15
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 16--16
 []\OT1/jkp/m/n/12 29.10.2023. 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--16
+[]\OT1/jkp/m/n/12 Hana
+ []
+
+
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 16--16
+[]\OT1/jkp/m/n/12 08.11.2023. 
  []
 
 > Step: build the whole table.
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 15--15
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 16--16
 []\OT1/jkp/m/n/12 21.10.2023. 
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 15--15
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 16--16
 []\OT1/jkp/m/n/12 22.10.2023. 
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 15--15
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 16--16
 []\OT1/jkp/m/n/12 29.10.2023. 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--16
+[]\OT1/jkp/m/n/12 Hana
+ []
+
+
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 16--16
+[]\OT1/jkp/m/n/12 08.11.2023. 
  []
 
 )
@@ -1493,11 +1513,11 @@ Overfull \hbox (17.53764pt too wide) in paragraph at lines 641--642
 a ko-jeg ima doma. Poslu[]zitelj
  []
 
-<dijagrami/SEQ_UC13.png, id=325, 665.48625pt x 516.42938pt>
+<dijagrami/SEQ_UC13.png, id=325, 771.63281pt x 540.51938pt>
 File: dijagrami/SEQ_UC13.png Graphic file (type png)
 <use dijagrami/SEQ_UC13.png>
 Package pdftex.def Info: dijagrami/SEQ_UC13.png  used on input line 645.
-(pdftex.def)             Requested size: 266.18977pt x 206.56808pt.
+(pdftex.def)             Requested size: 308.64764pt x 216.20392pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1609,11 +1629,11 @@ anged.
 (rerunfilecheck)             Checksum: F8F8AB042C2E6B3845081E6831AEBE77;2592.
  ) 
 Here is how much of TeX's memory you used:
- 16851 strings out of 475248
- 285848 string characters out of 5758285
- 1933785 words of memory out of 5000000
- 37879 multiletter control sequences out of 15000+600000
- 593984 words of font info for 110 fonts, out of 8000000 for 9000
+ 16868 strings out of 475248
+ 286469 string characters out of 5758285
+ 1936785 words of memory out of 5000000
+ 37896 multiletter control sequences out of 15000+600000
+ 594049 words of font info for 110 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  86i,13n,108p,1198b,634s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Hana/AppData/Local/Programs/MiKTeX/fonts/type1/public/kpfonts/jkpbi
@@ -1622,7 +1642,7 @@ t8a.pfb><C:/Users/Hana/AppData/Local/Programs/MiKTeX/fonts/type1/public/kpfonts
 fonts/jkpmit8a.pfb><C:/Users/Hana/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/kpfonts/jkpmn8a.pfb><C:/Users/Hana/AppData/Local/Programs/MiKTeX/fonts/type
 1/public/kpfonts/jkpttmn8a.pfb>
-Output written on PROGI_ProjektnaDokumentacija.pdf (25 pages, 2733158 bytes).
+Output written on PROGI_ProjektnaDokumentacija.pdf (25 pages, 2744319 bytes).
 PDF statistics:
  430 PDF objects out of 1000 (max. 8388607)
  182 named destinations out of 1000 (max. 500000)
