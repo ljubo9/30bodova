@@ -4,12 +4,13 @@ import jakarta.persistence.*;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-
+import app.recipe.*;
 
 @Entity 
 @Table(name="Users", uniqueConstraints = @UniqueConstraint(columnNames = {"username"}))
@@ -31,6 +32,12 @@ public class User implements UserDetails {
 	private String surname;
 	@Enumerated(EnumType.STRING)
 	private Role role;
+
+	@OneToMany(mappedBy="creator", cascade = CascadeType.ALL)
+	private Set<Recipe> recipes;
+	@OneToMany(mappedBy = "creator", cascade = CascadeType.ALL)
+	private Set<Cookbook> cookbooks;
+
 	
 	private User(String username, String password, String name, String surname) {
 		// TODO Auto-generated constructor stub
