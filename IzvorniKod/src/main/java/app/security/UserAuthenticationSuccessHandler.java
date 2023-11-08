@@ -32,7 +32,6 @@ public class UserAuthenticationSuccessHandler implements AuthenticationSuccessHa
 			LoggedUser user = new LoggedUser(authentication.getName(), activeUserStore);
 			session.setAttribute("user", user);		}
 		
-		
 	}
 	
 }

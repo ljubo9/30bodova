@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ActiveUserStore {
 	private List<String> users;
 	public ActiveUserStore() {
@@ -15,11 +17,6 @@ public class ActiveUserStore {
 	}
 	public void setUsers(List<String> users) {
 		this.users = users;
-	}
-	
-	@Bean
-	public ActiveUserStore activeUserStore() {
-		return new ActiveUserStore();
 	}
 	
 }	

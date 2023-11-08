@@ -14,7 +14,7 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}*/
 	@Autowired
-	private UserService UserRepo;
+	private UserService userRepo;
 	private User user1;
 	public static void main(String[] args) {
 		SpringApplication application = new SpringApplication(Application.class);
@@ -25,7 +25,7 @@ public class Application {
 	}
 
 	public void interactWithUserRepo() {
-		
+		userRepo.addUser(new Client("Fran", "lozinka", "Širić", "Širić"));
 	}
 }
 

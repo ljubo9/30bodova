@@ -1,11 +1,13 @@
 package app.security;
 
+import java.io.Serializable;
+
 import org.springframework.stereotype.Component;
 
 import jakarta.servlet.http.HttpSessionBindingEvent;
 import jakarta.servlet.http.HttpSessionBindingListener;
 
-@Component
+
 public class LoggedUser implements HttpSessionBindingListener {
 	
 	private String username;

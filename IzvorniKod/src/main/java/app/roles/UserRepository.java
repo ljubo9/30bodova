@@ -13,7 +13,7 @@ public interface UserRepository extends JpaRepository<User,Integer> {
     List<User> findAll();
     
     @Query("SELECT u FROM users WHERE  u.email = ?1")
-    Optional<User> findUserByEmail(String email); 
+    Optional<SpecialUser> findUserByEmail(String email); 
     
     @Query("SELECT u FROM users WHERE u.username = ?1")
     Optional<User> findUserByUsername(String username);

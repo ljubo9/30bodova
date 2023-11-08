@@ -58,7 +58,7 @@ public class UserService implements UserDetailsService{
 	private void checkUserDataValid(User user) {
 		// TODO Auto-generated method stub
 		if (user instanceof SpecialUser) {
-			Optional<User> optionalUserEmail = userRepository.findUserByEmail(((SpecialUser)user).getEmail());
+			Optional<SpecialUser> optionalUserEmail = userRepository.findUserByEmail(((SpecialUser)user).getEmail());
 			if (optionalUserEmail.isPresent()) throw new IllegalStateException("Account with this email already exists");
 		}
 		

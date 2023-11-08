@@ -1,5 +1,8 @@
 package app.roles;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class SpecialUser extends User{
 
 	private String photo_url;

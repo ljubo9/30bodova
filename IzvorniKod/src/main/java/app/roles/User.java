@@ -12,8 +12,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 
 @Entity 
-@Table(name="Users", uniqueConstraints = @UniqueConstraint(columnNames = {"username", "email"}))
-@Inheritance
+@Table(name="Users", uniqueConstraints = @UniqueConstraint(columnNames = {"username"}))
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class User implements UserDetails {
 	@Id
 	@SequenceGenerator(
