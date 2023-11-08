@@ -76,7 +76,7 @@
 				\begin{packed_enum}
 					\item potvrditi zahtjev za registraciju korisnika koji se želi registrirati kao kulinarski entuzijast ili nutricionist
 					\item vidjeti popis svih registriranih korisnika i njihovih osobnih podataka
-					\item brisati recenzije koje su u suprotnosti s pravilima koristenja aplikacije 
+					\item brisati recenzije koje su u suprotnosti s pravilima korištenja aplikacije 
 				\end{packed_enum}
 					
 				
@@ -524,6 +524,71 @@ iz prozora
 						\item Nutricionist mu šalje personaliziranu dijetu
 					\end{packed_enum}
 				\end{packed_item}
+				
+				\noindent \underbar{\textbf{UC20 - Potvrda zahtjeva za registracijom}}
+					\begin{packed_item}
+	
+						\item \textbf{Glavni sudionik: Administrator}
+						\item  \textbf{Cilj: Odobriti registraciju kulinarskog entuzijasta ili nutricionista}
+						\item  \textbf{Sudionici: Baza podataka}
+						\item  \textbf{Preduvjet: Autorizacija} 
+						\item  \textbf{Opis osnovnog tijeka:}
+						
+						\item[] \begin{packed_enum}
+	
+							\item Administrator odabire zahtjev za registraciju koji želi pregledati
+					
+							\item Ako su uneseni podatci zadovoljavajući, administrator potvrđuje zahjtev za registracijom
+						\end{packed_enum}
+						
+						\item  \textbf{Opis mogućih odstupanja:}
+						
+						\item[] \begin{packed_item}
+	
+							\item[1.a] Neispravni podaci za registraciju
+							\item[] \begin{packed_enum}
+								
+								\item Administrator odbija zahtjev, a sustav obavještava korisnika o neuspjeloj registraciji
+							\end{packed_enum}
+						\end{packed_item}
+					\end{packed_item}
+					
+					\noindent \underbar{\textbf{UC21 - Prikaz popisa registriranih korisnika i njihovih podataka}}
+					\begin{packed_item}
+	
+						\item \textbf{Glavni sudionik: Administrator}
+						\item  \textbf{Cilj: Pristupiti podatcima svih registriranih korisnika}
+						\item  \textbf{Sudionici: Baza podataka}
+						\item  \textbf{Preduvjet: Autorizacija } 
+						\item  \textbf{Opis osnovnog tijeka:}
+						
+						\item[] \begin{packed_enum}
+	
+							\item Adiministrator šalje upit u bazu za podatcim svih registriranih korisnika
+					
+							\item Administrator dobiva popis svih podataka.
+						\end{packed_enum}
+					\end{packed_item}
+					
+					\noindent \underbar{\textbf{UC22 - Brisanje recenzija}}
+					\begin{packed_item}
+	
+						\item \textbf{Glavni sudionik: Administrator}
+						\item  \textbf{Cilj: Ukloniti recenzije koje su u suprotnosti s pravilima korištenja aplikacije}
+						\item  \textbf{Sudionici: Baza podataka}
+						\item  \textbf{Preduvjet: Autorizacija } 
+						\item  \textbf{Opis osnovnog tijeka:}
+						
+						\item[] \begin{packed_enum}
+	
+							\item Adiministrator odabire recenziju koju treba obrisati
+					
+							\item Administrator briše odabranu recenziju
+							\item Baza podataka se ažurira
+						\end{packed_enum}
+					\end{packed_item}
+					
+					
 									
 				\subsubsection{Dijagrami obrazaca uporabe}
 					
