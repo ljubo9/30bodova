@@ -25,14 +25,14 @@ public class User implements UserDetails {
 	@GeneratedValue(
 			strategy = GenerationType.SEQUENCE,
 			generator = "user_sequence")
-	private int Id;
+	private int id;
 	private String username;
 	private String password;
 	private String name;
 	private String surname;
 	@Enumerated(EnumType.STRING)
 	private Role role;
-
+	
 	@OneToMany(mappedBy="creator", cascade = CascadeType.ALL)
 	private Set<Recipe> recipes;
 	@OneToMany(mappedBy = "creator", cascade = CascadeType.ALL)
@@ -69,7 +69,7 @@ public class User implements UserDetails {
 		return surname;
 	}
 	public int getId() {
-		return Id;}
+		return id;}
 	
 	public Role getRole() {
 		return role;

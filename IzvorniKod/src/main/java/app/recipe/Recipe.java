@@ -1,10 +1,17 @@
 package app.recipe;
 
-import app.roles.User;
-import jakarta.persistence.*;
-
 import java.util.List;
-import java.util.Set;
+
+import app.roles.User;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name="Recipes")
@@ -12,20 +19,23 @@ public class Recipe {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String ingredientsAndQuantities;
+    private int recipeId;
+    
     private String stepsOfMaking;
-    private String portionSize;
-    private String cookTime;
-    @OneToMany(mappedBy = "recipe")
-    private Set<Image> images;
-   /* @ManyToMany(mappedBy = "recipes")
-    private List<Cookbook> cookbooks;*/
+    private int portionSize;
+    private int cookTime;
+    @ManyToMany(mappedBy = "recipes")
+    private List<Cookbook> cookbooks;
     @ManyToOne
     private User creator;
-    public Recipe(int id, String ingredientsAndQuantities, String stepsOfMaking, String portionSize, String cookTime, List<Image> images) {
-        this.id = id;
-        this.ingredientsAndQuantities = ingredientsAndQuantities;
+    
+    @OneToMany
+    @JoinColumn(name = "recipe_id")
+    private List<RecipeIngredients> ingredients;
+    
+    public Recipe(int id, List<RecipeIngredients> ingredients, String stepsOfMaking, int portionSize, int cookTime, List<Image> images) {
+        this.recipeId = id;
+        this.ingredients = ingredients;
         this.stepsOfMaking = stepsOfMaking;
         this.portionSize = portionSize;
         this.cookTime = cookTime;
@@ -36,19 +46,19 @@ public class Recipe {
 
 
     public int getId() {
-        return id;
+        return recipeId;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.recipeId = id;
     }
 
-    public String getIngredientsAndQuantities() {
-        return ingredientsAndQuantities;
+    public List<RecipeIngredients> getIngredientsAndQuantities() {
+        return ingredients;
     }
 
-    public void setIngredientsAndQuantities(String ingredientsAndQuantities) {
-        this.ingredientsAndQuantities = ingredientsAndQuantities;
+    public void setIngredientsAndQuantities(List<RecipeIngredients> ingredientsAndQuantities) {
+        this.ingredients = ingredientsAndQuantities;
     }
 
     public String getStepsOfMaking() {
@@ -59,19 +69,19 @@ public class Recipe {
         this.stepsOfMaking = stepsOfMaking;
     }
 
-    public String getPortionSize() {
+    public int getPortionSize() {
         return portionSize;
     }
 
-    public void setPortionSize(String portionSize) {
+    public void setPortionSize(int portionSize) {
         this.portionSize = portionSize;
     }
 
-    public String getCookTime() {
+    public int getCookTime() {
         return cookTime;
     }
 
-    public void setCookTime(String cookTime) {
+    public void setCookTime(int cookTime) {
         this.cookTime = cookTime;
     }
 

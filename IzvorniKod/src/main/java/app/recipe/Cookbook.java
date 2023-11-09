@@ -10,16 +10,22 @@ import java.util.Set;
 @Table(name="Cookbooks")
 public class Cookbook {
 
-    @Id
-    private int id;
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int cookbookId;
     private String name;
     private String category;
-    /*@ManyToMany(mappedBy = "cookbooks")
-    private List<Recipe> recipes;*/
+    @ManyToMany
+    @JoinTable(
+    		name = "cookbook_recipes",
+    		joinColumns = @JoinColumn(name = "cookbook_id"),
+    		inverseJoinColumns = @JoinColumn(name = "recipe_id"))
+    private List<Recipe> recipes;
     @ManyToOne
     private User creator;
+    
     public Cookbook(int id, String name, String category, Set<Recipe> recipes) {
-        this.id = id;
+        this.cookbookId = id;
         this.name = name;
         this.category = category;
         /*this.recipes = recipes;*/
@@ -27,11 +33,11 @@ public class Cookbook {
 
 
     public int getId() {
-        return id;
+        return cookbookId;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.cookbookId = id;
     }
 
     public String getName() {

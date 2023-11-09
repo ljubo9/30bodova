@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name="Images")
 public class Image {
+	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -12,6 +13,6 @@ public class Image {
 
     @ManyToOne
     private Recipe recipe;
-
+    
     // Constructors, getters, setters
 }
