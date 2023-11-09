@@ -8,9 +8,9 @@ public class Image {
 	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int imageId;
     private String imageUrl;
-
+    
     @ManyToOne
     private Recipe recipe;
     

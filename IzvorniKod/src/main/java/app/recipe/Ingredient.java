@@ -11,6 +11,7 @@ public class Ingredient {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int ingredientId;
+	
 	private String name;
 	
 	public Ingredient(String name /*, qrcode implementation */) {

@@ -20,6 +20,7 @@ public class Recipe {
     private List<Cookbook> cookbooks;
     @ManyToOne
     private User creator;
+    
     @OneToMany(mappedBy = "reviewGivenTo", cascade = CascadeType.ALL)
     private List<Review> reviews;
     

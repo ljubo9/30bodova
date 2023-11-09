@@ -9,13 +9,18 @@ public class Review {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int reviewId;
+    
     @ManyToOne
     private User creator;
+    
     @ManyToOne
     private Recipe reviewGivenTo;
+    
     private int mark;
+    
     private String message;
+    
     @OneToOne(cascade = CascadeType.ALL)
     private Response response;
 

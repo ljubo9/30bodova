@@ -6,9 +6,10 @@ import jakarta.persistence.*;
 @Entity
 @Table(name="Responses")
 public class Response {
+	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int responseId;
     @ManyToOne
     private User creator;
     @OneToOne(cascade = CascadeType.ALL)
