@@ -38,6 +38,12 @@ public class User implements UserDetails {
 	@OneToMany(mappedBy = "creator", cascade = CascadeType.ALL)
 	private Set<Cookbook> cookbooks;
 
+	@OneToMany(mappedBy = "creator", cascade = CascadeType.ALL)
+	private List<Review> reviews;
+
+	@OneToMany(mappedBy = "creator", cascade = CascadeType.ALL)
+	private List<Response> responses;
+
 	
 	private User(String username, String password, String name, String surname) {
 		// TODO Auto-generated constructor stub
