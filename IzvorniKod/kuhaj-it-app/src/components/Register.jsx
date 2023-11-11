@@ -12,17 +12,20 @@ const Register = () => {
   const [image, setImage] = useState(null);
   const [registrationStatus, setRegistrationStatus] = useState(null);
 
-  //kreiranje objekta Client 
+  const handleImageChange = (e) => {
+    setImage(e.target.files[0]);
+  };
+
   const createClientObject = () => {
     return {
       username,
       password,
       name: firstName,
       surname: lastName,
+      role:selectedRole
     };
   };
 
-  //kreiranje objekta ako je odabran nutricionist ili kulinarski enutizijast za autorizaciju
   const createAuthorizationFormObject = () => {
     return {
       username,
@@ -30,9 +33,13 @@ const Register = () => {
       name: firstName,
       surname: lastName,
       role: selectedRole,
-      email,
-      biography: bio,
-      photo_url: image, 
+      ...(selectedRole === 'nutritionist' || selectedRole === 'enthusiast'
+        ? {
+            email,
+            biography: bio,
+            photo_url: image,
+          }
+        : {}),
     };
   };
 
@@ -45,30 +52,31 @@ const Register = () => {
       registrationData = createAuthorizationFormObject();
     }
 
+    const formData = new FormData();
+
+
+    for (const key in registrationData) {
+      formData.append(key, registrationData[key]);
+    }
+
     try {
       const response = await fetch('http://localhost:8080/api/register', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(registrationData),
+        body: formData,
       });
 
       if (response.ok) {
         setRegistrationStatus('success');
-        console.log('Registracija uspješna!');
-     
+        console.log('Registration successful!');
       } else {
         setRegistrationStatus('error');
-        console.error('Registracija nije uspjela.');
-     
+        console.error('Registration failed.');
       }
     } catch (error) {
       setRegistrationStatus('error');
-      console.error('Došlo je do greške prilikom slanja zahtjeva:', error);
+      console.error('Error sending request:', error);
     }
   };
-
 
   return (
     <Container>
@@ -76,13 +84,13 @@ const Register = () => {
         <Col xs={12} md={6}>
           {registrationStatus === 'success' && (
             <Alert variant="success">
-              Registracija uspješna! Sada se možete prijaviti.
+              Registration successful! You can now sign in.
             </Alert>
           )}
 
           {registrationStatus === 'error' && (
             <Alert variant="danger">
-              Registracija nije uspjela. Molimo pokušajte ponovno.
+              Registration failed. Please try again.
             </Alert>
           )}
 
@@ -159,6 +167,15 @@ const Register = () => {
                     placeholder="Enter your biography"
                     value={bio}
                     onChange={(e) => setBio(e.target.value)}
+                  />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="image">
+                  <Form.Label>Image</Form.Label>
+                  <Form.Control
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageChange}
                   />
                 </Form.Group>
               </>
