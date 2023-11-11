@@ -1,0 +1,1 @@
+alter table recipes alter column portion_size type integer USING(portion_size::integer);
