@@ -1,149 +1,172 @@
 import React, { useState } from 'react';
-import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
 
 const Register = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState('client');
+  const [selectedRole, setSelectedRole] = useState('client');
   const [email, setEmail] = useState('');
   const [bio, setBio] = useState('');
   const [image, setImage] = useState(null);
-  const [approved, setApproved] = useState(false);
+  const [registrationStatus, setRegistrationStatus] = useState(null);
 
-  const handleRegister = async () => {
-    const registrationData = {
+  //kreiranje objekta Client 
+  const createClientObject = () => {
+    return {
       username,
       password,
       name: firstName,
       surname: lastName,
-      role,
+    };
+  };
+
+  //kreiranje objekta ako je odabran nutricionist ili kulinarski enutizijast za autorizaciju
+  const createAuthorizationFormObject = () => {
+    return {
+      username,
+      password,
+      name: firstName,
+      surname: lastName,
+      role: selectedRole,
       email,
       biography: bio,
-      photo_url: image, // Assuming you have a mechanism to handle file uploads
+      photo_url: image, 
     };
+  };
 
-    if (['nutritionist', 'enthusiast'].includes(role)) {
-      try {
-        const response = await fetch('YOUR_BACKEND_ENDPOINT', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(registrationData),
-        });
+  const handleRegister = async () => {
+    let registrationData;
 
-        if (response.ok) {
-          setApproved(true);
-        } else {
-          console.error('Registracija nije uspjela.');
-        }
-      } catch (error) {
-        console.error('Došlo je do greške prilikom slanja zahtjeva:', error);
-      }
+    if (selectedRole === 'client') {
+      registrationData = createClientObject();
     } else {
-      // If a role other than 'nutritionist' or 'enthusiast' is selected
-      setApproved(true);
+      registrationData = createAuthorizationFormObject();
+    }
+
+    try {
+      const response = await fetch('http://localhost:8080/api/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(registrationData),
+      });
+
+      if (response.ok) {
+        setRegistrationStatus('success');
+        console.log('Registracija uspješna!');
+     
+      } else {
+        setRegistrationStatus('error');
+        console.error('Registracija nije uspjela.');
+     
+      }
+    } catch (error) {
+      setRegistrationStatus('error');
+      console.error('Došlo je do greške prilikom slanja zahtjeva:', error);
     }
   };
+
 
   return (
     <Container>
       <Row className="justify-content-md-center mt-5">
         <Col xs={12} md={6}>
+          {registrationStatus === 'success' && (
+            <Alert variant="success">
+              Registracija uspješna! Sada se možete prijaviti.
+            </Alert>
+          )}
+
+          {registrationStatus === 'error' && (
+            <Alert variant="danger">
+              Registracija nije uspjela. Molimo pokušajte ponovno.
+            </Alert>
+          )}
+
           <Form>
-            <Form.Group controlId="formFirstName">
-              <Form.Label>Ime</Form.Label>
+            <Form.Group className="mb-3" controlId="firstName">
+              <Form.Label>First Name</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Unesite svoje ime"
+                placeholder="Enter your first name"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
               />
             </Form.Group>
 
-            <Form.Group controlId="formLastName">
-              <Form.Label>Prezime</Form.Label>
+            <Form.Group className="mb-3" controlId="lastName">
+              <Form.Label>Last Name</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Unesite svoje prezime"
+                placeholder="Enter your last name"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
               />
             </Form.Group>
 
-            <Form.Group controlId="formUsername">
-              <Form.Label>Korisničko ime</Form.Label>
+            <Form.Group className="mb-3" controlId="username">
+              <Form.Label>Username</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Unesite korisničko ime"
+                placeholder="Enter your username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
               />
             </Form.Group>
 
-            <Form.Group controlId="formPassword">
-              <Form.Label>Lozinka</Form.Label>
+            <Form.Group className="mb-3" controlId="password">
+              <Form.Label>Password</Form.Label>
               <Form.Control
                 type="password"
-                placeholder="Unesite lozinku"
+                placeholder="Enter your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
             </Form.Group>
 
-            <Form.Group controlId="formRole">
-              <Form.Label>Odaberite ulogu</Form.Label>
-              <Form.Control
-                as="select"
-                value={role}
-                onChange={(e) => setRole(e.target.value)}
+            <Form.Group className="mb-3" controlId="role">
+              <Form.Label>Role</Form.Label>
+              <Form.Select
+                value={selectedRole}
+                onChange={(e) => setSelectedRole(e.target.value)}
               >
-                <option value="client">Klijent</option>
-                <option value="enthusiast">Kulinarski entuzijast</option>
-                <option value="nutritionist">Nutricionist</option>
-              </Form.Control>
+                <option value="client">Client</option>
+                <option value="nutritionist">Nutritionist</option>
+                <option value="enthusiast">Enthusiast</option>
+              </Form.Select>
             </Form.Group>
 
-            {['nutritionist', 'enthusiast'].includes(role) && (
+            {['nutritionist', 'enthusiast'].includes(selectedRole) && (
               <>
-                <Form.Group controlId="formEmail">
+                <Form.Group className="mb-3" controlId="email">
                   <Form.Label>Email</Form.Label>
                   <Form.Control
                     type="email"
-                    placeholder="Unesite svoj email"
+                    placeholder="Enter your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </Form.Group>
 
-                <Form.Group controlId="formBio">
-                  <Form.Label>Biografija</Form.Label>
+                <Form.Group className="mb-3" controlId="bio">
+                  <Form.Label>Biography</Form.Label>
                   <Form.Control
                     as="textarea"
                     rows={3}
-                    placeholder="Napišite nekoliko riječi o sebi"
+                    placeholder="Enter your biography"
                     value={bio}
                     onChange={(e) => setBio(e.target.value)}
-                  />
-                </Form.Group>
-
-                <Form.Group controlId="formImage">
-                  <Form.Label>Slika profila</Form.Label>
-                  <Form.Control
-                    type="file"
-                    onChange={(e) => setImage(e.target.files[0])}
                   />
                 </Form.Group>
               </>
             )}
 
             <Button variant="primary" onClick={handleRegister}>
-              Registriraj se
+              Register
             </Button>
-
-            {approved && <p>Registracija je odobrena od strane administratora.</p>}
           </Form>
         </Col>
       </Row>
