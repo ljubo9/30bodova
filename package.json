@@ -1,0 +1,12 @@
+{
+  "name": "30bodova",
+  "version": "1.0.0",
+  "description": "Application KuhajIT is an app solution for a group project on course \"Software Engineering\" at University of Zagreb, Faculty of Electrical Engineering and Computing.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
