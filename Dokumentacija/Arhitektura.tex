@@ -1,4 +1,42 @@
 \chapter{Arhitektura i dizajn sustava}
+	
+	Za ostvarenje naše aplikacije odabrali smo arhitekturu zasnovanu na događajima. Prednosti ovog tipa arhitekture su mnoge: 
+	\begin{itemize}
+		\item svaki od servisa arhitekture može biti neovisan entitet, što povećava fleksibilnost 
+		\item događaji se mogu pratiti u stvarnom vremenu, što olakšava analizu sustava
+		\item događaji predstavljaju promjene stanja pa je komponentama omogućeno da reagiraju na te promjene
+	\end{itemize}
+	
+				\begin{figure}[H]
+			\includegraphics[scale=0.4]{slike/event\_driven\_architecture.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Prikaz arhitekture zasnovane na događajima}
+			\label{event_driven_architecture}
+		\end{figure}
+		
+	Specifično, radi se o MVC (Model-View-Controller) obrascu, koji odvaja korisničko sučelje od ostatka sustava. On dodatno smanjuje međuovisnost U/I sučelja i ostatka sustava. Sastoji se od tri dijela:
+	
+		\begin{itemize}
+			\item model - sadrži razrede čiji se objekti obrađuju
+			\item view (pogled) - sadrži razrede čiji objekti služe za prikaz podataka (korisničko sučelje)
+			\item controller (nadglednik) - sadrži razrede koji upravljaju i rukuju korisničkom interakcijom s pogledom i modelom
+		\end{itemize}
+		
+			\begin{figure}[H]
+			\includegraphics[scale=0.4]{slike/mvc.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Prikaz načina rada MVC obrasca}
+			\label{mvc}
+		\end{figure}
+		
+	Po principu oblikovanja arhitekture odabrali smo \textit{Podijeli pa vladaj} arhitekturu, kako bismo se unutar tima mogli podijeliti u manje timove koji rade na određenim problemima i kako bismo, ako to bude bilo potrebno, jednostavno zamijenili željene dijelove bez opsežne intervencije u cijeli sustav.
+	
+			\begin{figure}[H]
+			\includegraphics[scale=0.4]{slike/divide\_and\_conquer.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Prikaz principa djelovanja "podijeli pa vladaj"}
+			\label{divide_and_conquer}
+		\end{figure}
 		
 	Arhitektura našeg sustava dijeli se na tri komponente:
 	\begin{itemize}
@@ -79,7 +117,7 @@
 \hline 
 				\end{longtblr}
 				
-				\textbf{Recipe Ingredient} Entitet \textit{Recipe Ingredient} sadrži atribute važne za pohranu sastojaka koji se koriste u pojedinom receptu objavljenom na web aplikaciji KuhajIT. Ti atributi su: ID sastojka recepta, količina sastojka, ID recepta i ID sastojka. U vezi je \textit{One-to-One} s entitetom \textit{Recipe} preko ID-ja recepta, \textit{Many-to-One} s entitetom \textit{Ingredient} preko ID-ja sastojka, \textit{Many-to-One} s entitetom \textit{Recipe Ingredient} preko ID-ja recepta i \textit{Many-to-One} s entitetom \textit{User} preko ID-ja korisnika.
+				\textbf{Recipe Ingredient} Entitet \textit{Recipe Ingredient} sadrži atribute važne za pohranu sastojaka koji se koriste u pojedinom receptu objavljenom na web aplikaciji KuhajIT. Ti atributi su: ID sastojka recepta, količina sastojka, ID recepta i ID sastojka. U vezi je \textit{Many-to-One} s entitetom \textit{Recipe} preko ID-ja recepta i \textit{Many-to-One} s entitetom \textit{Ingredient}.
 				
 				\begin{longtblr}[
 					label=none,
