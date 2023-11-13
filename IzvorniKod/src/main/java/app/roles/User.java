@@ -75,7 +75,9 @@ public class User implements UserDetails {
 		return surname;
 	}
 	public int getId() {
-		return userId;}
+		return userId;
+	}
+
 	
 	public Role getRole() {
 		return role;
