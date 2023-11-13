@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.10.29)  13 NOV 2023 10:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.10.29)  13 NOV 2023 10:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1631,22 +1631,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 > Step: parse table inner spec.
 > Step: execute table commands.
 > Step: calculate cell and line sizes.
-
-Overfull \hbox (12.01291pt too wide) in paragraph at lines 81--81
-[]\OT1/jkp/m/n/12 steps[]of[]making  
- []
-
-
-Overfull \hbox (12.01291pt too wide) in paragraph at lines 81--81
-[]\OT1/jkp/m/n/12 steps[]of[]making  
- []
-
 > Step: build the whole table.
-
-Overfull \hbox (12.01291pt too wide) in paragraph at lines 81--81
-[]\OT1/jkp/m/n/12 steps[]of[]making  
- []
-
 > Step: init table outer spec.
 > Step: parse table options.
 > Step: split table.
@@ -1655,6 +1640,7 @@ Overfull \hbox (12.01291pt too wide) in paragraph at lines 81--81
 > Step: execute table commands.
 > Step: calculate cell and line sizes.
 > Step: build the whole table.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1742,7 +1728,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [29]
-Underfull \hbox (badness 10000) in paragraph at lines 223--224
+Underfull \hbox (badness 10000) in paragraph at lines 215--216
 
  []
 
@@ -1755,7 +1741,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [30]
-Underfull \hbox (badness 10000) in paragraph at lines 232--233
+Underfull \hbox (badness 10000) in paragraph at lines 224--225
 
  []
 
@@ -1768,7 +1754,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [31]
-Underfull \hbox (badness 10000) in paragraph at lines 239--240
+Underfull \hbox (badness 10000) in paragraph at lines 231--232
 
  []
 
@@ -1843,7 +1829,7 @@ ts/jkpbn8a.pfb><C:/Users/Dunja/AppData/Local/Programs/MiKTeX/fonts/type1/public
 /kpfonts/jkpmit8a.pfb><C:/Users/Dunja/AppData/Local/Programs/MiKTeX/fonts/type1
 /public/kpfonts/jkpmn8a.pfb><C:/Users/Dunja/AppData/Local/Programs/MiKTeX/fonts
 /type1/public/kpfonts/jkpttmn8a.pfb>
-Output written on PROGI_ProjektnaDokumentacija.pdf (34 pages, 2769450 bytes).
+Output written on PROGI_ProjektnaDokumentacija.pdf (34 pages, 2769594 bytes).
 PDF statistics:
  494 PDF objects out of 1000 (max. 8388607)
  185 named destinations out of 1000 (max. 500000)
