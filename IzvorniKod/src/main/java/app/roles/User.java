@@ -1,4 +1,4 @@
-  package app.roles;
+package app.roles;
 
 import jakarta.persistence.*;
 
@@ -75,7 +75,8 @@ public class User implements UserDetails {
 		return surname;
 	}
 	public int getId() {
-		return id;}
+		return userId;
+	}
 	
 	public Role getRole() {
 		return role;
