@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.10.29)  13 NOV 2023 10:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.10.29)  13 NOV 2023 14:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1587,11 +1587,28 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
  (Arhitektura.tex
 Poglavlje 4.
 
-Overfull \hbox (22.34341pt too wide) in paragraph at lines 6--7
-[]\OT1/jkp/m/n/12 Web poslu[]zitelj - pro-gram koji proslje[]duje web sadr[]zaj
-e web kli-jentu/pregledniku
+Overfull \hbox (7.73766pt too wide) in paragraph at lines 3--4
+[]\OT1/jkp/m/n/12 Za os-tva-re-nje na[]se apli-ka-cije oda-brali smo ar-hi-tek-
+turu zas-no-vanu na doga[]dajima.
  []
 
+<slike/event_driven_architecture.PNG, id=368, 402.00188pt x 203.25937pt>
+File: slike/event_driven_architecture.PNG Graphic file (type png)
+<use slike/event_driven_architecture.PNG>
+Package pdftex.def Info: slike/event_driven_architecture.PNG  used on input lin
+e 11.
+(pdftex.def)             Requested size: 160.7979pt x 81.30229pt.
+
+Overfull \hbox (0.43155pt too wide) in paragraph at lines 21--22
+[]\OT1/jkp/m/n/12 view (po-gled) - sadr[]zi raz-rede []ciji objekti slu[]ze za 
+pri-kaz po-da-taka (ko-risni[]cko
+ []
+
+<slike/mvc.PNG, id=369, 334.851pt x 311.36325pt>
+File: slike/mvc.PNG Graphic file (type png)
+<use slike/mvc.PNG>
+Package pdftex.def Info: slike/mvc.PNG  used on input line 26.
+(pdftex.def)             Requested size: 133.93802pt x 124.54309pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1605,15 +1622,28 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 
-]
-> Step: init table outer spec.
-> Step: parse table options.
-> Step: split table.
-> Step: init table inner spec.
-> Step: parse table inner spec.
-> Step: execute table commands.
-> Step: calculate cell and line sizes.
-> Step: build the whole table.
+
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.1}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.31 		
+        <./slike/event_driven_architecture.PNG>]
+Overfull \hbox (2.32166pt too wide) in paragraph at lines 32--33
+\OT1/jkp/m/n/12 pro-ble-mima i kako bi-smo, ako to bude bilo po-trebno, jed-nos
+-tavno za-mi-je-nili []zeljene
+ []
+
+<slike/divide_and_conquer.PNG, id=378, 469.755pt x 364.36125pt>
+File: slike/divide_and_conquer.PNG Graphic file (type png)
+<use slike/divide_and_conquer.PNG>
+Package pdftex.def Info: slike/divide_and_conquer.PNG  used on input line 35.
+(pdftex.def)             Requested size: 187.89867pt x 145.74191pt.
+
+Overfull \hbox (22.34341pt too wide) in paragraph at lines 44--45
+[]\OT1/jkp/m/n/12 Web poslu[]zitelj - pro-gram koji proslje[]duje web sadr[]zaj
+e web kli-jentu/pregledniku
+ []
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1623,15 +1653,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[25]
-> Step: init table outer spec.
-> Step: parse table options.
-> Step: split table.
-> Step: init table inner spec.
-> Step: parse table inner spec.
-> Step: execute table commands.
-> Step: calculate cell and line sizes.
-> Step: build the whole table.
+[25
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.2}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.46 	\end{itemize}
+                   
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.3}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.46 	\end{itemize}
+                    <./slike/mvc.PNG> <./slike/divide_and_conquer.PNG>]
 > Step: init table outer spec.
 > Step: parse table options.
 > Step: split table.
@@ -1650,22 +1684,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [26]
-> Step: init table outer spec.
-> Step: parse table options.
-> Step: split table.
-> Step: init table inner spec.
-> Step: parse table inner spec.
-> Step: execute table commands.
-> Step: calculate cell and line sizes.
-> Step: build the whole table.
-> Step: init table outer spec.
-> Step: parse table options.
-> Step: split table.
-> Step: init table inner spec.
-> Step: parse table inner spec.
-> Step: execute table commands.
-> Step: calculate cell and line sizes.
-> Step: build the whole table.
 > Step: init table outer spec.
 > Step: parse table options.
 > Step: split table.
@@ -1700,6 +1718,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 > Step: execute table commands.
 > Step: calculate cell and line sizes.
 > Step: build the whole table.
+> Step: init table outer spec.
+> Step: parse table options.
+> Step: split table.
+> Step: init table inner spec.
+> Step: parse table inner spec.
+> Step: execute table commands.
+> Step: calculate cell and line sizes.
+> Step: build the whole table.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1718,6 +1744,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 > Step: execute table commands.
 > Step: calculate cell and line sizes.
 > Step: build the whole table.
+> Step: init table outer spec.
+> Step: parse table options.
+> Step: split table.
+> Step: init table inner spec.
+> Step: parse table inner spec.
+> Step: execute table commands.
+> Step: calculate cell and line sizes.
+> Step: build the whole table.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1728,9 +1762,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [29]
-Underfull \hbox (badness 10000) in paragraph at lines 215--216
-
- []
+> Step: init table outer spec.
+> Step: parse table options.
+> Step: split table.
+> Step: init table inner spec.
+> Step: parse table inner spec.
+> Step: execute table commands.
+> Step: calculate cell and line sizes.
+> Step: build the whole table.
+> Step: init table outer spec.
+> Step: parse table options.
+> Step: split table.
+> Step: init table inner spec.
+> Step: parse table inner spec.
+> Step: execute table commands.
+> Step: calculate cell and line sizes.
+> Step: build the whole table.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1741,7 +1788,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [30]
-Underfull \hbox (badness 10000) in paragraph at lines 224--225
+Underfull \hbox (badness 10000) in paragraph at lines 253--254
 
  []
 
@@ -1754,7 +1801,20 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [31]
-Underfull \hbox (badness 10000) in paragraph at lines 231--232
+Underfull \hbox (badness 10000) in paragraph at lines 262--263
+
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[32]
+Underfull \hbox (badness 10000) in paragraph at lines 269--270
 
  []
 
@@ -1767,7 +1827,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[32]
+[33]
 \openout2 = `Literatura.aux'.
 
  (Literatura.tex
@@ -1797,7 +1857,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[33
+[34
 
 
 
@@ -1816,10 +1876,10 @@ anged.
 (rerunfilecheck)             Checksum: 26B6266FD7EEF706127128DD6EEC49FC;3472.
  ) 
 Here is how much of TeX's memory you used:
- 17012 strings out of 475247
- 291715 string characters out of 5757791
- 1956785 words of memory out of 5000000
- 38031 multiletter control sequences out of 15000+600000
+ 17040 strings out of 475247
+ 292480 string characters out of 5757791
+ 1957785 words of memory out of 5000000
+ 38055 multiletter control sequences out of 15000+600000
  604492 words of font info for 137 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  86i,13n,116p,1198b,795s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1829,9 +1889,9 @@ ts/jkpbn8a.pfb><C:/Users/Dunja/AppData/Local/Programs/MiKTeX/fonts/type1/public
 /kpfonts/jkpmit8a.pfb><C:/Users/Dunja/AppData/Local/Programs/MiKTeX/fonts/type1
 /public/kpfonts/jkpmn8a.pfb><C:/Users/Dunja/AppData/Local/Programs/MiKTeX/fonts
 /type1/public/kpfonts/jkpttmn8a.pfb>
-Output written on PROGI_ProjektnaDokumentacija.pdf (34 pages, 2769594 bytes).
+Output written on PROGI_ProjektnaDokumentacija.pdf (35 pages, 2840920 bytes).
 PDF statistics:
- 494 PDF objects out of 1000 (max. 8388607)
- 185 named destinations out of 1000 (max. 500000)
- 193 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 509 PDF objects out of 1000 (max. 8388607)
+ 189 named destinations out of 1000 (max. 500000)
+ 208 words of extra memory for PDF output out of 10000 (max. 10000000)
 

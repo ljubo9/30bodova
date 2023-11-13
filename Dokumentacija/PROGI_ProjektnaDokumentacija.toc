@@ -14,9 +14,9 @@
 \contentsline {subsection}{\numberline {3.1.2}Sekvencijski dijagrami}{20}{subsection.3.1.2}%
 \contentsline {section}{\numberline {3.2}Ostali zahtjevi}{23}{section.3.2}%
 \contentsline {chapter}{\numberline {4}Arhitektura i dizajn sustava}{24}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Baza podataka}{24}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Opis tablica}{25}{subsection.4.1.1}%
-\contentsline {section}{\numberline {4.2}Dijagram stanja}{30}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Dijagram aktivnosti}{31}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Dijagram komponenti}{32}{section.4.4}%
-\contentsline {chapter}{Popis literature}{33}{chapter*.4}%
+\contentsline {section}{\numberline {4.1}Baza podataka}{26}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Opis tablica}{26}{subsection.4.1.1}%
+\contentsline {section}{\numberline {4.2}Dijagram stanja}{31}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Dijagram aktivnosti}{32}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Dijagram komponenti}{33}{section.4.4}%
+\contentsline {chapter}{Popis literature}{34}{chapter*.4}%
