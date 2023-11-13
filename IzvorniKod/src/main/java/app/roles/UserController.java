@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.servlet.http.HttpServletRequest;
+
 @RestController
 public class UserController {
+	
 	private final UserService userService;
 	private final BCryptPasswordEncoder encoder;
 	private final AuthenticationManager authenticationManager;
@@ -50,16 +53,13 @@ public class UserController {
 		return "redirect:/home";
 	}
 
-	@PostMapping(path = "/changeInfo")
-	public void changeInfo(@RequestBody final User user) {
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		if (!(authentication instanceof AnonymousAuthenticationToken)) {
-			userService.changeInfo(user);
-
-		}else {
-			throw new IllegalStateException("You need to be logged in to change your info!");
-		}
-
+	@PostMapping(path = "/profile/changeInfo")
+	public void changeInfo(@RequestBody AuthorizationForm updatedUser) throws AuthenticationException{
+		User currentUser = userService.loadUserById(updatedUser.getId());
+		Authentication authReq = UsernamePasswordAuthenticationToken.unauthenticated(currentUser.getUsername(), currentUser.getPassword());
+		Authentication authRes = authenticationManager.authenticate(authReq);
+		if (!authRes.isAuthenticated()) throw new AuthenticationException("Log in to view profile");
+		userService.changeInfo(AuthorizationForm.parseUser(updatedUser));
 	}
 	
 }

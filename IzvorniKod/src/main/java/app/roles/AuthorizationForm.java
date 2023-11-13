@@ -3,6 +3,7 @@ package app.roles;
 
 public class AuthorizationForm {
 	
+	private int id;
 	private String username;
 	private String password;
 	private String name;
@@ -22,6 +23,10 @@ public class AuthorizationForm {
 		this.photo_url = photo_url;
 		this.biography = biography;
 		this.email = email;
+	}
+	
+	public int getId() {
+		return id;
 	}
 
 	public String getUsername() {
@@ -56,6 +61,15 @@ public class AuthorizationForm {
 		return email;
 	}
 	
+	public static User parseUser(AuthorizationForm form) {
+		if (form == null) throw new NullPointerException("Reference to form is null.");
+		if (form.getRole() == Role.CLIENT) {
+			return new Client(form.getUsername(), form.getPassword(), form.getName(), form.getSurname());
+		}
+		return new SpecialUser(form.getUsername(), form.getPassword(), form.getName(),
+				form.getSurname(), form.getRole(), form.getPhoto_url(), form.getBiography(), form.getEmail());
+		
+	}
 	
 	
 }

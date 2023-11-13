@@ -31,11 +31,11 @@ public class UserService implements UserDetailsService{
 		 checkUserDataValid(user);
 		 userRepository.save(user);
 	 }
-
+	 
 	 public void changeInfo(User userup){
 
 		Optional<User> user1=userRepository.findById(userup.getId());
-		if (!user1.isPresent()) throw new IllegalArgumentException("New values not provided.");
+		if (!user1.isPresent()) throw new IllegalArgumentException("Cannot update non-existent user.");
 		User user = user1.get();
 		user.setName(userup.getName());
 		user.setPassword(encoder.encode(userup.getPassword()));
@@ -50,7 +50,8 @@ public class UserService implements UserDetailsService{
 			specialUser.setEmail(specialUserUp.getEmail());
 			user = specialUser;
 		}
-
+		userRepository.deleteById(user.getId());
+		checkUserDataValid(user);
 		userRepository.save(user);
 
 	 }
@@ -70,6 +71,12 @@ public class UserService implements UserDetailsService{
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
 		Optional<User> user = userRepository.findUserByUsername(username);
+		if (!user.isPresent()) return null;
+		return user.get();
+	}
+	
+	public User loadUserById(int id) {
+		Optional<User> user = userRepository.findById(id);
 		if (!user.isPresent()) return null;
 		return user.get();
 	}
