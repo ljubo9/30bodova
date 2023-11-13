@@ -63,7 +63,7 @@
 					entry=none
 					]{
 						width = \textwidth,
-						colspec={|X[6,l]|X[6, l]|X[20, l]|}, 
+						colspec={|X[8,l]|X[6, l]|X[20, l]|}, 
 						rowhead = 1,
 					} %definicija širine tablice, širine stupaca, poravnanje i broja redaka naslova tablice
 					\hline \SetCell[c=3]{c}{\textbf{Recipe}}	 \\ \hline[3pt]
@@ -75,8 +75,7 @@
 \hline
 					steps\_of\_making & VARCHAR	&  Koraci pripreme recepta.	\\ 
 \hline 
-					
-					\SetCell{LightBlue} creator\_id	& INT &   Korisnički ID autora recepta.	\\ 
+					\SetCell{LightBlue}creator\_id	& INT &   Korisnički ID autora recepta.	\\ 
 \hline 
 				\end{longtblr}
 				
@@ -93,10 +92,8 @@
 					\hline \SetCell[c=3]{c}{\textbf{Recipe Ingredient}}	 \\ \hline[3pt]
 					\SetCell{LightGreen}id & INT	&  Jedinstveni ID sastojka recepta, sekvencijski generiran.  	\\ \hline
 					quantity & INT &  Količina sastojka potrebnog za recept. 	\\ \hline 
-
-					\SetCell{LightBlue} ingredient\_id	& INT &   ID sastojka.	\\ \hline
-					
-					\SetCell{LightBlue} recipe\_id & INT & ID recepta. \\ \hline
+					\SetCell{LightBlue}ingredient\_id	& INT &   ID sastojka.	\\ \hline
+					\SetCell{LightBlue}recipe\_id	& INT & ID recepta. \\ \hline
 				\end{longtblr}
 				
 				\textbf{Ingredient} Entitet \textit{Ingredient} sadrži atribute važne za svaki sastojak.
@@ -131,7 +128,7 @@ Ti atributi su: id kuharice, kategorija kuharice, naziv kuharice i id autora. U 
 					category 	& VARCHAR &  Kategorija kuharice. 	\\ \hline 
 					
 					name & VARCHAR & Naziv kuharice. \\ \hline
-					\SetCell{LightBlue} creator\_id	& INT &   Korisnički ID autora kuharice.	\\ \hline 
+					\SetCell{LightBlue}creator\_id	& INT &   Korisnički ID autora kuharice.	\\ \hline 
 					
 				\end{longtblr}
 				
@@ -147,7 +144,7 @@ Ti atributi su: ID kuharice i ID recepta. U vezi je \textit{Many-to-One} s entit
 						rowhead = 1,
 					} %definicija širine tablice, širine stupaca, poravnanje i broja redaka naslova tablice
 					\hline \SetCell[c=3]{c}{\textbf{Cookbook Recipe}}	 \\ \hline[3pt]
-					\SetCell{LightGreen}id & INT	&  ID kuharice.  	\\ \hline
+					\SetCell{LightGreen}cookbook\_id & INT	&  ID kuharice.  	\\ \hline
 					\SetCell{LightGreen}recipe\_id 	& INT &  ID recepta. 	\\ \hline				
 				\end{longtblr}
 				
@@ -167,8 +164,7 @@ Ti atributi su: ID recenzije, ocjena recepta dodijeljena u recenziji, poruka ost
 					mark 	& INT &  Ocjena ostavljena u recenziji. 	\\ \hline 
 					
 					message & VARCHAR & Poruka ostavljena u recenziji. \\ \hline
-					
-					\SetCell{LightBlue} creator\_id & INT &   Korisnički ID autora recenzije, ako je recenziju ostavio neregistrirani korisnik, poprima vrijednost NULL.	\\ \hline 
+					\SetCell{LightBlue}creator\_id & INT &   Korisnički ID autora recenzije, ako je recenziju ostavio neregistrirani korisnik, poprima vrijednost NULL.	\\ \hline 
 					\SetCell{LightBlue} recipe\_id & INT &   ID recepta na kojeg je recenzija ostavljena.	\\ \hline 
 					
 				\end{longtblr}
@@ -187,12 +183,9 @@ Ti atributi su: ID odgovora, poruka ostavljena u odgovoru, ID autora odgovora (k
 					} %definicija širine tablice, širine stupaca, poravnanje i broja redaka naslova tablice
 					\hline \SetCell[c=3]{c}{\textbf{Response}}	 \\ \hline[3pt]
 					\SetCell{LightGreen}id & INT	&  Jedinstveni ID odgovora na recenziju, sekvencijski generiran.  	\\ \hline
-
 					message & VARCHAR & Poruka ostavljena u odgovoru na recenziju. \\ \hline
-					
-					\SetCell{LightBlue} creator\_id	& INT &   Korisnički ID autora odgovora na recenziju.	\\ \hline 
-					
-					\SetCell{LightBlue} review\_id	& INT &   ID recenzije na koju autor recepta odgovara.	\\ \hline 
+					\SetCell{LightBlue}creator\_id	& INT &   Korisnički ID autora odgovora na recenziju.	\\ \hline 
+					\SetCell{LightBlue}review\_id & INT &   ID recenzije na koju autor recepta odgovara.	\\ \hline 
 					
 				\end{longtblr}
 				
@@ -211,8 +204,7 @@ Ti atributi su: ID fotografije, URL fotografije i ID recepta uz kojeg je fotogra
 					\SetCell{LightGreen}id & INT	&  Jedinstveni ID učitane fotografije, sekvencijski generiran.  	\\ \hline
 
 					url & VARCHAR & URL učitane fotografije. \\ \hline	
-					\SetCell{LightBlue} recipe\_id	& INT &   ID recepta uz koji je fotografija učitana.	\\ \hline 
-					
+					\SetCell{LightBlue}recipe\_id	& INT &   ID recepta uz koji je fotografija učitana.	\\ \hline 	
 				\end{longtblr}
 				
 				\eject	
