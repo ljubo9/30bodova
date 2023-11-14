@@ -16,53 +16,36 @@ const Register = () => {
     setImage(e.target.files[0]);
   };
 
-  const createClientObject = () => {
-    return {
-      username,
-      password,
-      name: firstName,
-      surname: lastName,
-      role:selectedRole
-    };
-  };
-
   const createAuthorizationFormObject = () => {
     return {
-      username,
-      password,
+      username: username,
+      password: password,
       name: firstName,
       surname: lastName,
-      role: selectedRole,
+      role: selectedRole.toUpperCase(),
       ...(selectedRole === 'nutritionist' || selectedRole === 'enthusiast'
         ? {
-            email,
+            email: email,
             biography: bio,
             photo_url: image,
           }
-        : {}),
+        : { email : null,
+            biography: null,
+            photo_url: null}),
     };
   };
 
   const handleRegister = async () => {
-    let registrationData;
 
-    if (selectedRole === 'client') {
-      registrationData = createClientObject();
-    } else {
-      registrationData = createAuthorizationFormObject();
-    }
-
-    const formData = new FormData();
-
-
-    for (const key in registrationData) {
-      formData.append(key, registrationData[key]);
-    }
+    let registrationData = createAuthorizationFormObject();
 
     try {
-      const response = await fetch('http://localhost:8080/api/register', {
+      const response = await fetch('/register', {
         method: 'POST',
-        body: formData,
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify(registrationData)
       });
 
       if (response.ok) {

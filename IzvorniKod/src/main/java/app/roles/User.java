@@ -25,13 +25,13 @@ public class User implements UserDetails {
 	@GeneratedValue(
 			strategy = GenerationType.SEQUENCE,
 			generator = "user_sequence")
+	@Column(columnDefinition = "serial", insertable = false)
 	private int userId;
 	private String username;
 	private String password;
 	private String name;
 	private String surname;
-	@Enumerated(EnumType.STRING)
-	private Role role;
+	private String role;
 	
 	@OneToMany(mappedBy="creator", cascade = CascadeType.ALL)
 	private Set<Recipe> recipes;
@@ -56,7 +56,7 @@ public class User implements UserDetails {
 		this.role = null;
 	}
 	
-	public User(String username, String password, String name, String surname, Role role) {
+	public User(String username, String password, String name, String surname, String role) {
 		// TODO Auto-generated constructor stub
 		this(username, password, name, surname);
 		this.role = role;
@@ -79,7 +79,7 @@ public class User implements UserDetails {
 	}
 
 	
-	public Role getRole() {
+	public String getRole() {
 		return role;
 	}
 
@@ -99,13 +99,13 @@ public class User implements UserDetails {
 		this.surname = surname;
 	}
 
-	public void setRole(Role role) {
+	public void setRole(String role) {
 		this.role = role;
 	}
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
-		return List.of(new SimpleGrantedAuthority(role.name())); 
+		return List.of(new SimpleGrantedAuthority(role)); 
 	}
 	@Override
 	public boolean isAccountNonExpired() {
