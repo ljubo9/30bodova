@@ -11,9 +11,9 @@ public class Nutritionist extends SpecialUser {
 	}
 
 	@Override
-	public Role getRole() {
+	public String getRole() {
 		// TODO Auto-generated method stub
-		return Role.NUTRITIONIST;
+		return "NUTRITIONIST";
 	}
 
 }
