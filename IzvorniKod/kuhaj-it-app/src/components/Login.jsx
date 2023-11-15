@@ -1,22 +1,21 @@
 import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import { useNavigate } from 'react-router-dom';
+import { Button, Form } from 'react-bootstrap';
 
-function Login() {
-  const [email, setEmail] = useState('');
+function Login({ setCurrentUser }) {
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-
     const formData = {
-      email: email,
+      username: username,
       password: password,
     };
 
     try {
-
       const response = await fetch('/login', {
         method: 'POST',
         headers: {
@@ -25,8 +24,13 @@ function Login() {
         body: JSON.stringify(formData),
       });
 
-    
-      console.log('Server response:', response);
+      if (response.ok) {
+        const user = await response.json();
+        setCurrentUser(user.username);
+         navigate('/');
+      } else {
+        console.error('Login failed');
+      }
     } catch (error) {
       console.error('Error:', error);
     }
@@ -35,13 +39,13 @@ function Login() {
   return (
     <div className="d-flex justify-content-center align-items-center bg-secondary bg-gradient" style={{ height: '100vh' }}>
       <Form onSubmit={handleSubmit} className="border border-dark p-4 bg-white" style={{ width: '300px' }}>
-        <Form.Group className="mb-3" controlId="Email">
-          <Form.Label className="d-flex justify-content-center align-items-center">Email address</Form.Label>
+        <Form.Group className="mb-3" controlId="Username">
+          <Form.Label className="d-flex justify-content-center align-items-center">Username</Form.Label>
           <Form.Control
-            type="email"
-            placeholder="Enter email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            type="text"
+            placeholder="Enter username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
         </Form.Group>
 
