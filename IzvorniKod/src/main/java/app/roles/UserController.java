@@ -10,7 +10,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController
 @RequestMapping
@@ -29,11 +35,27 @@ public class UserController {
 		 this.authenticationManager = authenticationManager;
 	}
 	
-	@PostMapping(path = "/register")
-	public void registerNewUser(@RequestBody final AuthorizationForm form) {
+	@PostMapping(path = "/register", consumes = "multipart/form-data")
+	public void registerNewUser(@RequestParam("model") String model, @RequestParam("img") MultipartFile image) {
 		
 		User user;
+		ObjectMapper mapper = new ObjectMapper();
+		AuthorizationForm form;
+		try {
+			form = mapper.readValue(model, AuthorizationForm.class);
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new IllegalArgumentException();
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new IllegalArgumentException();
+
+		}
 		String encodedPassword = encoder.encode(form.getPassword());
+		form.setPassword(encodedPassword);
+		form.setPhoto_url(image.getOriginalFilename());
 		user = AuthorizationForm.parseUser(form);
 		userService.addUser(user);
 	}

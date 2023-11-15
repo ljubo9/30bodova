@@ -26,26 +26,40 @@ const Register = () => {
       ...(selectedRole === 'nutritionist' || selectedRole === 'enthusiast'
         ? {
             email: email,
-            biography: bio,
-            photo_url: image,
+            biography: bio
           }
         : { email : null,
-            biography: null,
-            photo_url: null}),
+            biography: null,})
     };
   };
+
 
   const handleRegister = async () => {
 
     let registrationData = createAuthorizationFormObject();
 
+    const createBodyObject = () => {
+      return {
+        model: JSON.stringify(registrationData),
+        img: image
+      }
+    }
+    
+    let body = createBodyObject();
+    const formData = new FormData();
+
+    for (const key in body) {
+      formData.append(key, body[key]);
+    }
+
+
+
+    
+
     try {
       const response = await fetch('/register', {
         method: 'POST',
-        headers: {
-          'Content-type': 'application/json'
-        },
-        body: JSON.stringify(registrationData)
+        body: formData
       });
 
       if (response.ok) {

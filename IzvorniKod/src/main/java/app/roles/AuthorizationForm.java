@@ -32,7 +32,14 @@ public class AuthorizationForm {
 		this.biography = biography;
 		this.email = email;
 	}
+	
+	public AuthorizationForm(String username, String password, String name, String surname, String role, String biography, String email) {
+		this(username, password, name, surname, role, null, biography, email);
+	}
 
+	public AuthorizationForm() {
+		
+	}
 	
 
 	public String getUsername() {
@@ -53,10 +60,6 @@ public class AuthorizationForm {
 
 	public Role getRole() {
 		return role;
-	}
-
-	public String getPhoto_url() {
-		return photo_url;
 	}
 
 	public String getBiography() {
@@ -83,12 +86,28 @@ public class AuthorizationForm {
 		this.surname = surname;
 	}
 
-	public void setRole(Role role) {
-		this.role = role;
+	public String getPhoto_url() {
+		return photo_url;
 	}
 
 	public void setPhoto_url(String photo_url) {
 		this.photo_url = photo_url;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+	
+	public void setRole(String role) {
+		if (role.equalsIgnoreCase("client")) {
+			this.role = Role.CLIENT;
+		}
+		else if (role.equalsIgnoreCase("nutritionist")) {
+			this.role = Role.NUTRITIONIST;
+		}
+		else if (role.equalsIgnoreCase("enthusiast")) {
+			this.role = Role.ENTHUSIAST;
+		}
 	}
 
 	public void setBiography(String biography) {
