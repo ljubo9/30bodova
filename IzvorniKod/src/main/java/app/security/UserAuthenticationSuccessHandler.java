@@ -30,7 +30,8 @@ public class UserAuthenticationSuccessHandler implements AuthenticationSuccessHa
 		HttpSession session = request.getSession(false);
 		if (session != null) {
 			LoggedUser user = new LoggedUser(authentication.getName(), activeUserStore);
-			session.setAttribute("user", user);		}
+			session.setAttribute("user", user);	
+		}
 		
 	}
 	

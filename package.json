@@ -1,7 +1,11 @@
 {
-  "name": "kuhaj-it-app",
-  "version": "0.1.0",
-  "private": true,
+  "name": "30bodova",
+  "version": "1.0.0",
+  "description": "Application KuhajIT is an app solution for a group project on course \"Software Engineering\" at University of Zagreb, Faculty of Electrical Engineering and Computing.",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -37,6 +41,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "proxy": "http://localhost:8080/"
+  }
 }
+
