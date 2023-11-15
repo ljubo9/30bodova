@@ -41,9 +41,21 @@
 	Arhitektura našeg sustava dijeli se na tri komponente:
 	\begin{itemize}
 		\item Web preglednik - softverska aplikacija koja omogućuje korisnicima pregledavanje i interakciju sa svim sadržajima Interneta. Glavna funkcija web preglednika je prikazivanje web stranica koje su oblikovane u obliku programskog koda na korisniku jasan način. Neki poznati web-preglednici uključuju Google Chrome, Mozilla Firefox, Opera...Web preglednik služi i kao medijator između korisnika, koji šalje zahtjeve, i web poslužitelja, koji prima zahtjeve i na njih odgovara.
-		\item Web poslužitelj - program koji prosljeđuje web sadržaje web klijentu/pregledniku na njegov zahtjev putem protokola HTTP
+		\item Web poslužitelj - program koji prosljeđuje web sadržaje web klijentu/pregledniku na njegov zahtjev putem protokola HTTP. On od klijenta dobije zahtjev za podacima, pristupa bazi podataka (kojoj također ima pristup), dohvaća tražene podatke iz baze te ih vraća klijentu u obliku HTTP odgovora. Vraćeni podaci se zatim prikazuju klijentu (ako nije došlo do poteškoća).
 		\item Baza podataka - omogućuje organiziranu pohranu podataka koje je potrebno pohraniti (za KuhajIT su to podaci o korisničkim profilima, recepti, kuharice, osvrti na recepte, proizvodi i ostali)
 	\end{itemize}
+	
+		\begin{figure}[H]
+			\includegraphics[scale=0.4]{slike/architecture.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Prikaz principa djelovanja podsustava arhitekture}
+			\label{architecture}
+		\end{figure}
+	
+	
+	
+	Čitavi backend naše aplikacije izrađen je u programskom jeziku Java, u radnom okviru Spring. Razvojno okruženje korišteno za backend je Eclipse IDE.
+	Frontend je izrađen u JavaScriptu, u biblioteci React. Razvojno okruženje korišteno za frontend je Visual Studio Code.
 			
 		\section{Baza podataka}
 

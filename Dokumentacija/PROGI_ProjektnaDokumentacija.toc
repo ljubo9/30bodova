@@ -15,9 +15,9 @@
 \contentsline {section}{\numberline {3.2}Ostali zahtjevi}{23}{section.3.2}%
 \contentsline {chapter}{\numberline {4}Arhitektura i dizajn sustava}{24}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Baza podataka}{26}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Opis tablica}{26}{subsection.4.1.1}%
-\contentsline {section}{\numberline {4.2}Dijagram razreda}{31}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Dijagram stanja}{32}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Dijagram aktivnosti}{33}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Dijagram komponenti}{34}{section.4.5}%
-\contentsline {chapter}{Popis literature}{35}{chapter*.4}%
+\contentsline {subsection}{\numberline {4.1.1}Opis tablica}{27}{subsection.4.1.1}%
+\contentsline {section}{\numberline {4.2}Dijagram razreda}{32}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Dijagram stanja}{33}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Dijagram aktivnosti}{34}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Dijagram komponenti}{35}{section.4.5}%
+\contentsline {chapter}{Popis literature}{36}{chapter*.4}%
