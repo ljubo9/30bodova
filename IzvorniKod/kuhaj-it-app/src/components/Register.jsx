@@ -157,7 +157,6 @@ const Register = () => {
                   <Form.Label>Image</Form.Label>
                   <Form.Control
                     type="file"
-                    accept="image/*"
                     onChange={handleImageChange}
                   />
                 </Form.Group>

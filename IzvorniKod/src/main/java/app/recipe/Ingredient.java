@@ -10,7 +10,7 @@ public class Ingredient {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int ingredientId;
+	private int id;
 	
 	private String name;
 	
@@ -19,7 +19,7 @@ public class Ingredient {
 	}
 
 	public int getIngredientId() {
-		return ingredientId;
+		return id;
 	}
 
 	public String getName() {

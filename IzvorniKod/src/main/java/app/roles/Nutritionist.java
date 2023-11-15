@@ -6,14 +6,8 @@ import jakarta.persistence.Entity;
 public class Nutritionist extends SpecialUser {
 	
 	public Nutritionist(String username, String password, String name, String surname, String photo_url, String biography, String email) {
-		super(username, password, name, surname, photo_url, biography, email);
+		super(username, password, name, surname, Role.NUTRITIONIST, photo_url, biography, email);
 		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	public String getRole() {
-		// TODO Auto-generated method stub
-		return "NUTRITIONIST";
 	}
 
 }

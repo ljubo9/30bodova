@@ -14,7 +14,7 @@ public class SpecialUser extends User{
 		this(username, password, name, surname, null, photo_url, biography, email);
 	}
 	
-	public SpecialUser(String username, String password, String name, String surname, String role,  String photo_url, String biography, String email) {
+	public SpecialUser(String username, String password, String name, String surname, Role role,  String photo_url, String biography, String email) {
 		super(username, password, name, surname, role);
 		// TODO Auto-generated constructor stub
 		if (photo_url == null || biography == null || email == null) throw new IllegalArgumentException("All fields must be filled out.");

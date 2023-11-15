@@ -12,10 +12,10 @@ public interface UserRepository extends JpaRepository<User,Integer> {
     @Override
     List<User> findAll();
     
-    @Query("SELECT u FROM users WHERE  u.email = ?1")
+    @Query("SELECT u FROM user WHERE  u.email = ?1")
     Optional<SpecialUser> findUserByEmail(String email); 
     
-    @Query("SELECT u FROM users WHERE u.username = ?1")
+    @Query("SELECT u FROM user WHERE u.username = ?1")
     Optional<User> findUserByUsername(String username);
 }
 

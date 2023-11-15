@@ -1,5 +1,6 @@
 package app.roles;
 
+import app.roles.Client;
 
 public class AuthorizationForm {
 	
@@ -7,7 +8,7 @@ public class AuthorizationForm {
 	private String password;
 	private String name;
 	private String surname;
-	private String role;
+	private Role role;
 	private String photo_url;
 	private String biography;
 	private String email;
@@ -18,7 +19,15 @@ public class AuthorizationForm {
 		this.password = password;
 		this.name = name;
 		this.surname = surname;
-		this.role = role;
+		if (role.equalsIgnoreCase("client")) {
+			this.role = Role.CLIENT;
+		}
+		else if (role.equalsIgnoreCase("nutritionist")) {
+			this.role = Role.NUTRITIONIST;
+		}
+		else if (role.equalsIgnoreCase("enthusiast")) {
+			this.role = Role.ENTHUSIAST;
+		}
 		this.photo_url = photo_url;
 		this.biography = biography;
 		this.email = email;
@@ -42,7 +51,7 @@ public class AuthorizationForm {
 		return surname;
 	}
 
-	public String getRole() {
+	public Role getRole() {
 		return role;
 	}
 
@@ -74,7 +83,7 @@ public class AuthorizationForm {
 		this.surname = surname;
 	}
 
-	public void setRole(String role) {
+	public void setRole(Role role) {
 		this.role = role;
 	}
 
@@ -92,7 +101,7 @@ public class AuthorizationForm {
 
 	public static User parseUser(AuthorizationForm form) {
 		if (form == null) throw new NullPointerException("Reference to form is null.");
-		if (form.getRole().equals("CLIENT")) {
+		if (form.getRole().getName().equals("CLIENT")) {
 			return new Client(form.getUsername(), form.getPassword(), form.getName(), form.getSurname());
 		}
 		return new SpecialUser(form.getUsername(), form.getPassword(), form.getName(),
