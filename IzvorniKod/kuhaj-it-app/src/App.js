@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navigation from './components/Navigation';
 import Login from './components/Login';
+import Navigation from './components/Navigation';
 import Register from './components/Register';
 
+
 function App() {
+const [currentUser, setCurrentUser] = useState(null);
   return (
     <Router>
       <div className="App">
-        <Navigation />
-        <Routes> 
+         <Navigation currentUser={currentUser} />
+        <Routes>
           <Route exact path="/login" element={<Login />}/>
           <Route exact path="/register" element={<Register />}/>
-          {/* Add other routes as needed */}
         </Routes>
       </div>
     </Router>
@@ -20,5 +21,3 @@ function App() {
 }
 
 export default App;
-
-
