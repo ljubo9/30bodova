@@ -10,7 +10,7 @@ COPY IzvorniKod/pom.xml /app/pom.xml
 COPY IzvorniKod/.mvn /app/.mvn
 
 # Izgradnja JAR datoteke
-RUN ./mvnw clean package -DskipTests
+RUN ./mvnw -f /app/pom.xml clean package -DskipTests
 
 # Postavljanje ENTRYPOINT-a na vašu klasu Application.java
 ENTRYPOINT ["java", "-cp", "/app/target/classes:/app/target/dependency/*", "app.Application"]
