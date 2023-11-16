@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Kopiranje samo potrebnih datoteka za prevođenje
 COPY ./src /src
-COPY ./pom.xml /pom.xml
+COPY ./pom.xml /IzvorniKod/pom.xml
 
 # Izgradnja JAR datoteke
 RUN ./mvnw clean package -DskipTests
