@@ -5,8 +5,8 @@ FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /app
 
 # Kopiranje samo potrebnih datoteka za prevođenje
-COPY ./src /app/src
-COPY ./pom.xml /app/pom.xml
+COPY ./src /src
+COPY ./pom.xml /pom.xml
 
 # Izgradnja JAR datoteke
 RUN ./mvnw clean package -DskipTests
