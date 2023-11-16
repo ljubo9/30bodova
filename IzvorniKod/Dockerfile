@@ -10,7 +10,7 @@ COPY IzvorniKod/pom.xml /app/pom.xml
 COPY IzvorniKod/.mvn /app/.mvn
 
 # Postavljanje ENTRYPOINT-a na vašu klasu Application.java
-ENTRYPOINT ["java", "-cp", "/app/target/classes:/app/target/dependency/*", "app.Application"]
+ENTRYPOINT ["java", "-cp", "/app/target/classes:/app/target/dependency/*", "Application.java"]
 
 # Izlaganje porta aplikacije
 EXPOSE 8080
