@@ -4,15 +4,16 @@ FROM eclipse-temurin:17-jdk-alpine
 # Postavljanje radnog direktorija u /app
 WORKDIR /app
 
-# Kopiranje samo potrebnih datoteka za prevođenje
-COPY ./src /src
-COPY ./pom.xml /IzvorniKod/pom.xml
+# Kopiranje potrebnih datoteka za prevođenje
+COPY src /app/src
+COPY pom.xml /app/pom.xml
+COPY .mvn /app/.mvn
 
 # Izgradnja JAR datoteke
-RUN ./mvnw clean package -DskipTests
+RUN ./mvnw -f /app/pom.xml clean package -DskipTests
 
 # Postavljanje ENTRYPOINT-a na vašu klasu Application.java
-ENTRYPOINT ["java", "-cp", "target/classes:target/dependency/*", "app.Application"]
+ENTRYPOINT ["java", "-cp", "/app/target/classes:/app/target/dependency/*", "app.Application"]
 
 # Izlaganje porta aplikacije
 EXPOSE 8080
