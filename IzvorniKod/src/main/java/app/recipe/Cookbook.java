@@ -7,12 +7,11 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name="Cookbooks")
 public class Cookbook {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int cookbookId;
+    private int id;
     private String name;
     private String category;
     @ManyToMany
@@ -21,11 +20,12 @@ public class Cookbook {
     		joinColumns = @JoinColumn(name = "cookbook_id"),
     		inverseJoinColumns = @JoinColumn(name = "recipe_id"))
     private List<Recipe> recipes;
+    
     @ManyToOne
     private User creator;
     
     public Cookbook(int id, String name, String category, Set<Recipe> recipes) {
-        this.cookbookId = id;
+        this.id = id;
         this.name = name;
         this.category = category;
         /*this.recipes = recipes;*/
@@ -33,11 +33,11 @@ public class Cookbook {
 
 
     public int getId() {
-        return cookbookId;
+        return id;
     }
 
     public void setId(int id) {
-        this.cookbookId = id;
+        this.id = id;
     }
 
     public String getName() {

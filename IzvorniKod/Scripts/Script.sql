@@ -1,1 +1,17 @@
-alter table recipes alter column portion_size type integer USING(portion_size::integer);
+
+
+INSERT INTO public."role"
+(id, "name")
+VALUES(1, 'CLIENT');
+
+INSERT INTO public."role"
+(id, "name")
+VALUES(2, 'ENTHUSIAST');
+
+INSERT INTO public."role"
+(id, "name")
+VALUES(3, 'NUTRITIONIST');
+
+INSERT INTO public."role"
+(id, "name")
+VALUES(4, 'ADMIN');

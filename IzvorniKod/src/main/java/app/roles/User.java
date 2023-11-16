@@ -1,7 +1,5 @@
   package app.roles;
 
-import jakarta.persistence.*;
-
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
@@ -10,10 +8,26 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import app.recipe.*;
+import app.recipe.Cookbook;
+import app.recipe.Recipe;
+import app.recipe.Response;
+import app.recipe.Review;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 @Entity 
-@Table(name="Users", uniqueConstraints = @UniqueConstraint(columnNames = {"username"}))
+@Table(name="users", uniqueConstraints = @UniqueConstraint(columnNames = {"username"}))
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class User implements UserDetails {
 	@Id
@@ -26,12 +40,14 @@ public class User implements UserDetails {
 			strategy = GenerationType.SEQUENCE,
 			generator = "user_sequence")
 	@Column(columnDefinition = "serial", insertable = false)
-	private int userId;
+	private int id;
 	private String username;
 	private String password;
 	private String name;
 	private String surname;
-	private String role;
+	
+	@ManyToOne
+	private Role role;
 	
 	@OneToMany(mappedBy="creator", cascade = CascadeType.ALL)
 	private Set<Recipe> recipes;
@@ -56,7 +72,7 @@ public class User implements UserDetails {
 		this.role = null;
 	}
 	
-	public User(String username, String password, String name, String surname, String role) {
+	public User(String username, String password, String name, String surname, Role role) {
 		// TODO Auto-generated constructor stub
 		this(username, password, name, surname);
 		this.role = role;
@@ -75,11 +91,11 @@ public class User implements UserDetails {
 		return surname;
 	}
 	public int getId() {
-		return userId;
+		return id;
 	}
 
 	
-	public String getRole() {
+	public Role getRole() {
 		return role;
 	}
 
@@ -99,13 +115,13 @@ public class User implements UserDetails {
 		this.surname = surname;
 	}
 
-	public void setRole(String role) {
+	public void setRole(Role role) {
 		this.role = role;
 	}
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
-		return List.of(new SimpleGrantedAuthority(role)); 
+		return List.of(new SimpleGrantedAuthority(role.getName())); 
 	}
 	@Override
 	public boolean isAccountNonExpired() {
