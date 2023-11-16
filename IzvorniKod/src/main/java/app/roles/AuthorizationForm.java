@@ -1,5 +1,6 @@
 package app.roles;
 
+import app.recipe.Image;
 import app.roles.Client;
 
 public class AuthorizationForm {
@@ -123,8 +124,9 @@ public class AuthorizationForm {
 		if (form.getRole().getName().equals("CLIENT")) {
 			return new Client(form.getUsername(), form.getPassword(), form.getName(), form.getSurname());
 		}
+		Image img = new Image(form.getPhoto_url(), form.getPhoto_url());
 		return new SpecialUser(form.getUsername(), form.getPassword(), form.getName(),
-				form.getSurname(), form.getRole(), form.getPhoto_url(), form.getBiography(), form.getEmail());
+				form.getSurname(), form.getRole(), img, form.getBiography(), form.getEmail());
 		
 	}
 	

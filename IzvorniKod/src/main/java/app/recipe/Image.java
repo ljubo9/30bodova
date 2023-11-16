@@ -8,12 +8,11 @@ public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private String name;
     private String imageUrl;
     
-    @ManyToOne
-    private Recipe recipe;
     
-    public Image(String imageUrl) {
+    public Image(String name, String imageUrl) {
     	this.imageUrl = imageUrl;
     }
     // Constructors, getters, setters

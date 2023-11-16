@@ -1,24 +1,28 @@
 package app.roles;
 
+import app.recipe.Image;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class SpecialUser extends User{
 
-	private String photo_url;
+	@OneToOne(cascade = CascadeType.ALL)
+	private Image photo;
 	private String biography;
 	private String email;
 	private boolean confirmed;
 	
-	public SpecialUser(String username, String password, String name, String surname, String photo_url, String biography, String email) {
-		this(username, password, name, surname, null, photo_url, biography, email);
+	public SpecialUser(String username, String password, String name, String surname, Image photo, String biography, String email) {
+		this(username, password, name, surname, null, photo, biography, email);
 	}
 	
-	public SpecialUser(String username, String password, String name, String surname, Role role,  String photo_url, String biography, String email) {
+	public SpecialUser(String username, String password, String name, String surname, Role role,  Image photo, String biography, String email) {
 		super(username, password, name, surname, role);
 		// TODO Auto-generated constructor stub
-		if (photo_url == null || biography == null || email == null) throw new IllegalArgumentException("All fields must be filled out.");
-		this.photo_url = photo_url;
+		if (photo == null || biography == null || email == null) throw new IllegalArgumentException("All fields must be filled out.");
+		this.photo = photo;
 		this.biography = biography;
 		this.email = email;
 		this.confirmed = false;
@@ -26,8 +30,8 @@ public class SpecialUser extends User{
 	
 	
 
-	public String getPhoto_url() {
-		return photo_url;
+	public Image getPhoto_url() {
+		return photo;
 	}
 
 	public String getBiography() {
@@ -40,8 +44,8 @@ public class SpecialUser extends User{
 	
 	
 	
-	public void setPhoto_url(String photo_url) {
-		this.photo_url = photo_url;
+	public void setPhoto_url(Image photo) {
+		this.photo = photo;
 	}
 
 	public void setBiography(String biography) {

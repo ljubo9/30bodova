@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-Application<30bodova>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "app.Application",
+            "projectName": "30bodova",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
