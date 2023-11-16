@@ -5,7 +5,7 @@ FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /app
 
 # Kopiranje potrebnih datoteka za prevođenje
-COPY src /app/src
+COPY IzvorniKod/src /app/src
 COPY IzvorniKod/pom.xml /app/pom.xml
 COPY IzvorniKod/.mvn /app/.mvn
 
