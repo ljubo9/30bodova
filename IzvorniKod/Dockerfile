@@ -7,7 +7,7 @@ WORKDIR /app
 # Kopiranje potrebnih datoteka za prevođenje
 COPY src /app/src
 COPY pom.xml /app/pom.xml
-COPY .mvn /app/.mvn
+# COPY .mvn /app/.mvn
 
 # Izgradnja JAR datoteke
 RUN ./mvnw -f /app/pom.xml clean package -DskipTests
