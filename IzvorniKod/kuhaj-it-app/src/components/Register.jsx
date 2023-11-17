@@ -35,48 +35,58 @@ const Register = () => {
 
 
   const handleRegister = async () => {
-
+    if (!firstName || !lastName || !username || !password) {
+      setRegistrationStatus('require');
+      console.error('Please fill in all required fields.');
+      return;
+    }
+  
+    if (['nutritionist', 'enthusiast'].includes(selectedRole)) {
+      if (!email || !bio || !image) {
+        setRegistrationStatus('require');
+        console.error('Please fill in all required fields.');
+        return;
+      }
+    }
+  
     let registrationData = createAuthorizationFormObject();
-
+  
     const createBodyObject = () => {
       return {
         model: JSON.stringify(registrationData),
-        img: image
-      }
-    }
-    
+        img: image,
+      };
+    };
+  
     let body = createBodyObject();
     const formData = new FormData();
-
+  
     for (const key in body) {
       formData.append(key, body[key]);
     }
-
-
-
-    
-
+  
     try {
       const response = await fetch('/register', {
         method: 'POST',
-        body: formData
+        body: formData,
       });
-
+  
       if (response.ok) {
         setRegistrationStatus('success');
         console.log('Registration successful!');
-      }
-      else if(response.status === 500) {
+      } else if (response.status === 500) {
         setRegistrationStatus('username');
       } else {
         setRegistrationStatus('error');
-        console.error('Registration failed.');
+        const errorMessage = await response.text();
+        console.error('Registration failed. Server response:', errorMessage);
       }
     } catch (error) {
       setRegistrationStatus('error');
       console.error('Error sending request:', error.message);
     }
   };
+  
 
   return (
     <Container>
@@ -97,6 +107,12 @@ const Register = () => {
           {registrationStatus === 'username' && (
             <Alert variant="danger">
               Username taken.
+            </Alert>
+          )}
+
+          {registrationStatus === 'require' && (
+            <Alert variant="danger">
+              Please fill in all required fields.
             </Alert>
           )}
 
