@@ -67,6 +67,7 @@ const Register = () => {
   
     try {
       const response = await fetch('https://kuhajitbackend.onrender.com/register', {
+        mode: 'no-cors',
         method: 'POST',
         body: formData,
       });
