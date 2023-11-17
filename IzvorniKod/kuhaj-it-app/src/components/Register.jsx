@@ -71,7 +71,7 @@ const Register = () => {
       }
     } catch (error) {
       setRegistrationStatus('error');
-      console.error('Error sending request:', error);
+      console.error('Error sending request:', error.message);
     }
   };
 
