@@ -58,7 +58,7 @@
 			
 		\section{Baza podataka}
 
-		Za ostvarenje naše aplikacije KuhajIT odabrali smo relacijsku bazu podataka PostgreSQL, u alatu PGadmin, koja svojom jednostavnom i lako razumljivom strukturom olakšava pregled i upravljanje podacima. Ključne komponente relacijske baze podataka su entiteti (tablice okarakterizirane imenom i skupom atributa) te veze među entitetima (strukture koje povezuju podatke iz različitih entiteta pomoću ključeva).
+		Za ostvarenje naše aplikacije KuhajIT odabrali smo relacijsku bazu podataka PostgreSQL, u alatu \textit{PGadmin4}, koja svojom jednostavnom i lako razumljivom strukturom olakšava pregled i upravljanje podacima. Ključne komponente relacijske baze podataka su entiteti (tablice okarakterizirane imenom i skupom atributa) te veze među entitetima (strukture koje povezuju podatke iz različitih entiteta pomoću ključeva).
 		
 		Entiteti naše baze podataka su:
 		\begin{itemize}
@@ -100,7 +100,7 @@
 \hline 
 					confirmed & BOOLEAN & Oznaka je li administrator potvrdio registraciju kulinarskog entuzijasta/nutricionista.\\ 
 \hline	
-					biografija & VARCHAR & Ako se korisnik želi registrirati kao kulinarski entuzijast/nutricionist, mora priložiti kratku biografiju, inače atribut poprima NULL vrijednost.\\
+					biography & VARCHAR & Ako se korisnik želi registrirati kao kulinarski entuzijast/nutricionist, mora priložiti kratku biografiju, inače atribut poprima NULL vrijednost.\\
 \hline
 			\SetCell{LightBlue}image\_id & INT & ID osobne fotografije koju je korisnik koji želi biti kulinarski entuzijast ili nutricionist učitao. \\ \hline
 			\SetCell{LightBlue}role\_id	& INT &   ID uloge koju korisnik registracijom želi posjedovati (nutricionist, kulinarski entuzijast ili klijent).	\\ \hline
@@ -132,7 +132,7 @@
 				\end{longtblr}
 				
 				
-				\textbf{Recipe} Entitet \textit{Recipe} sadrži atribute važne za svaki recept objavljen na web aplikaciji KuhajIT. Ti atributi su: ID recepta, ime recepta, vrijeme pripreme, koraci pripreme, ID autora recepta i veličina porcije. U vezi je \textit{One-to-Many} s entitetom \textit{Image} preko ID-ja recepta, \textit{One-to-Many} s entitetom \textit{Cookbook Recipe} preko ID-ja recepta, \textit{One-to-Many} s entitetom \textit{Recipe Ingredient} preko ID-ja recepta i \textit{Many-to-One} s entitetom \textit{User} preko ID-ja korisnika.
+				\textbf{Recipe} Entitet \textit{Recipe} sadrži atribute važne za svaki recept objavljen na web aplikaciji KuhajIT. Ti atributi su: ID recepta, ime recepta, vrijeme pripreme, koraci pripreme, ID autora recepta i veličina porcije. U vezi je \textit{One-to-Many} s entitetom \textit{Recipe Image} preko ID-ja recepta, \textit{One-to-Many} s entitetom \textit{Cookbook Recipe} preko ID-ja recepta, \textit{One-to-Many} s entitetom \textit{Recipe Ingredient} preko ID-ja recepta i \textit{Many-to-One} s entitetom \textit{User} preko ID-ja korisnika.
 				
 					\begin{longtblr}[
 					label=none,
@@ -166,10 +166,9 @@
 						rowhead = 1,
 					} %definicija širine tablice, širine stupaca, poravnanje i broja redaka naslova tablice
 					\hline \SetCell[c=3]{c}{\textbf{Recipe Ingredient}}	 \\ \hline[3pt]
-					\SetCell{LightGreen}id & INT	&  Jedinstveni ID sastojka recepta, sekvencijski generiran.  	\\ \hline
+					\SetCell{LightGreen}ingredient\_id	& INT &   ID sastojka.	\\ \hline
+					\SetCell{LightGreen}recipe\_id	& INT & ID recepta. \\ \hline
 					quantity & INT &  Količina sastojka potrebnog za recept. 	\\ \hline 
-					\SetCell{LightBlue}ingredient\_id	& INT &   ID sastojka.	\\ \hline
-					\SetCell{LightBlue}recipe\_id	& INT & ID recepta. \\ \hline
 				\end{longtblr}
 				
 				\textbf{Ingredient} Entitet \textit{Ingredient} sadrži atribute važne za svaki sastojak.
