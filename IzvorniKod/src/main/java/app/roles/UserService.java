@@ -45,7 +45,7 @@ public class UserService implements UserDetailsService{
 		if (userup instanceof SpecialUser) {
 			SpecialUser specialUser = (SpecialUser) user;
 			SpecialUser specialUserUp = (SpecialUser) userup;
-			specialUser.setPhoto_url(specialUserUp.getPhoto_url());
+			specialUser.setPhoto_url(specialUserUp.getImage());
 			specialUser.setBiography(specialUserUp.getBiography());
 			specialUser.setEmail(specialUserUp.getEmail());
 			user = specialUser;

@@ -1,10 +1,18 @@
 package app.recipe;
 
-import app.roles.User;
-import jakarta.persistence.*;
-
 import java.util.List;
 import java.util.Set;
+
+import app.roles.User;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.UniqueConstraint;
 
 @Entity
 public class Cookbook {
@@ -18,7 +26,8 @@ public class Cookbook {
     @JoinTable(
     		name = "cookbook_recipes",
     		joinColumns = @JoinColumn(name = "cookbook_id"),
-    		inverseJoinColumns = @JoinColumn(name = "recipe_id"))
+    		inverseJoinColumns = @JoinColumn(name = "recipe_id"),
+    	    uniqueConstraints = @UniqueConstraint(columnNames = {"cookbook_id", "recipe_id"}))
     private List<Recipe> recipes;
     
     @ManyToOne

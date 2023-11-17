@@ -13,15 +13,15 @@ import jakarta.persistence.Table;
 public class RecipeIngredient {
 	
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-	
 	@ManyToOne
+	@JoinColumn(name = "ingredient_id")
 	private Ingredient ingredient;
 	
+	@Id
 	@ManyToOne
 	@JoinColumn(name = "recipe_id")
 	private Recipe recipe;
+	
 	private int quantity;
 	
 	public RecipeIngredient(Ingredient ingredient, Recipe recipe, int quantity) {

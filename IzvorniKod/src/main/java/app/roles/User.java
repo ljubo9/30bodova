@@ -30,6 +30,7 @@ import jakarta.persistence.UniqueConstraint;
 @Table(name="users", uniqueConstraints = @UniqueConstraint(columnNames = {"username"}))
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class User implements UserDetails {
+	
 	@Id
 	@SequenceGenerator(
 			name = "user_sequence",

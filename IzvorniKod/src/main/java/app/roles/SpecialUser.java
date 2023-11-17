@@ -9,7 +9,7 @@ import jakarta.persistence.OneToOne;
 public class SpecialUser extends User{
 
 	@OneToOne(cascade = CascadeType.ALL)
-	private Image photo;
+	private Image image;
 	private String biography;
 	private String email;
 	private boolean confirmed;
@@ -22,7 +22,7 @@ public class SpecialUser extends User{
 		super(username, password, name, surname, role);
 		// TODO Auto-generated constructor stub
 		if (photo == null || biography == null || email == null) throw new IllegalArgumentException("All fields must be filled out.");
-		this.photo = photo;
+		this.image= photo;
 		this.biography = biography;
 		this.email = email;
 		this.confirmed = false;
@@ -34,9 +34,6 @@ public class SpecialUser extends User{
 	
 	
 
-	public Image getPhoto_url() {
-		return photo;
-	}
 
 	public String getBiography() {
 		return biography;
@@ -48,16 +45,16 @@ public class SpecialUser extends User{
 	
 	
 	
-	public Image getPhoto() {
-		return photo;
+	public Image getImage() {
+		return image;
 	}
 
 	public void setPhoto(Image photo) {
-		this.photo = photo;
+		this.image = photo;
 	}
 
 	public void setPhoto_url(Image photo) {
-		this.photo = photo;
+		this.image = photo;
 	}
 
 	public void setBiography(String biography) {
