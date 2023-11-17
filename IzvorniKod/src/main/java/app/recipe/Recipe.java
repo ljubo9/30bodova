@@ -27,6 +27,9 @@ public class Recipe {
     @JoinColumn(name = "recipe_id")
     private List<RecipeIngredient> ingredients;
     
+    @OneToMany
+    private List<Image> images;
+    
     public Recipe(int id, String name, List<RecipeIngredient> ingredients, String stepsOfMaking, int portionSize, int cookTime, List<Image> images) {
         this.id = id;
         this.name = name;
@@ -34,9 +37,7 @@ public class Recipe {
         this.stepsOfMaking = stepsOfMaking;
         this.portionSize = portionSize;
         this.cookTime = cookTime;
-/*
         this.images = images;
-*/
     }
 
 

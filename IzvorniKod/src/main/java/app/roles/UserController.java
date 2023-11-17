@@ -58,6 +58,7 @@ public class UserController {
 			throw new IllegalArgumentException();
 
 		}
+		System.out.printf("Username: %s, password: %s\n", form.getUsername(), form.getPassword());
 		String encodedPassword = encoder.encode(form.getPassword());
 		form.setPassword(encodedPassword);
 		if (image.isPresent()) {
@@ -71,7 +72,6 @@ public class UserController {
 	@ResponseBody
 	public UserDTO login(@RequestParam("username") String username, @RequestParam("password") String password) throws AuthenticationException {
 		
-
 		Authentication authRes = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
 
 		if (!authRes.isAuthenticated()) throw new AuthenticationException("Wrong username or password.");

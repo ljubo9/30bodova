@@ -28,6 +28,10 @@ public class SpecialUser extends User{
 		this.confirmed = false;
 	}
 	
+	public SpecialUser() {
+		
+	}
+	
 	
 
 	public Image getPhoto_url() {
@@ -44,6 +48,14 @@ public class SpecialUser extends User{
 	
 	
 	
+	public Image getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(Image photo) {
+		this.photo = photo;
+	}
+
 	public void setPhoto_url(Image photo) {
 		this.photo = photo;
 	}
