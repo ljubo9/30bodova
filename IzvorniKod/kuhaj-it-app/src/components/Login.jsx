@@ -32,9 +32,9 @@ function Login() {
       });
 
       if (response.ok) {
+
         sessionStorage.setItem('isLoggedIn', 'true');
         sessionStorage.setItem('currentUser', username);
-
         navigate('/');
       } else {
         setLoginStatus('error');
