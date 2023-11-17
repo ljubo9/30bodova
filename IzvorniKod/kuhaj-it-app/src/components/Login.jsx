@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Form, Alert, Container, Row, Col } from 'react-bootstrap';
 
-function Login({ setCurrentUser }) {
+function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loginStatus, setLoginStatus] = useState(null);
@@ -32,8 +32,9 @@ function Login({ setCurrentUser }) {
       });
 
       if (response.ok) {
-        const user = await response.json();
-        setCurrentUser(user.username);
+        sessionStorage.setItem('isLoggedIn', 'true');
+        sessionStorage.setItem('currentUser', username);
+
         navigate('/');
       } else {
         setLoginStatus('error');
@@ -86,3 +87,4 @@ function Login({ setCurrentUser }) {
 }
 
 export default Login;
+
