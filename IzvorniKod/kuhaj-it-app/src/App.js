@@ -10,8 +10,8 @@ function App() {
       <div className="App">
         <Navigation />
         <Routes>
-          <Route path="https://kuhajitbackend.onrender.com/login" element={<Login />} />
-          <Route path="https://kuhajitbackend.onrender.com/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </div>
     </Router>
