@@ -9,12 +9,12 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "recipe_ingredients")
-public class RecipeIngredients {
+@Table(name = "recipe_ingredient")
+public class RecipeIngredient {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int recipeIngredientsId;
+    private int id;
 	
 	@ManyToOne
 	private Ingredient ingredient;
@@ -24,7 +24,7 @@ public class RecipeIngredients {
 	private Recipe recipe;
 	private int quantity;
 	
-	public RecipeIngredients(Ingredient ingredient, Recipe recipe, int quantity) {
+	public RecipeIngredient(Ingredient ingredient, Recipe recipe, int quantity) {
 		this.ingredient = ingredient;
 		this.recipe = recipe;
 		this.quantity = quantity;

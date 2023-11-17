@@ -4,12 +4,11 @@ import app.roles.User;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="Reviews")
 public class Review {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int reviewId;
+    private int id;
     
     @ManyToOne
     private User creator;

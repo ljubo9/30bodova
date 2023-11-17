@@ -1,5 +1,7 @@
 package app.roles;
 
+import app.recipe.Image;
+import app.roles.Client;
 
 public class AuthorizationForm {
 	
@@ -7,7 +9,7 @@ public class AuthorizationForm {
 	private String password;
 	private String name;
 	private String surname;
-	private String role;
+	private Role role;
 	private String photo_url;
 	private String biography;
 	private String email;
@@ -18,12 +20,27 @@ public class AuthorizationForm {
 		this.password = password;
 		this.name = name;
 		this.surname = surname;
-		this.role = role;
+		if (role.equalsIgnoreCase("client")) {
+			this.role = Role.CLIENT;
+		}
+		else if (role.equalsIgnoreCase("nutritionist")) {
+			this.role = Role.NUTRITIONIST;
+		}
+		else if (role.equalsIgnoreCase("enthusiast")) {
+			this.role = Role.ENTHUSIAST;
+		}
 		this.photo_url = photo_url;
 		this.biography = biography;
 		this.email = email;
 	}
+	
+	public AuthorizationForm(String username, String password, String name, String surname, String role, String biography, String email) {
+		this(username, password, name, surname, role, null, biography, email);
+	}
 
+	public AuthorizationForm() {
+		
+	}
 	
 
 	public String getUsername() {
@@ -42,12 +59,8 @@ public class AuthorizationForm {
 		return surname;
 	}
 
-	public String getRole() {
+	public Role getRole() {
 		return role;
-	}
-
-	public String getPhoto_url() {
-		return photo_url;
 	}
 
 	public String getBiography() {
@@ -74,12 +87,28 @@ public class AuthorizationForm {
 		this.surname = surname;
 	}
 
-	public void setRole(String role) {
-		this.role = role;
+	public String getPhoto_url() {
+		return photo_url;
 	}
 
 	public void setPhoto_url(String photo_url) {
 		this.photo_url = photo_url;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+	
+	public void setRole(String role) {
+		if (role.equalsIgnoreCase("client")) {
+			this.role = Role.CLIENT;
+		}
+		else if (role.equalsIgnoreCase("nutritionist")) {
+			this.role = Role.NUTRITIONIST;
+		}
+		else if (role.equalsIgnoreCase("enthusiast")) {
+			this.role = Role.ENTHUSIAST;
+		}
 	}
 
 	public void setBiography(String biography) {
@@ -92,11 +121,12 @@ public class AuthorizationForm {
 
 	public static User parseUser(AuthorizationForm form) {
 		if (form == null) throw new NullPointerException("Reference to form is null.");
-		if (form.getRole().equals("CLIENT")) {
+		if (form.getRole().getName().equals("CLIENT")) {
 			return new Client(form.getUsername(), form.getPassword(), form.getName(), form.getSurname());
 		}
+		Image img = new Image(form.getPhoto_url(), form.getPhoto_url());
 		return new SpecialUser(form.getUsername(), form.getPassword(), form.getName(),
-				form.getSurname(), form.getRole(), form.getPhoto_url(), form.getBiography(), form.getEmail());
+				form.getSurname(), form.getRole(), img, form.getBiography(), form.getEmail());
 		
 	}
 	

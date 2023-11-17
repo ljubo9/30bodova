@@ -6,13 +6,12 @@ import app.roles.User;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="Recipes")
 public class Recipe {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int recipeId;
-    
+    private int id;
+    private String name;
     private String stepsOfMaking;
     private int portionSize;
     private int cookTime;
@@ -26,10 +25,11 @@ public class Recipe {
     
     @OneToMany
     @JoinColumn(name = "recipe_id")
-    private List<RecipeIngredients> ingredients;
+    private List<RecipeIngredient> ingredients;
     
-    public Recipe(int id, List<RecipeIngredients> ingredients, String stepsOfMaking, int portionSize, int cookTime, List<Image> images) {
-        this.recipeId = id;
+    public Recipe(int id, String name, List<RecipeIngredient> ingredients, String stepsOfMaking, int portionSize, int cookTime, List<Image> images) {
+        this.id = id;
+        this.name = name;
         this.ingredients = ingredients;
         this.stepsOfMaking = stepsOfMaking;
         this.portionSize = portionSize;
@@ -41,18 +41,18 @@ public class Recipe {
 
 
     public int getId() {
-        return recipeId;
+        return id;
     }
 
     public void setId(int id) {
-        this.recipeId = id;
+        this.id = id;
     }
 
-    public List<RecipeIngredients> getIngredientsAndQuantities() {
+    public List<RecipeIngredient> getIngredientsAndQuantities() {
         return ingredients;
     }
 
-    public void setIngredientsAndQuantities(List<RecipeIngredients> ingredientsAndQuantities) {
+    public void setIngredientsAndQuantities(List<RecipeIngredient> ingredientsAndQuantities) {
         this.ingredients = ingredientsAndQuantities;
     }
 
@@ -79,6 +79,18 @@ public class Recipe {
     public void setCookTime(int cookTime) {
         this.cookTime = cookTime;
     }
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+    
+    
 
    /* public List<Image> getImages() {
         return images;

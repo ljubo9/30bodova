@@ -3,16 +3,17 @@ package app.recipe;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="Images")
 public class Image {
 	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int imageId;
+    private int id;
+    private String name;
     private String imageUrl;
     
-    @ManyToOne
-    private Recipe recipe;
     
+    public Image(String name, String imageUrl) {
+    	this.imageUrl = imageUrl;
+    }
     // Constructors, getters, setters
 }

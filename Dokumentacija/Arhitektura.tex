@@ -41,17 +41,30 @@
 	Arhitektura našeg sustava dijeli se na tri komponente:
 	\begin{itemize}
 		\item Web preglednik - softverska aplikacija koja omogućuje korisnicima pregledavanje i interakciju sa svim sadržajima Interneta. Glavna funkcija web preglednika je prikazivanje web stranica koje su oblikovane u obliku programskog koda na korisniku jasan način. Neki poznati web-preglednici uključuju Google Chrome, Mozilla Firefox, Opera...Web preglednik služi i kao medijator između korisnika, koji šalje zahtjeve, i web poslužitelja, koji prima zahtjeve i na njih odgovara.
-		\item Web poslužitelj - program koji prosljeđuje web sadržaje web klijentu/pregledniku na njegov zahtjev putem protokola HTTP
+		\item Web poslužitelj - program koji prosljeđuje web sadržaje web klijentu/pregledniku na njegov zahtjev putem protokola HTTP. On od klijenta dobije zahtjev za podacima, pristupa bazi podataka (kojoj također ima pristup), dohvaća tražene podatke iz baze te ih vraća klijentu u obliku HTTP odgovora. Vraćeni podaci se zatim prikazuju klijentu (ako nije došlo do poteškoća).
 		\item Baza podataka - omogućuje organiziranu pohranu podataka koje je potrebno pohraniti (za KuhajIT su to podaci o korisničkim profilima, recepti, kuharice, osvrti na recepte, proizvodi i ostali)
 	\end{itemize}
+	
+		\begin{figure}[H]
+			\includegraphics[scale=0.4]{slike/architecture.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Prikaz principa djelovanja podsustava arhitekture}
+			\label{architecture}
+		\end{figure}
+	
+	
+	
+	Čitavi backend naše aplikacije izrađen je u programskom jeziku Java, u radnom okviru Spring. Razvojno okruženje korišteno za backend je Eclipse IDE.
+	Frontend je izrađen u JavaScriptu, u biblioteci React. Razvojno okruženje korišteno za frontend je Visual Studio Code.
 			
 		\section{Baza podataka}
 
-		Za ostvarenje naše aplikacije KuhajIT odabrali smo relacijsku bazu podataka PostgreSQL, koja svojom jednostavnom i lako razumljivom strukturom olakšava pregled i upravljanje podacima. Ključne komponente relacijske baze podataka su entiteti (tablice okarakterizirane imenom i skupom atributa) te veze među entitetima (strukture koje povezuju podatke iz različitih entiteta pomoću ključeva).
+		Za ostvarenje naše aplikacije KuhajIT odabrali smo relacijsku bazu podataka PostgreSQL, u alatu PGadmin, koja svojom jednostavnom i lako razumljivom strukturom olakšava pregled i upravljanje podacima. Ključne komponente relacijske baze podataka su entiteti (tablice okarakterizirane imenom i skupom atributa) te veze među entitetima (strukture koje povezuju podatke iz različitih entiteta pomoću ključeva).
 		
 		Entiteti naše baze podataka su:
 		\begin{itemize}
 			\item User
+			\item Role
 			\item Recipe
 			\item Recipe Ingredient
 			\item Ingredient
@@ -65,14 +78,14 @@
 		
 			\subsection{Opis tablica}
 				
-				\textbf{User} Entitet \textit{User} sadrži atribute važne za svakog registriranog korisnika aplikacije KuhajIT. Ti atributi su: ID korisnika, korisničko ime, lozinku, ime, prezime, email, uloga, biografija, url osobne fotografije i oznaka potvrđenosti. U vezi je \textit{One-to-Many} s entitetom \textit{Review} preko korisničkog ID-ja, \textit{One-to-Many} s entitetom \textit{Cookbook} preko korisničkog ID-ja, \textit{Recipe} preko korisničkog ID-ja i \textit{One-to-Many} s entitetom \textit{Response} preko korisničkog ID-ja.
+				\textbf{User} Entitet \textit{User} sadrži atribute važne za svakog registriranog korisnika aplikacije KuhajIT. Ti atributi su: ID korisnika, korisničko ime, lozinku, ime, prezime, email, uloga, biografija, ID osobne fotografije koju je priložio i oznaka potvrđenosti. U vezi je \textit{One-to-Many} s entitetom \textit{Review} preko korisničkog ID-ja, \textit{One-to-Many} s entitetom \textit{Cookbook} preko korisničkog ID-ja, \textit{Recipe} preko korisničkog ID-ja, \textit{One-to-Many} s entitetom \textit{Response} preko korisničkog ID-ja, \textit{Many-to-One} s entitetom \textit{Image} preko ID-ja učitane fotografije i \textit{Many-to-One} s entitetom \textit{Role} preko ID-ja uloge.
 				
 				\begin{longtblr}[
 					label=none,
 					entry=none
 					]{
 						width = \textwidth,
-						colspec={|X[6,l]|X[6, l]|X[20, l]|}, 
+						colspec={|X[8,l]|X[6, l]|X[20, l]|}, 
 						rowhead = 1,
 					} %definicija širine tablice, širine stupaca, poravnanje i broja redaka naslova tablice
 					\hline \SetCell[c=3]{c}{\textbf{User}}	 \\ \hline[3pt]
@@ -83,16 +96,41 @@
 					name & VARCHAR	&  	Ime korisnika	\\ \hline 
 					surname & VARCHAR & Prezime korisnika \\
 \hline
-					role & VARCHAR & Uloga koju neregistrirani korisnik želi imati (nutricionist, kulinarski entuzijast ili klijent). \\
-\hline
-
-					email & VARCHAR &   Ako se korisnik želi registrirati kao kulinarski entuzijast/nutricionist, mora priložiti email, inače atribut poprima NULL vrijednost.\\ \hline 
-					slika & VARCHAR & Ako se korisnik želi registrirati kao kulinarski entuzijast/nutricionist, mora priložiti osobnu fotografiju, čiji se URL sprema u bazu, inače atribut poprima NULL vrijednost.\\
-\hline
-
+					email & VARCHAR &   Ako se korisnik želi registrirati kao kulinarski entuzijast/nutricionist, mora priložiti email, inače atribut poprima NULL vrijednost.\\ 
+\hline 
+					confirmed & BOOLEAN & Oznaka je li administrator potvrdio registraciju kulinarskog entuzijasta/nutricionista.\\ 
+\hline	
 					biografija & VARCHAR & Ako se korisnik želi registrirati kao kulinarski entuzijast/nutricionist, mora priložiti kratku biografiju, inače atribut poprima NULL vrijednost.\\
 \hline
+			\SetCell{LightBlue}image\_id & INT & ID osobne fotografije koju je korisnik koji želi biti kulinarski entuzijast ili nutricionist učitao. \\ \hline
+			\SetCell{LightBlue}role\_id	& INT &   ID uloge koju korisnik registracijom želi posjedovati (nutricionist, kulinarski entuzijast ili klijent).	\\ \hline
 				\end{longtblr}
+				
+				\textbf{Role} Entitet \textit{Role} je šifarnik uloga koje korisnik registracijom može dobiti. To su:
+				\begin{itemize}
+					\item klijent
+					\item nutricionist
+					\item kulinarski entuzijast
+				\end{itemize}
+				
+				Uz navedene, u tablici se nalazi i uloga administratora, koju nije moguće dobiti registracijom u sustav, već je predefiniran. U vezi je \textit{One-to-Many} s entitetom \textit{User}, preko ID-ja uloge.
+				
+				\begin{longtblr}[
+					label=none,
+					entry=none
+					]{
+						width = \textwidth,
+						colspec={|X[8,l]|X[6, l]|X[20, l]|}, 
+						rowhead = 1,
+					} %definicija širine tablice, širine stupaca, poravnanje i broja redaka naslova tablice
+					\hline \SetCell[c=3]{c}{\textbf{Role}}	 \\ \hline[3pt]
+					\SetCell{LightGreen}id & INT	&  Jedinstveni	ID uloge, sekvencijski generiran.  	\\ 
+\hline
+					name & VARCHAR	&  Naziv uloge.	\\ 
+\hline 
+
+				\end{longtblr}
+				
 				
 				\textbf{Recipe} Entitet \textit{Recipe} sadrži atribute važne za svaki recept objavljen na web aplikaciji KuhajIT. Ti atributi su: ID recepta, ime recepta, vrijeme pripreme, koraci pripreme, ID autora recepta i veličina porcije. U vezi je \textit{One-to-Many} s entitetom \textit{Image} preko ID-ja recepta, \textit{One-to-Many} s entitetom \textit{Cookbook Recipe} preko ID-ja recepta, \textit{One-to-Many} s entitetom \textit{Recipe Ingredient} preko ID-ja recepta i \textit{Many-to-One} s entitetom \textit{User} preko ID-ja korisnika.
 				
@@ -228,7 +266,7 @@ Ti atributi su: ID odgovora, poruka ostavljena u odgovoru, ID autora odgovora (k
 				\end{longtblr}
 				
 				\textbf{Image} Entitet \textit{Image} sadrži atribute važne za svaku fotografiju učitanu u sklopu recepta na web aplikaciji KuhajIT.
-Ti atributi su: ID fotografije, URL fotografije i ID recepta uz kojeg je fotografija učitana. U vezi je \textit{Many-to-One} s entitetom \textit{Recipe} preko ID-ja recepta.
+Ti atributi su: ID fotografije i URL fotografije.
 
 				\begin{longtblr}[
 					label=none,
@@ -242,12 +280,37 @@ Ti atributi su: ID fotografije, URL fotografije i ID recepta uz kojeg je fotogra
 					\SetCell{LightGreen}id & INT	&  Jedinstveni ID učitane fotografije, sekvencijski generiran.  	\\ \hline
 
 					url & VARCHAR & URL učitane fotografije. \\ \hline	
-					\SetCell{LightBlue}recipe\_id	& INT &   ID recepta uz koji je fotografija učitana.	\\ \hline 	
+					description & VARCHAR & Opis učitane fotografije. \\ \hline
 				\end{longtblr}
 				
 				\eject	
 	
 	  \section{Dijagram razreda}
+	  
+	  Na slikama 4.5, 4.6 i 4.7 prikazani su dijagrami razreda koji backend arhitekturu ostvarenog sustava. 
+	  Dijagram razreda na slici 4.5 prikazuje razred koji nasljeđuje razred \textit{Controller}. 
+	  
+	  \begin{figure}[H]
+			\includegraphics[scale=0.5]{dijagrami/UML_dijagram_razreda_controllers.png} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Dijagram razreda - dio Controllers}
+			\label{Dijagram razreda - dio Controllers}
+		\end{figure}
+			
+			
+			\eject 	
+			
+Dijagram razreda na slici 4.6 prikazuje \textit{Models} dio razreda. \\
+	Razredi \textit{Enthusiast} i \textit{Nutritionist} specifikacija su razreda \textit{SpecialUser}, stoga nasljeđuju javne metode i atribute tog razreda, a usto sadrže i metode specifične ulozi. \\
+	Razredi \textit{SpecialUser}, \textit{Client} i \textit{Administrator} specifikacija su razreda \textit{User}, stoga nasljeđuju javne metode i atribute tog razreda. \\
+	Razred \textit{User} predstavlja korisnika koji se može registrirati kao klijent, kulinarski entuzijast ili nutricionist te, sukladno svojoj ulozi, obavljati različite funkcije opisane u Specifikaciji programske potpore. \\
+    Instanca razreda \textit{User}, ako se radi o registriranom kulinarskom entuzijastu, može stvarati recepte, koji pripadaju razredu \textit{Recipe}, i kuharice, koje pripadaju razredu \textit{Cookbook}. \\
+    Razred \textit{Recipe} sadrži sve metode potrebne za stvaranje i objavljivanje recepta. \\
+    Razred \textit{Cookbook} sadrži sve metode potrebne za stvaranje tematske kuharice i spremanje recepata u istu.
+    Razred \textit{Image} sadrži atribute važne za pohranu slika. \\
+    Razred \textit{Ingredient} sadrži atribute i metode važne za pohranu i dohvaćanje proizvoda i sastojaka. \\
+    Razred \textit{Review} sadrži atribute i metode važne za ostavljanje recenzije na recept kulinarskog entuzijasta. \\
+    Razred \textit{Response} sadrži atribute i metode važne za odgovaranje kulinarskog entuzijasta na recenziju ostavljenu na njegov recept.
 			
 			
 			\begin{figure}[H]
@@ -256,29 +319,3 @@ Ti atributi su: ID fotografije, URL fotografije i ID recepta uz kojeg je fotogra
 			\caption{Dijagram razreda - dio Models}
 			\label{Dijagram razreda - dio Models}
 		\end{figure}
-			
-			
-			\eject 		
-			
-		\section{Dijagram stanja}
-			
-			
-			\textbf{\textit{dio 2. revizije}}\\
-			
-			\textit{Potrebno je priložiti dijagram stanja i opisati ga. Dovoljan je jedan dijagram stanja koji prikazuje \textbf{značajan dio funkcionalnosti} sustava. Na primjer, stanja korisničkog sučelja i tijek korištenja neke ključne funkcionalnosti jesu značajan dio sustava, a registracija i prijava nisu. }
-			
-			
-			\eject 
-		
-		\section{Dijagram aktivnosti}
-			
-			\textbf{\textit{dio 2. revizije}}\\
-			
-			 \textit{Potrebno je priložiti dijagram aktivnosti s pripadajućim opisom. Dijagram aktivnosti treba prikazivati značajan dio sustava.}
-			
-			\eject
-		\section{Dijagram komponenti}
-		
-			\textbf{\textit{dio 2. revizije}}\\
-		
-			 \textit{Potrebno je priložiti dijagram komponenti s pripadajućim opisom. Dijagram komponenti treba prikazivati strukturu cijele aplikacije.}

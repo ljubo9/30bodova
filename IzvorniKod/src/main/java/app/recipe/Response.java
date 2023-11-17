@@ -4,15 +4,16 @@ import app.roles.User;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="Responses")
 public class Response {
 	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int responseId;
+    private int id;
+    
     @ManyToOne
     private User creator;
-    @OneToOne(cascade = CascadeType.ALL)
+    
+    @ManyToOne(cascade = CascadeType.ALL)
     private Review responseGivenTo;
 
     public Response(User creator, Review responseGivenTo, String message) {
