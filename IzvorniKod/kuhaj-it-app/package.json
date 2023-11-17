@@ -39,7 +39,7 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://kuhajitbackend.onrender.com",
+  "proxy": "https://kuhajitbackend.onrender.com:8080",
   "devServer": {
     "disableHostCheck": true
   }
