@@ -41,6 +41,8 @@
   },
   "proxy": "https://kuhajitbackend.onrender.com:8080",
   "devServer": {
-    "disableHostCheck": true
+    "disableHostCheck": true,
+    "compress": true,
+    "public": "store-client-nestroia1.c9users.io"
   }
 }
