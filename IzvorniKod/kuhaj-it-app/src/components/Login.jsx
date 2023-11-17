@@ -37,7 +37,7 @@ function Login() {
     }
 
     try {
-      const response = await fetch('/login', {
+      const response = await fetch('https://kuhajitbackend.onrender.com/login', {
         method: 'POST',
         body: formData,
       });
