@@ -36,6 +36,7 @@ function Login() {
         sessionStorage.setItem('isLoggedIn', 'true');
         sessionStorage.setItem('currentUser', username);
         navigate('/');
+        
       } else {
         setLoginStatus('error');
         console.error('Login failed');
