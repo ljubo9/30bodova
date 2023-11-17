@@ -97,7 +97,7 @@ const Register = () => {
 
           {registrationStatus === 'username' && (
             <Alert variant="danger">
-              Username or e-mail taken.
+              Invalid argument/s.
             </Alert>
           )}
 
