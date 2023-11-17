@@ -67,6 +67,7 @@ const Register = () => {
         console.log('Registration successful!');
       }
       else if(response.status === 500) {
+        console.log()
         setRegistrationStatus('username');
       } else {
         setRegistrationStatus('error');
@@ -96,7 +97,7 @@ const Register = () => {
 
           {registrationStatus === 'username' && (
             <Alert variant="danger">
-              Username taken.
+              Username or e-mail taken.
             </Alert>
           )}
 
