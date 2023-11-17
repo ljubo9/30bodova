@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.10.29)  16 NOV 2023 20:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.10.29)  17 NOV 2023 11:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1886,7 +1886,6 @@ File: dijagrami/UML_dijagram_razreda_models.png Graphic file (type png)
 Package pdftex.def Info: dijagrami/UML_dijagram_razreda_models.png  used on inp
 ut line 317.
 (pdftex.def)             Requested size: 435.11792pt x 259.71571pt.
-)
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1896,6 +1895,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [34]
+<dijagrami/UML_dijagram_razreda_dtos.png, id=431, 685.05937pt x 611.28375pt>
+File: dijagrami/UML_dijagram_razreda_dtos.png Graphic file (type png)
+<use dijagrami/UML_dijagram_razreda_dtos.png>
+Package pdftex.def Info: dijagrami/UML_dijagram_razreda_dtos.png  used on input
+ line 327.
+(pdftex.def)             Requested size: 137.00945pt x 122.25458pt.
+)
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1910,11 +1916,17 @@ has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.125 	\include{Arhitektura}
-                             <./dijagrami/UML_dijagram_razreda_models.png>]
+                            
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.7}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.125 	\include{Arhitektura}
+                             <./dijagrami/UML_dijagram_razreda_models.png> <./d
+ijagrami/UML_dijagram_razreda_dtos.png>]
 \openout2 = `Literatura.aux'.
 
-
-(Literatura.tex
+ (Literatura.tex
 LaTeX Font Info:    Trying to load font information for OT1+jkptt on input line
  12.
 
@@ -1955,15 +1967,19 @@ enddocument/afterlastpage: lastpage setting LastPage.
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `PROGI_ProjektnaDokumentacija.out' has not ch
 anged.
 (rerunfilecheck)             Checksum: 406991282998BD2B50AE1E163F07F904;3171.
  ) 
 Here is how much of TeX's memory you used:
- 17081 strings out of 475247
- 294035 string characters out of 5757791
+ 17090 strings out of 475247
+ 294394 string characters out of 5757791
  1960785 words of memory out of 5000000
- 38093 multiletter control sequences out of 15000+600000
+ 38101 multiletter control sequences out of 15000+600000
  605590 words of font info for 140 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  86i,12n,116p,1198b,803s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1973,9 +1989,9 @@ ts/jkpbn8a.pfb><C:/Users/Dunja/AppData/Local/Programs/MiKTeX/fonts/type1/public
 /kpfonts/jkpmit8a.pfb><C:/Users/Dunja/AppData/Local/Programs/MiKTeX/fonts/type1
 /public/kpfonts/jkpmn8a.pfb><C:/Users/Dunja/AppData/Local/Programs/MiKTeX/fonts
 /type1/public/kpfonts/jkpttmn8a.pfb>
-Output written on PROGI_ProjektnaDokumentacija.pdf (37 pages, 3153575 bytes).
+Output written on PROGI_ProjektnaDokumentacija.pdf (37 pages, 3187257 bytes).
 PDF statistics:
- 521 PDF objects out of 1000 (max. 8388607)
- 192 named destinations out of 1000 (max. 500000)
- 207 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 525 PDF objects out of 1000 (max. 8388607)
+ 193 named destinations out of 1000 (max. 500000)
+ 212 words of extra memory for PDF output out of 10000 (max. 10000000)
 
