@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Form, Alert, Container, Row, Col } from 'react-bootstrap';
 
@@ -7,6 +7,17 @@ function Login() {
   const [password, setPassword] = useState('');
   const [loginStatus, setLoginStatus] = useState(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const checkIfLoggedIn = async () => {
+      const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+      if (isLoggedIn === 'true') {
+        navigate('/');
+      }
+    };
+
+    checkIfLoggedIn();
+  }, [navigate]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
