@@ -34,6 +34,11 @@ function Login({ setCurrentUser }) {
       if (response.ok) {
         const user = await response.json();
         setCurrentUser(user.username);
+
+        // Postavljanje informacija o trenutno prijavljenom korisniku u sessionStorage
+        sessionStorage.setItem('isLoggedIn', 'true');
+        sessionStorage.setItem('currentUser', user.username);
+
         navigate('/');
       } else {
         setLoginStatus('error');
