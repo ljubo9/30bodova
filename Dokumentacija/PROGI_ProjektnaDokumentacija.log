@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.10.29)  17 NOV 2023 11:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.10.29)  17 NOV 2023 13:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -980,7 +980,7 @@ File: ot1jkp.fd 2007/08/30 Fontinst v1.928 font definitions for OT1/jkp.
 )
 (PROGI_ProjektnaDokumentacija.aux (Dnevnik_promjena_dokumentacije.aux)
 (Opis_projektnog_zadatka.aux) (Specifikacija_programske_potpore.aux)
-(Arhitektura.aux) (Literatura.aux))
+(Arhitektura.aux) (Literatura.aux) (Dodatak.aux))
 \openout1 = `PROGI_ProjektnaDokumentacija.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/jkp/m/it on input line 85.
@@ -1159,54 +1159,104 @@ Poglavlje 1.
 > Step: execute table commands.
 > Step: calculate cell and line sizes.
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 16--16
+Overfull \hbox (0.794pt too wide) in paragraph at lines 22--22
 []\OT1/jkp/m/n/12 21.10.2023. 
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 16--16
+Overfull \hbox (0.794pt too wide) in paragraph at lines 22--22
 []\OT1/jkp/m/n/12 22.10.2023. 
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 16--16
+Overfull \hbox (0.794pt too wide) in paragraph at lines 22--22
 []\OT1/jkp/m/n/12 29.10.2023. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16--16
-[]\OT1/jkp/m/n/12 Hana
+Overfull \hbox (0.794pt too wide) in paragraph at lines 22--22
+[]\OT1/jkp/m/n/12 08.11.2023. 
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 16--16
-[]\OT1/jkp/m/n/12 08.11.2023. 
+Overfull \hbox (0.794pt too wide) in paragraph at lines 22--22
+[]\OT1/jkp/m/n/12 11.11.2023. 
+ []
+
+
+Overfull \hbox (0.794pt too wide) in paragraph at lines 22--22
+[]\OT1/jkp/m/n/12 13.11.2023. 
+ []
+
+
+Overfull \hbox (0.794pt too wide) in paragraph at lines 22--22
+[]\OT1/jkp/m/n/12 14.11.2023. 
+ []
+
+
+Overfull \hbox (0.794pt too wide) in paragraph at lines 22--22
+[]\OT1/jkp/m/n/12 14.11.2023. 
+ []
+
+
+Overfull \hbox (0.794pt too wide) in paragraph at lines 22--22
+[]\OT1/jkp/m/n/12 15.11.2023. 
+ []
+
+
+Overfull \hbox (0.794pt too wide) in paragraph at lines 22--22
+[]\OT1/jkp/m/n/12 16.11.2023. 
  []
 
 > Step: build the whole table.
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 16--16
+Overfull \hbox (0.794pt too wide) in paragraph at lines 22--22
 []\OT1/jkp/m/n/12 21.10.2023. 
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 16--16
+Overfull \hbox (0.794pt too wide) in paragraph at lines 22--22
 []\OT1/jkp/m/n/12 22.10.2023. 
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 16--16
+Overfull \hbox (0.794pt too wide) in paragraph at lines 22--22
 []\OT1/jkp/m/n/12 29.10.2023. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16--16
-[]\OT1/jkp/m/n/12 Hana
+Overfull \hbox (0.794pt too wide) in paragraph at lines 22--22
+[]\OT1/jkp/m/n/12 08.11.2023. 
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 16--16
-[]\OT1/jkp/m/n/12 08.11.2023. 
+Overfull \hbox (0.794pt too wide) in paragraph at lines 22--22
+[]\OT1/jkp/m/n/12 11.11.2023. 
+ []
+
+
+Overfull \hbox (0.794pt too wide) in paragraph at lines 22--22
+[]\OT1/jkp/m/n/12 13.11.2023. 
+ []
+
+
+Overfull \hbox (0.794pt too wide) in paragraph at lines 22--22
+[]\OT1/jkp/m/n/12 14.11.2023. 
+ []
+
+
+Overfull \hbox (0.794pt too wide) in paragraph at lines 22--22
+[]\OT1/jkp/m/n/12 14.11.2023. 
+ []
+
+
+Overfull \hbox (0.794pt too wide) in paragraph at lines 22--22
+[]\OT1/jkp/m/n/12 15.11.2023. 
+ []
+
+
+Overfull \hbox (0.794pt too wide) in paragraph at lines 22--22
+[]\OT1/jkp/m/n/12 16.11.2023. 
  []
 
 )
@@ -1245,7 +1295,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 ]
-<slike/coolinarika.PNG, id=113, 1154.51324pt x 582.978pt>
+<slike/coolinarika.PNG, id=118, 1154.51324pt x 582.978pt>
 File: slike/coolinarika.PNG Graphic file (type png)
 <use slike/coolinarika.PNG>
 Package pdftex.def Info: slike/coolinarika.PNG  used on input line 15.
@@ -1255,7 +1305,7 @@ Overfull \hbox (26.18633pt too wide) in paragraph at lines 15--17
  [][] 
  []
 
-<slike/indexRecepti.PNG, id=115, 902.1705pt x 515.526pt>
+<slike/indexRecepti.PNG, id=120, 902.1705pt x 515.526pt>
 File: slike/indexRecepti.PNG Graphic file (type png)
 <use slike/indexRecepti.PNG>
 Package pdftex.def Info: slike/indexRecepti.PNG  used on input line 22.
@@ -1435,7 +1485,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [17]
-<dijagrami/UML_Korisnik_Klijent.png, id=300, 844.65562pt x 758.835pt>
+<dijagrami/UML_Korisnik_Klijent.png, id=305, 844.65562pt x 758.835pt>
 File: dijagrami/UML_Korisnik_Klijent.png Graphic file (type png)
 <use dijagrami/UML_Korisnik_Klijent.png>
 Package pdftex.def Info: dijagrami/UML_Korisnik_Klijent.png  used on input line
@@ -1451,7 +1501,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [18]
-<dijagrami/UML_KulinarskiEntuzijast_Nutricionist_Admin.png, id=315, 1121.69063p
+<dijagrami/UML_KulinarskiEntuzijast_Nutricionist_Admin.png, id=320, 1121.69063p
 t x 748.29562pt>
 File: dijagrami/UML_KulinarskiEntuzijast_Nutricionist_Admin.png Graphic file (t
 ype png)
@@ -1483,7 +1533,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 597--598
 
  []
 
-<dijagrami/SEQ_UC4.png, id=324, 666.23906pt x 462.22687pt>
+<dijagrami/SEQ_UC4.png, id=329, 666.23906pt x 462.22687pt>
 File: dijagrami/SEQ_UC4.png Graphic file (type png)
 <use dijagrami/SEQ_UC4.png>
 Package pdftex.def Info: dijagrami/SEQ_UC4.png  used on input line 605.
@@ -1503,7 +1553,7 @@ has been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.610 	
         <./dijagrami/UML_KulinarskiEntuzijast_Nutricionist_Admin.png>]
-<dijagrami/SEQ_UC8.png, id=332, 685.05937pt x 516.42938pt>
+<dijagrami/SEQ_UC8.png, id=337, 685.05937pt x 516.42938pt>
 File: dijagrami/SEQ_UC8.png Graphic file (type png)
 <use dijagrami/SEQ_UC8.png>
 Package pdftex.def Info: dijagrami/SEQ_UC8.png  used on input line 618.
@@ -1514,7 +1564,7 @@ Overfull \hbox (17.53764pt too wide) in paragraph at lines 626--627
 a ko-jeg ima doma. Poslu[]zitelj
  []
 
-<dijagrami/SEQ_UC13.png, id=333, 771.63281pt x 540.51938pt>
+<dijagrami/SEQ_UC13.png, id=338, 771.63281pt x 540.51938pt>
 File: dijagrami/SEQ_UC13.png Graphic file (type png)
 <use dijagrami/SEQ_UC13.png>
 Package pdftex.def Info: dijagrami/SEQ_UC13.png  used on input line 630.
@@ -1540,7 +1590,7 @@ has been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.634 		\end{figure}
                      <./dijagrami/SEQ_UC4.png> <./dijagrami/SEQ_UC8.png>]
-<dijagrami/SEQ_UC14.png, id=343, 666.99188pt x 401.24907pt>
+<dijagrami/SEQ_UC14.png, id=348, 666.99188pt x 401.24907pt>
 File: dijagrami/SEQ_UC14.png Graphic file (type png)
 <use dijagrami/SEQ_UC14.png>
 Package pdftex.def Info: dijagrami/SEQ_UC14.png  used on input line 642.
@@ -1606,7 +1656,7 @@ Overfull \hbox (7.73766pt too wide) in paragraph at lines 3--4
 turu zas-no-vanu na doga[]dajima.
  []
 
-<slike/event_driven_architecture.PNG, id=358, 402.00188pt x 203.25937pt>
+<slike/event_driven_architecture.PNG, id=363, 402.00188pt x 203.25937pt>
 File: slike/event_driven_architecture.PNG Graphic file (type png)
 <use slike/event_driven_architecture.PNG>
 Package pdftex.def Info: slike/event_driven_architecture.PNG  used on input lin
@@ -1618,7 +1668,7 @@ Overfull \hbox (0.43155pt too wide) in paragraph at lines 21--22
 pri-kaz po-da-taka (ko-risni[]cko
  []
 
-<slike/mvc.PNG, id=359, 334.851pt x 311.36325pt>
+<slike/mvc.PNG, id=364, 334.851pt x 311.36325pt>
 File: slike/mvc.PNG Graphic file (type png)
 <use slike/mvc.PNG>
 Package pdftex.def Info: slike/mvc.PNG  used on input line 26.
@@ -1648,7 +1698,7 @@ Overfull \hbox (2.32166pt too wide) in paragraph at lines 32--33
 -tavno za-mi-je-nili []zeljene
  []
 
-<slike/divide_and_conquer.PNG, id=368, 469.755pt x 364.36125pt>
+<slike/divide_and_conquer.PNG, id=373, 469.755pt x 364.36125pt>
 File: slike/divide_and_conquer.PNG Graphic file (type png)
 <use slike/divide_and_conquer.PNG>
 Package pdftex.def Info: slike/divide_and_conquer.PNG  used on input line 35.
@@ -1682,7 +1732,7 @@ has been already used, duplicate ignored
 l.45 		\item B
               aza podataka - omogućuje organiziranu pohranu podataka koje j...
  <./slike/mvc.PNG> <./slike/divide_and_conquer.PNG>]
-<slike/architecture.PNG, id=378, 378.213pt x 200.54926pt>
+<slike/architecture.PNG, id=383, 378.213pt x 200.54926pt>
 File: slike/architecture.PNG Graphic file (type png)
 <use slike/architecture.PNG>
 Package pdftex.def Info: slike/architecture.PNG  used on input line 49.
@@ -1842,7 +1892,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [32]
-<dijagrami/UML_dijagram_razreda_controllers.png, id=417, 772.38562pt x 501.3731
+<dijagrami/UML_dijagram_razreda_controllers.png, id=422, 772.38562pt x 501.3731
 2pt>
 File: dijagrami/UML_dijagram_razreda_controllers.png Graphic file (type png)
 <use dijagrami/UML_dijagram_razreda_controllers.png>
@@ -1879,7 +1929,7 @@ p/m/n/12 spe-ci-fi-ka-cija su raz-reda \OT1/jkp/m/it/12 User\OT1/jkp/m/n/12 , s
 toga naslje[]duju
  []
 
-<dijagrami/UML_dijagram_razreda_models.png, id=425, 2175.62813pt x 1298.60156pt
+<dijagrami/UML_dijagram_razreda_models.png, id=430, 2175.62813pt x 1298.60156pt
 >
 File: dijagrami/UML_dijagram_razreda_models.png Graphic file (type png)
 <use dijagrami/UML_dijagram_razreda_models.png>
@@ -1895,7 +1945,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [34]
-<dijagrami/UML_dijagram_razreda_dtos.png, id=431, 685.05937pt x 611.28375pt>
+<dijagrami/UML_dijagram_razreda_dtos.png, id=436, 685.05937pt x 611.28375pt>
 File: dijagrami/UML_dijagram_razreda_dtos.png Graphic file (type png)
 <use dijagrami/UML_dijagram_razreda_dtos.png>
 Package pdftex.def Info: dijagrami/UML_dijagram_razreda_dtos.png  used on input
@@ -1958,40 +2008,111 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 
-] 
+]
+\openout2 = `Dodatak.aux'.
+
+ (Dodatak.tex
+Overfull \hbox (7.93677pt too wide) in paragraph at lines 21--22
+[]\OT1/jkp/m/n/12 Prisustvovali: H.Ivan[]ci[]c, I.Pavlovi[]c, M.Perkovi[]c, D.P
+etrovi[]c, K.Ra[]stegorac,
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[37
+
+
+
+
+]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[38]
+Underfull \hbox (badness 10000) in paragraph at lines 71--72
+
+ []
+
+> Step: init table outer spec.
+> Step: parse table options.
+> Step: split table.
+> Step: init table inner spec.
+> Step: parse table inner spec.
+> Step: execute table commands.
+> Step: calculate cell and line sizes.
+> Step: build the whole table.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[39]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[40]
+Underfull \hbox (badness 10000) in paragraph at lines 122--123
+
+ []
+
+)
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[41] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (PROGI_ProjektnaDokumentacija.aux (Dnevnik_promjena_dokumentacije.aux)
 (Opis_projektnog_zadatka.aux) (Specifikacija_programske_potpore.aux)
-(Arhitektura.aux) (Literatura.aux))
+(Arhitektura.aux) (Literatura.aux) (Dodatak.aux))
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `PROGI_ProjektnaDokumentacija.out' has not ch
 anged.
-(rerunfilecheck)             Checksum: 406991282998BD2B50AE1E163F07F904;3171.
+(rerunfilecheck)             Checksum: 66AF40328395C5619670EB012140598C;3385.
  ) 
 Here is how much of TeX's memory you used:
- 17090 strings out of 475247
- 294394 string characters out of 5757791
- 1960785 words of memory out of 5000000
- 38101 multiletter control sequences out of 15000+600000
- 605590 words of font info for 140 fonts, out of 8000000 for 9000
+ 17782 strings out of 475247
+ 319547 string characters out of 5757791
+ 2065785 words of memory out of 5000000
+ 38775 multiletter control sequences out of 15000+600000
+ 610287 words of font info for 143 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 86i,12n,116p,1198b,803s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 86i,12n,116p,1198b,1049s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Dunja/AppData/Local/Programs/MiKTeX/fonts/type1/public/kpfonts/jkpb
 it8a.pfb><C:/Users/Dunja/AppData/Local/Programs/MiKTeX/fonts/type1/public/kpfon
 ts/jkpbn8a.pfb><C:/Users/Dunja/AppData/Local/Programs/MiKTeX/fonts/type1/public
 /kpfonts/jkpmit8a.pfb><C:/Users/Dunja/AppData/Local/Programs/MiKTeX/fonts/type1
 /public/kpfonts/jkpmn8a.pfb><C:/Users/Dunja/AppData/Local/Programs/MiKTeX/fonts
 /type1/public/kpfonts/jkpttmn8a.pfb>
-Output written on PROGI_ProjektnaDokumentacija.pdf (37 pages, 3187257 bytes).
+Output written on PROGI_ProjektnaDokumentacija.pdf (42 pages, 3200319 bytes).
 PDF statistics:
- 525 PDF objects out of 1000 (max. 8388607)
- 193 named destinations out of 1000 (max. 500000)
- 212 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 561 PDF objects out of 1000 (max. 8388607)
+ 204 named destinations out of 1000 (max. 500000)
+ 220 words of extra memory for PDF output out of 10000 (max. 10000000)
 
