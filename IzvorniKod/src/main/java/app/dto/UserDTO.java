@@ -11,7 +11,7 @@ public class UserDTO {
 	public UserDTO(User u) {
 		this.name = u.getName();
 		this.surname = u.getSurname();
-		this.username = u.getSurname();
+		this.username = u.getUsername();
 		this.password = u.getPassword();
 	}
 	

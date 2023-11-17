@@ -72,6 +72,7 @@ public class UserService implements UserDetailsService{
 		// TODO Auto-generated method stub
 		Optional<User> user = userRepository.findUserByUsername(username);
 		if (!user.isPresent()) return null;
+		System.out.println(user.get().getUsername());
 		return user.get();
 	}
 	
