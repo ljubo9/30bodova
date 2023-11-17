@@ -13,7 +13,7 @@ RUN apk add --no-cache maven
 RUN mvn clean install
 
 # Postavljanje ENTRYPOINT-a na vašu klasu Application.java
-ENTRYPOINT ["java", "-cp", "/app/src/main/java/app/", "Application"]
+ENTRYPOINT ["java", "-cp", "/app/src/main/java/app/", "app.Application"]
 
 # Izlaganje porta aplikacije
 EXPOSE 8080
