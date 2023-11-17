@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Form, Alert, Container, Row, Col } from 'react-bootstrap';
 
+
 const checkIfLoggedIn = () => {
   const isLoggedIn = sessionStorage.getItem('isLoggedIn');
   if (isLoggedIn === 'true') {
@@ -9,7 +10,8 @@ const checkIfLoggedIn = () => {
   }
 };
 
-function Login({ setCurrentUser }) {
+function Login() {
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loginStatus, setLoginStatus] = useState(null);
@@ -43,14 +45,11 @@ function Login({ setCurrentUser }) {
       });
 
       if (response.ok) {
-        const user = await response.json();
-        setCurrentUser(user.username);
 
-        // Postavljanje informacija o trenutno prijavljenom korisniku u sessionStorage
         sessionStorage.setItem('isLoggedIn', 'true');
-        sessionStorage.setItem('currentUser', user.username);
-
+        sessionStorage.setItem('currentUser', username);
         navigate('/');
+        
       } else {
         setLoginStatus('error');
         console.error('Login failed');
@@ -102,3 +101,4 @@ function Login({ setCurrentUser }) {
 }
 
 export default Login;
+
