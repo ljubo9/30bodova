@@ -111,6 +111,7 @@ const Register = () => {
                 placeholder="Enter your first name"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
+                required
               />
             </Form.Group>
 
@@ -121,6 +122,7 @@ const Register = () => {
                 placeholder="Enter your last name"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
+                required
               />
             </Form.Group>
 
@@ -131,6 +133,7 @@ const Register = () => {
                 placeholder="Enter your username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
+                required
               />
             </Form.Group>
 
@@ -141,6 +144,7 @@ const Register = () => {
                 placeholder="Enter your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                required
               />
             </Form.Group>
 
@@ -165,6 +169,7 @@ const Register = () => {
                     placeholder="Enter your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    required
                   />
                 </Form.Group>
 
@@ -176,6 +181,7 @@ const Register = () => {
                     placeholder="Enter your biography"
                     value={bio}
                     onChange={(e) => setBio(e.target.value)}
+                    required
                   />
                 </Form.Group>
 
@@ -184,6 +190,7 @@ const Register = () => {
                   <Form.Control
                     type="file"
                     onChange={handleImageChange}
+                    required
                   />
                 </Form.Group>
               </>
