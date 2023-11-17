@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.10.29)  17 NOV 2023 13:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.10.29)  17 NOV 2023 18:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1751,7 +1751,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.4.4})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.73 			\item R
+l.72 			\item R
                eview <./slike/architecture.PNG>]
 > Step: init table outer spec.
 > Step: parse table options.
@@ -1883,6 +1883,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [31]
+> Step: init table outer spec.
+> Step: parse table options.
+> Step: split table.
+> Step: init table inner spec.
+> Step: parse table inner spec.
+> Step: execute table commands.
+> Step: calculate cell and line sizes.
+> Step: build the whole table.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1897,7 +1906,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: dijagrami/UML_dijagram_razreda_controllers.png Graphic file (type png)
 <use dijagrami/UML_dijagram_razreda_controllers.png>
 Package pdftex.def Info: dijagrami/UML_dijagram_razreda_controllers.png  used o
-n input line 294.
+n input line 309.
 (pdftex.def)             Requested size: 386.19186pt x 250.68594pt.
 
 
@@ -1913,16 +1922,16 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.4.5})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.301 			\eject
+l.316 			\eject
                 	 <./dijagrami/UML_dijagram_razreda_controllers.png>]
-Overfull \hbox (6.67517pt too wide) in paragraph at lines 303--314
+Overfull \hbox (6.67517pt too wide) in paragraph at lines 318--329
 \OT1/jkp/m/n/12 Razredi \OT1/jkp/m/it/12 En-t-hu-si-ast \OT1/jkp/m/n/12 i \OT1/
 jkp/m/it/12 Nu-tri-ti-onist \OT1/jkp/m/n/12 spe-ci-fi-ka-cija su raz-reda \OT1/
 jkp/m/it/12 Spe-ci-alU-ser\OT1/jkp/m/n/12 , stoga naslje[]duju
  []
 
 
-Overfull \hbox (24.11354pt too wide) in paragraph at lines 303--314
+Overfull \hbox (24.11354pt too wide) in paragraph at lines 318--329
 \OT1/jkp/m/n/12 Razredi \OT1/jkp/m/it/12 Spe-ci-alU-ser\OT1/jkp/m/n/12 , \OT1/j
 kp/m/it/12 Cli-ent \OT1/jkp/m/n/12 i \OT1/jkp/m/it/12 Ad-mi-nis-tra-tor \OT1/jk
 p/m/n/12 spe-ci-fi-ka-cija su raz-reda \OT1/jkp/m/it/12 User\OT1/jkp/m/n/12 , s
@@ -1934,7 +1943,7 @@ toga naslje[]duju
 File: dijagrami/UML_dijagram_razreda_models.png Graphic file (type png)
 <use dijagrami/UML_dijagram_razreda_models.png>
 Package pdftex.def Info: dijagrami/UML_dijagram_razreda_models.png  used on inp
-ut line 317.
+ut line 332.
 (pdftex.def)             Requested size: 435.11792pt x 259.71571pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1949,7 +1958,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: dijagrami/UML_dijagram_razreda_dtos.png Graphic file (type png)
 <use dijagrami/UML_dijagram_razreda_dtos.png>
 Package pdftex.def Info: dijagrami/UML_dijagram_razreda_dtos.png  used on input
- line 327.
+ line 342.
 (pdftex.def)             Requested size: 137.00945pt x 122.25458pt.
 )
 
@@ -2097,11 +2106,11 @@ anged.
 (rerunfilecheck)             Checksum: 66AF40328395C5619670EB012140598C;3385.
  ) 
 Here is how much of TeX's memory you used:
- 17782 strings out of 475247
- 319547 string characters out of 5757791
+ 17785 strings out of 475247
+ 319620 string characters out of 5757791
  2065785 words of memory out of 5000000
- 38775 multiletter control sequences out of 15000+600000
- 610287 words of font info for 143 fonts, out of 8000000 for 9000
+ 38778 multiletter control sequences out of 15000+600000
+ 611334 words of font info for 146 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  86i,12n,116p,1198b,1049s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Dunja/AppData/Local/Programs/MiKTeX/fonts/type1/public/kpfonts/jkpb
@@ -2110,7 +2119,7 @@ ts/jkpbn8a.pfb><C:/Users/Dunja/AppData/Local/Programs/MiKTeX/fonts/type1/public
 /kpfonts/jkpmit8a.pfb><C:/Users/Dunja/AppData/Local/Programs/MiKTeX/fonts/type1
 /public/kpfonts/jkpmn8a.pfb><C:/Users/Dunja/AppData/Local/Programs/MiKTeX/fonts
 /type1/public/kpfonts/jkpttmn8a.pfb>
-Output written on PROGI_ProjektnaDokumentacija.pdf (42 pages, 3200319 bytes).
+Output written on PROGI_ProjektnaDokumentacija.pdf (42 pages, 3231077 bytes).
 PDF statistics:
  561 PDF objects out of 1000 (max. 8388607)
  204 named destinations out of 1000 (max. 500000)

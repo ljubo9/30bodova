@@ -52,10 +52,9 @@
 			\label{architecture}
 		\end{figure}
 	
-	
-	
-	Čitavi backend naše aplikacije izrađen je u programskom jeziku Java, u radnom okviru Spring. Razvojno okruženje korišteno za backend je Eclipse IDE.
-	Frontend je izrađen u JavaScriptu, u biblioteci React. Razvojno okruženje korišteno za frontend je Visual Studio Code.
+
+	Čitavi backend naše aplikacije izrađen je u programskom jeziku \textit{Java}, u radnom okviru \textit{Spring Boot}. Razvojno okruženje korišteno za razvoj backenda je \textit{Eclipse IDE}.
+	Frontend je izrađen u programskom jeziku \textit{JavaScript}, u biblioteci \textit{React}. Razvojno okruženje korišteno za razvoj frontenda je \textit{Visual Studio Code}.
 			
 		\section{Baza podataka}
 
@@ -73,12 +72,13 @@
 			\item Review
 			\item Response
 			\item Image
+			\item Recipe Image
 		\end{itemize}
 		
 		
 			\subsection{Opis tablica}
 				
-				\textbf{User} Entitet \textit{User} sadrži atribute važne za svakog registriranog korisnika aplikacije KuhajIT. Ti atributi su: ID korisnika, korisničko ime, lozinku, ime, prezime, email, uloga, biografija, ID osobne fotografije koju je priložio i oznaka potvrđenosti. U vezi je \textit{One-to-Many} s entitetom \textit{Review} preko korisničkog ID-ja, \textit{One-to-Many} s entitetom \textit{Cookbook} preko korisničkog ID-ja, \textit{Recipe} preko korisničkog ID-ja, \textit{One-to-Many} s entitetom \textit{Response} preko korisničkog ID-ja, \textit{Many-to-One} s entitetom \textit{Image} preko ID-ja učitane fotografije i \textit{Many-to-One} s entitetom \textit{Role} preko ID-ja uloge.
+				\textbf{User} Entitet \textit{User} sadrži atribute važne za svakog registriranog korisnika aplikacije KuhajIT. Ti atributi su: ID korisnika, korisničko ime, lozinku, ime, prezime, email, uloga, biografija, ID osobne fotografije koju je priložio i oznaka potvrđenosti. U vezi je \textit{One-to-Many} s entitetom \textit{Review} preko korisničkog ID-ja, \textit{One-to-Many} s entitetom \textit{Cookbook} preko korisničkog ID-ja, \textit{Recipe} preko korisničkog ID-ja, \textit{One-to-Many} s entitetom \textit{Response} preko korisničkog ID-ja, \textit{One-to-One} s entitetom \textit{Image} preko ID-ja učitane fotografije i \textit{Many-to-One} s entitetom \textit{Role} preko ID-ja uloge.
 				
 				\begin{longtblr}[
 					label=none,
@@ -283,6 +283,21 @@ Ti atributi su: ID fotografije i URL fotografije.
 					description & VARCHAR & Opis učitane fotografije. \\ \hline
 				\end{longtblr}
 				
+				\textbf{Recipe Image} Entitet \textit{Recipe Image} sadrži referencu na slike koje je kulinarski entuzijast učitao pri stvaranju recepta. U vezi je \textit{One-to-One} s entitetom \textit{Image} i \textit{Many-to-One} s entitetom \textit{Recipe}.
+				
+				\begin{longtblr}[
+					label=none,
+					entry=none
+					]{
+						width = \textwidth,
+						colspec={|X[6,l]|X[6, l]|X[20, l]|}, 
+						rowhead = 1,
+					} %definicija širine tablice, širine stupaca, poravnanje i broja redaka naslova tablice
+					\hline \SetCell[c=3]{c}{\textbf{Recipe Image}}	 \\ \hline[3pt]
+					\SetCell{LightGreen}image\_id & INT	&  ID učitane fotografije.  	\\ \hline
+					\SetCell{LightBlue}recipe\_id & INT & ID recepta kojem učitana fotografija pripada. \\ \hline	
+				\end{longtblr}
+				
 				\eject	
 	
 	  \section{Dijagram razreda}
@@ -306,7 +321,7 @@ Dijagram razreda na slici 4.6 prikazuje \textit{Models} dio razreda. \\
 	Razred \textit{User} predstavlja korisnika koji se može registrirati kao klijent, kulinarski entuzijast ili nutricionist te, sukladno svojoj ulozi, obavljati različite funkcije opisane u Specifikaciji programske potpore. \\
     Instanca razreda \textit{User}, ako se radi o registriranom kulinarskom entuzijastu, može stvarati recepte, koji pripadaju razredu \textit{Recipe}, i kuharice, koje pripadaju razredu \textit{Cookbook}. \\
     Razred \textit{Recipe} sadrži sve metode potrebne za stvaranje i objavljivanje recepta. \\
-    Razred \textit{Cookbook} sadrži sve metode potrebne za stvaranje tematske kuharice i spremanje recepata u istu.
+    Razred \textit{Cookbook} sadrži sve metode potrebne za stvaranje tematske kuharice i spremanje recepata u istu. \\
     Razred \textit{Image} sadrži atribute važne za pohranu slika. \\
     Razred \textit{Ingredient} sadrži atribute i metode važne za pohranu i dohvaćanje proizvoda i sastojaka. \\
     Razred \textit{Review} sadrži atribute i metode važne za ostavljanje recenzije na recept kulinarskog entuzijasta. \\
