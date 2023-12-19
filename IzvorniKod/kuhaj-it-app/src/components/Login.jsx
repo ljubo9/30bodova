@@ -12,7 +12,7 @@ function Login() {
     const checkIfLoggedIn = async () => {
       const isLoggedIn = sessionStorage.getItem('isLoggedIn');
       if (isLoggedIn === 'true') {
-        navigate('/');
+        navigate('/home');
       }
     };
 

@@ -1,5 +1,3 @@
-// U Navigation komponenti
-
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
@@ -12,7 +10,7 @@ function Navigation() {
     sessionStorage.removeItem('currentUser');
 
 
-    navigate('/');
+    navigate('/home');
   };
 
 
@@ -21,7 +19,7 @@ function Navigation() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="/">KuhajIT</Navbar.Brand>
+        <Navbar.Brand href="/home">KuhajIT</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
@@ -39,6 +37,9 @@ function Navigation() {
                 </Nav.Link>
                 <Nav.Link as={Link} to="/register">
                   Register
+                </Nav.Link>
+                <Nav.Link as={Link} to="/profile">
+                  Profile
                 </Nav.Link>
               </>
             )}
