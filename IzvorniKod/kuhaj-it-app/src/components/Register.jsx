@@ -90,8 +90,8 @@ const Register = () => {
   
 
   return (
-    <Container>
-      <Row className="justify-content-md-center mt-5">
+    <Container className="bg-secondary bg-gradient" fluid>
+      <Row className="justify-content-center align-items-center" style={{ height: '100vh'}}>
         <Col xs={12} md={6}>
           {registrationStatus === 'success' && (
             <Alert variant="success">
@@ -119,7 +119,7 @@ const Register = () => {
 
 
 
-          <Form>
+          <Form className="border border-dark p-4 bg-white">
             <Form.Group className="mb-3" controlId="firstName">
               <Form.Label>First Name</Form.Label>
               <Form.Control
@@ -212,7 +212,7 @@ const Register = () => {
               </>
             )}
 
-            <Button variant="primary" onClick={handleRegister}>
+            <Button variant="dark" className="w-100" onClick={handleRegister}>
               Register
             </Button>
           </Form>
