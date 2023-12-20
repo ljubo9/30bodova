@@ -12,7 +12,7 @@ const userData = {
   image: '../assets/cooking.png',
 };
 
-function Profile() {
+function ProfileEdit() {
   return (
     <Container>
     <Row className="justify-content-left p-5" style={{ height: '100vh'}}>
@@ -20,10 +20,10 @@ function Profile() {
       <div className="col-md-6">
       <Card>
 
-        <Card.Header className="bg-dark text-light d-flex align-items-center justify-content-center"> 
+        <Card.Header className="bg-dark text-light d-flex align-items-center justify-content-center">
             ime + prezime
         </Card.Header>
-        
+
         <Card.Text className="bg-light border border-dark border-1 mt-2 ps-2">
             username
         </Card.Text>
@@ -42,21 +42,21 @@ function Profile() {
             </Card.Text>
             </>
         )}
-        
+
         <Button variant="dark">
         Change data
       </Button>
-      </Card>    
+      </Card>
       </div>
       {['nutritionist', 'enthusiast'].includes(userData.selectedRole) && (
         <div className="col-md 6">
-            <div>slika</div>    
-        </div>   
+            <div>slika</div>
+        </div>
       )}
-      
+
     </Row>
     </Container>
   );
 };
 
-export default Profile;
+export default ProfileEdit;

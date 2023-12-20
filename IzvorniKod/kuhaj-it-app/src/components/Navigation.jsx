@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
-import CulinaryEnthusiast from './CulinaryEnthusiast'; // Import the CulinaryEnthusiast component
+import CulinaryEnthusiast from './CulinaryEnthusiast';
 
 function Navigation() {
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ function Navigation() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/culinary-enthusiast"> {/* Link to CulinaryEnthusiast component */}
+            <Nav.Link as={Link} to="/culinary-enthusiast"> {/* */}
               Kulinarski Entuzijasti
             </Nav.Link>
             {currentUser ? (
@@ -30,8 +30,8 @@ function Navigation() {
                 <Button variant="dark" onClick={handleLogout}>
                   Logout
                 </Button>
-                <Nav.Link as={Link} to="/profile">
-                  Profile
+                <Nav.Link as={Link} to="/profile-edit">
+                  ProfileEdit
                 </Nav.Link>
               </>
             ) : (
