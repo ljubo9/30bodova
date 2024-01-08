@@ -31,7 +31,7 @@ function CulinaryEnthusiast() {
 
   return (
     <>
-    <div className="bg-secondary d-flex justify-content-center align-items-center m-2">
+    <div className="bg-secondary d-flex justify-content-center align-items-center mt-2">
       <h2 className="p-2 m-2 text-black bg-light">Profili kulinarskih entuzijasta</h2>
     </div>
     <div className="d-flex justify-content-start border border-dark bg-light m-2">
