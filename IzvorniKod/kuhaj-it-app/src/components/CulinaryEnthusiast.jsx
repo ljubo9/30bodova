@@ -30,15 +30,20 @@ function CulinaryEnthusiast() {
   );
 
   return (
-    <div>
-      <h2>Profili kulinarskih entuzijasta</h2>
+    <>
+    <div className="bg-secondary d-flex justify-content-center align-items-center mt-2">
+      <h2 className="p-2 m-2 text-black bg-light">Profili kulinarskih entuzijasta</h2>
+    </div>
+    <div className="d-flex justify-content-start border border-dark bg-light m-2">
       <input
         type="text"
         placeholder="Pretraži po username-u"
+        className="m-3"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <ul>
+      </div>
+      <ul className="bg-light">
         {filteredEnthusiasts.map((enthusiast) => (
           <li key={enthusiast.id}>
             <Link to={`/enthusiast/${enthusiast.username}`}>
@@ -48,7 +53,8 @@ function CulinaryEnthusiast() {
           </li>
         ))}
       </ul>
-    </div>
+    </>
+
   );
 }
 
