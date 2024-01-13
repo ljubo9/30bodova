@@ -13,7 +13,9 @@ function ProfileEdit() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch('http://localhost:8080/profile', {
+        const currentUser = sessionStorage.getItem('currentUser');
+  
+        const response = await fetch(`https://kuhajitbackend.onrender.com/profile/${currentUser}`, {
           method: 'GET',
         });
   
