@@ -9,7 +9,7 @@ const ProfileCulinaryEnthusiast = () => {
     const fetchProfileData = async () => {
       try {
        //endpoint fali
-        const response = await fetch('https://kuhajitbackend.onrender.com/enthusiasts/${username}');
+        const response = await fetch('http://localhost:8080/enthusiasts/${username}');
         if (response.ok) {
           const data = await response.json();
           setProfileData(data);

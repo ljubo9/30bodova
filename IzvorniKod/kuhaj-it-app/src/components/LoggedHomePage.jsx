@@ -12,7 +12,7 @@ function LoggedHomePage() {
     const fetchRecipeList = async () => {
       try {
         //ruta za recepte koje je neki user konzumiro
-        const response = await fetch('https://kuhajitbackend.onrender.com/recepies/user/${username}');
+        const response = await fetch('http://localhost:8080/recepies/user/${username}');
         if (response.ok) {
           const data = await response.json();
           setRecipeList(data);

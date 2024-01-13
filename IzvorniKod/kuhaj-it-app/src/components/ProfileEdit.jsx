@@ -13,7 +13,7 @@ function ProfileEdit() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch('https://kuhajitbackend.onrender.com/profile', {
+        const response = await fetch('http://localhost:8080/profile', {
           method: 'GET',
         });
 

@@ -8,7 +8,7 @@ function CulinaryEnthusiast() {
   const fetchEnthusiasts = async () => {
     try {
       // endpoint za dohvaćanje profila kulinarskih entuzijasta iz baze
-      const response = await fetch('https://kuhajitbackend.onrender.com/enthusiasts');
+      const response = await fetch('http://localhost:8080/enthusiasts');
       if (response.ok) {
         const data = await response.json();
         setEnthusiasts(data);
