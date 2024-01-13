@@ -25,11 +25,11 @@ function Navigation() {
             <Nav.Link as={Link} to="/culinary-enthusiasts"> 
               Kulinarski Entuzijasti
             </Nav.Link>
+            <Nav.Link as={Link} to="/choose-recipe">
+                Choose Recipe
+            </Nav.Link>
             {currentUser ? (
               <>
-                <Nav.Link as={Link} to="/choose-recipe">
-                  Choose Recipe
-                </Nav.Link>
                 <Nav.Link disabled>{currentUser}</Nav.Link>
                 <Button variant="dark" onClick={handleLogout}>
                   Logout
