@@ -16,7 +16,7 @@ function ProfileEdit() {
         const currentUser = sessionStorage.getItem('currentUser');
   
         const response = await fetch(`https://kuhajitbackend.onrender.com/profile/${currentUser}`, {
-          method: 'GET',
+        method: 'GET',
         });
   
         if (!response.ok) {
@@ -82,8 +82,6 @@ function ProfileEdit() {
       console.error('Error updating user data:', error);
     }
   };
-  
-  };
 
   return (
     <Container>
@@ -138,6 +136,8 @@ function ProfileEdit() {
       </Row>
     </Container>
   );
+
+};
 
 
 export default ProfileEdit;

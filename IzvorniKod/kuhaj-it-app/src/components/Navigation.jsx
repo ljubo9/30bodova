@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
-import CulinaryEnthusiast from './CulinaryEnthusiast';
 
 function Navigation() {
   const navigate = useNavigate();
@@ -9,7 +8,7 @@ function Navigation() {
   const handleLogout = () => {
     sessionStorage.removeItem('isLoggedIn');
     sessionStorage.removeItem('currentUser');
-    navigate('/home');
+    navigate('/');
   };
 
   const currentUser = sessionStorage.getItem('currentUser');
@@ -17,11 +16,11 @@ function Navigation() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="/home">KuhajIT</Navbar.Brand>
+        <Navbar.Brand href="/">KuhajIT</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/culinary-enthusiasts"> {/* */}
+            <Nav.Link as={Link} to="/culinary-enthusiasts"> 
               Kulinarski Entuzijasti
             </Nav.Link>
             {currentUser ? (
