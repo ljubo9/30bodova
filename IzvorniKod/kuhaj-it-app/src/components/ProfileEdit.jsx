@@ -13,8 +13,10 @@ function ProfileEdit() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch('http://localhost:8080/profile', {
-          method: 'GET',
+        const currentUser = sessionStorage.getItem('currentUser');
+  
+        const response = await fetch(`/profile/${currentUser}`, {
+        method: 'GET',
         });
   
         if (!response.ok) {
@@ -43,7 +45,7 @@ function ProfileEdit() {
 
   const handleChangeData = async () => {
     try {
-      const authResponse = await fetch('https://kuhajitbackend.onrender.com/authenticate', {
+      const authResponse = await fetch('/authenticate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -59,7 +61,7 @@ function ProfileEdit() {
         return;
       }
   
-      const updateResponse = await fetch('https://kuhajitbackend.onrender.com/profile', {
+      const updateResponse = await fetch('/profile', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
