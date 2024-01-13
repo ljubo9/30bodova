@@ -12,7 +12,7 @@ function LoggedHomePage() {
         //ruta za recepte koje je neki user konzumiro
         //svakom useru trebalo bi dodati listu recepata koje je konzumirao
         //al ja bi to dodala ko mapu di je ključ taj recept a vrijednost je lista datuma kad je sve taj recept konzumirao jer nam to treba za statistiku
-        const response = await fetch('https://kuhajitbackend.onrender.com/recipes/user/${username}');
+        const response = await fetch('/recipes/user/${username}');
         if (response.ok) {
           const data = await response.json();
           setRecipeList(data);
@@ -38,7 +38,7 @@ function LoggedHomePage() {
       try {
         //ruta za dijetu koja je dodijeljena useru - trebamo napravit entitet za dijetu, user ima jednu dijetu
         //dijeta ima listu recepata koje smije konzumirati - msm da je tak lakse
-        const response = await fetch('https://kuhajitbackend.onrender.com/diet/user/${username}');
+        const response = await fetch('/diet/user/${username}');
         if (response.ok) {
           const data = await response.json();
           setDiet(data);
@@ -63,7 +63,7 @@ function LoggedHomePage() {
     const fetchFollowedChefs = async () => {
       try {
         //ruta za listu entuzijasta koje nas user prati, msm da to samo mozemo dodat listu ko atribut usera
-        const response = await fetch('https://kuhajitbackend.onrender.com/followed/user/${username}');
+        const response = await fetch('/followed/user/${username}');
         if (response.ok) {
           const data = await response.json();
           setFollowedChefs(data);
@@ -88,7 +88,7 @@ function LoggedHomePage() {
     const fetchConsumedRecipesStatistics = async () => {
       try {
         //ruta za statistiku usera - pogledat u zadatku kaj tocno
-        const response = await fetch('https://kuhajitbackend.onrender.com/statistic/user/${username}');
+        const response = await fetch('/statistic/user/${username}');
         if (response.ok) {
           const data = await response.json();
           setConsumedRecipesStatistics(data);
