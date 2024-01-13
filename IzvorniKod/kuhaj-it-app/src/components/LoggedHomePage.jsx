@@ -40,7 +40,22 @@ function LoggedHomePage() {
               <Card.Img variant="top" src={cookingImage} />
               <Card.Body>
                 <Card.Title>{recipe.title}</Card.Title>
-                {/* Dodajte ostale informacije o receptu koje želite prikazati */}
+                <Card.Text>
+                  <strong>Sastojci:</strong>
+                  <ul>
+                    {recipe.ingredients.map((ingredient, index) => (
+                      <li key={index}>{ingredient}</li>
+                    ))}
+                  </ul>
+                </Card.Text>
+                <Card.Text>
+                  <strong>Priprema:</strong>
+                  <ol>
+                    {recipe.steps_of_making.map((step, index) => (
+                      <li key={index}>{step}</li>
+                    ))}
+                  </ol>
+                </Card.Text>
               </Card.Body>
             </Card>
           </Col>
