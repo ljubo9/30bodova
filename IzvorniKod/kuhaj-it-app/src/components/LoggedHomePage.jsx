@@ -9,12 +9,10 @@ function LoggedHomePage() {
   const [followedChefs, setFollowedChefs] = useState(null);
   const [consumedRecipesStatistics, setConsumedRecipesStatistics] = useState(null);
 
-
   useEffect(() => {
     const fetchRecipeList = async () => {
       try {
-        //ruta za recepte koje je neki user konzumiro
-        const response = await fetch('http://localhost:8080/recepies/user/${username}');
+        const response = await fetch(`http://localhost:8080/recepies/user/${username}`);
         if (response.ok) {
           const data = await response.json();
           setRecipeList(data);
@@ -26,20 +24,9 @@ function LoggedHomePage() {
       }
     };
 
-    fetchRecipeList();
-  }, [username]);
-
-  if (!recipeList) {
-    return <div>Loading...</div>;
-  }
-
-
-  useEffect(() => {
     const fetchDietInfo = async () => {
       try {
-        //ruta za dijetu koja je dodijeljena useru - trebamo napravit entitet za dijetu, user ima jednu dijetu
-        //dijeta ima listu recepata koje smije konzumirati - msm da je tak lakse
-        const response = await fetch('https://kuhajitbackend.onrender.com/diet/user/${username}');
+        const response = await fetch(`https://kuhajitbackend.onrender.com/diet/user/${username}`);
         if (response.ok) {
           const data = await response.json();
           setDiet(data);
@@ -51,56 +38,41 @@ function LoggedHomePage() {
       }
     };
 
-    fetchDietInfo();
-  }, [username]);
-
-  if (!dietInfo) {
-    return <div>Loading...</div>;
-  }
-
-  useEffect(() => {
     const fetchFollowedChefs = async () => {
       try {
-        //ruta za listu entuzijasta koje nas user prati, msm da to samo mozemo dodat listu ko atribut usera
-        const response = await fetch('https://kuhajitbackend.onrender.com/followed/user/${username}');
+        const response = await fetch(`https://kuhajitbackend.onrender.com/followed/user/${username}`);
         if (response.ok) {
           const data = await response.json();
           setFollowedChefs(data);
         } else {
-          console.error('Error fetching diet:', response.statusText);
+          console.error('Error fetching followed chefs:', response.statusText);
         }
       } catch (error) {
-        console.error('Error fetching diet:', error.message);
+        console.error('Error fetching followed chefs:', error.message);
       }
     };
 
-    fetchFollowedChefs();
-  }, [username]);
-
-  if (!followedChefs) {
-    return <div>Loading...</div>;
-  }
-
-  useEffect(() => {
     const fetchConsumedRecipesStatistics = async () => {
       try {
-        //ruta za statistiku usera - pogledat u zadatku kaj tocno
-        const response = await fetch('https://kuhajitbackend.onrender.com/statistic/user/${username}');
+        const response = await fetch(`https://kuhajitbackend.onrender.com/statistic/user/${username}`);
         if (response.ok) {
           const data = await response.json();
           setConsumedRecipesStatistics(data);
         } else {
-          console.error('Error fetching diet:', response.statusText);
+          console.error('Error fetching consumed recipes statistics:', response.statusText);
         }
       } catch (error) {
-        console.error('Error fetching diet:', error.message);
+        console.error('Error fetching consumed recipes statistics:', error.message);
       }
     };
 
+    fetchRecipeList();
+    fetchDietInfo();
+    fetchFollowedChefs();
     fetchConsumedRecipesStatistics();
   }, [username]);
 
-  if (!consumedRecipesStatistics) {
+  if (!recipeList || !dietInfo || !followedChefs || !consumedRecipesStatistics) {
     return <div>Loading...</div>;
   }
   
