@@ -79,8 +79,6 @@ function ProfileEdit() {
     }
   };
   
-  };
-
   return (
     <Container>
       <Row className="justify-content-left p-5" style={{ height: '100vh' }}>
@@ -134,6 +132,8 @@ function ProfileEdit() {
       </Row>
     </Container>
   );
+
+};
 
 
 export default ProfileEdit;

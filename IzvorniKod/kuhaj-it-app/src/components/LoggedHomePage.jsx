@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { Card, Image } from 'react-bootstrap';
 import cookingImage from '../assets/cooking.png'; 
 

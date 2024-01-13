@@ -7,6 +7,7 @@ import HomePage from './components/HomePage';
 import ProfileEdit from './components/ProfileEdit';
 import CulinaryEnthusiast from './components/CulinaryEnthusiast';
 import ProfileCulinaryEnthusiast from './components/ProfileCulinaryEnthusiast';
+import LoggedHomePage from './components/LoggedHomePage';
 
 function App() {
   return (
