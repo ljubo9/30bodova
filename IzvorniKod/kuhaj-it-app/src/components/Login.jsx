@@ -46,7 +46,7 @@ function Login() {
 
         sessionStorage.setItem('isLoggedIn', 'true');
         sessionStorage.setItem('currentUser', username);
-        navigate('/');
+        navigate('/home');
         
       } else {
         setLoginStatus('error');

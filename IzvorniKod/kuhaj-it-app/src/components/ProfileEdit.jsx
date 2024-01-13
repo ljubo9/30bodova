@@ -16,21 +16,23 @@ function ProfileEdit() {
         const response = await fetch('http://localhost:8080/profile', {
           method: 'GET',
         });
-
+  
         if (!response.ok) {
-          navigate.push('/home');
+          console.error('Failed to fetch user data. Redirecting to /home');
+          navigate('/home');
           return;
         }
-
+  
         const userDataFromServer = await response.json();
         setUserData(userDataFromServer);
       } catch (error) {
         console.error('Error fetching user data:', error);
       }
     };
-
+  
     fetchUserData();
   }, [navigate]);
+  
 
   const handleInputChange = (e) => {
     setUserData({
@@ -78,7 +80,7 @@ function ProfileEdit() {
       console.error('Error updating user data:', error);
     }
   };
-  
+
   return (
     <Container>
       <Row className="justify-content-left p-5" style={{ height: '100vh' }}>
