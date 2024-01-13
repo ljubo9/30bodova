@@ -13,24 +13,28 @@ function ProfileEdit() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch('https://kuhajitbackend.onrender.com/profile', {
+        const currentUser = sessionStorage.getItem('currentUser');
+  
+        const response = await fetch(`https://kuhajitbackend.onrender.com/profile/${currentUser}`, {
           method: 'GET',
         });
-
+  
         if (!response.ok) {
-          navigate.push('/home');
+          console.error('Failed to fetch user data. Redirecting to /home');
+          navigate('/home');
           return;
         }
-
+  
         const userDataFromServer = await response.json();
         setUserData(userDataFromServer);
       } catch (error) {
         console.error('Error fetching user data:', error);
       }
     };
-
+  
     fetchUserData();
   }, [navigate]);
+  
 
   const handleInputChange = (e) => {
     setUserData({
