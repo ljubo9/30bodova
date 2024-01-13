@@ -45,23 +45,9 @@ function ProfileEdit() {
 
   const handleChangeData = async () => {
     try {
-      const authResponse = await fetch('https://kuhajitbackend.onrender.com/authenticate', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          username: userData.newUsername,
-          password: userData.oldPassword, 
-        }),
-      });
+      const currentUser = sessionStorage.getItem('currentUser');
   
-      if (!authResponse.ok) {
-        console.error('Authentication failed. Please check your old password.');
-        return;
-      }
-  
-      const updateResponse = await fetch('https://kuhajitbackend.onrender.com/profile', {
+      const updateResponse = await fetch(`https://kuhajitbackend.onrender.com/profile/${currentUser}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -69,6 +55,7 @@ function ProfileEdit() {
         body: JSON.stringify({
           newUsername: userData.newUsername,
           newPassword: userData.newPassword,
+          oldPassword: userData.oldPassword, 
         }),
       });
   
@@ -82,6 +69,7 @@ function ProfileEdit() {
       console.error('Error updating user data:', error);
     }
   };
+  
 
   return (
     <Container>
