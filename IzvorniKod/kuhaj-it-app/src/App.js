@@ -22,6 +22,7 @@ function App() {
           <Route path="/profile-edit" element={<ProfileEdit />} />
           <Route path="/culinary-enthusiasts" element={<CulinaryEnthusiast />} />
           <Route path="/enthusiast/:username" element={<ProfileCulinaryEnthusiast />} /> {/* ruta za prikazivanje profil kulinarskog entuzijasta */}
+          <Route path="/choose-recipe" element={<CulinaryEnthusiast />} /> {/* ruta za prikazivanje odabranih recepata */}
         </Routes>
       </div>
     </Router>

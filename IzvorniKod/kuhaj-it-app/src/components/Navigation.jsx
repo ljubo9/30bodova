@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
+import CulinaryEnthusiast from './CulinaryEnthusiast';
+import ChooseRecipe from './ChooseRecipe';
 
 function Navigation() {
   const navigate = useNavigate();
@@ -25,6 +27,9 @@ function Navigation() {
             </Nav.Link>
             {currentUser ? (
               <>
+                <Nav.Link as={Link} to="/choose-recipe">
+                  Choose Recipe
+                </Nav.Link>
                 <Nav.Link disabled>{currentUser}</Nav.Link>
                 <Button variant="dark" onClick={handleLogout}>
                   Logout
