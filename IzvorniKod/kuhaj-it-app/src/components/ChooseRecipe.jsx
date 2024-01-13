@@ -34,6 +34,22 @@ const ChooseRecipe = () => {
   ];
 
   const displayAndSortRecipes = () => {
+    // Add your logic for displaying and sorting recipes here
+  };
+
+  useEffect(() => {
+    if (!scanner) {
+      const newScanner = new Html5QrcodeScanner("reader", { fps: 10, qrbox: 250 }, false);
+      newScanner.render(handleScanSuccess, handleScanFailure);
+      setScanner(newScanner);
+    }
+
+    return () => {
+      scanner?.clear();
+    };
+  }, [scanner]);
+
+  useEffect(() => {
     // Match recipes with the scanned and manually added products
     const matchedRecipes = recipes.map(recipe => {
       const matchCount = recipe.requiredProducts.filter(product => products.includes(product)).length;
