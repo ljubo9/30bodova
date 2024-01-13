@@ -78,8 +78,6 @@ function ProfileEdit() {
       console.error('Error updating user data:', error);
     }
   };
-  
-  };
 
   return (
     <Container>
@@ -137,3 +135,4 @@ function ProfileEdit() {
 
 
 export default ProfileEdit;
+}
