@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Html5QrcodeScanner } from 'html5-qrcode';
 
 const ChooseRecipe = () => {
   const [products, setProducts] = useState([]);
   const [manualProduct, setManualProduct] = useState('');
+  const [scanner, setScanner] = useState(null);
 
   const handleScanSuccess = (decodedText) => {
     setProducts([...products, decodedText]);
@@ -26,23 +27,27 @@ const ChooseRecipe = () => {
 
   const displayAndSortRecipes = () => {
     // Add your logic for displaying and sorting recipes here
-    // This function will be called whenever products or other relevant state changes
   };
 
-  // Call displayAndSortRecipes whenever products or other relevant state changes
-  React.useEffect(() => {
+  useEffect(() => {
+    if (!scanner) {
+      const newScanner = new Html5QrcodeScanner("reader", { fps: 10, qrbox: 250 }, false);
+      newScanner.render(handleScanSuccess, handleScanFailure);
+      setScanner(newScanner);
+    }
+
+    return () => {
+      scanner?.clear();
+    };
+  }, [scanner]);
+
+  useEffect(() => {
     displayAndSortRecipes();
   }, [products]);
 
   return (
     <div>
-      <Html5QrcodeScanner
-        id="reader"
-        fps={10}
-        qrbox={250}
-        onScanSuccess={handleScanSuccess}
-        onScanFailure={handleScanFailure}
-      />
+      <div id="reader" />
       
       {/* Display the scanned products */}
       {products.map((product, index) => (
@@ -55,9 +60,9 @@ const ChooseRecipe = () => {
           type="text"
           value={manualProduct}
           onChange={handleManualProductChange}
-          placeholder="Unesite proizvod"
+          placeholder="Enter product"
         />
-        <button onClick={addManualProduct}>Dodaj ručno</button>
+        <button onClick={addManualProduct}>Add Manually</button>
       </div>
 
       {/* Add your logic for displaying and sorting recipes here */}
