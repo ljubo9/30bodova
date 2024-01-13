@@ -132,7 +132,6 @@ function ProfileEdit() {
       </Row>
     </Container>
   );
-
+}
 
 export default ProfileEdit;
-}
