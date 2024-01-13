@@ -7,6 +7,7 @@ import HomePage from './components/HomePage';
 import ProfileEdit from './components/ProfileEdit';
 import CulinaryEnthusiast from './components/CulinaryEnthusiast';
 import ProfileCulinaryEnthusiast from './components/ProfileCulinaryEnthusiast';
+import LoggedHomePage from './components/LoggedHomePage';
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/home" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/home" element={<LoggedHomePage />} />
           <Route path="/profile-edit" element={<ProfileEdit />} />
           <Route path="/culinary-enthusiasts" element={<CulinaryEnthusiast />} />
           <Route path="/enthusiast/:username" element={<ProfileCulinaryEnthusiast />} /> {/* ruta za prikazivanje profil kulinarskog entuzijasta */}
