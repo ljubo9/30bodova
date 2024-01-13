@@ -5,6 +5,10 @@ import { Card, Container, Col, Row } from 'react-bootstrap';
 function LoggedHomePage() {
   const { username } = useParams();
   const [recipeList, setRecipeList] = useState(null);
+  const [dietInfo, setDiet] = useState(null);
+  const [followedChefs, setFollowedChefs] = useState(null);
+  const [consumedRecipesStatistics, setConsumedRecipesStatistics] = useState(null);
+
 
   useEffect(() => {
     const fetchRecipeList = async () => {
@@ -31,7 +35,6 @@ function LoggedHomePage() {
     return <div>Loading...</div>;
   }
 
-  const [dietInfo, setDiet] = useState(null);
 
   useEffect(() => {
     const fetchDietInfo = async () => {
@@ -57,8 +60,6 @@ function LoggedHomePage() {
     return <div>Loading...</div>;
   }
 
-  const [followedChefs, setFollowedChefs] = useState(null);
-
   useEffect(() => {
     const fetchFollowedChefs = async () => {
       try {
@@ -81,8 +82,6 @@ function LoggedHomePage() {
   if (!followedChefs) {
     return <div>Loading...</div>;
   }
-
-  const [consumedRecipesStatistics, setConsumedRecipesStatistics] = useState(null);
 
   useEffect(() => {
     const fetchConsumedRecipesStatistics = async () => {
