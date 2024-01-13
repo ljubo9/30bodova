@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 function CulinaryEnthusiast() {
   const [enthusiasts, setEnthusiasts] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [filterCategory, setFilterCategory] = useState(''); // Dodano stanje za praćenje odabrane kategorije
 
   const fetchEnthusiasts = async () => {
     try {
@@ -13,10 +14,10 @@ function CulinaryEnthusiast() {
         const data = await response.json();
         setEnthusiasts(data);
       } else {
-        console.error('Error fetching enthusiasts:', response.statusText);
+        console.error('Greška prilikom dohvaćanja entuzijasta:', response.statusText);
       }
     } catch (error) {
-      console.error('Error fetching enthusiasts:', error.message);
+      console.error('Greška prilikom dohvaćanja entuzijasta:', error.message);
     }
   };
 
@@ -24,24 +25,48 @@ function CulinaryEnthusiast() {
     fetchEnthusiasts();
   }, []);
 
-  // Funkcija za filtriranje entuzijasta na temelju unesenog pojma u tražilicu
-  const filteredEnthusiasts = enthusiasts.filter((enthusiast) =>
-    enthusiast.username.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // Funkcija za filtriranje entuzijasta na temelju odabrane kategorije i unesenog pojma u tražilicu
+  const filteredEnthusiasts = enthusiasts.filter((enthusiast) => {
+    const isCategoryMatch =
+      !filterCategory || enthusiast.category.toLowerCase() === filterCategory.toLowerCase();
+
+    const isSearchMatch = enthusiast.username.toLowerCase().includes(searchTerm.toLowerCase());
+
+    return isCategoryMatch && isSearchMatch;
+  });
+
+  // Definiranje opcija izbornika
+  const menuOptions = [
+    { label: 'Slatko', subOptions: ['Čokoladno', 'Voćno', 'Bezglutensko', 'Bezlaktozno', 'Dijabetes', 'Dijeta'] },
+    { label: 'Slano', subOptions: ['Vegansko', 'Vegetarijansko', 'Bezglutensko', 'Obično'] },
+  ];
 
   return (
     <>
-    <div className="bg-secondary d-flex justify-content-center align-items-center mt-2">
-      <h2 className="p-2 m-2 text-black bg-light">Profili kulinarskih entuzijasta</h2>
-    </div>
-    <div className="d-flex justify-content-start border border-dark bg-light m-2">
-      <input
-        type="text"
-        placeholder="Pretraži po username-u"
-        className="m-3"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
+      <div className="bg-secondary d-flex justify-content-center align-items-center mt-2">
+        <h2 className="p-2 m-2 text-black bg-light">Profili kulinarskih entuzijasta</h2>
+      </div>
+      <div className="d-flex justify-content-start border border-dark bg-light m-2">
+        <input
+          type="text"
+          placeholder="Pretraži po korisničkom imenu"
+          className="m-3"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        {/* Izbornik za odabir kategorije */}
+        <select
+          value={filterCategory}
+          onChange={(e) => setFilterCategory(e.target.value)}
+          className="m-3"
+        >
+          <option value="">Odaberi kategoriju</option>
+          {menuOptions.map((option) => (
+            <option key={option.label} value={option.label.toLowerCase()}>
+              {option.label}
+            </option>
+          ))}
+        </select>
       </div>
       <ul className="bg-light">
         {filteredEnthusiasts.map((enthusiast) => (
@@ -54,8 +79,8 @@ function CulinaryEnthusiast() {
         ))}
       </ul>
     </>
-
   );
 }
 
 export default CulinaryEnthusiast;
+
