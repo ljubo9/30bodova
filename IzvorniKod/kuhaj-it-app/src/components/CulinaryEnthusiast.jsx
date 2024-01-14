@@ -14,6 +14,15 @@ function CulinaryEnthusiast() {
       const cookbooksResponse = await fetch(`https://kuhajitbackend.onrender.com/cookbooks?category=${category}`);
       if (!cookbooksResponse.ok) {
         throw new Error(`Error fetching cookbooks: ${cookbooksResponse.statusText}`);
+
+      // endpoint za dohvaćanje profila kulinarskih entuzijasta iz baze
+      const response = await fetch('http://localhost:8080/enthusiasts');
+      if (response.ok) {
+        const data = await response.json();
+        setEnthusiasts(data);
+      } else {
+        console.error('Error fetching enthusiasts:', response.statusText);
+
       }
   
       const cookbooksData = await cookbooksResponse.json();
