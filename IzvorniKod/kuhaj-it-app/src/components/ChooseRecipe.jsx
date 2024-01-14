@@ -1,98 +1,146 @@
-import React, { useState, useEffect } from 'react';
-import { Html5QrcodeScanner } from 'html5-qrcode';
+import React, { useState, useEffect } from "react";
+import { Html5QrcodeScanner } from "html5-qrcode";
 
 const ChooseRecipe = () => {
   const [products, setProducts] = useState([]);
-  const [manualProduct, setManualProduct] = useState('');
   const [scanner, setScanner] = useState(null);
+  const [recipesFromDB, setRecipesFromDB] = useState([]);
+  const [scannedProductURL, setScannedProductURL] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedProduct, setSelectedProduct] = useState("");
 
-  const handleScanSuccess = (decodedText) => {
-    setProducts([...products, decodedText]);
+  const categories = {
+    Voće: ["Jabuka", "Banana", "Naranča"],
+    Povrće: ["Krumpir", "Mrkva", "Brokula"],
+    // Dodajte više kategorija i namirnica po potrebi
   };
 
-  const handleScanFailure = (errorMessage) => {
-    console.error(errorMessage);
-  };
+  useEffect(() => {
+    const fetchRecipes = async () => {
+      try {
+        const response = await fetch("/api/recepti");
+        if (response.ok) {
+          const data = await response.json();
+          setRecipesFromDB(data);
+        } else {
+          console.error("Greška pri dohvaćanju recepata:", response.statusText);
+        }
+      } catch (error) {
+        console.error("Greška pri dohvaćanju recepata:", error.message);
+      }
+    };
 
-  const handleManualProductChange = (e) => {
-    setManualProduct(e.target.value);
-  };
-
-  const addManualProduct = () => {
-    if (manualProduct.trim() !== '') {
-      setProducts([...products, manualProduct.trim()]);
-      setManualProduct('');
-    }
-  };
-
-  const recipes = [
-    { name: "Spaghetti Bolognese", requiredProducts: ["spaghetti", "tomato sauce", "ground beef"] },
-    { name: "Vegetable Stir Fry", requiredProducts: ["broccoli", "carrot", "bell pepper", "soy sauce"] },
-    { name: "Classic Pancakes", requiredProducts: ["flour", "egg", "milk", "butter"] },
-    { name: "ulje", requiredProducts: ["ulje"] },
-    // Add more recipes...
-  ];
-
-  const displayAndSortRecipes = () => {
-    // Match recipes with the scanned and manually added products
-    const matchedRecipes = recipes.map(recipe => {
-      const matchCount = recipe.requiredProducts.filter(product => products.includes(product)).length;
-      return { ...recipe, matchCount };
-    });
-
-    // Sort recipes based on the number of matching products
-    matchedRecipes.sort((a, b) => b.matchCount - a.matchCount);
-
-    // Update state or directly render sorted recipes (depends on your component design)
-    // setSortedRecipes(matchedRecipes); // If you have a state for sorted recipes
-    return matchedRecipes; // If directly rendering in the component
-  };
+    fetchRecipes();
+  }, []);
 
   useEffect(() => {
     if (!scanner) {
-      const newScanner = new Html5QrcodeScanner("reader", { fps: 10, qrbox: 250 }, false);
-      newScanner.render(handleScanSuccess, handleScanFailure);
+      const newScanner = new Html5QrcodeScanner(
+        "reader",
+        { fps: 10, qrbox: 250 },
+        false
+      );
+      newScanner.render(
+        (decodedText) => {
+          const matchedRecipe = recipesFromDB.find(
+            (recipe) => recipe.qrCodeURL === decodedText
+          );
+          if (matchedRecipe) {
+            setScannedProductURL(matchedRecipe.qrCodeURL);
+            setProducts((prevProducts) => [
+              ...prevProducts,
+              matchedRecipe.name,
+            ]);
+          } else {
+            console.error("Nema podudaranja za skenirani QR kod:", decodedText);
+          }
+        },
+        (errorMessage) => {
+          console.error(errorMessage);
+        }
+      );
       setScanner(newScanner);
     }
 
-    return () => {
-      scanner?.clear();
-    };
+    return () => scanner?.clear();
   }, [scanner]);
+
+  const displayAndSortRecipes = () => {
+    const matchedRecipes = recipesFromDB.map((recipe) => {
+      const matchCount = recipe.requiredProducts.filter((product) =>
+        products.includes(product)
+      ).length;
+      return { ...recipe, matchCount };
+    });
+
+    matchedRecipes.sort((a, b) => b.matchCount - a.matchCount);
+    return matchedRecipes;
+  };
 
   useEffect(() => {
     displayAndSortRecipes();
-  }, [products]);
+  }, [products, recipesFromDB]);
 
   const sortedRecipes = displayAndSortRecipes();
 
   return (
     <div>
       <div id="reader" />
-      
-      {/* Display the scanned products */}
       {products.map((product, index) => (
         <p key={index}>{product}</p>
       ))}
-      
-      {/* Add manual input for products */}
+      {scannedProductURL && (
+        <p>
+          URL skenirane namirnice:{" "}
+          <a href={scannedProductURL} target="_blank" rel="noopener noreferrer">
+            {scannedProductURL}
+          </a>
+        </p>
+      )}
       <div>
-        <input
-          type="text"
-          value={manualProduct}
-          onChange={handleManualProductChange}
-          placeholder="Enter product"
-        />
-        <button onClick={addManualProduct}>Add Manually</button>
+        <select
+          value={selectedCategory}
+          onChange={(e) => setSelectedCategory(e.target.value)}
+        >
+          <option value="">Odaberi kategoriju</option>
+          {Object.keys(categories).map((category, index) => (
+            <option key={index} value={category}>
+              {category}
+            </option>
+          ))}
+        </select>
+        <select
+          value={selectedProduct}
+          onChange={(e) => setSelectedProduct(e.target.value)}
+          disabled={!selectedCategory}
+        >
+          <option value="">Odaberi namirnicu</option>
+          {selectedCategory &&
+            categories[selectedCategory].map((product, index) => (
+              <option key={index} value={product}>
+                {product}
+              </option>
+            ))}
+        </select>
+        <button
+          onClick={() => {
+            if (selectedProduct) {
+              setProducts([...products, selectedProduct]);
+              setSelectedProduct("");
+            }
+          }}
+        >
+          Dodaj
+        </button>
       </div>
-
-      {/* Add your logic for displaying and sorting recipes here */}
       <div>
         {sortedRecipes.map((recipe, index) => (
           <div key={index}>
             <h3>{recipe.name}</h3>
-            <p>Matching ingredients: {recipe.matchCount}/{recipe.requiredProducts.length}</p>
-            {/* Additional details about the recipe can be displayed here */}
+            <p>
+              Podudarni sastojci: {recipe.matchCount}/
+              {recipe.requiredProducts.length}
+            </p>
           </div>
         ))}
       </div>
