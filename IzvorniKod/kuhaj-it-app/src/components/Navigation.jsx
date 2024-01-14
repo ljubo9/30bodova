@@ -1,12 +1,10 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
-//import CulinaryEnthusiast from './CulinaryEnthusiast';
-import ChooseRecipe from './ChooseRecipe';
 
 function Navigation() {
   const navigate = useNavigate();
-
+  
   const handleLogout = () => {
     sessionStorage.removeItem('isLoggedIn');
     sessionStorage.removeItem('currentUser');
@@ -28,6 +26,12 @@ function Navigation() {
             <Nav.Link as={Link} to="/choose-recipe">
                 Choose Recipe
             </Nav.Link>
+            {currentUser && currentUser.role === 'nutritionist' && (
+              <Nav.Link as={Link} to="/nutritionist">
+                Nutritionist
+              </Nav.Link>
+            )}
+            
             {currentUser ? (
               <>
                 <Nav.Link disabled>{currentUser}</Nav.Link>
