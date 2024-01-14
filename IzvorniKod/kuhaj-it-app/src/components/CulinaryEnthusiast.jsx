@@ -8,7 +8,11 @@ function CulinaryEnthusiast() {
   const fetchEnthusiasts = async () => {
     try {
       // endpoint za dohvaćanje profila kulinarskih entuzijasta iz baze
+<<<<<<< HEAD
       const response = await fetch('http://localhost:8080/enthusiasts');
+=======
+      const response = await fetch('/enthusiasts');
+>>>>>>> b5a270c72ad9b9a0164320e95d07574baadafe0d
       if (response.ok) {
         const data = await response.json();
         setEnthusiasts(data);
