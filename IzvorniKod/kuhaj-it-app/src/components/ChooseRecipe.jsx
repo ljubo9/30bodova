@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Html5QrcodeScanner } from 'html5-qrcode';
 
 const ChooseRecipe = () => {
   const [products, setProducts] = useState([]);
+  const [manualProduct, setManualProduct] = useState('');
+  const [scanner, setScanner] = useState(null);
   const [manualProduct, setManualProduct] = useState('');
   const [scanner, setScanner] = useState(null);
 
@@ -86,10 +89,24 @@ const ChooseRecipe = () => {
     <div>
       <div id="reader" />
       
+      <div id="reader" />
+      
       {/* Display the scanned products */}
       {products.map((product, index) => (
         <p key={index}>{product}</p>
       ))}
+      
+      {/* Add manual input for products */}
+      <div>
+        <input
+          type="text"
+          value={manualProduct}
+          onChange={handleManualProductChange}
+          placeholder="Enter product"
+        />
+        <button onClick={addManualProduct}>Add Manually</button>
+      </div>
+
       
       {/* Add manual input for products */}
       <div>
@@ -112,8 +129,18 @@ const ChooseRecipe = () => {
           </div>
         ))}
       </div>
+      <div>
+        {sortedRecipes.map((recipe, index) => (
+          <div key={index}>
+            <h3>{recipe.name}</h3>
+            <p>Matching ingredients: {recipe.matchCount}/{recipe.requiredProducts.length}</p>
+            {/* Additional details about the recipe can be displayed here */}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
 
 export default ChooseRecipe;
+
