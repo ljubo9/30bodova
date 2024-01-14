@@ -30,8 +30,8 @@ function LoggedHomePage() {
     const fetchDietInfo = async () => {
       try {
         //ruta za dijetu koja je dodijeljena useru - trebamo napravit entitet za dijetu, user ima jednu dijetu
-        //dijeta ima listu recepata koje smije konzumirati - msm da je tak lakse
-        //i ima tipa ili opis 
+        //dijeta ima listu recepata koje smije konzumirati - msm da je tak lakse za filtiriranje prihvatljivosti recepata
+        //i ima tipa ili opis kratki(neki string) ili sam ime dijete - to je ono kaj se prikazuje
         const response = await fetch('/diet/user/${username}');
         if (response.ok) {
           const data = await response.json();
