@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
-import CulinaryEnthusiast from './CulinaryEnthusiast';
+//import CulinaryEnthusiast from './CulinaryEnthusiast';
 import ChooseRecipe from './ChooseRecipe';
 
 function Navigation() {
