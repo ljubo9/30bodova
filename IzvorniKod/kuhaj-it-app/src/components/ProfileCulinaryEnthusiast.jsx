@@ -9,7 +9,7 @@ const ProfileCulinaryEnthusiast = () => {
     const fetchProfileData = async () => {
       try {
        //endpoint fali
-        const response = await fetch('/enthusiasts/${username}');
+        const response = await fetch('/profile/${username}');
         if (response.ok) {
           const data = await response.json();
           setProfileData(data);

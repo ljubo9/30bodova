@@ -44,23 +44,24 @@ function ProfileEdit() {
   };
 
   const handleChangeData = async () => {
+
+    const formData = new FormData();
+    formData.append(userData.newUsername);
+    formData.append(userData.oldPassword);
     try {
       const authResponse = await fetch('/authenticate', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          username: userData.newUsername,
-          password: userData.oldPassword, 
-        }),
+        body: formData,
       });
   
       if (!authResponse.ok) {
         console.error('Authentication failed. Please check your old password.');
         return;
       }
-  
+      
+      const formData = new FormData();
+      formData.append(userData.oldUsername);
+      
       const updateResponse = await fetch('/profile', {
         method: 'POST',
         headers: {
