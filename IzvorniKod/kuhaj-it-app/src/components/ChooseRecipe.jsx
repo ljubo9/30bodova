@@ -25,8 +25,27 @@ const ChooseRecipe = () => {
     }
   };
 
+  const recipes = [
+    { name: "Spaghetti Bolognese", requiredProducts: ["spaghetti", "tomato sauce", "ground beef"] },
+    { name: "Vegetable Stir Fry", requiredProducts: ["broccoli", "carrot", "bell pepper", "soy sauce"] },
+    { name: "Classic Pancakes", requiredProducts: ["flour", "egg", "milk", "butter"] },
+    { name: "ulje", requiredProducts: ["ulje"] },
+    // Add more recipes...
+  ];
+
   const displayAndSortRecipes = () => {
-    // Add your logic for displaying and sorting recipes here
+    // Match recipes with the scanned and manually added products
+    const matchedRecipes = recipes.map(recipe => {
+      const matchCount = recipe.requiredProducts.filter(product => products.includes(product)).length;
+      return { ...recipe, matchCount };
+    });
+
+    // Sort recipes based on the number of matching products
+    matchedRecipes.sort((a, b) => b.matchCount - a.matchCount);
+
+    // Update state or directly render sorted recipes (depends on your component design)
+    // setSortedRecipes(matchedRecipes); // If you have a state for sorted recipes
+    return matchedRecipes; // If directly rendering in the component
   };
 
   useEffect(() => {
@@ -44,6 +63,8 @@ const ChooseRecipe = () => {
   useEffect(() => {
     displayAndSortRecipes();
   }, [products]);
+
+  const sortedRecipes = displayAndSortRecipes();
 
   return (
     <div>
@@ -66,6 +87,15 @@ const ChooseRecipe = () => {
       </div>
 
       {/* Add your logic for displaying and sorting recipes here */}
+      <div>
+        {sortedRecipes.map((recipe, index) => (
+          <div key={index}>
+            <h3>{recipe.name}</h3>
+            <p>Matching ingredients: {recipe.matchCount}/{recipe.requiredProducts.length}</p>
+            {/* Additional details about the recipe can be displayed here */}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

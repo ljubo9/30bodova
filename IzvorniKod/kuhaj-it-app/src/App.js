@@ -5,9 +5,10 @@ import Navigation from './components/Navigation';
 import Register from './components/Register';
 import HomePage from './components/HomePage';
 import ProfileEdit from './components/ProfileEdit';
-import CulinaryEnthusiast from './components/CulinaryEnthusiast';
-import ProfileCulinaryEnthusiast from './components/ProfileCulinaryEnthusiast';
+//import CulinaryEnthusiast from './components/CulinaryEnthusiast';
+//import ProfileCulinaryEnthusiast from './components/ProfileCulinaryEnthusiast';
 import LoggedHomePage from './components/LoggedHomePage';
+import ChooseRecipe from './components/ChooseRecipe';
 
 function App() {
   return (
@@ -20,9 +21,9 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/home" element={<LoggedHomePage />} />
           <Route path="/profile-edit" element={<ProfileEdit />} />
-          <Route path="/culinary-enthusiasts" element={<CulinaryEnthusiast />} />
-          <Route path="/enthusiast/:username" element={<ProfileCulinaryEnthusiast />} /> {/* ruta za prikazivanje profil kulinarskog entuzijasta */}
-          <Route path="/choose-recipe" element={<CulinaryEnthusiast />} /> {/* ruta za prikazivanje odabranih recepata */}
+          {/* <Route path="/culinary-enthusiasts" element={<CulinaryEnthusiast />} />
+          <Route path="/enthusiast/:username" element={<ProfileCulinaryEnthusiast />} /> ruta za prikazivanje profil kulinarskog entuzijasta */}
+          <Route path="/choose-recipe" element={<ChooseRecipe />} /> {/* ruta za prikazivanje odabranih recepata */}
         </Routes>
       </div>
     </Router>

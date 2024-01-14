@@ -14,7 +14,7 @@ const Nutritionist = () => {
     setCurrentUser(storedUser ? JSON.parse(storedUser) : null);
   }, []);
 
-  const addProduct = (name, category, calories, protein, carbs, fat) => {
+  const addProduct = (name, category, calories, protein, carbs, fat, image, weight, labels) => {
     const newProduct = {
       name,
       category,
@@ -22,14 +22,19 @@ const Nutritionist = () => {
       protein,
       carbs,
       fat,
+      image,
+      weight,
+      labels,
     };
     setProducts([...products, newProduct]);
   };
+  
 
   const categorizeProducts = () => {
-    const categories = [...new Set(products.map((product) => product.category))];
+    const categories = [...new Set(products.flatMap((product) => product.labels))];
     return categories;
   };
+  
 
   const createDiet = () => {
     const possibleDiets = products.filter(

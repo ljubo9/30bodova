@@ -15,8 +15,8 @@ function ProfileEdit() {
       try {
         const currentUser = sessionStorage.getItem('currentUser');
   
-        const response = await fetch(`https://kuhajitbackend.onrender.com/profile/${currentUser}`, {
-          method: 'GET',
+        const response = await fetch(`/profile/${currentUser}`, {
+        method: 'GET',
         });
   
         if (!response.ok) {
@@ -47,7 +47,7 @@ function ProfileEdit() {
     try {
       const currentUser = sessionStorage.getItem('currentUser');
   
-      const updateResponse = await fetch(`https://kuhajitbackend.onrender.com/profile/${currentUser}`, {
+      const updateResponse = await fetch(`/profile/${currentUser}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -55,7 +55,7 @@ function ProfileEdit() {
         body: JSON.stringify({
           newUsername: userData.newUsername,
           newPassword: userData.newPassword,
-          oldPassword: userData.oldPassword, 
+          oldPassword: userData.oldPassword, // Include old password for authentication
         }),
       });
   
@@ -69,6 +69,7 @@ function ProfileEdit() {
       console.error('Error updating user data:', error);
     }
   };
+  
   
 
   return (
