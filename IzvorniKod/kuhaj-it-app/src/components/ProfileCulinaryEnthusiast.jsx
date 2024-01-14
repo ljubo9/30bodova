@@ -8,8 +8,8 @@ const ProfileCulinaryEnthusiast = () => {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-       //endpoint fali
-        const response = await fetch('https://kuhajitbackend.onrender.com/enthusiasts/${username}');
+        // endpoint za ucitavanje konkretnog entuzijasta
+        const response = await fetch(`https://kuhajitbackend.onrender.com/enthusiasts/${username}`);
         if (response.ok) {
           const data = await response.json();
           setProfileData(data);
@@ -20,6 +20,7 @@ const ProfileCulinaryEnthusiast = () => {
         console.error('Error fetching profile data:', error.message);
       }
     };
+    
 
     fetchProfileData();
   }, [username]);

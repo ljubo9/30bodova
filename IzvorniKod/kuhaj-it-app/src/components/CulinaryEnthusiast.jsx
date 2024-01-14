@@ -2,43 +2,87 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 function CulinaryEnthusiast() {
-  const [enthusiasts, setEnthusiasts] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [filterCategory, setFilterCategory] = useState(''); // Dodano stanje za praćenje odabrane kategorije
+  const [filterCategory, setFilterCategory] = useState('');
+  const [filterSubcategory, setFilterSubcategory] = useState('');
+  const [filteredEnthusiasts, setFilteredEnthusiasts] = useState([]);  //filtirani entuzijasti po kategoriji ili searchu
+  const [enthusiasts, setEnthusiasts] = useState([]);  //svi entuzijasti iz baze
 
-  const fetchEnthusiasts = async () => {
+  const fetchCreatorsByCategory = async (category) => {
     try {
-      // endpoint za dohvaćanje profila kulinarskih entuzijasta iz baze
-      const response = await fetch('https://kuhajitbackend.onrender.com/enthusiasts');
-      if (response.ok) {
-        const data = await response.json();
-        setEnthusiasts(data);
-      } else {
-        console.error('Greška prilikom dohvaćanja entuzijasta:', response.statusText);
+      // Dohvaćanje svih kuharica iz baze čija je kategorija jednaka stisnutoj
+      const cookbooksResponse = await fetch(`https://kuhajitbackend.onrender.com/cookbooks?category=${category}`);
+      if (!cookbooksResponse.ok) {
+        throw new Error(`Error fetching cookbooks: ${cookbooksResponse.statusText}`);
       }
+  
+      const cookbooksData = await cookbooksResponse.json();
+      const cookbookAuthors = cookbooksData.map(cookbook => cookbook.creator);
+  
+      // Dohvaćanje svih recepata iz baze čija je kategorija jednaka stisnutoj
+      const recipesResponse = await fetch(`https://kuhajitbackend.onrender.com/recipes?category=${category}`);
+      if (!recipesResponse.ok) {
+        throw new Error(`Error fetching recipes: ${recipesResponse.statusText}`);
+      }
+  
+      const recipesData = await recipesResponse.json();
+      const recipeAuthors = recipesData.map(recipe => recipe.creator);
+  
+      // Uklanjanje dupliciranih autora
+      const allAuthors = [...new Set([...cookbookAuthors, ...recipeAuthors])];
+  
+      setFilteredEnthusiasts(allAuthors);
     } catch (error) {
-      console.error('Greška prilikom dohvaćanja entuzijasta:', error.message);
+      console.error('Error fetching creators:', error.message);
     }
+  };
+  
+
+  const handleSubcategoryChange = (subcategory) => {
+    setFilterSubcategory(subcategory);
+    fetchCreatorsByCategory(subcategory);
   };
 
   useEffect(() => {
-    fetchEnthusiasts();
+    const fetchAllEnthusiasts = async () => {
+      try {
+      //dohvacanje svih entuzijasta iz baze
+        const response = await fetch('https://kuhajitbackend.onrender.com/enthusiasts');
+        if (response.ok) {
+          const data = await response.json();
+          setEnthusiasts(data);
+        } else {
+          console.error('Error fetching enthusiasts:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error fetching enthusiasts:', error.message);
+      }
+    };
+
+    fetchAllEnthusiasts();
   }, []);
 
-  // Funkcija za filtriranje entuzijasta na temelju odabrane kategorije i unesenog pojma u tražilicu
-  const filteredEnthusiasts = enthusiasts.filter((enthusiast) => {
-    const isCategoryMatch =
-      !filterCategory || enthusiast.category.toLowerCase() === filterCategory.toLowerCase();
+  useEffect(() => {
+    //svi entuzijasti se filtriraju 
+    const filteredByUsername = enthusiasts.filter((enthusiast) =>
+      enthusiast.username.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredEnthusiasts(filteredByUsername);
+  }, [searchTerm, enthusiasts]);
 
-    const isSearchMatch = enthusiast.username.toLowerCase().includes(searchTerm.toLowerCase());
+  useEffect(() => {
+    fetchCreatorsByCategory(filterSubcategory);
+  }, [filterSubcategory]);
 
-    return isCategoryMatch && isSearchMatch;
-  });
-
-  // Definiranje opcija izbornika
   const menuOptions = [
-    { label: 'Slatko', subOptions: ['Čokoladno', 'Voćno', 'Bezglutensko', 'Bezlaktozno', 'Dijabetes', 'Dijeta'] },
-    { label: 'Slano', subOptions: ['Vegansko', 'Vegetarijansko', 'Bezglutensko', 'Obično'] },
+    {
+      label: 'Slatko',
+      subOptions: ['Čokoladno', 'Voćno', 'Bezglutensko', 'Bezlaktozno', 'Dijabetes', 'Dijeta'],
+    },
+    {
+      label: 'Slano',
+      subOptions: ['Vegansko', 'Vegetarijansko', 'Bezglutensko', 'Obično'],
+    },
   ];
 
   return (
@@ -54,7 +98,6 @@ function CulinaryEnthusiast() {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        {/* Izbornik za odabir kategorije */}
         <select
           value={filterCategory}
           onChange={(e) => setFilterCategory(e.target.value)}
@@ -67,12 +110,28 @@ function CulinaryEnthusiast() {
             </option>
           ))}
         </select>
+        {filterCategory && (
+          <select
+            value={filterSubcategory}
+            onChange={(e) => handleSubcategoryChange(e.target.value)}
+            className="m-3"
+          >
+            <option value="">Odaberi podkategoriju</option>
+            {menuOptions
+              .find((option) => option.label.toLowerCase() === filterCategory)
+              ?.subOptions.map((subOption) => (
+                <option key={subOption} value={subOption.toLowerCase()}>
+                  {subOption}
+                </option>
+              ))}
+          </select>
+        )}
       </div>
       <ul className="bg-light">
         {filteredEnthusiasts.map((enthusiast) => (
           <li key={enthusiast.id}>
             <Link to={`/enthusiast/${enthusiast.username}`}>
-              <h3>{enthusiast.name}</h3>
+              <h3>{enthusiast.username}</h3>
             </Link>
             <p>{enthusiast.biography}</p>
           </li>
@@ -83,4 +142,3 @@ function CulinaryEnthusiast() {
 }
 
 export default CulinaryEnthusiast;
-
