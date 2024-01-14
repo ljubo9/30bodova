@@ -9,6 +9,7 @@ import CulinaryEnthusiast from './components/CulinaryEnthusiast';
 import ProfileCulinaryEnthusiast from './components/ProfileCulinaryEnthusiast';
 import LoggedHomePage from './components/LoggedHomePage';
 import ChooseRecipe from './components/ChooseRecipe';
+import Nutritionist from './components/Nutritionist';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/culinary-enthusiasts" element={<CulinaryEnthusiast />} />
           <Route path="/enthusiast/:username" element={<ProfileCulinaryEnthusiast />} />
           <Route path="/choose-recipe" element={<ChooseRecipe />} />
+          <Route path="/nutritionist" element={<Nutritionist />} />
         </Routes>
       </div>
     </Router>

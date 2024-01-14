@@ -20,8 +20,8 @@ function ProfileEdit() {
         });
   
         if (!response.ok) {
-          console.error('Failed to fetch user data. Redirecting to /home');
-          navigate('/home');
+          console.error('Failed to fetch user data.');
+          navigate('/');
           return;
         }
   
@@ -46,17 +46,15 @@ function ProfileEdit() {
   const handleChangeData = async () => {
     try {
       const currentUser = sessionStorage.getItem('currentUser');
+      const formData = new FormData();
+  
+      formData.append('newUsername', userData.newUsername);
+      formData.append('newPassword', userData.newPassword);
+      formData.append('oldPassword', userData.oldPassword);
   
       const updateResponse = await fetch(`/profile/${currentUser}`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          newUsername: userData.newUsername,
-          newPassword: userData.newPassword,
-          oldPassword: userData.oldPassword, // Include old password for authentication
-        }),
+        body: formData,
       });
   
       if (!updateResponse.ok) {
@@ -69,6 +67,7 @@ function ProfileEdit() {
       console.error('Error updating user data:', error);
     }
   };
+  
   
   
 
@@ -93,16 +92,6 @@ function ProfileEdit() {
                 type="password"
                 name="newPassword"
                 value={userData.newPassword}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
-
-            <Form.Group controlId="confirmPassword">
-              <Form.Label>Confirm Password</Form.Label>
-              <Form.Control
-                type="password"
-                name="confirmPassword"
-                value={userData.confirmPassword}
                 onChange={handleInputChange}
               />
             </Form.Group>
