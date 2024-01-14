@@ -52,7 +52,7 @@ const Cookbook = () => {
             <Card key={index} className="mb-3">
               <Card.Body>
                 <Card.Title>
-                  <Link to={`/recipe/${recipe.id}`}>{recipe.title}</Link>
+                  <Link to={`/recipe/${recipe.id}`}>{recipe.name}</Link>
                 </Card.Title>
                 {/* Dodajte ostale informacije o receptu koje želite prikazati */}
               </Card.Body>
