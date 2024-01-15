@@ -9,7 +9,10 @@ import CulinaryEnthusiast from './components/CulinaryEnthusiast';
 import ProfileCulinaryEnthusiast from './components/ProfileCulinaryEnthusiast';
 import LoggedHomePage from './components/LoggedHomePage';
 import ChooseRecipe from './components/ChooseRecipe';
+<<<<<<< HEAD
+=======
 import Nutritionist from './components/Nutritionist';
+>>>>>>> ea5f3b0518e0c129d21b350e536a70c790c6efa9
 import Cookbook from './components/Cookbook';
 import Recipe from './components/Recipe';
 
