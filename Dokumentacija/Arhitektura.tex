@@ -341,7 +341,7 @@ Dijagram razreda na slici 4.6 prikazuje \textit{Models} dio razreda. \\
 			\label{Dijagram razreda - dio Models}
 		\end{figure}
 		
-Dijagram razreda na slici 4.7 prikazuje \textit{Data Transfer Object} dio razreda. \\
+Dijagram razreda na slici 4.8 prikazuje \textit{Data Transfer Object} dio razreda. \\
 DTO su objekti koji prenose podatke između sustava. Konkretno, kada dođe do zahtjeva za podacima od korisnika na frontendu, DTO razredi koriste se za prijenos tih podataka iz backenda na frontend, koji se zatim prikazuju korisniku koji je poslao zahtjev za njima.
 
 			\begin{figure}[H]
@@ -350,4 +350,42 @@ DTO su objekti koji prenose podatke između sustava. Konkretno, kada dođe do za
 			\caption{Dijagram razreda - dio DTO}
 			\label{Dijagram razreda - dio DTO}
 		\end{figure}
+		
+		\eject
+		
+		\section{Dijagram stanja}
+		
+		Na slici 4.9 prikazan je dijagram stanja aplikacije implementirane aplikacije KuhajIT. Dijagram stanja je dijagram kojim se prikazuje diskretno ponašanje objekta ili sustava putem prelazaka izmedu konačnog broja stanja. Koristi se za modeliranje ponašanja entiteta tijekom vremena, naglašavajući odgovor na događaje i okidače.
+		
+		Mi smo odlučili prikazati dijagram stanja za kulinarskog entuzijasta, pošto on ima najviše funkcionalnosti koje su zajedničke svim registriranim korisnicima (klijentima).
+		
+  Prijavljenom korisniku se na početnoj stranici prikazuju isprobani recepti, informacije o dijeti koju prate, nove kuharice i recepti od drugih kulinarskih entuzijasta koje prate. Također im se nudi sljedeće opcije:
+  \begin{itemize}
+			\item prikazivanje osobnih podataka
+			\item dodavanje nove kuharice
+			\item dodavanje novog recepta 
+			\item dodavanje novog proizvoda
+			\item pretraživanje ostalih kulinarskih entuzijasta
+			\item odjava
+		\end{itemize}
+		
+Pri prikazivanju osobnih podataka, klijentu se nudi opcija uređivanja istih. 
+Pri dodavanju nove kuharice, kulinarski entuzijast može odabrati želi li odmah dodati i recept u nju, i ako želi, odabrati hoće li to biti neki od njegovih već objavljenih recepata ili želi stvoriti novi recept.
+Pri dodavanju novog recepta, kulinarski entuzijast ima priliku odabrati želi li recept dodati nekoj od svojih postojećih kuharica.
+Pri dodavanju novog proizvoda, klijent može odabrati želi li skenirati bar kod proizvoda ili ga želi ručno unijeti.
+
+Opcije odjave i prikaza osobnih podataka su svakom prijavljenom korisniku omogućene u bilo kojem trenutku korištenja aplikacije.
+
+			\begin{figure}[H]
+			\includegraphics[scale=0.2]{dijagrami/UML_dijagram_stanja.png} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Dijagram stanja - Kulinarski entuzijast}
+			\label{Dijagram stanja - Kulinarski entuzijast}
+		\end{figure}
+		
+		\eject
+		
+		\section{Dijagram aktivnosti}
+		Na slici 4.10 prikazan je dijagram aktivnosti 
+		
 
