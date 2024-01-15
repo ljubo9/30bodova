@@ -1,62 +1,121 @@
-import React from 'react';
-import { Container, Row, Card, Button } from 'react-bootstrap';
-
-const userData = {
-  firstName: 'tanja',
-  lastName: 'savic',
-  username: 'tanja123',
-  password: 'password',
-  email: 'email@gmail.com',
-  selectedRole: 'enthusiast',
-  biography: 'moja biografija još će biti burnija, tek je život počeo',
-  image: '../assets/cooking.png',
-};
+import React, { useState, useEffect } from 'react';
+import { Card, Container, Row, Button, Form } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 function ProfileEdit() {
+  const navigate = useNavigate();
+  const [userData, setUserData] = useState({
+    newUsername: '',
+    newPassword: '',
+    oldPassword: '', 
+  });
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const currentUser = sessionStorage.getItem('currentUser');
+  
+        const response = await fetch(`/profile/${currentUser}`, {
+        method: 'GET',
+        });
+  
+        if (!response.ok) {
+          console.error('Failed to fetch user data.');
+          navigate('/');
+          return;
+        }
+  
+        const userDataFromServer = await response.json();
+        setUserData(userDataFromServer);
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    };
+  
+    fetchUserData();
+  }, [navigate]);
+  
+
+  const handleInputChange = (e) => {
+    setUserData({
+      ...userData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleChangeData = async () => {
+    try {
+      const currentUser = sessionStorage.getItem('currentUser');
+      const formData = new FormData();
+  
+      formData.append('newUsername', userData.newUsername);
+      formData.append('newPassword', userData.newPassword);
+      formData.append('oldPassword', userData.oldPassword);
+  
+      const updateResponse = await fetch(`/profile/${currentUser}`, {
+        method: 'POST',
+        body: formData,
+      });
+  
+      if (!updateResponse.ok) {
+        console.error('Failed to update user data');
+        return;
+      }
+  
+      console.log('User data updated successfully');
+    } catch (error) {
+      console.error('Error updating user data:', error);
+    }
+  };
+  
+  
+  
+
   return (
     <Container>
-    <Row className="justify-content-left p-5" style={{ height: '100vh'}}>
+      <Row className="justify-content-left p-5" style={{ height: '100vh' }}>
+        <div className="col-md-6">
+          <Card>
+            <Form.Group controlId="newUsername">
+              <Form.Label>New Username</Form.Label>
+              <Form.Control
+                type="text"
+                name="newUsername"
+                value={userData.newUsername}
+                onChange={handleInputChange}
+              />
+            </Form.Group>
 
-      <div className="col-md-6">
-      <Card>
+            <Form.Group controlId="newPassword">
+              <Form.Label>New Password</Form.Label>
+              <Form.Control
+                type="password"
+                name="newPassword"
+                value={userData.newPassword}
+                onChange={handleInputChange}
+              />
+            </Form.Group>
 
-        <Card.Header className="bg-dark text-light d-flex align-items-center justify-content-center">
-            ime + prezime
-        </Card.Header>
+            <Form.Group controlId="oldPassword">
+              <Form.Label>Old Password</Form.Label>
+              <Form.Control
+                type="password"
+                name="oldPassword"
+                value={userData.oldPassword}
+                onChange={handleInputChange}
+              />
+            </Form.Group>
 
-        <Card.Text className="bg-light border border-dark border-1 mt-2 ps-2">
-            username
-        </Card.Text>
-
-        <Card.Text className="bg-light border border-dark border-1 ps-2">
-            *********
-        </Card.Text>
-
-        {['nutritionist', 'enthusiast'].includes(userData.selectedRole) && (
-            <>
-            <Card.Text className="bg-light border border-dark border-1 ps-2">
-                email
-            </Card.Text>
-            <Card.Text className="bg-light border border-dark border-1 ps-2">
-            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-            </Card.Text>
-            </>
-        )}
-
-        <Button variant="dark">
-        Change data
-      </Button>
-      </Card>
-      </div>
-      {['nutritionist', 'enthusiast'].includes(userData.selectedRole) && (
-        <div className="col-md 6">
-            <div>slika</div>
+            <Button variant="dark" onClick={handleChangeData}>
+              Change data
+            </Button>
+          </Card>
         </div>
-      )}
-
-    </Row>
+      </Row>
     </Container>
   );
+
 };
+
 
 export default ProfileEdit;

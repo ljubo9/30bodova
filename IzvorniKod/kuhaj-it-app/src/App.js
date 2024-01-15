@@ -7,6 +7,11 @@ import HomePage from './components/HomePage';
 import ProfileEdit from './components/ProfileEdit';
 import CulinaryEnthusiast from './components/CulinaryEnthusiast';
 import ProfileCulinaryEnthusiast from './components/ProfileCulinaryEnthusiast';
+import LoggedHomePage from './components/LoggedHomePage';
+import ChooseRecipe from './components/ChooseRecipe';
+import Nutritionist from './components/Nutritionist';
+import Cookbook from './components/Cookbook';
+import Recipe from './components/Recipe';
 
 function App() {
   return (
@@ -16,10 +21,15 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/home" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/home" element={<LoggedHomePage />} />
           <Route path="/profile-edit" element={<ProfileEdit />} />
           <Route path="/culinary-enthusiasts" element={<CulinaryEnthusiast />} />
-          <Route path="/enthusiast/:username" element={<ProfileCulinaryEnthusiast />} /> {/* ruta za prikazivanje profil kulinarskog entuzijasta */}
+          <Route path="/enthusiast/:username" element={<ProfileCulinaryEnthusiast />} />
+          <Route path="/choose-recipe" element={<ChooseRecipe />} />
+          <Route path="/nutritionist" element={<Nutritionist />} />
+          <Route path="/cookbook/:culinaryId" element={<Cookbook />} />
+          <Route path="/recipe/:recipeId" element={<Recipe />} />
         </Routes>
       </div>
     </Router>
