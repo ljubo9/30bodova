@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Card, Container, Row, Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,34 +7,8 @@ function ProfileEdit() {
   const [userData, setUserData] = useState({
     newUsername: '',
     newPassword: '',
-    oldPassword: '', 
+    oldPassword: '',
   });
-
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const currentUser = sessionStorage.getItem('currentUser');
-  
-        const response = await fetch(`/profile/${currentUser}`, {
-        method: 'GET',
-        });
-  
-        if (!response.ok) {
-          console.error('Failed to fetch user data.');
-          navigate('/');
-          return;
-        }
-  
-        const userDataFromServer = await response.json();
-        setUserData(userDataFromServer);
-      } catch (error) {
-        console.error('Error fetching user data:', error);
-      }
-    };
-  
-    fetchUserData();
-  }, [navigate]);
-  
 
   const handleInputChange = (e) => {
     setUserData({
@@ -47,37 +21,35 @@ function ProfileEdit() {
     try {
       const currentUser = sessionStorage.getItem('currentUser');
       const formData = new FormData();
-  
+
       formData.append('newUsername', userData.newUsername);
       formData.append('newPassword', userData.newPassword);
       formData.append('oldPassword', userData.oldPassword);
-  
+
       const updateResponse = await fetch(`/profile/${currentUser}`, {
         method: 'POST',
         body: formData,
       });
-  
+
       if (!updateResponse.ok) {
         console.error('Failed to update user data');
         return;
       }
-  
+
       console.log('User data updated successfully');
+      navigate('/');
     } catch (error) {
       console.error('Error updating user data:', error);
     }
   };
-  
-  
-  
 
   return (
-    <Container>
-      <Row className="justify-content-left p-5" style={{ height: '100vh' }}>
+    <div className="bg-light">
+      <Row className="d-flex justify-content-center align-items-center p-5" style={{ height: '100vh' }}>
         <div className="col-md-6">
           <Card>
-            <Form.Group controlId="newUsername">
-              <Form.Label>New Username</Form.Label>
+            <Form.Group controlId="newUsername" className="p-2 m-2">
+              <Form.Label>Novo korisničko ime</Form.Label>
               <Form.Control
                 type="text"
                 name="newUsername"
@@ -86,8 +58,8 @@ function ProfileEdit() {
               />
             </Form.Group>
 
-            <Form.Group controlId="newPassword">
-              <Form.Label>New Password</Form.Label>
+            <Form.Group controlId="newPassword" className="p-2 m-2">
+              <Form.Label>Nova lozinka</Form.Label>
               <Form.Control
                 type="password"
                 name="newPassword"
@@ -96,8 +68,8 @@ function ProfileEdit() {
               />
             </Form.Group>
 
-            <Form.Group controlId="oldPassword">
-              <Form.Label>Old Password</Form.Label>
+            <Form.Group controlId="oldPassword" className="p-2 m-2">
+              <Form.Label>Stara lozinka</Form.Label>
               <Form.Control
                 type="password"
                 name="oldPassword"
@@ -107,15 +79,13 @@ function ProfileEdit() {
             </Form.Group>
 
             <Button variant="dark" onClick={handleChangeData}>
-              Change data
+              Promijeni podatke
             </Button>
           </Card>
         </div>
       </Row>
-    </Container>
+    </div>
   );
-
-};
-
+}
 
 export default ProfileEdit;
