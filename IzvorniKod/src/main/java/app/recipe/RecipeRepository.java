@@ -11,6 +11,8 @@ import java.util.Optional;
 @Repository
 public interface RecipeRepository extends JpaRepository<Recipe, Long> {
 
-    @Query("SELECT r FROM Recipe r WHERE r.id = ?1")
-    Optional<Recipe> findRecipeById(Long id);
+    public interface ResponseRepository extends JpaRepository<Response, Integer> {
+        Optional<Response> findByReviewId(int reviewId);
+    }
+
 }
