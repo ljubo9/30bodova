@@ -26,7 +26,15 @@ public class Recipe {
     @OneToMany
     @JoinColumn(name = "recipe_id")
     private List<RecipeIngredient> ingredients;
-    
+
+    public List<Image> getImages() {
+        return images;
+    }
+
+    public void setImages(List<Image> images) {
+        this.images = images;
+    }
+
     @OneToMany
     private List<Image> images;
     
@@ -49,12 +57,12 @@ public class Recipe {
         this.id = id;
     }
 
-    public List<RecipeIngredient> getIngredientsAndQuantities() {
+    public List<RecipeIngredient> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredientsAndQuantities(List<RecipeIngredient> ingredientsAndQuantities) {
-        this.ingredients = ingredientsAndQuantities;
+    public void setIngredients(List<RecipeIngredient> ingredients) {
+        this.ingredients = ingredients;
     }
 
     public String getStepsOfMaking() {

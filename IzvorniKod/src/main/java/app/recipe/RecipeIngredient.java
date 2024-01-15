@@ -30,7 +30,9 @@ public class RecipeIngredient {
 		this.quantity = quantity;
 	}
 
-
+	public void setIngredient(Ingredient ingredient) {
+		this.ingredient = ingredient;
+	}
 	public Ingredient getIngredient() {
 		return ingredient;
 	}
@@ -42,6 +44,9 @@ public class RecipeIngredient {
 	public int getQuantity() {
 		return quantity;
 	}
-	
-	
+
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
 }
