@@ -31,6 +31,7 @@ function LoggedHomePage() {
       try {
         //ruta za dijetu koja je dodijeljena useru - trebamo napravit entitet za dijetu, user ima jednu dijetu
         //dijeta ima listu recepata koje smije konzumirati - msm da je tak lakse
+        //i ima tipa ili opis 
         const response = await fetch('/diet/user/${username}');
         if (response.ok) {
           const data = await response.json();
