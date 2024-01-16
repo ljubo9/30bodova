@@ -18,10 +18,6 @@ function ProfileEdit() {
   };
 
   const handleChangeData = async () => {
-
-    const formData = new FormData();
-    formData.append(userData.newUsername);
-    formData.append(userData.oldPassword);
     try {
       const currentUser = sessionStorage.getItem('currentUser');
       const formData = new FormData();
@@ -34,6 +30,7 @@ function ProfileEdit() {
         method: 'POST',
         body: formData,
       });
+
       if (!updateResponse.ok) {
         console.error('Failed to update user data');
         return;
