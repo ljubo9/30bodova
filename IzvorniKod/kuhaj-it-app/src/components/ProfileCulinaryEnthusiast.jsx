@@ -11,14 +11,14 @@ const ProfileCulinaryEnthusiast = () => {
     const fetchProfileData = async () => {
       try {
         // endpoint za dohvaćanje kul.entuzijasza po usernameu
-        const profileResponse = await fetch(`/enthusiasts/${username}`);
+        const profileResponse = await fetch(`https://kuhajitbackend.onrender.com/enthusiasts/${username}`);
         if (profileResponse.ok) {
           const profileData = await profileResponse.  ();
           setProfileData(profileData);
           // profileData je profil entuzijasta
 
           // dohvaćanje kuharica po cretor.username
-          const cookbooksResponse = await fetch(`/cookbooks?creator=${username}`);
+          const cookbooksResponse = await fetch(`https://kuhajitbackend.onrender.com/cookbooks?creator=${username}`);
           if (cookbooksResponse.ok) {
             const cookbooksData = await cookbooksResponse.json();
             setCookbooksData(cookbooksData);
@@ -27,7 +27,7 @@ const ProfileCulinaryEnthusiast = () => {
           }
 
           // dohvaćanje recepata po creator.username
-          const recipeResponse = await fetch(`/recipes?creator=${username}`);
+          const recipeResponse = await fetch(`https://kuhajitbackend.onrender.com/recipes?creator=${username}`);
           if (recipeResponse.ok) {
             const recipeData = await recipeResponse.json();
             setRecipesData(recipeData);

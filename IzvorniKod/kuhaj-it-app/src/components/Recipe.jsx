@@ -28,7 +28,7 @@ const Recipe = () => {
   const fetchResponse = async (reviewId) => {
     try {
       //ednpoint za dohvavaćanje odgovora po review.id
-      const response = await fetch(`/response?reviewId=${reviewId}`);
+      const response = await fetch(`https://kuhajitbackend.onrender.com/response?reviewId=${reviewId}`);
       const data = await response.json();
 
       return data[0];  //vraća jedan jedini response ili undefined
@@ -40,7 +40,7 @@ const Recipe = () => {
   const handleResponseSubmit = async (reviewId) => {
     try {
       //slanje odgovora na recenziju, šalje se review.id, string odgovor i username
-      const response = await fetch(`/response`, {
+      const response = await fetch(`https://kuhajitbackend.onrender.com/response`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ const Recipe = () => {
 
   const handleReviewSubmit = async () => {
     try {
-      const response = await fetch(`/review`, {
+      const response = await fetch(`https://kuhajitbackend.onrender.com/review`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -85,20 +85,37 @@ const Recipe = () => {
       <h2>Recept</h2>
       {recipe ? (
         <>
-          {/*prikazivanje informacija o samom receptu -> u bazi treba maknuti listu slika,portionsize i cooktime  */}
+        {/*prikazivanje informacija o samom receptu */}
           <p>Recipe ID: {recipe.id}</p>
           <p>Recipe Name: {recipe.name}</p>
-          <p>Steps of Making: {recipe.stepsOfMaking}</p>
+          <p>Portion size: {recipe.portionSize}</p>
+          <p>Cook time: {recipe.cookTime}</p>
 
 
-          {/*prikazivanje informacija o ingredients -> u bazi za ingredients treba biti name,quantity i image  */}
+          {/*prikazivanje informacija o ingredients */}
           <h3>Ingredients:</h3>
           <ul>
             {recipe.ingredients.map((ingredient, index) => (
               <li key={index}>
                 <p>Name: {ingredient.name}</p>
                 <p>Quantity: {ingredient.quantity}</p>
-                <img src={ingredient.image} alt={`Ingredient ${index}`} />
+              </li>
+            ))}
+          </ul>
+
+          <h3>Steps of making:</h3>
+          <ul>
+            {recipe.stepsOfMaking.map((stepOfMaking, index) => (
+              <li key={index}>
+                <p>Step number: {stepOfMaking.stepNum}</p>
+                <p>Description: {stepOfMaking.description}</p>
+                {stepOfMaking.image && (
+                <img
+                    src={stepOfMaking.image}
+                    alt={`Step ${stepOfMaking.stepNum} Image`}
+                    style={{ maxWidth: '100%', height: 'auto' }}
+                />
+                )}
               </li>
             ))}
           </ul>
