@@ -9,6 +9,10 @@ import CulinaryEnthusiast from './components/CulinaryEnthusiast';
 import ProfileCulinaryEnthusiast from './components/ProfileCulinaryEnthusiast';
 import LoggedHomePage from './components/LoggedHomePage';
 import ChooseRecipe from './components/ChooseRecipe';
+import Nutritionist from './components/Nutritionist';
+import Cookbook from './components/Cookbook';
+import Recipe from './components/Recipe';
+import Profile from './components/Profile';
 
 function App() {
   return (
@@ -24,6 +28,10 @@ function App() {
           <Route path="/culinary-enthusiasts" element={<CulinaryEnthusiast />} />
           <Route path="/enthusiast/:username" element={<ProfileCulinaryEnthusiast />} />
           <Route path="/choose-recipe" element={<ChooseRecipe />} />
+          <Route path="/nutritionist" element={<Nutritionist />} />
+          <Route path="/cookbook/:culinaryId" element={<Cookbook />} />
+          <Route path="/recipe/:recipeId" element={<Recipe />} />
+          <Route path="/user/:username" element={<Profile />} />
         </Routes>
       </div>
     </Router>

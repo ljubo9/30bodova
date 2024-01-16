@@ -9,7 +9,7 @@ const Cookbook = () => {
   useEffect(() => {
     const fetchCookbookData = async () => {
       try {
-        const response = await fetch(`/cookbook/${id}`);
+        const response = await fetch(`https://kuhajitbackend.onrender.com/cookbook/${id}`);
         
         if (response.ok) {
           const data = await response.json();
@@ -52,7 +52,7 @@ const Cookbook = () => {
             <Card key={index} className="mb-3">
               <Card.Body>
                 <Card.Title>
-                  <Link to={`/recipe/${recipe.id}`}>{recipe.title}</Link>
+                  <Link to={`/recipe/${recipe.id}`}>{recipe.name}</Link>
                 </Card.Title>
                 {/* Dodajte ostale informacije o receptu koje želite prikazati */}
               </Card.Body>
