@@ -81,11 +81,9 @@ public class RecipeDTO {
                 .collect(Collectors.toList());
 
 
-        List<Image> recipeImages = this.images.stream()
-                .map(ImageDTO::toEntity)
-                .collect(Collectors.toList());
 
-        Recipe recipe = new Recipe(this.id,this.name,recipeIngredients,this.stepsOfMaking,this.portionSize,this.cookTime,recipeImages);
+
+        Recipe recipe = new Recipe(this.id,this.name,recipeIngredients,this.stepsOfMaking,this.portionSize,this.cookTime);
 
 
         // Convert RecipeIngredientDTO to RecipeIngredient entities
@@ -109,10 +107,7 @@ public class RecipeDTO {
         recipeDTO.setIngredients(recipeIngredientDTOs);
 
         // Convert Image entities to ImageDTOs
-        List<ImageDTO> imageDTOs = recipe.getImages().stream()
-                .map(ImageDTO::fromEntity)
-                .collect(Collectors.toList());
-        recipeDTO.setImages(imageDTOs);
+
 
         return recipeDTO;
     }

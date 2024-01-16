@@ -4,14 +4,12 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
+import app.recipe.*;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import app.recipe.Cookbook;
-import app.recipe.Recipe;
-import app.recipe.Response;
-import app.recipe.Review;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -46,7 +44,11 @@ public class User implements UserDetails {
 	private String password;
 	private String name;
 	private String surname;
-	
+	@ManyToOne
+	private Diet diet;
+
+	@OneToMany
+	private List<Diet> createdDiets;
 	@ManyToOne
 	private Role role;
 	
