@@ -88,7 +88,7 @@ function LoggedHomePage() {
 
     const fetchConsumedRecipesStatistics = async () => {
       try {
-        //ruta za statistiku usera - pogledat u zadatku kaj tocno
+        //ruta za statistiku usera - vratiti npr. broj kalorija koje je user konzumiro svaki dan u zadnjih 7 dana
         const response = await fetch('/statistic/user/${username}');
         if (response.ok) {
           const data = await response.json();
