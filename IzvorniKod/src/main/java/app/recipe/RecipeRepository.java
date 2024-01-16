@@ -11,8 +11,8 @@ import java.util.Optional;
 @Repository
 public interface RecipeRepository extends JpaRepository<Recipe, Integer> {
     	
-	@Query("SELECT rev FROM review WHERE rev.id = 1?")
-    Optional<Recipe> findByReviewId(int reviewId);
+	@Query("SELECT r FROM recipe WHERE r.id = ?1")
+    Optional<Recipe> findRecipeById(int id);
 
 
 }

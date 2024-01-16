@@ -25,7 +25,7 @@ public class RecipeService {
     }
 
     public Recipe loadRecipeById(int recipeId) {
-        Optional<Recipe> recipeOptional = recipeRepository.findByReviewId(recipeId);
+        Optional<Recipe> recipeOptional = recipeRepository.findRecipeById(recipeId);
         return recipeOptional.orElse(null);
     }
 
@@ -44,7 +44,7 @@ public class RecipeService {
     // Example method for updating a recipe
     public Recipe updateRecipe(int recipeId, Recipe updatedRecipe) {
         // Check if the recipe with the given ID exists
-        Optional<Recipe> existingRecipeOptional = recipeRepository.findByReviewId(recipeId);
+        Optional<Recipe> existingRecipeOptional = recipeRepository.findRecipeById(recipeId);
         if (existingRecipeOptional.isPresent()) {
             // Perform any additional logic before saving the updated recipe, if needed
             return recipeRepository.save(updatedRecipe);

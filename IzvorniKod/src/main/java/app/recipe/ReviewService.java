@@ -19,7 +19,7 @@ public class ReviewService {
 
     public Review loadReviewById(int reviewId) {
         // Assuming you have a method in your repository to get response by reviewId
-        Optional<Review> reviewOptional = reviewRepository.findReviewById(reviewId);
+        Optional<Review> reviewOptional = reviewRepository.findById(reviewId);
 
         return reviewOptional.orElse(null);
     }
