@@ -34,6 +34,7 @@ function ProfileEdit() {
         method: 'POST',
         body: formData,
       });
+
       if (!updateResponse.ok) {
         console.error('Failed to update user data');
         return;

@@ -4,16 +4,13 @@ import java.util.Optional;
 
 import org.apache.tomcat.websocket.AuthenticationException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -24,7 +21,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import app.dto.RecipeDTO;
 import app.dto.UserDTO;
 
 @RestController
@@ -82,41 +78,13 @@ public class UserController {
 		return new UserDTO((User) userService.loadUserByUsername(username));
 	}
 
-	@PostMapping(path = "/profile")
-	public String changeInfo(@RequestParam("username") String username, @RequestParam("password") String password) throws AuthenticationException{
-		/* User currentUser = (User)userService.loadUserByUsername(username);
+	@PostMapping(path = "/profile/changeInfo")
+	public String changeInfo(@RequestBody AuthorizationForm updatedUser, @RequestBody int id) throws AuthenticationException{
+		User currentUser = userService.loadUserById(id);
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		if (!auth.isAuthenticated()) return "redirect:/login";
-		currentUser.setUsername(username)
-		userService.changeInfo(AuthorizationForm.parseUser());
-		return "redirect:/profile"; */
-		return null;
+		userService.changeInfo(AuthorizationForm.parseUser(updatedUser));
+		return "redirect:/profile";
 	}
 	
-	@GetMapping(path = "/profile/{username}")
-	public UserDTO getUser(@PathVariable String username) {
-		User user = (User) userService.loadUserByUsername(username);
-		UserDTO dto= new UserDTO(user);
-		return dto;
-	}
-	
-	@PostMapping(path = "/authenticate", consumes = "multipart/form-data")
-	public ResponseEntity authenticate(@RequestParam("username") String username, @RequestParam("password") String password) {
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		if (!auth.isAuthenticated()) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		return ResponseEntity.ok(null);
-	}
-	
-	
-	@GetMapping(path = "/enthusiasts/{username}")
-	public UserDTO getEnthuiast(@PathVariable String username) {
-		return getUser(username);
-	}
-	
-	@GetMapping(path = "/recipes/user/{username}") 
-	public RecipeDTO[] getRecipe(@PathVariable String username) {
-		User user = (User) userService.loadUserByUsername(username);
-		return null;
-		
-	}
 }
