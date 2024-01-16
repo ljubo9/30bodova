@@ -12,6 +12,7 @@ import ChooseRecipe from './components/ChooseRecipe';
 import Nutritionist from './components/Nutritionist';
 import Cookbook from './components/Cookbook';
 import Recipe from './components/Recipe';
+import Profile from './components/Profile';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/nutritionist" element={<Nutritionist />} />
           <Route path="/cookbook/:culinaryId" element={<Cookbook />} />
           <Route path="/recipe/:recipeId" element={<Recipe />} />
+          <Route path="/user/:username" element={<Profile />} />
         </Routes>
       </div>
     </Router>
