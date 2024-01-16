@@ -30,25 +30,16 @@ public class Recipe {
     @JoinColumn(name = "recipe_id")
     private List<RecipeIngredient> ingredients;
 
-    public List<Image> getImages() {
-        return images;
-    }
 
-    public void setImages(List<Image> images) {
-        this.images = images;
-    }
-
-    @OneToMany
-    private List<Image> images;
     
-    public Recipe(int id, String name, List<RecipeIngredient> ingredients, String stepsOfMaking, int portionSize, int cookTime, List<Image> images) {
+    public Recipe(int id, String name, List<RecipeIngredient> ingredients, String stepsOfMaking, int portionSize, int cookTime) {
         this.id = id;
         this.name = name;
         this.ingredients = ingredients;
         this.stepsOfMaking = stepsOfMaking;
         this.portionSize = portionSize;
         this.cookTime = cookTime;
-        this.images = images;
+
     }
 
 
@@ -104,12 +95,4 @@ public class Recipe {
     
     
 
-   /* public List<Image> getImages() {
-        return images;
-    }
-
-    public void setImages(List<Image> images) {
-        this.images = images;
-    }
-*/
 }
