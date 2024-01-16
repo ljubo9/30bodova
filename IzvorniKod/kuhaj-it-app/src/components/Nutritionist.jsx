@@ -3,7 +3,7 @@ import { Container, Form, Col, Button } from 'react-bootstrap';
 
 function Nutritionist() {
   const [currentUser, setCurrentUser] = useState(null);
-  const [ingredients, setIngredients] = useState([]); // Changed from products to ingredients
+  const [ingredients, setIngredients] = useState([]); 
   const [categories, setCategories] = useState([]);
   const [labels, setLabels] = useState([]);
   const [newIngredientInfo, setNewIngredientInfo] = useState({
@@ -42,14 +42,14 @@ function Nutritionist() {
     const storedUser = sessionStorage.getItem('currentUser');
     setCurrentUser(storedUser ? JSON.parse(storedUser) : null);
 
-    fetch('/labels') // Labels for categorizing ingredients
+    fetch('https://kuhajitbackend.onrender.com/labels') // Labels for categorizing ingredients
       .then(response => response.json())
       .then(data => setLabels(data))
       .catch(error => console.error('Error fetching labels:', error));
   }, []);
 
   const fetchIngredients = () => {
-    fetch('/ingredients') // Fetching ingredients
+    fetch('https://kuhajitbackend.onrender.com/ingredients') // Fetching ingredients
       .then(response => response.json())
       .then(data => setIngredients(data))
       .catch(error => console.error('Error fetching ingredients:', error));
@@ -74,7 +74,7 @@ function Nutritionist() {
       formData.append(`labels[${index}]`, label);
     });
 
-    fetch('/ingredients', {
+    fetch('https://kuhajitbackend.onrender.com/ingredients', {
       method: 'POST',
       body: formData,
     })
