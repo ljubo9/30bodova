@@ -43,6 +43,14 @@ public class Recipe {
         this.cookTime = cookTime;
 
     }
+    public Recipe( String name,int portionSize, int cookTime,User creator) {
+
+        this.name = name;
+
+        this.portionSize = portionSize;
+        this.cookTime = cookTime;
+        this.creator=creator;
+    }
 
 
     public int getId() {
