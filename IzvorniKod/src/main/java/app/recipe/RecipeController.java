@@ -19,11 +19,11 @@ public class RecipeController {
     }
 
 
-    @GetMapping("/{recipeId}")
-    public ResponseEntity<RecipeDTO> getRecipeById(@PathVariable Long recipeId) {
+    @GetMapping("/recipe/{recipeId}")
+    public ResponseEntity<RecipeDTO> getRecipeById(@PathVariable int recipeId) {
         try {
             // Fetch the recipe by ID
-            Recipe recipe = recipeService.getRecipeById(recipeId);
+            Recipe recipe = recipeService.loadRecipeById(recipeId);
 
             if (recipe != null) {
                 // Convert the Recipe entity to a RecipeDTO
