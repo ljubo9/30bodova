@@ -12,7 +12,9 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private String stepsOfMaking;
+
+    @OneToMany
+    private List<StepOfMaking> stepsOfMaking;
     private int portionSize;
     private int cookTime;
     @ManyToMany(mappedBy = "recipes")
@@ -32,7 +34,7 @@ public class Recipe {
 
 
     
-    public Recipe(int id, String name, List<RecipeIngredient> ingredients, String stepsOfMaking, int portionSize, int cookTime) {
+    public Recipe(int id, String name, List<RecipeIngredient> ingredients,List<StepOfMaking> stepsOfMaking, int portionSize, int cookTime) {
         this.id = id;
         this.name = name;
         this.ingredients = ingredients;
@@ -59,11 +61,11 @@ public class Recipe {
         this.ingredients = ingredients;
     }
 
-    public String getStepsOfMaking() {
+    public List<StepOfMaking> getStepsOfMaking() {
         return stepsOfMaking;
     }
 
-    public void setStepsOfMaking(String stepsOfMaking) {
+    public void setStepsOfMaking(List<StepOfMaking> stepsOfMaking) {
         this.stepsOfMaking = stepsOfMaking;
     }
 

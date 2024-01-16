@@ -10,6 +10,8 @@ public class Image {
     private int id;
     private String name;
     private String imageUrl;
+	@OneToOne
+	private StepOfMaking stepOfMaking;
 
 	public Ingredient getIngredient() {
 		return ingredient;

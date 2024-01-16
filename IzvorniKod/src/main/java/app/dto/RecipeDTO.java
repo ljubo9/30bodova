@@ -25,11 +25,11 @@ public class RecipeDTO {
         this.name = name;
     }
 
-    public String getStepsOfMaking() {
+    public List<StepOfMaking> getStepsOfMaking() {
         return stepsOfMaking;
     }
 
-    public void setStepsOfMaking(String stepsOfMaking) {
+    public void setStepsOfMaking(List<StepOfMaking> stepsOfMaking) {
         this.stepsOfMaking = stepsOfMaking;
     }
 
@@ -65,7 +65,7 @@ public class RecipeDTO {
         this.images = images;
     }
 
-    private String stepsOfMaking;
+    private List<StepOfMaking> stepsOfMaking;
     private int portionSize;
     private int cookTime;
     private List<RecipeIngredientDTO> ingredients;
