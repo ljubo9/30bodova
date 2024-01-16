@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
+import RecipeAndCookbookEditor from './RecipeAndCookbookEditor'; // Import the component
 
 function Navigation() {
   const navigate = useNavigate();
-  
+
   const handleLogout = () => {
     sessionStorage.removeItem('isLoggedIn');
     sessionStorage.removeItem('currentUser');
@@ -34,9 +35,16 @@ function Navigation() {
             </Nav.Link>
             )}
             
+            {currentUser && currentUser.role === 'enthusiast' && (
+              <Nav.Link as={NavLink} to="/RecipeAndCookbookEditor">
+                RecipeAndCookbookEditor
+              </Nav.Link>
+            )}
             {currentUser ? (
               <>
-                <Nav.Link disabled>{currentUser}</Nav.Link>
+                <Nav.Link as={Link} to={`/profile/${currentUser.username}`}>
+                  {currentUser.username}
+                </Nav.Link>
                 <Button variant="dark" onClick={handleLogout}>
                   Logout
                 </Button>
@@ -62,4 +70,3 @@ function Navigation() {
 }
 
 export default Navigation;
-

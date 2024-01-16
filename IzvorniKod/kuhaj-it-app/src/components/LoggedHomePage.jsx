@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Card, Container, Col, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 function LoggedHomePage() {
   const { username } = useParams();
   const [recipeList, setRecipeList] = useState(null);
   const [dietInfo, setDiet] = useState(null);
-  const [followedChefs, setFollowedChefs] = useState(null);
   const [consumedRecipesStatistics, setConsumedRecipesStatistics] = useState(null);
+  const [followedChefs, setFollowedChefs] = useState([]);
+  const [latestChefCookbooks, setLatestChefCookbooks] = useState({});
+  const [latestChefRecipes, setLatestChefRecipes] = useState({});
+    
 
   useEffect(() => {
     const fetchRecipeList = async () => {
@@ -15,7 +19,7 @@ function LoggedHomePage() {
         //ruta za recepte koje je neki user konzumiro
         //svakom useru trebalo bi dodati listu recepata koje je konzumirao
         //al ja bi to dodala ko mapu di je ključ taj recept a vrijednost je lista datuma kad je sve taj recept konzumirao jer nam to treba za statistiku
-        const response = await fetch('/recipes/user/${username}');
+        const response = await fetch(`https://kuhajitbackend.onrender.com/recipes/user/${username}`);
         if (response.ok) {
           const data = await response.json();
           setRecipeList(data);
@@ -30,9 +34,12 @@ function LoggedHomePage() {
     const fetchDietInfo = async () => {
       try {
         //ruta za dijetu koja je dodijeljena useru - trebamo napravit entitet za dijetu, user ima jednu dijetu
-        //dijeta ima listu recepata koje smije konzumirati - msm da je tak lakse
-        //i ima tipa ili opis 
-        const response = await fetch('/diet/user/${username}');
+        //dijeta ima listu recepata koje smije konzumirati - msm da je tak lakse za filtiriranje prihvatljivosti recepata
+        //i ima opis kratki(neki string) koji daje nutricionist i sam ime dijete - to je ono kaj se prikazuje
+        //svaka dijeta bi jos trebala imat listu zabranjenih sastojaka
+        //i trebala bi imati mapu gdje je ključ koji je neki sastojak, a vrijednost je maksimalna kolicina tog sastojka koju smije konzumirati
+        //i ima dnevni limit
+        const response = await fetch(`https://kuhajitbackend.onrender.com/diet/user/${username}`);
         if (response.ok) {
           const data = await response.json();
           setDiet(data);
@@ -46,8 +53,8 @@ function LoggedHomePage() {
 
     const fetchFollowedChefs = async () => {
       try {
-        //ruta za listu entuzijasta koje nas user prati, msm da to samo mozemo dodat listu ko atribut usera
-        const response = await fetch('/followed/user/${username}');
+        //msm da bi ovo bilo najlakse za usera dodamo atribut followed_Enthusiasts koji je lista entuzijasta koje user prati
+        const response = await fetch(`https://kuhajitbackend.onrender.com/followed-enthusiasts/${username}`);
         if (response.ok) {
           const data = await response.json();
           setFollowedChefs(data);
@@ -59,10 +66,30 @@ function LoggedHomePage() {
       }
     };
 
+    const fetchLatestChefData = async () => {
+      try {
+        //za svakog entuzijasta trebamo dohvatiti njegove najnovije 3 kuharice i najnovije 3 recepta
+        const cookbooksResponse = await fetch('https://kuhajitbackend.onrender.com/latest-enthusiast-cookbooks');
+        const recipesResponse = await fetch('https://kuhajitbackend.onrender.com/latest-enthusiast-recipes');
+        
+        if (cookbooksResponse.ok && recipesResponse.ok) {
+          const cookbooksData = await cookbooksResponse.json();
+          const recipesData = await recipesResponse.json();
+          
+          setLatestChefCookbooks(cookbooksData);
+          setLatestChefRecipes(recipesData);
+        } else {
+          console.error('Error fetching latest chef data:', cookbooksResponse.statusText, recipesResponse.statusText);
+        }
+      } catch (error) {
+        console.error('Error fetching latest chef data:', error.message);
+      }
+    };
+
     const fetchConsumedRecipesStatistics = async () => {
       try {
-        //ruta za statistiku usera - pogledat u zadatku kaj tocno
-        const response = await fetch('/statistic/user/${username}');
+        //ruta za statistiku usera - vratiti npr. broj kalorija koje je user konzumiro svaki dan u zadnjih 7 dana
+        const response = await fetch(`https://kuhajitbackend.onrender.com/statistic/user/${username}`);
         if (response.ok) {
           const data = await response.json();
           setConsumedRecipesStatistics(data);
@@ -77,6 +104,7 @@ function LoggedHomePage() {
     fetchRecipeList();
     fetchDietInfo();
     fetchFollowedChefs();
+    fetchLatestChefData();
     fetchConsumedRecipesStatistics();
   }, [username]);
 
@@ -120,18 +148,28 @@ function LoggedHomePage() {
       <Row className="mt-4">
         <Col>
           <h2>Dijeta</h2>
-          <p>{dietInfo}</p>
+          <p>{dietInfo.description}</p>
         </Col>
       </Row>
 
       <Row className="mt-4">
         <Col>
-          <h2>Nove kuharice</h2>
+          <h2>Nove kuharice i recepti</h2>
           {followedChefs.map((chef, index) => (
             <Card key={index} className="mb-3">
               <Card.Body>
                 <Card.Title>{chef.name}</Card.Title>
-                {/* Dodajte ostale informacije o kuharici koje želite prikazati */}
+                <h5>Najnoviji radovi:</h5>
+                <p>
+                  {latestChefCookbooks[chef.id]?.map((latestCookbook, idx) => (
+                    <Link key={idx} to={`/cookbook/${latestCookbook.id}`}>{latestCookbook.title}</Link>
+                  ))}
+                </p>
+                <p>
+                  {latestChefRecipes[chef.id]?.map((latestRecipe, idx) => (
+                    <Link key={idx} to={`/recipe/${latestRecipe.id}`}>{latestRecipe.title}</Link>
+                  ))}
+                </p>
               </Card.Body>
             </Card>
           ))}

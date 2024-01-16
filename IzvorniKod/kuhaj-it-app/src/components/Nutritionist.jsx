@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+
 import { Container, Form, Col, Button } from 'react-bootstrap';
 
 function Nutritionist() {
@@ -42,7 +43,11 @@ function Nutritionist() {
     const storedUser = sessionStorage.getItem('currentUser');
     setCurrentUser(storedUser ? JSON.parse(storedUser) : null);
 
+ljubic_react
     fetch('https://kuhajitbackend.onrender.com/labels') // Labels for categorizing ingredients
+=======
+    fetch('https://kuhajitbackend.onrender.com/labels') //labele za kategoriziranje proizvoda
+
       .then(response => response.json())
       .then(data => setLabels(data))
       .catch(error => console.error('Error fetching labels:', error));
@@ -50,6 +55,8 @@ function Nutritionist() {
 
   const fetchIngredients = () => {
     fetch('https://kuhajitbackend.onrender.com/ingredients') // Fetching ingredients
+
+
       .then(response => response.json())
       .then(data => setIngredients(data))
       .catch(error => console.error('Error fetching ingredients:', error));
@@ -75,6 +82,8 @@ function Nutritionist() {
     });
 
     fetch('https://kuhajitbackend.onrender.com/ingredients', {
+
+
       method: 'POST',
       body: formData,
     })
