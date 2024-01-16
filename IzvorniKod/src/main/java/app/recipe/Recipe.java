@@ -17,6 +17,9 @@ public class Recipe {
     private int cookTime;
     @ManyToMany(mappedBy = "recipes")
     private List<Cookbook> cookbooks;
+
+    @ManyToMany
+    private List<Diet> diets;
     @ManyToOne
     private User creator;
     
