@@ -83,7 +83,7 @@ public class RecipeDTO {
 
 
 
-        Recipe recipe = new Recipe(this.id,this.name,recipeIngredients,this.stepsOfMaking,this.portionSize,this.cookTime);
+        Recipe recipe = new Recipe(this.name,recipeIngredients,this.stepsOfMaking,this.portionSize,this.cookTime);
 
 
         // Convert RecipeIngredientDTO to RecipeIngredient entities
