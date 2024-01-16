@@ -142,7 +142,7 @@ function Nutritionist() {
                 type="text"
                 placeholder="Unesi količinu ugljikohidrata"
                 value={newIngredientInfo.carbs}
-                onChange={(e) => setNewIngredientInfo({ ...newProductInfo, carbs: e.target.value })}
+                onChange={(e) => setNewIngredientInfo({ ...newIngredientInfo, carbs: e.target.value })}
               />
             </Form.Group>
 
@@ -216,7 +216,7 @@ function Nutritionist() {
 
           </Form.Row>
 
-          <Button variant="primary" type="button" onClick={addProduct}>
+          <Button variant="primary" type="button" onClick={addIngredient}>
             Dodaj proizvod
           </Button>
         </Form>
