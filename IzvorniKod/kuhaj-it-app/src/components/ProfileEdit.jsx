@@ -18,10 +18,6 @@ function ProfileEdit() {
   };
 
   const handleChangeData = async () => {
-
-    const formData = new FormData();
-    formData.append(userData.newUsername);
-    formData.append(userData.oldPassword);
     try {
       const currentUser = sessionStorage.getItem('currentUser');
       const formData = new FormData();
