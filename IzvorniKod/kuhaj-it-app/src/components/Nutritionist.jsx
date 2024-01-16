@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Container, Col, Button, Form } from 'react-bootstrap';
 
 const Nutritionist = () => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -41,7 +42,7 @@ const Nutritionist = () => {
     const storedUser = sessionStorage.getItem('currentUser');
     setCurrentUser(storedUser ? JSON.parse(storedUser) : null);
 
-    fetch('/labels') //labele za kategoriziranje proizvoda
+    fetch('https://kuhajitbackend.onrender.com/labels') //labele za kategoriziranje proizvoda
       .then(response => response.json())
       .then(data => setLabels(data))
       .catch(error => console.error('Error fetching labels:', error));
@@ -49,7 +50,7 @@ const Nutritionist = () => {
 
   const fetchProducts = () => {
 
-    fetch('/products') //dohvat proizvoda
+    fetch('https://kuhajitbackend.onrender.com/products') //dohvat proizvoda
       .then(response => response.json())
       .then(data => setProducts(data))
       .catch(error => console.error('Error fetching products:', error));
@@ -74,7 +75,7 @@ const Nutritionist = () => {
       formData.append(`labels[${index}]`, label);
     });
 
-    fetch('/products', {
+    fetch('https://kuhajitbackend.onrender.com/products', {
       method: 'POST',
       body: formData,
     })

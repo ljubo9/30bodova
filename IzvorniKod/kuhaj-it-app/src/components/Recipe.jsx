@@ -28,7 +28,7 @@ const Recipe = () => {
   const fetchResponse = async (reviewId) => {
     try {
       //ednpoint za dohvavaćanje odgovora po review.id
-      const response = await fetch(`/response?reviewId=${reviewId}`);
+      const response = await fetch(`https://kuhajitbackend.onrender.com/response?reviewId=${reviewId}`);
       const data = await response.json();
 
       return data[0];  //vraća jedan jedini response ili undefined
@@ -40,7 +40,7 @@ const Recipe = () => {
   const handleResponseSubmit = async (reviewId) => {
     try {
       //slanje odgovora na recenziju, šalje se review.id, string odgovor i username
-      const response = await fetch(`/response`, {
+      const response = await fetch(`https://kuhajitbackend.onrender.com/response`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ const Recipe = () => {
 
   const handleReviewSubmit = async () => {
     try {
-      const response = await fetch(`/review`, {
+      const response = await fetch(`https://kuhajitbackend.onrender.com/review`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
