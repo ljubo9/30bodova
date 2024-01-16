@@ -16,7 +16,7 @@ const Profile = () => {
     const fetchProfileData = async () => {
       try {
         // endpoint za dohvaćanje podataka o useru po username-u - treba vratit ono kaj se slalo za registraciju
-        const profileResponse = await fetch(`/user/${username}`);
+        const profileResponse = await fetch(`https://kuhajitbackend.onrender.com/user/${username}`);
         if (profileResponse.ok) {
           const profileData = await profileResponse.json();
           setProfileData(profileData);
