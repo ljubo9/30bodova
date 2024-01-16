@@ -1,11 +1,11 @@
 package app.recipe;
 
-import java.util.Optional;
-
-import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import org.springframework.stereotype.Repository;
+import java.util.Optional;
+
+public interface ResponseRepository extends JpaRepository<Response, Long> {
+
 
 @Repository
 public interface ResponseRepository extends JpaRepository<Response, Integer> {

@@ -24,8 +24,8 @@ public class RecipeService {
         this.userRepository = userRepository;
     }
 
-    public Recipe loadRecipeById(int recipeId) {
-        Optional<Recipe> recipeOptional = recipeRepository.findRecipeById(recipeId);
+    public Recipe getRecipeById(Long recipeId) {
+        Optional<Recipe> recipeOptional = recipeRepository.findById(recipeId);
         return recipeOptional.orElse(null);
     }
 
@@ -37,14 +37,14 @@ public class RecipeService {
     // Add additional methods for updating, deleting, and other recipe-related operations as needed
 
     // Example method to get all recipes
-    public List<Recipe> getRecipes() {
+    public List<Recipe> getAllRecipes() {
         return recipeRepository.findAll();
     }
 
     // Example method for updating a recipe
-    public Recipe updateRecipe(int recipeId, Recipe updatedRecipe) {
+    public Recipe updateRecipe(Long recipeId, Recipe updatedRecipe) {
         // Check if the recipe with the given ID exists
-        Optional<Recipe> existingRecipeOptional = recipeRepository.findRecipeById(recipeId);
+        Optional<Recipe> existingRecipeOptional = recipeRepository.findById(recipeId);
         if (existingRecipeOptional.isPresent()) {
             // Perform any additional logic before saving the updated recipe, if needed
             return recipeRepository.save(updatedRecipe);
@@ -73,6 +73,10 @@ public class RecipeService {
 	}
 
 
+    // Example method for deleting a recipe
+    public void deleteRecipe(Long recipeId) {
+        recipeRepository.deleteById(recipeId);
+    }
 }
 
 

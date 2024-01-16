@@ -1,9 +1,6 @@
 package app.recipe;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Ingredient {
@@ -13,7 +10,18 @@ public class Ingredient {
 	private int id;
 	
 	private String name;
-	
+	@OneToOne
+	private Image image;
+
+	public Image getImage() {
+		return image;
+	}
+
+	public void setImage(Image image) {
+		this.image = image;
+	}
+
+
 	public Ingredient(String name /*, qrcode implementation */) {
 		this.name = name;	
 	}
