@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { Container, Form, Col, Button } from 'react-bootstrap';
 
-const Nutritionist = () => {
+function Nutritionist() {
   const [currentUser, setCurrentUser] = useState(null);
-  const [products, setProducts] = useState([]);
+  const [ingredients, setIngredients] = useState([]); // Changed from products to ingredients
   const [categories, setCategories] = useState([]);
   const [labels, setLabels] = useState([]);
-  const [newProductInfo, setNewProductInfo] = useState({
+  const [newIngredientInfo, setNewIngredientInfo] = useState({
     name: '',
     category: '',
     calories: 0,
@@ -41,176 +42,175 @@ const Nutritionist = () => {
     const storedUser = sessionStorage.getItem('currentUser');
     setCurrentUser(storedUser ? JSON.parse(storedUser) : null);
 
-    fetch('/labels') //labele za kategoriziranje proizvoda
+    fetch('/labels') // Labels for categorizing ingredients
       .then(response => response.json())
       .then(data => setLabels(data))
       .catch(error => console.error('Error fetching labels:', error));
   }, []);
 
-  const fetchProducts = () => {
-
-    fetch('/products') //dohvat proizvoda
+  const fetchIngredients = () => {
+    fetch('/ingredients') // Fetching ingredients
       .then(response => response.json())
-      .then(data => setProducts(data))
-      .catch(error => console.error('Error fetching products:', error));
+      .then(data => setIngredients(data))
+      .catch(error => console.error('Error fetching ingredients:', error));
   };
 
-  const addProduct = () => {
+  const addIngredient = () => {
     const formData = new FormData();
-    formData.append('name', newProductInfo.name);
-    formData.append('category', newProductInfo.category);
-    formData.append('calories', newProductInfo.calories);
-    formData.append('protein', newProductInfo.protein);
-    formData.append('carbs', newProductInfo.carbs);
-    formData.append('fat', newProductInfo.fat);
-    formData.append('sugar', newProductInfo.sugar);
-    formData.append('salt', newProductInfo.salt);
-    formData.append('saturatedFat', newProductInfo.saturatedFat);
-    formData.append('image', newProductInfo.image);
-    formData.append('weight', newProductInfo.weight);
-    formData.append('labels', newProductInfo.labels.join(','));
+    formData.append('name', newIngredientInfo.name);
+    formData.append('category', newIngredientInfo.category);
+    formData.append('calories', newIngredientInfo.calories);
+    formData.append('protein', newIngredientInfo.protein);
+    formData.append('carbs', newIngredientInfo.carbs);
+    formData.append('fat', newIngredientInfo.fat);
+    formData.append('sugar', newIngredientInfo.sugar);
+    formData.append('salt', newIngredientInfo.salt);
+    formData.append('saturatedFat', newIngredientInfo.saturatedFat);
+    formData.append('image', newIngredientInfo.image);
+    formData.append('weight', newIngredientInfo.weight);
+    formData.append('labels', newIngredientInfo.labels.join(','));
 
-    newProductInfo.labels.forEach((label, index) => {
+    newIngredientInfo.labels.forEach((label, index) => {
       formData.append(`labels[${index}]`, label);
     });
 
-    fetch('/products', {
+    fetch('/ingredients', {
       method: 'POST',
       body: formData,
     })
       .then(response => response.json())
       .then(data => {
-        console.log('Product added successfully:', data);
-        fetchProducts(); 
+        console.log('Ingredient added successfully:', data);
+        fetchIngredients(); // Fetch ingredients after adding
       })
-      .catch(error => console.error('Error adding product:', error));
+      .catch(error => console.error('Error adding ingredient:', error));
   };
 
   return (
     <Container>
       <div>
-        <button onClick={fetchProducts}>Dohvati proizvode</button>
+        <button onClick={fetchIngredients}>Dohvati proizvode</button>
       </div>
 
       <div>
         <h2>Dodaj proizvod</h2>
         <Form>
           <Form.Row>
-            <Form.Group as={Col} controlId="productName">
+            <Form.Group as={Col} controlId="ingredientName">
               <Form.Label>Ime proizvoda</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Unesi ime proizvoda"
-                value={newProductInfo.name}
-                onChange={(e) => setNewProductInfo({ ...newProductInfo, name: e.target.value })}
+                value={newIngredientInfo.name}
+                onChange={(e) => setNewIngredientInfo({ ...newIngredientInfo, name: e.target.value })}
               />
             </Form.Group>
 
-            <Form.Group as={Col} controlId="productCategory">
+            <Form.Group as={Col} controlId="ingredientCategory">
               <Form.Label>Kategorija</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Dodijeli kategoriju proizvodu"
-                value={newProductInfo.category}
-                onChange={(e) => setNewProductInfo({ ...newProductInfo, category: e.target.value })}
+                value={newIngredientInfo.category}
+                onChange={(e) => setNewIngredientInfo({ ...newIngredientInfo, category: e.target.value })}
               />
             </Form.Group>
 
-            <Form.Group as={Col} controlId="productCalories">
+            <Form.Group as={Col} controlId="ingredientCalories">
               <Form.Label>Energija</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Unesi energijsku vrijednost proizvoda (u kilokalorijama)"
-                value={newProductInfo.calories}
-                onChange={(e) => setNewProductInfo({ ...newProductInfo, calories: e.target.value })}
+                value={newIngredientInfo.calories}
+                onChange={(e) => setNewIngredientInfo({ ...newIngredientInfo, calories: e.target.value })}
               />
             </Form.Group>
 
-            <Form.Group as={Col} controlId="productProtein">
+            <Form.Group as={Col} controlId="ingredientProtein">
               <Form.Label>Proteini</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Unesi količinu proteina"
-                value={newProductInfo.protein}
-                onChange={(e) => setNewProductInfo({ ...newProductInfo, protein: e.target.value })}
+                value={newIngredientInfo.protein}
+                onChange={(e) => setNewIngredientInfo({ ...newIngredientInfo, protein: e.target.value })}
               />
             </Form.Group>
 
-            <Form.Group as={Col} controlId="productCarbs">
+            <Form.Group as={Col} controlId="ingredientCarbs">
               <Form.Label>Ugljikohidrati</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Unesi količinu ugljikohidrata"
-                value={newProductInfo.carbs}
-                onChange={(e) => setNewProductInfo({ ...newProductInfo, carbs: e.target.value })}
+                value={newIngredientInfo.carbs}
+                onChange={(e) => setNewIngredientInfo({ ...newProductInfo, carbs: e.target.value })}
               />
             </Form.Group>
 
-            <Form.Group as={Col} controlId="productFat">
+            <Form.Group as={Col} controlId="ingredientFat">
               <Form.Label>Mast</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Unesi količinu masti"
-                value={newProductInfo.fat}
-                onChange={(e) => setNewProductInfo({ ...newProductInfo, fat: e.target.value })}
+                value={newIngredientInfo.fat}
+                onChange={(e) => setNewIngredientInfo({ ...newIngredientInfo, fat: e.target.value })}
               />
             </Form.Group>
 
-            <Form.Group as={Col} controlId="productSugar">
+            <Form.Group as={Col} controlId="ingredientSugar">
               <Form.Label>Šećer</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Unesi količinu šećera"
-                value={newProductInfo.sugar}
-                onChange={(e) => setNewProductInfo({ ...newProductInfo, sugar: e.target.value })}
+                value={newIngredientInfo.sugar}
+                onChange={(e) => setNewIngredientInfo({ ...newIngredientInfo, sugar: e.target.value })}
               />
             </Form.Group>
 
-            <Form.Group as={Col} controlId="productSalt">
+            <Form.Group as={Col} controlId="ingredientSalt">
               <Form.Label>Sol</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Unesi količinu soli"
-                value={newProductInfo.salt}
-                onChange={(e) => setNewProductInfo({ ...newProductInfo, salt: e.target.value })}
+                value={newIngredientInfo.salt}
+                onChange={(e) => setNewIngredientInfo({ ...newIngredientInfo, salt: e.target.value })}
               />
             </Form.Group>
 
-            <Form.Group as={Col} controlId="productSaturatedFat">
+            <Form.Group as={Col} controlId="ingredientSaturatedFat">
               <Form.Label>Zasićene masne kiseline</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Unesi količinu zasićenih masnih kiselina"
-                value={newProductInfo.saturatedFat}
-                onChange={(e) => setNewProductInfo({ ...newProductInfo, saturatedFat: e.target.value })}
+                value={newIngredientInfo.saturatedFat}
+                onChange={(e) => setNewIngredientInfo({ ...newIngredientInfo, saturatedFat: e.target.value })}
               />
             </Form.Group>
 
-            <Form.Group as={Col} controlId="productMass">
+            <Form.Group as={Col} controlId="ingredientMass">
               <Form.Label>Masa</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Unesi količinu (u gramima) hrane"
-                value={newProductInfo.weight}
-                onChange={(e) => setNewProductInfo({ ...newProductInfo, weight: e.target.value })}
+                value={newIngredientInfo.weight}
+                onChange={(e) => setNewIngredientInfo({ ...newIngredientInfo, weight: e.target.value })}
               />
             </Form.Group>
 
-          <Form.Group controlId="productImage">
+          <Form.Group controlId="ingredientImage">
             <Form.Label>Slika proizvoda</Form.Label>
             <Form.Control
               type="file"
-              onChange={(e) => setNewProductInfo({ ...newProductInfo, image: e.target.files[0] })}
+              onChange={(e) => setNewIngredientInfo({ ...newIngredientInfo, image: e.target.files[0] })}
             />
           </Form.Group>
 
-          <Form.Group controlId="productLabels">
+          <Form.Group controlId="ingredientLabels">
             <Form.Label>Labele</Form.Label>
             <Form.Control
               type="text"
               placeholder="Unesi labele za kategorizaciju (odovjene zarezom)"
-              value={newProductInfo.labels.join(',')}
-              onChange={(e) => setNewProductInfo({ ...newProductInfo, labels: e.target.value.split(',') })}
+              value={newIngredientInfo.labels.join(',')}
+              onChange={(e) => setNewIngredientInfo({ ...newIngredientInfo, labels: e.target.value.split(',') })}
             />
           </Form.Group>
 
@@ -225,9 +225,9 @@ const Nutritionist = () => {
       <div>
         <h2>Proizvodi</h2>
         <ul>
-          {products.map((product) => (
-            <li key={product.id}>
-              {product.name} - {product.category}
+          {ingredients.map((ingredient) => (
+            <li key={ingredient.id}>
+              {ingredient.name} - {ingredient.category}
             </li>
           ))}
         </ul>
