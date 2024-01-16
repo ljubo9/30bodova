@@ -162,6 +162,16 @@ public class User implements UserDetails {
 	public List<Response> getResponses() {
 		return responses;
 	}
+
+	public Diet getDiet() {
+		return diet;
+	}
+
+	public List<Diet> getCreatedDiets() {
+		return createdDiets;
+	}
+	
+	
 	
 	
 

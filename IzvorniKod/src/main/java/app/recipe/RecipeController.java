@@ -55,7 +55,7 @@ public class RecipeController {
         }
     }
     
-    @GetMapping(path = "cookbooks?creator={username}")
+    @GetMapping(path = "/cookbooks?creator={username}")
     public ResponseEntity<Set<Cookbook>> getCookbooks(@PathVariable String username) {
     	try {
     		Set<Cookbook> cookbooks = recipeService.getCookbooksByUsername(username);
@@ -71,7 +71,7 @@ public class RecipeController {
     	}
     }
     
-    @GetMapping(path = "recipes?creator={username}") 
+    @GetMapping(path = "/recipes?creator={username}") 
     public ResponseEntity<Set<Recipe>> getRecipes(@PathVariable String username) {
     	try {
     		Set<Recipe> recipes = recipeService.getRecipesByUsername(username);
@@ -87,6 +87,11 @@ public class RecipeController {
     	}
     	
     }
+   
+    /*
+    @GetMapping(path = "/products")
+    public ResponseEntity<List<RecipeIngredients>> getIngredients()
+    */
     
 
 }
