@@ -20,7 +20,6 @@ import app.roles.UserService;
 public class ReviewController {
 
     private final ReviewService reviewService;
-    @Autowired
     private final UserService userService;
     private final RecipeService recipeService;
 

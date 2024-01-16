@@ -25,9 +25,9 @@ public class ReviewService {
     }
     
     public ResponseDTO loadResponseByReviewId(int reviewId) {
-    	Optional<Response> responseOptional = responseRepository.findResponseByReviewId(reviewId);
-    	if (responseOptional.isPresent()) {
-    		return ResponseDTO.fromEntity(responseOptional.get());
+    	Optional<Review> reviewOptional = reviewRepository.findById(reviewId);
+    	if (reviewOptional.isPresent()) {
+    		return ResponseDTO.fromEntity(reviewOptional.get().getResponse());
     	}
     	return null;
     }
