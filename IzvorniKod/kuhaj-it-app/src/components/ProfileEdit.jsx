@@ -44,10 +44,25 @@ function ProfileEdit() {
   };
 
   const handleChangeData = async () => {
+
+    const formData = new FormData();
+    formData.append(userData.newUsername);
+    formData.append(userData.oldPassword);
     try {
-      const currentUser = sessionStorage.getItem('currentUser');
+      const authResponse = await fetch('/authenticate', {
+        method: 'POST',
+        body: formData,
+      });
   
-      const updateResponse = await fetch(`/profile/${currentUser}`, {
+      if (!authResponse.ok) {
+        console.error('Authentication failed. Please check your old password.');
+        return;
+      }
+      
+      const formData = new FormData();
+      formData.append(userData.oldUsername);
+      
+      const updateResponse = await fetch('/profile', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
