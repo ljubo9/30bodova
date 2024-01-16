@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ReviewRepository extends JpaRepository<Review, Integer> {
-
+	
     
     @Query("SELECT r FROM review WHERE  r.id = ?1")
 	Optional<Review> findReviewById(int id);

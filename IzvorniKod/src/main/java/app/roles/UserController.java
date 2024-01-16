@@ -24,8 +24,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import app.dto.RecipeDTO;
+import app.dto.SpecialUserDTO;
 import app.dto.UserDTO;
+import app.recipe.Cookbook;
 
 @RestController
 @RequestMapping
@@ -100,6 +101,21 @@ public class UserController {
 		return dto;
 	}
 	
+	@PostMapping(path = "/profile/{username}", consumes = "multipart/form-data")
+	public ResponseEntity<UserDTO> editUser(@PathVariable String username, @RequestParam("newUsername") String newUsername, @RequestParam("newPassword") String newPassword, @RequestParam("oldPassword") String oldPassword) {
+		try {
+			User oldUser = (User)userService.loadUserByUsername(username);
+			if (oldUser == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			oldUser.setUsername(newUsername);
+			oldUser.setPassword(oldPassword);
+			return new ResponseEntity<>(new UserDTO(oldUser), HttpStatus.OK);
+		}
+		catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
+	}
+	
 	@PostMapping(path = "/authenticate", consumes = "multipart/form-data")
 	public ResponseEntity authenticate(@RequestParam("username") String username, @RequestParam("password") String password) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -109,14 +125,23 @@ public class UserController {
 	
 	
 	@GetMapping(path = "/enthusiasts/{username}")
-	public UserDTO getEnthuiast(@PathVariable String username) {
-		return getUser(username);
+	public ResponseEntity<SpecialUserDTO> getSpecialUser(@PathVariable String username) {
+		try {
+			SpecialUser su = (SpecialUser) userService.loadUserByUsername(username);
+			if (su == null) {
+				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			}
+			SpecialUserDTO dto = new SpecialUserDTO(su);
+			return new ResponseEntity<>(dto, HttpStatus.OK);
+		}
+		catch(Exception e) {
+			System.out.println("Could not fetch special user: ");
+			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
+
 	
-	@GetMapping(path = "/recipes/user/{username}") 
-	public RecipeDTO[] getRecipe(@PathVariable String username) {
-		User user = (User) userService.loadUserByUsername(username);
-		return null;
-		
-	}
+	
+	
 }

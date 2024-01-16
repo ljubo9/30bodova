@@ -13,7 +13,7 @@ const ProfileCulinaryEnthusiast = () => {
         // endpoint za dohvaćanje kul.entuzijasza po usernameu
         const profileResponse = await fetch(`/enthusiasts/${username}`);
         if (profileResponse.ok) {
-          const profileData = await profileResponse.json();
+          const profileData = await profileResponse.  ();
           setProfileData(profileData);
           // profileData je profil entuzijasta
 

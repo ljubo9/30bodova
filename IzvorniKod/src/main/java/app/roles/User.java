@@ -145,4 +145,22 @@ public class User implements UserDetails {
 		return true;
 	}
 
+	public Set<Recipe> getRecipes() {
+		return recipes;
+	}
+
+	public Set<Cookbook> getCookbooks() {
+		return cookbooks;
+	}
+
+	public List<Review> getReviews() {
+		return reviews;
+	}
+
+	public List<Response> getResponses() {
+		return responses;
+	}
+	
+	
+
 }
