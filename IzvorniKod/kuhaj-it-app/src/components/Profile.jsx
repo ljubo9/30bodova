@@ -6,10 +6,17 @@ const Profile = () => {
   const { username } = useParams();
   const [profileData, setProfileData] = useState(null);
 
+  {currentUser.role === 'enthusiast' && (
+    <Link as={Link} to="/enthusiast/${username}">
+      Moje kuharice i recepti
+    </Link>
+  )}
+
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const profileResponse = await fetch(`https://kuhajitbackend.onrender.com/user/${username}`);
+        // endpoint za dohvaćanje podataka o useru po username-u - treba vratit ono kaj se slalo za registraciju
+        const profileResponse = await fetch(`/user/${username}`);
         if (profileResponse.ok) {
           const profileData = await profileResponse.json();
           setProfileData(profileData);
@@ -31,22 +38,7 @@ const Profile = () => {
   return (
     <div>
       <h2>{profileData.firstName} {profileData.lastName}</h2>
-      <p>Ime: {profileData.name} {profileData.surname}</p>
-      <p>Korisničko ime: {profileData.username}</p>
-
-      {currentUser.role === 'enthusiast' || currentUser.role === 'nutritionist' ? (
-        <div>
-          <img src={profileData.image} alt="Profile" style={{ width: '150px', height: '150px', borderRadius: '50%' }} />
-          <p>Biografija: {profileData.biography}</p>
-        </div>
-      ) : null}
-
-      {currentUser.role === 'enthusiast' && (
-          <Link as={Link} to={`/enthusiast/${username}`}>
-            Moje kuharice i recepti
-          </Link>
-        )}
-
+      <p>Username: {profileData.username}</p>
     </div>
   );
 };

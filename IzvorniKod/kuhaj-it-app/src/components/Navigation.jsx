@@ -25,6 +25,9 @@ function Navigation() {
             </Nav.Link>
             {currentUser ? (
               <>
+                <Nav.Link as={Link} to="/profile/${username}">
+                  {currentUser}
+                </Nav.Link>
                 <Nav.Link as={Link} to="/choose-recipe">
                   Choose Recipe
                 </Nav.Link>
