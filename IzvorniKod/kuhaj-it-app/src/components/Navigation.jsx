@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
+import CookbookEditor from './CookbookEditor'; 
 
 function Navigation() {
   const navigate = useNavigate();
-  
+
   const handleLogout = () => {
     sessionStorage.removeItem('isLoggedIn');
     sessionStorage.removeItem('currentUser');
@@ -12,6 +13,8 @@ function Navigation() {
   };
 
   const currentUser = sessionStorage.getItem('currentUser');
+  //console.log(currentUser)
+  //console.log(currentUser.role)
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
@@ -23,10 +26,29 @@ function Navigation() {
             <Nav.Link as={Link} to="/culinary-enthusiasts"> 
               Kulinarski Entuzijasti
             </Nav.Link>
+            <Nav.Link as={Link} to="/choose-recipe">
+                Choose Recipe
+            </Nav.Link>
+            {currentUser && currentUser.role === 'nutritionist' && (
+            <Nav.Link as={Link} to="/nutritionist">
+                Nutritionist
+            </Nav.Link>
+            )}
+            
+            {currentUser && currentUser.role === 'enthusiast' && (
+              <Nav.Link as={Nav.Link} to="/CookbookEditor">
+                Add cookbook
+              </Nav.Link>
+            )}
+            {currentUser && currentUser.role === 'enthusiast' && (
+              <Nav.Link as={Nav.Link} to="/RecipeEditor">
+                Add recipe
+              </Nav.Link>
+            )}
             {currentUser ? (
               <>
-                <Nav.Link as={Link} to="/profile/${username}">
-                  {currentUser}
+                <Nav.Link as={Link} to={`/profile/${currentUser.username}`}>
+                  {currentUser.username}
                 </Nav.Link>
                 <Nav.Link as={Link} to="/choose-recipe">
                   Choose Recipe
@@ -57,4 +79,3 @@ function Navigation() {
 }
 
 export default Navigation;
-

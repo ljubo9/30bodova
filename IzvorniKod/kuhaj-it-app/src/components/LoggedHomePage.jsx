@@ -4,7 +4,8 @@ import { Card, Container, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 function LoggedHomePage() {
-  const { username } = useParams();
+  //const { username } = useParams();
+  const username = sessionStorage.getItem('currentUser');
   const [recipeList, setRecipeList] = useState(null);
   const [dietInfo, setDiet] = useState(null);
   const [consumedRecipesStatistics, setConsumedRecipesStatistics] = useState(null);

@@ -85,20 +85,36 @@ const Recipe = () => {
       <h2>Recept</h2>
       {recipe ? (
         <>
-          {/*prikazivanje informacija o samom receptu -> u bazi treba maknuti listu slika,portionsize i cooktime  */}
-          <p>Recipe ID: {recipe.id}</p>
+        {/*prikazivanje informacija o samom receptu */}
           <p>Recipe Name: {recipe.name}</p>
-          <p>Steps of Making: {recipe.stepsOfMaking}</p>
+          <p>Portion size: {recipe.portionSize}</p>
+          <p>Cook time: {recipe.cookTime}</p>
 
 
-          {/*prikazivanje informacija o ingredients -> u bazi za ingredients treba biti name,quantity i image  */}
+          {/*prikazivanje informacija o ingredients */}
           <h3>Ingredients:</h3>
           <ul>
             {recipe.ingredients.map((ingredient, index) => (
               <li key={index}>
                 <p>Name: {ingredient.name}</p>
                 <p>Quantity: {ingredient.quantity}</p>
-                <img src={ingredient.image} alt={`Ingredient ${index}`} />
+              </li>
+            ))}
+          </ul>
+
+          <h3>Steps of making:</h3>
+          <ul>
+            {recipe.stepsOfMaking.map((stepOfMaking, index) => (
+              <li key={index}>
+                <p>Step number: {stepOfMaking.stepNum}</p>
+                <p>Description: {stepOfMaking.description}</p>
+                {stepOfMaking.image && (
+                <img
+                    src={stepOfMaking.image}
+                    alt={`Step ${stepOfMaking.stepNum} Image`}
+                    style={{ maxWidth: '100%', height: 'auto' }}
+                />
+                )}
               </li>
             ))}
           </ul>
