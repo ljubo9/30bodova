@@ -19,7 +19,7 @@ function LoggedHomePage() {
         //ruta za recepte koje je neki user konzumiro
         //svakom useru trebalo bi dodati listu recepata koje je konzumirao
         //al ja bi to dodala ko mapu di je ključ taj recept a vrijednost je lista datuma kad je sve taj recept konzumirao jer nam to treba za statistiku
-        const response = await fetch(`https://kuhajitbackend.onrender.com/recipes/user/${username}`);
+        const response = await fetch(`/recipes/user/${username}`);
         if (response.ok) {
           const data = await response.json();
           setRecipeList(data);
@@ -39,7 +39,7 @@ function LoggedHomePage() {
         //svaka dijeta bi jos trebala imat listu zabranjenih sastojaka
         //i trebala bi imati mapu gdje je ključ koji je neki sastojak, a vrijednost je maksimalna kolicina tog sastojka koju smije konzumirati
         //i ima dnevni limit
-        const response = await fetch(`https://kuhajitbackend.onrender.com/diet/user/${username}`);
+        const response = await fetch(`/diet/user/${username}`);
         if (response.ok) {
           const data = await response.json();
           setDiet(data);
@@ -54,7 +54,7 @@ function LoggedHomePage() {
     const fetchFollowedChefs = async () => {
       try {
         //msm da bi ovo bilo najlakse za usera dodamo atribut followed_Enthusiasts koji je lista entuzijasta koje user prati
-        const response = await fetch(`https://kuhajitbackend.onrender.com/followed-enthusiasts/${username}`);
+        const response = await fetch(`/followed-enthusiasts/${username}`);
         if (response.ok) {
           const data = await response.json();
           setFollowedChefs(data);
@@ -69,8 +69,8 @@ function LoggedHomePage() {
     const fetchLatestChefData = async () => {
       try {
         //za svakog entuzijasta trebamo dohvatiti njegove najnovije 3 kuharice i najnovije 3 recepta
-        const cookbooksResponse = await fetch('https://kuhajitbackend.onrender.com/latest-enthusiast-cookbooks');
-        const recipesResponse = await fetch('https://kuhajitbackend.onrender.com/latest-enthusiast-recipes');
+        const cookbooksResponse = await fetch('/latest-enthusiast-cookbooks');
+        const recipesResponse = await fetch('/latest-enthusiast-recipes');
         
         if (cookbooksResponse.ok && recipesResponse.ok) {
           const cookbooksData = await cookbooksResponse.json();
@@ -89,7 +89,7 @@ function LoggedHomePage() {
     const fetchConsumedRecipesStatistics = async () => {
       try {
         //ruta za statistiku usera - vratiti npr. broj kalorija koje je user konzumiro svaki dan u zadnjih 7 dana
-        const response = await fetch(`https://kuhajitbackend.onrender.com/statistic/user/${username}`);
+        const response = await fetch(`/statistic/user/${username}`);
         if (response.ok) {
           const data = await response.json();
           setConsumedRecipesStatistics(data);

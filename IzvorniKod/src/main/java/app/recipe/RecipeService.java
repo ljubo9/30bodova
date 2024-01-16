@@ -77,6 +77,11 @@ public class RecipeService {
     public void deleteRecipe(int recipeId) {
         recipeRepository.deleteById(recipeId);
     }
+
+	public void addCookbook(Cookbook c) {
+		// TODO Auto-generated method stub
+		cookbookRepository.save(c);
+	}
 }
 
 

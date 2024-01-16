@@ -9,23 +9,28 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import app.dto.RecipeDTO;
+import app.roles.User;
+import app.roles.UserService;
 
 @RestController
 @RequestMapping()
 public class RecipeController {
 
     private final RecipeService recipeService;
-
+    private final UserService userService;
+    
     @Autowired
-    public RecipeController(RecipeService recipeService) {
+    public RecipeController(RecipeService recipeService, UserService userService) {
         this.recipeService = recipeService;
+        this.userService = userService;
     }
 
 
-    @GetMapping("/{recipeId}")
+    @GetMapping("/recipe/{recipeId}")
     public ResponseEntity<RecipeDTO> getRecipeById(@PathVariable int recipeId) {
         try {
             // Fetch the recipe by ID
@@ -88,6 +93,25 @@ public class RecipeController {
     	
     }
    
+    
+    @PostMapping(path = "/cookbook", consumes = "multipart/form-data")
+    public ResponseEntity<String> createCookbook(@RequestParam("cookbookName") String cookbookName,
+    											 @RequestParam("cookbookCategory") String cookbookCategory,
+    											 @RequestParam("username") String username) {
+    	try {
+    		User u = (User) userService.loadUserByUsername(username);
+    		if (u == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    		Cookbook c = new Cookbook(cookbookName, cookbookCategory, u);
+    		recipeService.addCookbook(c);
+    		return new ResponseEntity<>(HttpStatus.OK);
+    	}
+    	catch(Exception e) {
+    		System.out.println("Could not add cookbook: ");
+    		e.printStackTrace();
+    		return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    	}
+    }
+    
     /*
     @GetMapping(path = "/products")
     public ResponseEntity<List<RecipeIngredients>> getIngredients()

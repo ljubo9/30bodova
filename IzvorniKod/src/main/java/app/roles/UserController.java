@@ -94,7 +94,7 @@ public class UserController {
 		return null;
 	}
 	
-	@GetMapping(path = "/profile/{username}")
+	@GetMapping(path = "/user/{username}")
 	public UserDTO getUser(@PathVariable String username) {
 		User user = (User) userService.loadUserByUsername(username);
 		UserDTO dto= new UserDTO(user);
