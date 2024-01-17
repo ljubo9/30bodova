@@ -3,15 +3,31 @@ package app.recipe;
 import jakarta.persistence.*;
 
 @Entity
+
 public class Image {
 	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private String imageUrl;
+
 	@OneToOne
 	private StepOfMaking stepOfMaking;
+
+	@OneToOne
+	private Ingredient ingredient;
+
+
+	@Lob
+	private byte[] imageData;
+
+	public byte[] getImageData() {
+		return imageData;
+	}
+
+	public void setImageData(byte[] imageData) {
+		this.imageData = imageData;
+	}
 
 	public Ingredient getIngredient() {
 		return ingredient;
@@ -21,15 +37,10 @@ public class Image {
 		this.ingredient = ingredient;
 	}
 
-	@OneToOne
-	private Ingredient ingredient;
-    
-    
-    public Image(String name, String imageUrl) {
-    	this.imageUrl = imageUrl;
-    }
-    
-    public Image() {
+
+    public Image(String name,byte[] imageData) {
+		this.name=name;
+		this.imageData=imageData;
     	
     }
     
@@ -46,14 +57,6 @@ public class Image {
 		this.name = name;
 	}
 
-	public String getImageUrl() {
-		return imageUrl;
-	}
 
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
-	}
-    
-    
     // Constructors, getters, setters
 }
