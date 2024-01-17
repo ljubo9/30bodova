@@ -4,7 +4,8 @@ import { Card, Container, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 function LoggedHomePage() {
-  const { username } = useParams();
+  //const { username } = useParams();
+  const username = sessionStorage.getItem('currentUser');
   const [recipeList, setRecipeList] = useState(null);
   const [dietInfo, setDiet] = useState(null);
   const [consumedRecipesStatistics, setConsumedRecipesStatistics] = useState(null);
@@ -19,7 +20,7 @@ function LoggedHomePage() {
         //ruta za recepte koje je neki user konzumiro
         //svakom useru trebalo bi dodati listu recepata koje je konzumirao
         //al ja bi to dodala ko mapu di je ključ taj recept a vrijednost je lista datuma kad je sve taj recept konzumirao jer nam to treba za statistiku
-        const response = await fetch('/recipes/user/${username}');
+        const response = await fetch(`https://kuhajitbackend.onrender.com/recipes/user/${username}`);
         if (response.ok) {
           const data = await response.json();
           setRecipeList(data);
@@ -39,7 +40,7 @@ function LoggedHomePage() {
         //svaka dijeta bi jos trebala imat listu zabranjenih sastojaka
         //i trebala bi imati mapu gdje je ključ koji je neki sastojak, a vrijednost je maksimalna kolicina tog sastojka koju smije konzumirati
         //i ima dnevni limit
-        const response = await fetch('/diet/user/${username}');
+        const response = await fetch(`https://kuhajitbackend.onrender.com/diet/user/${username}`);
         if (response.ok) {
           const data = await response.json();
           setDiet(data);
@@ -54,7 +55,7 @@ function LoggedHomePage() {
     const fetchFollowedChefs = async () => {
       try {
         //msm da bi ovo bilo najlakse za usera dodamo atribut followed_Enthusiasts koji je lista entuzijasta koje user prati
-        const response = await fetch('/followed-enthusiasts/$(username)');
+        const response = await fetch(`https://kuhajitbackend.onrender.com/followed-enthusiasts/${username}`);
         if (response.ok) {
           const data = await response.json();
           setFollowedChefs(data);
@@ -69,8 +70,8 @@ function LoggedHomePage() {
     const fetchLatestChefData = async () => {
       try {
         //za svakog entuzijasta trebamo dohvatiti njegove najnovije 3 kuharice i najnovije 3 recepta
-        const cookbooksResponse = await fetch('/latest-enthusiast-cookbooks');
-        const recipesResponse = await fetch('/latest-enthusiast-recipes');
+        const cookbooksResponse = await fetch('https://kuhajitbackend.onrender.com/latest-enthusiast-cookbooks');
+        const recipesResponse = await fetch('https://kuhajitbackend.onrender.com/latest-enthusiast-recipes');
         
         if (cookbooksResponse.ok && recipesResponse.ok) {
           const cookbooksData = await cookbooksResponse.json();
@@ -88,8 +89,8 @@ function LoggedHomePage() {
 
     const fetchConsumedRecipesStatistics = async () => {
       try {
-        //ruta za statistiku usera - pogledat u zadatku kaj tocno
-        const response = await fetch('/statistic/user/${username}');
+        //ruta za statistiku usera - vratiti npr. broj kalorija koje je user konzumiro svaki dan u zadnjih 7 dana
+        const response = await fetch(`https://kuhajitbackend.onrender.com/statistic/user/${username}`);
         if (response.ok) {
           const data = await response.json();
           setConsumedRecipesStatistics(data);
@@ -114,75 +115,89 @@ function LoggedHomePage() {
   
   return (
     <Container>
-      <Row className="mt-4">
-        <Col>
-          <h2>Isprobani recepti</h2>
-          {recipeList.map(recipe => (
-          <Col key={recipe.id} md={4}>
-            <Card className="mb-4">
-              <Card.Body>
-                <Card.Title>{recipe.title}</Card.Title>
-                <Card.Text>
-                  <strong>Sastojci:</strong>
-                  <ul>
-                    {recipe.ingredients.map((ingredient, index) => (
-                      <li key={index}>{ingredient}</li>
-                    ))}
-                  </ul>
-                </Card.Text>
-                <Card.Text>
-                  <strong>Priprema:</strong>
-                  <ol>
-                    {recipe.steps_of_making.map((step, index) => (
-                      <li key={index}>{step}</li>
-                    ))}
-                  </ol>
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
-        </Col>
-      </Row>
 
-      <Row className="mt-4">
-        <Col>
-          <h2>Dijeta</h2>
-          <p>{dietInfo.description}</p>
-        </Col>
-      </Row>
+      {!recipeList ? (
+                <div>Nema isprobanih recepata</div>
+              ) : (<Row className="mt-4">
+              <Col>
+                <h2>Isprobani recepti</h2>
+                {recipeList.map(recipe => (
+                <Col key={recipe.id} md={4}>
+                  <Card className="mb-4">
+                    <Card.Body>
+                      <Card.Title>{recipe.title}</Card.Title>
+                      <Card.Text>
+                        <strong>Sastojci:</strong>
+                        <ul>
+                          {recipe.ingredients.map((ingredient, index) => (
+                            <li key={index}>{ingredient}</li>
+                          ))}
+                        </ul>
+                      </Card.Text>
+                      <Card.Text>
+                        <strong>Priprema:</strong>
+                        <ol>
+                          {recipe.steps_of_making.map((step, index) => (
+                            <li key={index}>{step}</li>
+                          ))}
+                        </ol>
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              ))}
+              </Col>
+            </Row>
+      )}
+      
 
-      <Row className="mt-4">
-        <Col>
-          <h2>Nove kuharice i recepti</h2>
-          {followedChefs.map((chef, index) => (
-            <Card key={index} className="mb-3">
-              <Card.Body>
-                <Card.Title>{chef.name}</Card.Title>
-                <h5>Najnoviji radovi:</h5>
-                <p>
-                  {latestChefCookbooks[chef.id]?.map((latestCookbook, idx) => (
-                    <Link key={idx} to={`/cookbook/${latestCookbook.id}`}>{latestCookbook.title}</Link>
-                  ))}
-                </p>
-                <p>
-                  {latestChefRecipes[chef.id]?.map((latestRecipe, idx) => (
-                    <Link key={idx} to={`/recipe/${latestRecipe.id}`}>{latestRecipe.title}</Link>
-                  ))}
-                </p>
-              </Card.Body>
-            </Card>
-          ))}
-        </Col>
-      </Row>
+      {!dietInfo ? (
+                <div>Nema odabrane dijete</div>
+              ) : (<Row className="mt-4">
+              <Col>
+                <h2>Dijeta</h2>
+                <p>{dietInfo.description}</p>
+              </Col>
+            </Row>
+      )}
 
-      <Row className="mt-4">
-        <Col>
-          <h2>Statistika konzumiranih nutritivnih vrijednosti</h2>
-          {/* Dodajte prikaz statistike konzumiranih nutritivnih vrijednosti */}
-          <p>{consumedRecipesStatistics}</p>
-        </Col>
-      </Row>
+      {!followedChefs ? (
+                <div>Nema novih kuharica i recepata</div>
+              ) : (<Row className="mt-4">
+              <Col>
+                <h2>Nove kuharice i recepti</h2>
+                {followedChefs.map((chef, index) => (
+                  <Card key={index} className="mb-3">
+                    <Card.Body>
+                      <Card.Title>{chef.name}</Card.Title>
+                      <h5>Najnoviji radovi:</h5>
+                      <p>
+                        {latestChefCookbooks[chef.id]?.map((latestCookbook, idx) => (
+                          <Link key={idx} to={`/cookbook/${latestCookbook.id}`}>{latestCookbook.title}</Link>
+                        ))}
+                      </p>
+                      <p>
+                        {latestChefRecipes[chef.id]?.map((latestRecipe, idx) => (
+                          <Link key={idx} to={`/recipe/${latestRecipe.id}`}>{latestRecipe.title}</Link>
+                        ))}
+                      </p>
+                    </Card.Body>
+                  </Card>
+                ))}
+              </Col>
+            </Row>
+      )}
+      
+
+      {!consumedRecipesStatistics ? (
+                <div>Nema statistike nutritivnih vrijednosti</div>
+              ) : (<Row className="mt-4">
+              <Col>
+                <h2>Statistika konzumiranih nutritivnih vrijednosti</h2>
+                <p>{consumedRecipesStatistics}</p>
+              </Col>
+            </Row>
+      )}
     </Container>
   );
 }

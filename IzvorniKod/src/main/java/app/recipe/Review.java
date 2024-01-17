@@ -6,6 +6,14 @@ import jakarta.persistence.*;
 @Entity
 public class Review {
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

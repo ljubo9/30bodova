@@ -10,10 +10,22 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [bio, setBio] = useState('');
   const [image, setImage] = useState(null);
+  const [isValidPassword, setIsValidPassword] = useState(true);
   const [registrationStatus, setRegistrationStatus] = useState(null);
 
   const handleImageChange = (e) => {
     setImage(e.target.files[0]);
+  };
+
+  const handlePasswordChange = (e) => {
+    const newPassword = e.target.value;
+
+    const isValid = /^(?=.*[A-Z]).{8,}$/.test(newPassword);
+    
+    console.log(isValid);
+
+    setPassword(newPassword);
+    setIsValidPassword(isValid);
   };
 
   const createAuthorizationFormObject = () => {
@@ -66,7 +78,7 @@ const Register = () => {
     }
   
     try {
-      const response = await fetch('/register', {
+      const response = await fetch('https://kuhajitbackend.onrender.com/register', {
         method: 'POST',
         body: formData,
       });
@@ -93,6 +105,12 @@ const Register = () => {
     <Container className="bg-secondary bg-gradient" fluid>
       <Row className="justify-content-center align-items-center" style={{ height: '100vh'}}>
         <Col xs={12} md={6}>
+          {isValidPassword === false && (
+            <Alert variant="danger" className="mb-3">
+              Please choose a stronger password!
+            </Alert>
+          )}
+
           {registrationStatus === 'success' && (
             <Alert variant="success">
               Registration successful! You can now sign in.
@@ -117,14 +135,12 @@ const Register = () => {
             </Alert>
           )}
 
-
-
           <Form className="border border-dark p-4 bg-white">
             <Form.Group className="mb-3" controlId="firstName">
               <Form.Label>First Name</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter your first name"
+                placeholder="Ime"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
                 required
@@ -135,7 +151,7 @@ const Register = () => {
               <Form.Label>Last Name</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter your last name"
+                placeholder="Prezime"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
                 required
@@ -146,7 +162,7 @@ const Register = () => {
               <Form.Label>Username</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter your username"
+                placeholder="Odaberi korisničko ime"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
@@ -157,11 +173,22 @@ const Register = () => {
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type="password"
-                placeholder="Enter your password"
+                placeholder="Odaberi sigurnu lozinku"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={handlePasswordChange}
                 required
               />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="email">
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control
+                    type="email"
+                    placeholder="Upiši svoj mail"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="role">
@@ -170,27 +197,16 @@ const Register = () => {
                 value={selectedRole}
                 onChange={(e) => setSelectedRole(e.target.value)}
               >
-                <option value="client">Client</option>
-                <option value="nutritionist">Nutritionist</option>
-                <option value="enthusiast">Enthusiast</option>
+                <option value="client">Klijent</option>
+                <option value="nutritionist">Nutricionist</option>
+                <option value="enthusiast">Entuzijast</option>
               </Form.Select>
             </Form.Group>
 
             {['nutritionist', 'enthusiast'].includes(selectedRole) && (
               <>
-                <Form.Group className="mb-3" controlId="email">
-                  <Form.Label>Email</Form.Label>
-                  <Form.Control
-                    type="email"
-                    placeholder="Enter your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
-                </Form.Group>
-
                 <Form.Group className="mb-3" controlId="bio">
-                  <Form.Label>Biography</Form.Label>
+                  <Form.Label>Biografija</Form.Label>
                   <Form.Control
                     as="textarea"
                     rows={3}
@@ -202,7 +218,7 @@ const Register = () => {
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="image">
-                  <Form.Label>Image</Form.Label>
+                  <Form.Label>Slika</Form.Label>
                   <Form.Control
                     type="file"
                     onChange={handleImageChange}
@@ -212,7 +228,7 @@ const Register = () => {
               </>
             )}
 
-            <Button variant="dark" className="w-100" onClick={handleRegister}>
+            <Button variant="dark" className="w-100" onClick={handleRegister} disabled={!isValidPassword}>
               Register
             </Button>
           </Form>

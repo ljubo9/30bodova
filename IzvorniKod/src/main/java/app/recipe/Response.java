@@ -5,7 +5,11 @@ import jakarta.persistence.*;
 
 @Entity
 public class Response {
-	
+
+    public int getId() {
+        return id;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -48,4 +52,10 @@ public class Response {
     }
 
     private String message;
+    public int getReviewId() {
+        if (responseGivenTo != null) {
+            return responseGivenTo.getId();
+        }
+        return 0; // or throw an exception, depending on your use case
+    }
 }
