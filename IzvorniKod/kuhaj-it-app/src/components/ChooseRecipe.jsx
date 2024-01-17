@@ -156,7 +156,6 @@ const ChooseRecipe = () => {
 
 
           </div>
-
           {/* List of Products */}
           <div>
             {Object.entries(products).map(([product, count], index) => (
