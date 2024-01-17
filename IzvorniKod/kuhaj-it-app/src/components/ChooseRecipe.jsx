@@ -7,16 +7,8 @@ const ChooseRecipe = () => {
   const [products, setProducts] = useState({});
   const [scanner, setScanner] = useState(null);
   const [recipesFromDB, setRecipesFromDB] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedProduct, setSelectedProduct] = useState("");
-
-  const categories = {
-    Voće: ["Jabuka", "Banana", "Naranča"],
-    Povrće: ["Krumpir", "Mrkva", "Brokula"],
-    // Dodajte više kategorija i namirnica po potrebi
-  };
-
-
+  const [ingredients, setIngredients] = useState([]);
 
   const incrementProductCount = (product) => {
     setProducts((prevProducts) => ({
@@ -36,11 +28,25 @@ const ChooseRecipe = () => {
       return newProducts;
     });
   };
+
+  useEffect(() => {
+    const fetchIngredients = async () => {
+      try {
+        const response = await fetch('https://kuhajitbackend.onrender.com/ingredients'); // Pretpostavka URL-a
+        const data = await response.json();
+        setIngredients(data);
+      } catch (error) {
+        console.error('Greška pri dohvaćanju namirnica:', error);
+      }
+    };
+
+    fetchIngredients();
+  }, []);
   
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await fetch("/api/recepti");
+        const response = await fetch("https://kuhajitbackend.onrender.com/recipes");
         if (response.ok) {
           const data = await response.json();
           setRecipesFromDB(data);
@@ -124,7 +130,8 @@ const ChooseRecipe = () => {
       {/* First Row */}
       <div style={{ display: 'flex', flexDirection: 'row', marginBottom: '20px' }}>
         {/* Left Column: QR Scanner */}
-        <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column' , justifyContent: 'center', alignItems: 'center'}}>
+          <h3>Skeniraj namirnicu:</h3>
           <div id="reader" style={{ width: 'fit-content' }} />
         </div>
 
@@ -133,35 +140,21 @@ const ChooseRecipe = () => {
           {/* Product Selection and List */}
           <div>
             <h3>Odaberi namirnicu:</h3>
-            {/* Select Category */}
-            <select
-              value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
-              style={{ marginBottom: '10px' }}
-            >
-              <option value="">Odaberi kategoriju</option>
-              {Object.keys(categories).map((category, index) => (
-                <option key={index} value={category}>
-                  {category}
-                </option>
-              ))}
-            </select>
-
             {/* Select Product */}
             <select
               value={selectedProduct}
               onChange={(e) => setSelectedProduct(e.target.value)}
-              disabled={!selectedCategory}
             >
               <option value="">Odaberi namirnicu</option>
-              {selectedCategory &&
-                categories[selectedCategory].map((product, index) => (
-                  <option key={index} value={product}>
-                    {product}
+                {ingredients.map((ingredient, index) => (
+                 <option key={index} value={ingredient.name}>
+                    {ingredient.name}
                   </option>
                 ))}
             </select>
             <button onClick={() => addProduct(selectedProduct)}>Dodaj</button>
+
+
           </div>
 
           {/* List of Products */}
