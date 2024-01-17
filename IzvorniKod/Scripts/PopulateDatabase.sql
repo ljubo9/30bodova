@@ -99,7 +99,7 @@ VALUES(5, 1);
 
 insert into public."cookbook"
 (id, "category", "name", creator_id)
-VALUES(1, 'talijanska', 'mesna jela', 1);
+VALUES(1, 'talijanska', 'mesna jela', 5);
 
 insert into public."cookbook_recipes"
 (cookbook_id, recipe_id)

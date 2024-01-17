@@ -62,6 +62,9 @@ public class Recipe {
         this.creator=creator;
     }
 
+    public Recipe() {
+    	
+    }
 
     public int getId() {
         return id;

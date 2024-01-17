@@ -59,6 +59,7 @@ public class UserService implements UserDetailsService{
 			specialUser.setEmail(specialUserUp.getEmail());
 			user = specialUser;
 		}
+		
 		userRepository.deleteById(user.getId());
 		checkUserDataValid(user);
 		userRepository.save(user);

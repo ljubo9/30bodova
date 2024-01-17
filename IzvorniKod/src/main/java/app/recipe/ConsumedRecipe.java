@@ -28,6 +28,10 @@ public class ConsumedRecipe {
 		this.date = date;
 	}
 
+	public ConsumedRecipe() {
+		
+	}
+	
 	public int getId() {
 		return id;
 	}

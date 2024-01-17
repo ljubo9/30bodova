@@ -25,6 +25,10 @@ public class StepOfMaking {
         this.image = image;
     }
 
+    public StepOfMaking() {
+    	
+    }
+    
     public Recipe getRecipe() {
         return recipe;
     }

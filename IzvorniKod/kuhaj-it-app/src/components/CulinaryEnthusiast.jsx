@@ -11,17 +11,17 @@ function CulinaryEnthusiast() {
   const fetchCreatorsByCategory = async (category) => {
     try {
       // Dohvaćanje svih kuharica iz baze čija je kategorija jednaka stisnutoj
-      const cookbooksResponse = await fetch(`/cookbooks?category=${category}`);
+      const cookbooksResponse = await fetch(`/cookbooks/category?category=${category}`);
       if (!cookbooksResponse.ok) {
         throw new Error(`Error fetching cookbooks: ${cookbooksResponse.statusText}`);
 
       }
-  
+      
       const cookbooksData = await cookbooksResponse.json();
       const cookbookAuthors = cookbooksData.map(cookbook => cookbook.creator);
   
       // Dohvaćanje svih recepata iz baze čija je kategorija jednaka stisnutoj
-      const recipesResponse = await fetch(`/recipes?category=${category}`);
+      const recipesResponse = await fetch(`/recipes/category?category=${category}`);
       if (!recipesResponse.ok) {
         throw new Error(`Error fetching recipes: ${recipesResponse.statusText}`);
       }

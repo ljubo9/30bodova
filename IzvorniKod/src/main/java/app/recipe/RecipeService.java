@@ -91,6 +91,11 @@ public class RecipeService {
 		return setCookbooks;
 	}
 
+	public Cookbook getCookbookById(int id) {
+		Optional<Cookbook> c = cookbookRepository.findById(id);
+		return c.orElse(null);
+	}
+	
     // Example method for deleting a recipe
     public void deleteRecipe(int recipeId) {
         recipeRepository.deleteById(recipeId);
@@ -100,6 +105,7 @@ public class RecipeService {
 		// TODO Auto-generated method stub
 		cookbookRepository.save(c); 
 	}
+
 
 }
 

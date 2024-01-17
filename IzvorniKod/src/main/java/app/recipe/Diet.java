@@ -22,6 +22,10 @@ public class Diet {
     @OneToMany
     private List<User> users;
 
+    public Diet() {
+    	
+    }
+    
     public String getName() {
         return name;
     }

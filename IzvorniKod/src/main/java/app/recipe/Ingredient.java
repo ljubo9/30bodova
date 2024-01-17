@@ -26,6 +26,9 @@ public class Ingredient {
 		this.name = name;	
 	}
 
+	public Ingredient() {
+		
+	}
 	public int getIngredientId() {
 		return id;
 	}
