@@ -50,7 +50,7 @@ const RecipeEditor = () => {
     const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
 
     try {
-      const response = await fetch('https://kuhajitbackend.onrender.com/recipe', {
+      const response = await fetch('/recipe', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ const RecipeEditor = () => {
 
         // Slanje podataka o namirnicama
         for (const ingredient of ingredients) {
-          const ingredientResponse = await fetch('https://kuhajitbackend.onrender.com/RecipeIngredient', {
+          const ingredientResponse = await fetch('/RecipeIngredient', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -86,7 +86,7 @@ const RecipeEditor = () => {
         }
 
         for (const step of steps) {
-          const stepResponse = await fetch('https://kuhajitbackend.onrender.com/StepOfMaking', {
+          const stepResponse = await fetch('/StepOfMaking', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

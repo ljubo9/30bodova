@@ -1,78 +1,46 @@
-import React, { useState, useEffect } from "react";
-import { Html5QrcodeScanner } from "html5-qrcode";
+import React, { useState, useEffect } from 'react';
+import { Html5QrcodeScanner } from 'html5-qrcode';
 
 const ChooseRecipe = () => {
   const [products, setProducts] = useState([]);
+  const [manualProduct, setManualProduct] = useState('');
   const [scanner, setScanner] = useState(null);
-  const [recipesFromDB, setRecipesFromDB] = useState([]);
-  const [scannedProductURL, setScannedProductURL] = useState(null);
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const [selectedProduct, setSelectedProduct] = useState("");
 
-  const categories = {
-    Voće: ["Jabuka", "Banana", "Naranča"],
-    Povrće: ["Krumpir", "Mrkva", "Brokula"],
-    // Dodajte više kategorija i namirnica po potrebi
+  const handleScanSuccess = (decodedText) => {
+    setProducts([...products, decodedText]);
   };
 
-  useEffect(() => {
-    const fetchRecipes = async () => {
-      try {
-        const response = await fetch("/api/recepti");
-        if (response.ok) {
-          const data = await response.json();
-          setRecipesFromDB(data);
-        } else {
-          console.error("Greška pri dohvaćanju recepata:", response.statusText);
-        }
-      } catch (error) {
-        console.error("Greška pri dohvaćanju recepata:", error.message);
-      }
-    };
+  const handleScanFailure = (errorMessage) => {
+    console.error(errorMessage);
+  };
 
-    fetchRecipes();
-  }, []);
+  const handleManualProductChange = (e) => {
+    setManualProduct(e.target.value);
+  };
 
-  useEffect(() => {
-    if (!scanner) {
-      const newScanner = new Html5QrcodeScanner(
-        "reader",
-        { fps: 10, qrbox: 250 },
-        false
-      );
-      newScanner.render(
-        (decodedText) => {
-          const matchedRecipe = recipesFromDB.find(
-            (recipe) => recipe.qrCodeURL === decodedText
-          );
-          if (matchedRecipe) {
-            setScannedProductURL(matchedRecipe.qrCodeURL);
-            setProducts((prevProducts) => [
-              ...prevProducts,
-              matchedRecipe.name,
-            ]);
-          } else {
-            console.error("Nema podudaranja za skenirani QR kod:", decodedText);
-          }
-        },
-        (errorMessage) => {
-          console.error(errorMessage);
-        }
-      );
-      setScanner(newScanner);
+  const addManualProduct = () => {
+    if (manualProduct.trim() !== '') {
+      setProducts([...products, manualProduct.trim()]);
+      setManualProduct('');
     }
+  };
 
-    return () => scanner?.clear();
-  }, [scanner]);
+  const recipes = [
+    { name: "Spaghetti Bolognese", requiredProducts: ["spaghetti", "tomato sauce", "ground beef"] },
+    { name: "Vegetable Stir Fry", requiredProducts: ["broccoli", "carrot", "bell pepper", "soy sauce"] },
+    { name: "Classic Pancakes", requiredProducts: ["flour", "egg", "milk", "butter"] },
+    { name: "ulje", requiredProducts: ["ulje"] },
+    // Add more recipes...
+  ];
 
   const displayAndSortRecipes = () => {
-    const matchedRecipes = recipesFromDB.map((recipe) => {
-      const matchCount = recipe.requiredProducts.filter((product) =>
-        products.includes(product)
-      ).length;
+    // Match recipes with the scanned and manually added products
+    const matchedRecipes = recipes.map(recipe => {
+      const matchCount = recipe.requiredProducts.filter(product => products.includes(product)).length;
       return { ...recipe, matchCount };
     });
 
+    // Sort recipes based on the number of matching products
     matchedRecipes.sort((a, b) => b.matchCount - a.matchCount);
     return matchedRecipes;
   };
@@ -83,69 +51,52 @@ const ChooseRecipe = () => {
 
   const sortedRecipes = displayAndSortRecipes();
 
+  const addProduct = (product) => {
+    if (product) {
+      setProducts((prevProducts) => {
+        const newProducts = { ...prevProducts };
+        if (newProducts[product]) {
+          newProducts[product] += 1;
+        } else {
+          newProducts[product] = 1;
+        }
+        return newProducts;
+      });
+    }
+  };
+
   return (
     <div>
       <div id="reader" />
+      
+      {/* Display the scanned products */}
       {products.map((product, index) => (
         <p key={index}>{product}</p>
       ))}
-      {scannedProductURL && (
-        <p>
-          URL skenirane namirnice:{" "}
-          <a href={scannedProductURL} target="_blank" rel="noopener noreferrer">
-            {scannedProductURL}
-          </a>
-        </p>
-      )}
+      
+      {/* Add manual input for products */}
       <div>
-        <select
-          value={selectedCategory}
-          onChange={(e) => setSelectedCategory(e.target.value)}
-        >
-          <option value="">Odaberi kategoriju</option>
-          {Object.keys(categories).map((category, index) => (
-            <option key={index} value={category}>
-              {category}
-            </option>
-          ))}
-        </select>
-        <select
-          value={selectedProduct}
-          onChange={(e) => setSelectedProduct(e.target.value)}
-          disabled={!selectedCategory}
-        >
-          <option value="">Odaberi namirnicu</option>
-          {selectedCategory &&
-            categories[selectedCategory].map((product, index) => (
-              <option key={index} value={product}>
-                {product}
-              </option>
-            ))}
-        </select>
-        <button
-          onClick={() => {
-            if (selectedProduct) {
-              setProducts([...products, selectedProduct]);
-              setSelectedProduct("");
-            }
-          }}
-        >
-          Dodaj
-        </button>
+        <input
+          type="text"
+          value={manualProduct}
+          onChange={handleManualProductChange}
+          placeholder="Enter product"
+        />
+        <button onClick={addManualProduct}>Add Manually</button>
       </div>
+
+      {/* Add your logic for displaying and sorting recipes here */}
       <div>
         {sortedRecipes.map((recipe, index) => (
           <div key={index}>
             <h3>{recipe.name}</h3>
-            <p>
-              Podudarni sastojci: {recipe.matchCount}/
-              {recipe.requiredProducts.length}
-            </p>
+            <p>Matching ingredients: {recipe.matchCount}/{recipe.requiredProducts.length}</p>
+            {/* Additional details about the recipe can be displayed here */}
           </div>
         ))}
       </div>
     </div>
-  );
+  );  
 };
 
 export default ChooseRecipe;
