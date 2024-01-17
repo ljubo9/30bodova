@@ -132,6 +132,7 @@ const ChooseRecipe = () => {
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           {/* Product Selection and List */}
           <div>
+            <h3>Odaberi namirnicu:</h3>
             {/* Select Category */}
             <select
               value={selectedCategory}
