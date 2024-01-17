@@ -10,6 +10,19 @@ public class Image {
     private int id;
     private String name;
     private String imageUrl;
+	@OneToOne
+	private StepOfMaking stepOfMaking;
+
+	public Ingredient getIngredient() {
+		return ingredient;
+	}
+
+	public void setIngredient(Ingredient ingredient) {
+		this.ingredient = ingredient;
+	}
+
+	@OneToOne
+	private Ingredient ingredient;
     
     
     public Image(String name, String imageUrl) {

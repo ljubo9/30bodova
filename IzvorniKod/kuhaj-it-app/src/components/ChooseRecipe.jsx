@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Html5QrcodeScanner } from 'html5-qrcode';
 
 const ChooseRecipe = () => {
   const [products, setProducts] = useState([]);
@@ -48,6 +47,7 @@ const ChooseRecipe = () => {
     return matchedRecipes; // If directly rendering in the component
   };
 
+  /*
   useEffect(() => {
     if (!scanner) {
       const newScanner = new Html5QrcodeScanner("reader", { fps: 10, qrbox: 250 }, false);
@@ -59,6 +59,7 @@ const ChooseRecipe = () => {
       scanner?.clear();
     };
   }, [scanner]);
+*/
 
   useEffect(() => {
     displayAndSortRecipes();

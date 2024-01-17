@@ -42,8 +42,9 @@ function Nutritionist() {
   useEffect(() => {
     const storedUser = sessionStorage.getItem('currentUser');
     setCurrentUser(storedUser ? JSON.parse(storedUser) : null);
-    
-    fetch('https://kuhajitbackend.onrender.com/labels') // Labels for categorizing ingredients
+
+
+    fetch('/labels') //labele za kategoriziranje proizvoda
 
       .then(response => response.json())
       .then(data => setLabels(data))
@@ -51,7 +52,7 @@ function Nutritionist() {
   }, []);
 
   const fetchIngredients = () => {
-    fetch('https://kuhajitbackend.onrender.com/ingredients') // Fetching ingredients
+    fetch('/ingredients') // Fetching ingredients
 
 
       .then(response => response.json())
@@ -78,7 +79,7 @@ function Nutritionist() {
       formData.append(`labels[${index}]`, label);
     });
 
-    fetch('https://kuhajitbackend.onrender.com/ingredients', {
+    fetch('/ingredients', {
 
 
       method: 'POST',

@@ -25,11 +25,11 @@ public class RecipeDTO {
         this.name = name;
     }
 
-    public String getStepsOfMaking() {
+    public List<StepOfMaking> getStepsOfMaking() {
         return stepsOfMaking;
     }
 
-    public void setStepsOfMaking(String stepsOfMaking) {
+    public void setStepsOfMaking(List<StepOfMaking> stepsOfMaking) {
         this.stepsOfMaking = stepsOfMaking;
     }
 
@@ -65,7 +65,7 @@ public class RecipeDTO {
         this.images = images;
     }
 
-    private String stepsOfMaking;
+    private List<StepOfMaking> stepsOfMaking;
     private int portionSize;
     private int cookTime;
     private List<RecipeIngredientDTO> ingredients;
@@ -81,11 +81,9 @@ public class RecipeDTO {
                 .collect(Collectors.toList());
 
 
-        List<Image> recipeImages = this.images.stream()
-                .map(ImageDTO::toEntity)
-                .collect(Collectors.toList());
 
-        Recipe recipe = new Recipe(this.id,this.name,recipeIngredients,this.stepsOfMaking,this.portionSize,this.cookTime,recipeImages);
+
+        Recipe recipe = new Recipe(this.id,this.name,recipeIngredients,this.stepsOfMaking,this.portionSize,this.cookTime);
 
 
         // Convert RecipeIngredientDTO to RecipeIngredient entities
@@ -109,10 +107,7 @@ public class RecipeDTO {
         recipeDTO.setIngredients(recipeIngredientDTOs);
 
         // Convert Image entities to ImageDTOs
-        List<ImageDTO> imageDTOs = recipe.getImages().stream()
-                .map(ImageDTO::fromEntity)
-                .collect(Collectors.toList());
-        recipeDTO.setImages(imageDTOs);
+
 
         return recipeDTO;
     }

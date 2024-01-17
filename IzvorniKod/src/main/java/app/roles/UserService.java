@@ -1,5 +1,6 @@
 package app.roles;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserService implements UserDetailsService{
-	
+
 	private final UserRepository userRepository;
 	private final BCryptPasswordEncoder encoder;
     private final AuthenticationManager authenticationManager;
@@ -57,7 +58,7 @@ public class UserService implements UserDetailsService{
 		user.setPassword(encoder.encode(userup.getPassword()));
 		user.setSurname(userup.getSurname());
 		user.setUsername(userup.getUsername());
-		
+
 		if (userup instanceof SpecialUser) {
 			SpecialUser specialUser = (SpecialUser) user;
 			SpecialUser specialUserUp = (SpecialUser) userup;
@@ -70,7 +71,7 @@ public class UserService implements UserDetailsService{
 		checkUserDataValid(user);
 		userRepository.save(user);
 
-	 }
+	}
 
 	private void checkUserDataValid(User user) {
 		// TODO Auto-generated method stub
@@ -78,7 +79,7 @@ public class UserService implements UserDetailsService{
 			Optional<SpecialUser> optionalUserEmail = userRepository.findUserByEmail(((SpecialUser)user).getEmail());
 			if (optionalUserEmail.isPresent()) throw new IllegalStateException("Account with this email already exists");
 		}
-		
+
 		Optional<User> optionalUserUsername = userRepository.findUserByUsername(user.getUsername());
 		if (optionalUserUsername.isPresent()) throw new IllegalStateException("Account with this username already exists");
 	}
@@ -88,13 +89,25 @@ public class UserService implements UserDetailsService{
 		// TODO Auto-generated method stub
 		Optional<User> user = userRepository.findUserByUsername(username);
 		if (!user.isPresent()) return null;
-		System.out.println(user.get().getUsername());
 		return user.get();
 	}
-	
+
 	public User loadUserById(int id) {
 		Optional<User> user = userRepository.findById(id);
 		if (!user.isPresent()) return null;
 		return user.get();
+	}
+
+	public List<User> loadAllEnthusiasts() {
+		// TODO Auto-generated method stub
+		List<User> users = userRepository.findAll();
+		List<User> enthusiasts = new ArrayList<>();
+		for (User user : users) {
+			if (user.getRole().equals(Role.ENTHUSIAST)) {
+				enthusiasts.add(user);
+				System.out.println(user.getUsername());
+			}
+		}
+		return enthusiasts;
 	}
 }

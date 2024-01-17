@@ -35,4 +35,10 @@ public class Role {
 	public String getName() {
 		return name;
 	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if (!(o instanceof Role)) return false;
+		return this.getId() == ((Role)o).getId();
+	}
 }
