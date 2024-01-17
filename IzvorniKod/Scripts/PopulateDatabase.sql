@@ -48,6 +48,80 @@ insert into public."users"
 (dtype, id, "name", "password", "surname", "username", role_id, diet_id)
 VALUES('User', 6, 'iva', '$2a$10$9dERkNAb3Y5VYaR1drQWie3iuq2ZweVUJiYTzLmDtjFEenQ/EZ0om', 'ivic', 'iva25', 1, 1);
 
+
+insert into public."ingredient"
+(id, "name")
+VALUES(2, 'sir');
+
+insert into public."ingredient"
+(id, "name")
+VALUES(3, 'pileća prsa');
+
+insert into public."ingredient"
+(id, "name")
+VALUES(4, 'maslinovo ulje');
+
+insert into public."ingredient"
+(id, "name")
+VALUES(5, 'sol');
+
+insert into public."ingredient"
+(id, "name")
+VALUES(6, 'papar');
+
+insert into public."ingredient"
+(id, "name")
+VALUES(7, 'crvena paprika');
+
+insert into public."ingredient"
+(id, "name")
+VALUES(8, 'rajčica');
+
+insert into public."ingredient"
+(id, "name")
+VALUES(9, 'mrkva');
+
+insert into public."ingredient"
+(id, "name")
+VALUES(10, 'mlijeko');
+
+insert into public."ingredient"
+(id, "name")
+VALUES(11, 'maslac');
+
+insert into public."ingredient"
+(id, "name")
+VALUES(12, 'brokula');
+
+insert into public."ingredient"
+(id, "name")
+VALUES(13, 'tjestenina');
+
+insert into public."ingredient"
+(id, "name")
+VALUES(14, 'luk');
+
+insert into public."ingredient"
+(id, "name")
+VALUES(15, 'češnjak');
+
+insert into public."ingredient"
+(id, "name")
+VALUES(16, 'brašno');
+
+insert into public."ingredient"
+(id, "name")
+VALUES(17, 'banana');
+
+insert into public."ingredient"
+(id, "name")
+VALUES(18, 'limun');
+
+insert into public."ingredient"
+(id, "name")
+VALUES(19, 'krumpir');
+
+
 insert into public."recipe"
 (id, cook_time, "name", "category", portion_size, creator_id)
 VALUES(1, 30, 'bolonjez', 'talijanska', 2, 5);
@@ -57,17 +131,90 @@ insert into public."recipe"
 (id, cook_time, "name", "category", portion_size, creator_id)
 VALUES(2, 60, 'lazanje', 'talijanska', 4, 5);
 
+
+insert into public."recipe"
+(id, cook_time, "name", "category", portion_size, creator_id)
+VALUES(3, 60, 'Piletina s povrćem na žaru', 'slano', 4, 5);
+
+insert into public."recipe"
+(id, cook_time, "name", "category", portion_size, creator_id)
+VALUES(4, 60, 'Vegeterijanski pire od krumpira s povrćem', 'slano', 5, 5);
+
 insert into public."ingredient"
 (id, "name")
 VALUES(1, 'meso');
 
+
 insert into public."recipe_ingredient"
 ("quantity", recipe_id, ingredient_id)
-VALUES(1, 1, 1);
+VALUES(500, 1, 1);
 
-insert into public."ingredient"
-(id, "name")
-VALUES(2, 'sir');
+insert into public."recipe_ingredient"
+("quantity", recipe_id, ingredient_id)
+VALUES(2, 3, 3);
+
+insert into public."recipe_ingredient"
+("quantity", recipe_id, ingredient_id)
+VALUES(1, 3, 4);
+
+insert into public."recipe_ingredient"
+("quantity", recipe_id, ingredient_id)
+VALUES(1, 3, 5);
+
+insert into public."recipe_ingredient"
+("quantity", recipe_id, ingredient_id)
+VALUES(1, 3, 6);
+
+insert into public."recipe_ingredient"
+("quantity", recipe_id, ingredient_id)
+VALUES(1, 3, 7);
+
+insert into public."recipe_ingredient"
+("quantity", recipe_id, ingredient_id)
+VALUES(1, 3, 8);
+
+insert into public."recipe_ingredient"
+("quantity", recipe_id, ingredient_id)
+VALUES(2, 3, 9);
+
+insert into public."recipe_ingredient"
+("quantity", recipe_id, ingredient_id)
+VALUES(800, 4, 19);
+
+insert into public."recipe_ingredient"
+("quantity", recipe_id, ingredient_id)
+VALUES(100, 4, 10);
+
+
+insert into public."recipe_ingredient"
+("quantity", recipe_id, ingredient_id)
+VALUES(50, 4, 11);
+
+
+insert into public."recipe_ingredient"
+("quantity", recipe_id, ingredient_id)
+VALUES(1, 4, 9);
+
+
+insert into public."recipe_ingredient"
+("quantity", recipe_id, ingredient_id)
+VALUES(1, 4, 12);
+
+
+insert into public."recipe_ingredient"
+("quantity", recipe_id, ingredient_id)
+VALUES(1, 4, 7);
+
+
+insert into public."recipe_ingredient"
+("quantity", recipe_id, ingredient_id)
+VALUES(1, 4, 5);
+
+
+insert into public."recipe_ingredient"
+("quantity", recipe_id, ingredient_id)
+VALUES(1, 4, 6);
+
 
 insert into public."recipe_ingredient"
 ("quantity", recipe_id, ingredient_id)

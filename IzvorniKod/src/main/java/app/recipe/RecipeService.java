@@ -17,12 +17,15 @@ public class RecipeService {
     private final RecipeRepository recipeRepository;
     private final CookbookRepository cookbookRepository;
     private final UserRepository userRepository;
+    private final IngredientRepository ingredientRepository;
 
     @Autowired
-    public RecipeService(RecipeRepository recipeRepository, CookbookRepository cookbookRepository, UserRepository userRepository) {
+    public RecipeService(RecipeRepository recipeRepository, CookbookRepository cookbookRepository, UserRepository userRepository,
+    		IngredientRepository ingredientRepository) {
         this.recipeRepository = recipeRepository;
         this.cookbookRepository = cookbookRepository;
         this.userRepository = userRepository;
+        this.ingredientRepository = ingredientRepository;
     }
 
     public Recipe loadRecipeById(int recipeId) {
@@ -104,6 +107,11 @@ public class RecipeService {
 	public void addCookbook(Cookbook c) {
 		// TODO Auto-generated method stub
 		cookbookRepository.save(c); 
+	}
+
+	public List<Ingredient> getAllIngredients() {
+		// TODO Auto-generated method stub
+		return ingredientRepository.findAll();
 	}
 
 

@@ -1,5 +1,5 @@
 package app.dto;
-import app.recipe.*;
+import app.recipe.Image;
 public class ImageDTO {
 
     private String url;

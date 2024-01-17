@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import app.dto.CookbookDTO;
+import app.dto.IngredientDTO;
 import app.dto.RecipeDTO;
 import app.roles.User;
 import app.roles.UserService;
@@ -278,6 +279,42 @@ public class RecipeController {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
+	}
+	
+	@GetMapping(path = "/recipes/all")
+	public ResponseEntity<Set<RecipeDTO>> getAllRecipes() {
+		try {
+			List<Recipe> recipes = recipeService.getAllRecipes();
+			HashSet<RecipeDTO> recipesDTO = new HashSet<>();
+			for (Recipe r : recipes) {
+				recipesDTO.add(RecipeDTO.fromEntity(r));
+			}
+			
+			return new ResponseEntity<>(recipesDTO, HttpStatus.OK);
+	
+		}
+		catch (Exception e){
+			System.out.println("Could not fetch all recipes:");
+			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	@GetMapping(path = "/ingredients/all")
+	public ResponseEntity<Set<IngredientDTO>> getAllIngredients() {
+		try {
+			List<Ingredient> ingredients = recipeService.getAllIngredients();
+			HashSet<IngredientDTO> ingredientsDTO = new HashSet<>();
+			for (Ingredient i : ingredients) {
+				ingredientsDTO.add(new IngredientDTO(i));
+			}
+			
+			return new ResponseEntity<>(ingredientsDTO, HttpStatus.OK);
+		}
+		catch (Exception e) {
+			System.out.println("Could not fetch all ingredients:");
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 
 }

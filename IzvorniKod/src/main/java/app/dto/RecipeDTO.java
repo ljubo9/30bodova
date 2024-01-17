@@ -1,8 +1,10 @@
 package app.dto;
-import app.recipe.*;
-
 import java.util.List;
 import java.util.stream.Collectors;
+
+import app.recipe.Recipe;
+import app.recipe.RecipeIngredient;
+import app.recipe.StepOfMaking;
 
 public class RecipeDTO {
 
