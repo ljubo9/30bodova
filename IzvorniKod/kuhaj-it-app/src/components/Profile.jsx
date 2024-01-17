@@ -41,11 +41,11 @@ const Profile = () => {
         </div>
       ) : null}
 
-      {currentUser.role === 'enthusiast' && (
+      {currentUser.role === 'enthusiast' ? (
           <Link as={Link} to={`/enthusiast/${username}`}>
             Moje kuharice i recepti
           </Link>
-        )}
+        ) : null}
 
     </div>
   );
