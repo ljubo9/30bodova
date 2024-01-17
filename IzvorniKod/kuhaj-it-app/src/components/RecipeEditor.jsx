@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const RecipeEditor = () => {
   const [recipeData, setRecipeData] = useState({
@@ -10,6 +10,27 @@ const RecipeEditor = () => {
 
   const [ingredients, setIngredients] = useState([{ name: '', quantity: '' }]);
   const [steps, setSteps] = useState([{ number: 1, description: '', image: null }]);
+  const [cookbooks, setCookbooks] = useState([]);
+  const [selectedCookbook, setSelectedCookbook] = useState('');
+
+  useEffect(() => {
+    const fetchCookbooks = async () => {
+      try {
+        //dohvaćanje kuharica po id-u entuzijasta
+        const response = await fetch(`https://kuhajitbackend.onrender.com/cookbook/${currentUser.username}`);
+        if (response.ok) {
+          const cookbooksData = await response.json();
+          setCookbooks(cookbooksData);
+        } else {
+          console.error('Greška prilikom dohvaćanja kuharica.');
+        }
+      } catch (error) {
+        console.error('Greška prilikom dohvaćanja kuharica:', error);
+      }
+    };
+
+    fetchCookbooks();
+  }, [currentUser.username]);
 
   const handleInputChange = (e, index, type) => {
     const { name, value } = e.target;
@@ -22,6 +43,8 @@ const RecipeEditor = () => {
       const updatedSteps = [...steps];
       updatedSteps[index] = { ...updatedSteps[index], [name]: value };
       setSteps(updatedSteps);
+    } else {
+      setRecipeData({ ...recipeData, [name]: value });
     }
   };
 
@@ -47,9 +70,9 @@ const RecipeEditor = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
-
     try {
+      //slanje podatka o receptu: name,category,portionsize i cooktime + username od entuzijasta
+      // u odgovoru očekujem stvoreni recipe.id
       const response = await fetch('https://kuhajitbackend.onrender.com/recipe', {
         method: 'POST',
         headers: {
@@ -65,7 +88,7 @@ const RecipeEditor = () => {
         const responseData = await response.json();
         console.log(responseData.id);
 
-        // Slanje podataka o namirnicama
+        //svaka namirnica se pojedinačno šalje na back, šalje se recipe.id i sve informaicje o namirnici
         for (const ingredient of ingredients) {
           const ingredientResponse = await fetch('https://kuhajitbackend.onrender.com/RecipeIngredient', {
             method: 'POST',
@@ -79,12 +102,12 @@ const RecipeEditor = () => {
           });
 
           if (ingredientResponse.ok) {
-            console.log('Podaci o namirnici uspješno poslani.')
+            console.log('Podaci o namirnici uspješno poslani.');
           } else {
-            console.error('error u zahtjevu');
+            console.error('Greška u zahtjevu za namirnicama');
           }
         }
-
+        //svaki stepOfMaking se pojedinačno šalje...
         for (const step of steps) {
           const stepResponse = await fetch('https://kuhajitbackend.onrender.com/StepOfMaking', {
             method: 'POST',
@@ -99,13 +122,36 @@ const RecipeEditor = () => {
 
           if (stepResponse.ok) {
             console.log('Podaci o koraku pripreme uspješno poslani.');
-
           } else {
-            console.error('greška');
+            console.error('Greška u zahtjevu za koracima pripreme');
           }
         }
+        //ako je uopće odabrana kuharica,na endpoint cookbook se šalje id recepta i id kuharice i onda se taj recept doda u recepte od kuharice
+        if (selectedCookbook) {
+          const cookbookResponse = await fetch('https://kuhajitbackend.onrender.com/cookbook', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              recipeId: responseData.id,
+              cookbookId: selectedCookbook,
+              // selectedCookbook je zapravo id kuharice
+            }),
+          });
+
+          if (cookbookResponse.ok) {
+            console.log('Recept dodan u kuharicu.');
+          } else {
+            console.error('Greška prilikom dodavanja recepta u kuharicu.');
+          }
+        }
+
+
+
+
       } else {
-        console.error('greška');
+        console.error('Greška prilikom slanja recepta');
       }
     } catch (error) {
       console.error('Greška prilikom slanja zahtjeva:', error);
@@ -116,13 +162,13 @@ const RecipeEditor = () => {
     <div>
       <h2>Dodaj recept</h2>
       <form onSubmit={handleSubmit}>
-      <label>
+        <label>
           Ime recepta:
           <input
             type="text"
             name="name"
             value={recipeData.name}
-            onChange={handleInputChange}
+            onChange={(e) => handleInputChange(e, null, null)}
           />
         </label>
         <br />
@@ -132,7 +178,7 @@ const RecipeEditor = () => {
             type="text"
             name="category"
             value={recipeData.category}
-            onChange={handleInputChange}
+            onChange={(e) => handleInputChange(e, null, null)}
           />
         </label>
         <br />
@@ -142,7 +188,7 @@ const RecipeEditor = () => {
             type="text"
             name="portionSize"
             value={recipeData.portionSize}
-            onChange={handleInputChange}
+            onChange={(e) => handleInputChange(e, null, null)}
           />
         </label>
         <br />
@@ -152,23 +198,38 @@ const RecipeEditor = () => {
             type="text"
             name="cookTime"
             value={recipeData.cookTime}
-            onChange={handleInputChange}
+            onChange={(e) => handleInputChange(e, null, null)}
           />
         </label>
         <br />
 
-        
         <h3>Dodaj namirnice:</h3>
         {ingredients.map((ingredient, index) => (
           <div key={index}>
-        
+            <label>
+              Naziv namirnice:
+              <input
+                type="text"
+                name="name"
+                value={ingredient.name}
+                onChange={(e) => handleInputChange(e, index, 'ingredients')}
+              />
+            </label>
+            <label>
+              Količina:
+              <input
+                type="text"
+                name="quantity"
+                value={ingredient.quantity}
+                onChange={(e) => handleInputChange(e, index, 'ingredients')}
+              />
+            </label>
           </div>
         ))}
         <button type="button" onClick={addIngredientRow}>
           Dodaj namirnicu
         </button>
-        
-        {/* Unos za korake pripreme */}
+
         <h3>Dodaj korake pripreme:</h3>
         {steps.map((step, index) => (
           <div key={index}>
@@ -200,7 +261,26 @@ const RecipeEditor = () => {
         <button type="button" onClick={addStepRow}>
           Dodaj korak pripreme
         </button>
-        
+
+        <label>
+          Odaberi kuharicu:
+          <select
+            name="selectedCookbook"
+            value={selectedCookbook}
+            onChange={(e) => setSelectedCookbook(e.target.value)}
+          >
+            <option value="" disabled>
+              Odaberi kuharicu
+            </option>
+            {cookbooks.map((cookbook) => (
+              <option key={cookbook.id} value={cookbook.id}>
+                {cookbook.name}
+              </option>
+            ))}
+          </select>
+        </label>
+        <br />
+
         <button type="submit">Dodaj recept</button>
       </form>
     </div>
