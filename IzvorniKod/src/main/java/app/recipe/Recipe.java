@@ -35,7 +35,15 @@ public class Recipe {
 
     private String category;
 
-    
+    public Recipe( int id,String name, List<RecipeIngredient> ingredients,List<StepOfMaking> stepsOfMaking, int portionSize, int cookTime) {
+        this.id=id;
+        this.name = name;
+        this.ingredients = ingredients;
+        this.stepsOfMaking = stepsOfMaking;
+        this.portionSize = portionSize;
+        this.cookTime = cookTime;
+
+    }
     public Recipe( String name, List<RecipeIngredient> ingredients,List<StepOfMaking> stepsOfMaking, int portionSize, int cookTime) {
 
         this.name = name;
