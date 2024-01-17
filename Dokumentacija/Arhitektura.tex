@@ -17,8 +17,8 @@
 	Specifično, radi se o MVC (Model-View-Controller) obrascu, koji odvaja korisničko sučelje od ostatka sustava. On dodatno smanjuje međuovisnost U/I sučelja i ostatka sustava. Sastoji se od tri dijela:
 	
 		\begin{itemize}
-			\item model - sadrži razrede čiji se objekti obrađuju
-			\item view (pogled) - sadrži razrede čiji objekti služe za prikaz podataka (korisničko sučelje)
+			\item model - sadrži razrede čiji se objekti obrađuju različitim operacijama. Odgovoran je za održavanje dosljednosti podataka te obavljanje poslovnih operacija i pravila
+			\item view (pogled) - odgovoran za prezentaciju podataka korisnicima (korisničko sučelje, web-aplikacija, grafovi...). On ne bi trebao sadržavati nikakvu poslovnu logiku, već prikazuje informacije korisnicima na razunmljiv i privlačan način
 			\item controller (nadglednik) - sadrži razrede koji upravljaju i rukuju korisničkom interakcijom s pogledom i modelom
 		\end{itemize}
 		
@@ -324,7 +324,7 @@ Ti atributi su: ID fotografije i URL fotografije.
 Dijagram razreda na slici 4.6 prikazuje \textit{Models} dio razreda. \\
 	Razredi \textit{Enthusiast} i \textit{Nutritionist} specifikacija su razreda \textit{SpecialUser}, stoga nasljeđuju javne metode i atribute tog razreda, a usto sadrže i metode specifične ulozi. \\
 	Razredi \textit{SpecialUser}, \textit{Client} i \textit{Administrator} specifikacija su razreda \textit{User}, stoga nasljeđuju javne metode i atribute tog razreda. \\
-	Razred \textit{User} predstavlja korisnika koji se može registrirati kao klijent, kulinarski entuzijast ili nutricionist te, sukladno svojoj ulozi, obavljati različite funkcije opisane u Specifikaciji programske potpore. \\
+	Razred \textit{User} predstavlja korisnika koji se može prijaviti kao klijent, kulinarski entuzijast ili nutricionist te, sukladno svojoj ulozi, obavljati različite funkcije opisane u Specifikaciji programske potpore. \\
     Instanca razreda \textit{User}, ako se radi o registriranom kulinarskom entuzijastu, može stvarati recepte, koji pripadaju razredu \textit{Recipe}, i kuharice, koje pripadaju razredu \textit{Cookbook}. \\
     Razred \textit{Recipe} sadrži sve metode potrebne za stvaranje i objavljivanje recepta. \\
     Razred \textit{Cookbook} sadrži sve metode potrebne za stvaranje tematske kuharice i spremanje recepata u istu. \\
@@ -386,6 +386,29 @@ Opcije odjave i prikaza osobnih podataka su svakom prijavljenom korisniku omogu�
 		\eject
 		
 		\section{Dijagram aktivnosti}
-		Na slici 4.10 prikazan je dijagram aktivnosti 
+		Na slici 4.10 prikazan je dijagram aktivnosti aplikacije KuhajIT. Dijagrami aktivnosti upotrebljavaju se za modeliranje i grafički prikaz dinamičkog ponašanja sustava. Konkretno, na ovom je dijagramu prikazana aktivnost prijave klijenta, unos proizvoda (ručno ili skeniranjem bar koda) te izlistavanje najprikladnijih recepata na temelju unesenih proizvoda i dijete koje se prijavljeni korisnik pridržava.
+		
+			\begin{figure}[H]
+			\includegraphics[scale=0.2]{dijagrami/UML_dijagram_aktivnosti.png} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Dijagram aktivnosti}
+			\label{Dijagram aktivnosti}
+		\end{figure}
+		
+		\eject
+		
+		\section{Dijagram komponenti}
+		Na slici 4.11 prikazan je dijagram komponenti. Dijagrami komponenti koriste se za modeliranje arhitekture programskog sustava na visokoj razini. Pružaju jasan i sažet način vizualizacije različitih komponenti ili građevnih blokova sustava i njihovih odnosa.
+		
+					\begin{figure}[H]
+			\includegraphics[scale=0.2]{dijagrami/UML_dijagram_komponenti.png} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Dijagram komponenti}
+			\label{Dijagram komponenti}
+		\end{figure}
+		
+		\eject
+		
+		
 		
 
