@@ -19,20 +19,21 @@ public class ImageController {
     private StorageService service;
 
     @PostMapping
-    public ResponseEntity<?> uploadImage(@RequestParam("image")MultipartFile file) throws IOException {
+    public ResponseEntity<String> uploadImage(@RequestParam("image") MultipartFile file) throws IOException {
         String uploadImage = service.uploadImage(file);
         return ResponseEntity.status(HttpStatus.OK)
                 .body(uploadImage);
     }
 
-    @GetMapping("/image/{id}")
-    public ResponseEntity<?> downloadImage(@PathVariable int imageId){
-        byte[] imageData=service.downloadImage(imageId);
-        return ResponseEntity.status(HttpStatus.OK)
-                .contentType(MediaType.valueOf("image/png"))
-                .body(imageData);
-
+    @GetMapping("/{id}")
+    public ResponseEntity<byte[]> downloadImage(@PathVariable int id) {
+        try {
+            byte[] imageData = service.downloadImage(id);
+            return ResponseEntity.status(HttpStatus.OK)
+                    .contentType(MediaType.IMAGE_PNG)
+                    .body(imageData);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
     }
-
-
 }

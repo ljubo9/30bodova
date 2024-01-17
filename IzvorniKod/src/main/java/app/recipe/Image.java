@@ -43,7 +43,9 @@ public class Image {
 		this.imageData=imageData;
     	
     }
-    
+	public Image() {
+		// Optional: Initialize default values if needed
+	}
 
 	public int getId() {
 		return id;

@@ -23,9 +23,15 @@ public class StorageService {
     }
 
     public byte[] downloadImage(int id){
-        Optional<Image> image=  repository.findById(id);
-
-        return image.get().getImageData();
+        Optional<Image> optionalImage =  repository.findById(id);
+        if (optionalImage.isPresent()) {
+            Image image = optionalImage.get();
+            byte[] data = image.getImageData();
+            return data;
+        }
+        else{
+            throw new RuntimeException("Image with ID " + id + " not found");
+        }
 
     }
 }
