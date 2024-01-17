@@ -64,26 +64,21 @@ public class UserController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			throw new IllegalArgumentException();
-
 		}
-		System.out.printf("Username: %s, password: %s\n", form.getUsername(), form.getPassword());
-		String encodedPassword = encoder.encode(form.getPassword());
-		form.setPassword(encodedPassword);
+		
 		if (image.isPresent()) {
 			form.setPhoto_url(image.get().getOriginalFilename());
 		}
 		user = AuthorizationForm.parseUser(form);
-		userService.addUser(user);
+		userService.registerUser(user);
 	}
 	
 	@PostMapping(path = "/login", consumes = "multipart/form-data")
 	@ResponseBody
-	public UserDTO login(@RequestParam("username") String username, @RequestParam("password") String password) throws AuthenticationException {
+	public ResponseEntity<UserDTO> login(@RequestParam("username") String username, @RequestParam("password") String password) throws AuthenticationException {
 		
-		Authentication authRes = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
-
-		if (!authRes.isAuthenticated()) throw new AuthenticationException("Wrong username or password.");
-		return new UserDTO((User) userService.loadUserByUsername(username));
+		
+		return new ResponseEntity<>(new UserDTO((User) userService.loadUserByUsername(username)), HttpStatus.OK);
 	}
 
 	@PostMapping(path = "/profile/changeInfo")

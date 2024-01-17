@@ -15,6 +15,7 @@ public class Recipe {
 
     @OneToMany
     private List<StepOfMaking> stepsOfMaking;
+    
     private int portionSize;
     private int cookTime;
     @ManyToMany(mappedBy = "recipes")
