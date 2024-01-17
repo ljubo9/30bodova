@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -15,23 +15,39 @@ public class UserService implements UserDetailsService{
 	
 	private final UserRepository userRepository;
 	private final BCryptPasswordEncoder encoder;
-
+    private final AuthenticationManager authenticationManager;
 	
 	@Autowired
-	public UserService(UserRepository userRepository, BCryptPasswordEncoder encoder) {
+	public UserService(UserRepository userRepository, BCryptPasswordEncoder encoder, AuthenticationManager authenticationManager) {
 		this.userRepository = userRepository;
 		this.encoder = encoder;
+		this.authenticationManager = authenticationManager;
 	}
 	
 	 public List<User> getUsers() {
 		 return userRepository.findAll();
 	 }
 	 
-	 public void addUser(User user) {
+	 public boolean registerUser(User user) {
 		 checkUserDataValid(user);
 		 userRepository.save(user);
+		 return false;
 	 }
-	 
+
+     public User loginUser(String username, String password){
+		Optional<User> user = userRepository.findUserByUsername(username);
+		if(user.isEmpty()){
+			return null;
+		}
+
+		String cryptedPassword = encoder.encode(password);
+		if(!cryptedPassword.equals(user.get().getPassword())){
+			return null;
+		}
+
+		return user.get();
+	 }
+
 	 public void changeInfo(User userup){
 
 		Optional<User> user1=userRepository.findById(userup.getId());
@@ -68,7 +84,7 @@ public class UserService implements UserDetailsService{
 	}
 
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	public User loadUserByUsername(String username) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
 		Optional<User> user = userRepository.findUserByUsername(username);
 		if (!user.isPresent()) return null;
