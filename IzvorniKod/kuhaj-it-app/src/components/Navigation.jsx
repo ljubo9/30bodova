@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
-import RecipeAndCookbookEditor from './RecipeAndCookbookEditor'; // Import the component
+import CookbookEditor from './CookbookEditor'; 
 
 function Navigation() {
   const navigate = useNavigate();
@@ -34,8 +34,13 @@ function Navigation() {
             )}
             
             {currentUser && currentUser.role === 'enthusiast' && (
-              <Nav.Link as={Nav.Link} to="/RecipeAndCookbookEditor">
-                RecipeAndCookbookEditor
+              <Nav.Link as={Nav.Link} to="/CookbookEditor">
+                Add cookbook
+              </Nav.Link>
+            )}
+            {currentUser && currentUser.role === 'enthusiast' && (
+              <Nav.Link as={Nav.Link} to="/RecipeEditor">
+                Add recipe
               </Nav.Link>
             )}
             {currentUser ? (
@@ -43,6 +48,10 @@ function Navigation() {
                 <Nav.Link as={Link} to={`/profile/${currentUser.username}`}>
                   {currentUser.username}
                 </Nav.Link>
+                <Nav.Link as={Link} to="/choose-recipe">
+                  Choose Recipe
+                </Nav.Link>
+                <Nav.Link disabled>{currentUser}</Nav.Link>
                 <Button variant="dark" onClick={handleLogout}>
                   Logout
                 </Button>

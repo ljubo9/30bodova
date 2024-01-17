@@ -42,9 +42,8 @@ function Nutritionist() {
   useEffect(() => {
     const storedUser = sessionStorage.getItem('currentUser');
     setCurrentUser(storedUser ? JSON.parse(storedUser) : null);
-
-
-    fetch('/labels') //labele za kategoriziranje proizvoda
+    
+    fetch('/labels') // Labels for categorizing ingredients
 
       .then(response => response.json())
       .then(data => setLabels(data))

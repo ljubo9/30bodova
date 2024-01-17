@@ -86,7 +86,6 @@ const Recipe = () => {
       {recipe ? (
         <>
         {/*prikazivanje informacija o samom receptu */}
-          <p>Recipe ID: {recipe.id}</p>
           <p>Recipe Name: {recipe.name}</p>
           <p>Portion size: {recipe.portionSize}</p>
           <p>Cook time: {recipe.cookTime}</p>

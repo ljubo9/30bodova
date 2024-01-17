@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 
-const RecipeAndCookbookEditor = () => {
+const CookbookEditor = () => {
   const [cookbookName, setCookbookName] = useState('');
   const [cookbookCategory, setCookbookCategory] = useState('');
 
@@ -17,7 +17,7 @@ const RecipeAndCookbookEditor = () => {
 
     try {
       {/* slanje cookbook.name i cookbook.category i creatora na endpoint */}
-      const response = await fetch('/cookbook', {
+      const response = await fetch('/cookbooks', {
         method: 'POST',
         body: formData,
       });
@@ -62,4 +62,4 @@ const RecipeAndCookbookEditor = () => {
   );
 };
 
-export default RecipeAndCookbookEditor;
+export default CookbookEditor;
