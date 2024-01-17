@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Card, Container, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import CalorieChart from './CalorieChart';
 
 function LoggedHomePage() {
   //const { username } = useParams();
@@ -192,10 +193,10 @@ function LoggedHomePage() {
       {!consumedRecipesStatistics ? (
                 <div>Nema statistike nutritivnih vrijednosti</div>
               ) : (<Row className="mt-4">
-              <Col>
-                <h2>Statistika konzumiranih nutritivnih vrijednosti</h2>
-                <p>{consumedRecipesStatistics}</p>
-              </Col>
+              <div>
+                <h1>Statistika potrošenih kalorija</h1>
+                <CalorieChart consumedRecipesStatistics={consumedRecipesStatistics} />
+                </div>
             </Row>
       )}
     </Container>
