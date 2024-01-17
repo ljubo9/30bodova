@@ -65,10 +65,16 @@ function CulinaryEnthusiast() {
 
   useEffect(() => {
     //svi entuzijasti se filtriraju 
-    const filteredByUsername = enthusiasts.filter((enthusiast) =>
-      enthusiast.username.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setFilteredEnthusiasts(filteredByUsername);
+    if (!searchTerm) {
+      setFilteredEnthusiasts(enthusiasts)
+    }
+    else {
+      const filteredByUsername = enthusiasts.filter((enthusiast) =>
+        enthusiast.username.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredEnthusiasts(filteredByUsername);
+    }
+    console.log(filteredEnthusiasts);
   }, [searchTerm, enthusiasts]);
 
   useEffect(() => {
@@ -129,7 +135,7 @@ function CulinaryEnthusiast() {
         )}
       </div>
       <ul className="bg-light">
-        {filteredEnthusiasts.map((enthusiast) => (
+        { filteredEnthusiasts.map((enthusiast) => (
           <li key={enthusiast.id}>
             <Link to={`/enthusiast/${enthusiast.username}`}>
               <h3>{enthusiast.username}</h3>

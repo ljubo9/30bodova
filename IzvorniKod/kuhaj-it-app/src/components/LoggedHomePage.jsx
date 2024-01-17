@@ -4,7 +4,7 @@ import { Card, Container, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 function LoggedHomePage() {
-  const { username } = useParams();
+  const username = sessionStorage.getItem("currentUser");
   const [recipeList, setRecipeList] = useState(null);
   const [dietInfo, setDiet] = useState(null);
   const [consumedRecipesStatistics, setConsumedRecipesStatistics] = useState(null);
@@ -107,6 +107,11 @@ function LoggedHomePage() {
     fetchLatestChefData();
     fetchConsumedRecipesStatistics();
   }, [username]);
+
+  console.log(recipeList);
+  console.log(dietInfo);
+  console.log(followedChefs);
+  console.log(consumedRecipesStatistics);
 
   if (!recipeList || !dietInfo || !followedChefs || !consumedRecipesStatistics) {
     return <div>Loading...</div>;

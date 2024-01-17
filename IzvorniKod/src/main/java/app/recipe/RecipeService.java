@@ -1,6 +1,7 @@
 package app.recipe;
 
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -72,6 +73,23 @@ public class RecipeService {
     	return null;
 	}
 
+	public Set<Recipe> getRecipesByCategory(String category) {
+		List<Recipe> recipes = recipeRepository.findAll();
+		Set<Recipe> setRecipes = new HashSet<>();
+		for (Recipe r : recipes) {
+			if (r.getCategory().equals(category)) setRecipes.add(r);
+		}
+		return setRecipes;
+	}
+	
+	public Set<Cookbook> getCookbooksByCategory(String category) {
+		List<Cookbook> cookbooks = cookbookRepository.findAll();
+		Set<Cookbook> setCookbooks = new HashSet<>();
+		for (Cookbook c : cookbooks) {
+			if (c.getCategory().equals(category)) setCookbooks.add(c);
+		}
+		return setCookbooks;
+	}
 
     // Example method for deleting a recipe
     public void deleteRecipe(int recipeId) {
@@ -80,8 +98,9 @@ public class RecipeService {
 
 	public void addCookbook(Cookbook c) {
 		// TODO Auto-generated method stub
-		cookbookRepository.save(c);
+		cookbookRepository.save(c); 
 	}
+
 }
 
 

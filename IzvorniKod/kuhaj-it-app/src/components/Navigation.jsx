@@ -13,8 +13,6 @@ function Navigation() {
   };
 
   const currentUser = sessionStorage.getItem('currentUser');
-  console.log(currentUser)
-  console.log(currentUser.role)
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
@@ -36,7 +34,7 @@ function Navigation() {
             )}
             
             {currentUser && currentUser.role === 'enthusiast' && (
-              <Nav.Link as={Link} to="/RecipeAndCookbookEditor">
+              <Nav.Link as={Nav.Link} to="/RecipeAndCookbookEditor">
                 RecipeAndCookbookEditor
               </Nav.Link>
             )}

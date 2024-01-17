@@ -32,6 +32,7 @@ public class Recipe {
     @JoinColumn(name = "recipe_id")
     private List<RecipeIngredient> ingredients;
 
+    private String category;
 
     
     public Recipe( String name, List<RecipeIngredient> ingredients,List<StepOfMaking> stepsOfMaking, int portionSize, int cookTime) {
@@ -101,6 +102,10 @@ public class Recipe {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public String getCategory() {
+		return this.category;
 	}
     
     

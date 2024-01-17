@@ -54,6 +54,7 @@ public class User implements UserDetails {
 	
 	@OneToMany(mappedBy="creator", cascade = CascadeType.ALL)
 	private Set<Recipe> recipes;
+	
 	@OneToMany(mappedBy = "creator", cascade = CascadeType.ALL)
 	private Set<Cookbook> cookbooks;
 
@@ -63,6 +64,8 @@ public class User implements UserDetails {
 	@OneToMany(mappedBy = "creator", cascade = CascadeType.ALL)
 	private List<Response> responses;
 
+	@OneToMany
+	private List<ConsumedRecipe> consumedRecipes;
 	
 	private User(String username, String password, String name, String surname) {
 		// TODO Auto-generated constructor stub
@@ -170,9 +173,10 @@ public class User implements UserDetails {
 	public List<Diet> getCreatedDiets() {
 		return createdDiets;
 	}
-	
-	
-	
+
+	public List<ConsumedRecipe> getConsumedRecipes() {
+		return consumedRecipes;
+	}
 	
 
 }

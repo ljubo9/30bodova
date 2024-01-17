@@ -1,5 +1,7 @@
 package app.roles;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.apache.tomcat.websocket.AuthenticationException;
@@ -27,6 +29,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import app.dto.SpecialUserDTO;
 import app.dto.UserDTO;
+import app.recipe.ConsumedRecipe;
 
 @RestController
 @RequestMapping
@@ -140,8 +143,53 @@ public class UserController {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-
 	
+	@GetMapping(path = "/statistic/user/{username}")
+	public ResponseEntity<List<ConsumedRecipe>> getConsumedRecipes(@PathVariable String username) {
+		try {
+			User u = (User) userService.loadUserByUsername(username);
+			if (u == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(u.getConsumedRecipes(), HttpStatus.OK);
+		}
+		catch (Exception e) {
+			System.out.println("Could not fetch consumedd recipes: ");
+			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	@GetMapping(path = "/followed-enthusiasts/{username}")
+	public ResponseEntity<List<SpecialUserDTO>> getFollowedEnthusiasts(@PathVariable String username) {
+		try {
+			User u = (User) userService.loadUserByUsername(username);
+			if (u == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			/** get all enthusiasts from user **/
+			return new ResponseEntity<>(null, HttpStatus.OK);
+
+		}
+		catch(Exception e) {
+			System.out.println("Could not fetch followed enthusiasts: ");
+			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	@GetMapping(path = "/enthusiasts") 
+	public ResponseEntity<List<SpecialUserDTO>> getAllEnthusiasts() {
+		try {
+			List<User> en = userService.loadAllEnthusiasts();
+			List<SpecialUserDTO> endto = new ArrayList<>();
+			for (User e : en) {
+				endto.add(new SpecialUserDTO(e));
+			}
+			return new ResponseEntity<>(endto, HttpStatus.OK);
+		}
+		catch(Exception e) {
+			System.out.println("Could not fetch all enthusiasts:");
+			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 	
 	
 }

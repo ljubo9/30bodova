@@ -1,5 +1,6 @@
 package app.roles;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -80,5 +81,18 @@ public class UserService implements UserDetailsService{
 		Optional<User> user = userRepository.findById(id);
 		if (!user.isPresent()) return null;
 		return user.get();
+	}
+
+	public List<User> loadAllEnthusiasts() {
+		// TODO Auto-generated method stub
+		List<User> users = userRepository.findAll();
+		List<User> enthusiasts = new ArrayList<>();
+		for (User user : users) {
+			if (user.getRole().equals(Role.ENTHUSIAST)) {
+				enthusiasts.add(user);
+				System.out.println(user.getUsername());
+			}
+		}
+		return enthusiasts;
 	}
 }
