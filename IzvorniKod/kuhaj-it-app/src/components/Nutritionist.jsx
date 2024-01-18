@@ -41,10 +41,11 @@ const Nutritionist = () => {
   };
 
   useEffect(() => {
-    const storedUser = JSON.parse(sessionStorage.getItem('currentUser'));
-    setCurrentUser(storedUser);
-    
-    fetch('/labels') // Labels for categorizing ingredients
+    const storedUser = sessionStorage.getItem('currentUser');
+    setCurrentUser(storedUser ? JSON.parse(storedUser) : null);
+
+
+    fetch('https://kuhajitbackend.onrender.com/labels') //labele za kategoriziranje proizvoda
 
       .then(response => response.json())
       .then(data => setLabels(data))
@@ -294,7 +295,6 @@ const Nutritionist = () => {
   );
 }
 
+
 export default Nutritionist;
-
-
 
