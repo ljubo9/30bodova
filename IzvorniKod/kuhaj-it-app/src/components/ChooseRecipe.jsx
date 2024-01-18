@@ -58,8 +58,9 @@ const ChooseRecipe = () => {
         console.error("Greška pri dohvaćanju recepata:", error.message);
       }
     };
-
+    console.log(1);
     fetchRecipes();
+    console.log(recipesFromDB);
   }, []);
 
   useEffect(() => {

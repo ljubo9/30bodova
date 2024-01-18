@@ -66,7 +66,13 @@ public class Recipe {
     	
     }
 
-    public int getId() {
+    public Recipe(String name2, int portionSize2, int cookTime2) {
+		// TODO Auto-generated constructor stub
+    	this.name = name2;
+    	this.portionSize = portionSize2;
+    	this.cookTime = cookTime2;
+	}
+	public int getId() {
         return id;
     }
 

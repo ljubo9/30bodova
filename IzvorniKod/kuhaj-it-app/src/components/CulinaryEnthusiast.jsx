@@ -44,6 +44,7 @@ function CulinaryEnthusiast() {
     fetchCreatorsByCategory(subcategory);
   };
 
+
   useEffect(() => {
     const fetchAllEnthusiasts = async () => {
       try {
@@ -65,17 +66,18 @@ function CulinaryEnthusiast() {
 
   useEffect(() => {
     //svi entuzijasti se filtriraju 
-    if (searchTerm == '') {
-      console.log(1);
+    console.log(searchTerm);
+    if (searchTerm === '') {
       setFilteredEnthusiasts(enthusiasts)
     }
     else {
+      console.log(enthusiasts);
       const filteredByUsername = enthusiasts.filter((enthusiast) =>
         enthusiast.username.toLowerCase().includes(searchTerm.toLowerCase())
       );
+      console.log(enthusiasts);
       setFilteredEnthusiasts(filteredByUsername);
     }
-    console.log(filteredEnthusiasts);
   }, [searchTerm, enthusiasts]);
 
   useEffect(() => {
