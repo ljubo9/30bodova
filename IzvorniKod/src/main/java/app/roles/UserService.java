@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -16,13 +15,11 @@ public class UserService implements UserDetailsService{
 
 	private final UserRepository userRepository;
 	private final BCryptPasswordEncoder encoder;
-    private final AuthenticationManager authenticationManager;
 	
 	@Autowired
-	public UserService(UserRepository userRepository, BCryptPasswordEncoder encoder, AuthenticationManager authenticationManager) {
+	public UserService(UserRepository userRepository, BCryptPasswordEncoder encoder) {
 		this.userRepository = userRepository;
 		this.encoder = encoder;
-		this.authenticationManager = authenticationManager;
 	}
 	
 	 public List<User> getUsers() {
@@ -30,10 +27,16 @@ public class UserService implements UserDetailsService{
 	 }
 	 
 	 public boolean registerUser(User user) {
-		 checkUserDataValid(user);
-		 userRepository.save(user);
-		 return false;
+		 try {
+			 checkUserDataValid(user);
+			 userRepository.save(user);
+			 return true;
+		 }
+		 catch (Exception e) {
+			 return false;
+		 }
 	 }
+	 
 
 	 public void changeInfo(User userup){
 

@@ -1,17 +1,19 @@
 package app.roles;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.util.Optional;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.security.crypto.password.PasswordEncoder;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.*;
-
-import java.util.Optional;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootTest
 class UserChangeInfoTest {
@@ -22,7 +24,7 @@ class UserChangeInfoTest {
     private UserRepository userRepository;
 
     @MockBean
-    private PasswordEncoder encoder;
+    private BCryptPasswordEncoder encoder;
 
     @Test
     public void userChangeInfoValidTest(){
@@ -50,9 +52,9 @@ class UserChangeInfoTest {
         verify(userRepository, times(1)).findById(originalUser.getId());
         verify(userRepository, times(1)).save(any(User.class));
 
-        assertEquals("updatedUser", originalUser.getUsername());
+        assertEquals("updatedUsername", originalUser.getUsername());
         assertEquals("encodedUpdatedPassword", originalUser.getPassword());
-        assertEquals("Updated", originalUser.getName());
-        assertEquals("User", originalUser.getSurname());
+        assertEquals("updatedName", originalUser.getName());
+        assertEquals("originalSurname", originalUser.getSurname());
     }
 }

@@ -1,16 +1,19 @@
 package app.roles;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.lenient;
+import static org.mockito.Mockito.when;
+
+import java.util.Optional;
+
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-
-import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.lenient;
-import static org.mockito.Mockito.when;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootTest
 class UserLoginTest {
@@ -20,7 +23,10 @@ class UserLoginTest {
 
     @Autowired
     private UserService userService;
-
+    
+    @Autowired
+    private BCryptPasswordEncoder encoder;
+    
     static User newUser;
 
     @BeforeAll
@@ -34,12 +40,16 @@ class UserLoginTest {
 
     @Test
     public void loginValidTest(){
-        when(userRepository.findUserByUsername(newUser.getUsername())).thenReturn(Optional.of(newUser));
-
+    	User encryptedUser = new User();
+    	encryptedUser.setUsername(newUser.getUsername());
+    	String password = encoder.encode(newUser.getPassword());
+    	encryptedUser.setPassword(password);
+        when(userRepository.findUserByUsername(newUser.getUsername())).thenReturn(Optional.of(encryptedUser));
+        
         User savedUser = userService.loginUser(newUser.getUsername(), newUser.getPassword());
 
         assertNotNull(savedUser);
-        compareUsers(newUser, savedUser);
+        assertTrue(encoder.matches(newUser.getPassword(), savedUser.getPassword()));
     }
 
     private void compareUsers(User newUser, User savedUser) {
