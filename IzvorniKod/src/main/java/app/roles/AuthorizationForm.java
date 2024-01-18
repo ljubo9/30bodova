@@ -125,8 +125,15 @@ public class AuthorizationForm {
 			return new Client(form.getUsername(), form.getPassword(), form.getName(), form.getSurname());
 		}
 		//Image img = new Image(form.getPhoto_url(), form.getPhoto_url());
-		return new SpecialUser(form.getUsername(), form.getPassword(), form.getName(),
+		else if (form.getRole().getName().equalsIgnoreCase("ENTHUSIAST")) {
+			return new Enthusiast(form.getUsername(), form.getPassword(), form.getName(),
 				form.getSurname(), form.getRole(), null, form.getBiography(), form.getEmail());
+		}
+		else if (form.getRole().getName().equalsIgnoreCase("NUTRITIONIST")) {
+			return new Nutritionist(form.getUsername(), form.getPassword(), form.getName(),
+					form.getSurname(), form.getRole(), null, form.getBiography(), form.getEmail());
+		}
+		return null;
 	}
 	
 	

@@ -175,7 +175,7 @@ public class UserController {
 	@GetMapping(path = "/enthusiasts") 
 	public ResponseEntity<List<SpecialUserDTO>> getAllEnthusiasts() {
 		try {
-			List<User> en = userService.loadAllEnthusiasts();
+			List<Enthusiast> en = userService.loadAllEnthusiasts();
 			List<SpecialUserDTO> endto = new ArrayList<>();
 			for (User e : en) {
 				endto.add(new SpecialUserDTO(e));

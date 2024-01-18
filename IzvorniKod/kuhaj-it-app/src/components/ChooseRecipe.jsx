@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { Html5QrcodeScanner } from "html5-qrcode";
 import { Link } from 'react-router-dom';
 
@@ -14,7 +14,7 @@ const ChooseRecipe = () => {
   const incrementProductCount = (product) => {
     setProducts((prevProducts) => ({
       ...prevProducts,
-      [product]: prevProducts[product] + 1
+      [product]: (prevProducts[product] || 0) + 1
     }));
   };
 
@@ -30,11 +30,10 @@ const ChooseRecipe = () => {
     });
   };
 
-  
   useEffect(() => {
     const fetchIngredients = async () => {
       try {
-        const response = await fetch('/ingredients/all'); // Pretpostavka URL-a
+        const response = await fetch('/ingredients/all'); 
         const data = await response.json();
         console.log(data)
         setIngredients(data);
@@ -53,7 +52,6 @@ const ChooseRecipe = () => {
         if (response.ok) {
           const data = await response.json();
           setRecipesFromDB(data);
-          console.log(data);
         } else {
           console.error("Greška pri dohvaćanju recepata:", response.statusText);
         }
@@ -61,31 +59,20 @@ const ChooseRecipe = () => {
         console.error("Greška pri dohvaćanju recepata:", error.message);
       }
     };
-    console.log(1);
+
     fetchRecipes();
-    console.log(recipesFromDB);
   }, []);
 
   useEffect(() => {
-    let newScanner;
     if (!scanner) {
-      newScanner = new Html5QrcodeScanner(
+      const newScanner = new Html5QrcodeScanner(
         "reader",
-        { fps: 10, qrbox: 250},
+        { fps: 10, qrbox: 250 },
         false
       );
       newScanner.render(
         (decodedText) => {
-          setProducts((prevProducts) => {
-            // Ažurirajte brojač za skeniranu namirnicu
-            const newProducts = { ...prevProducts };
-            if (newProducts[decodedText]) {
-              newProducts[decodedText] += 1;
-            } else {
-              newProducts[decodedText] = 1;
-            }
-            return newProducts;
-          });
+          incrementProductCount(decodedText);
         },
         (errorMessage) => {
           console.error(errorMessage);
@@ -97,39 +84,33 @@ const ChooseRecipe = () => {
     return () => scanner?.clear();
   }, [scanner]);
 
-
-
-  const displayAndSortRecipes = () => {
-    const matchedRecipes = recipesFromDB.map((recipe) => {
-      const matchCount = recipe.ingredients.filter((product) => 
-        products.hasOwnProperty(product) && products[product] > 0
+  // Ažuriranje recepata svaki put kada se promijeni 'products'
+  useEffect(() => {
+    const updatedRecipes = recipesFromDB.map(recipe => {
+      const matchCount = recipe.ingredients.filter(ingredient => 
+        products.hasOwnProperty(ingredient.name)
       ).length;
       return { ...recipe, matchCount };
     });
-  
-    matchedRecipes.sort((a, b) => b.matchCount - a.matchCount);
-    return matchedRecipes;
-  };
 
-  useEffect(() => {
-    displayAndSortRecipes();
+    setRecipesFromDB(updatedRecipes);
+  }, [products]);
+
+  const sortedRecipes = useMemo(() => {
+    return recipesFromDB.map(recipe => {
+      const matchCount = recipe.ingredients.filter(ingredient => 
+        products.hasOwnProperty(ingredient.name)
+      ).length;
+      return { ...recipe, matchCount };
+    }).sort((a, b) => b.matchCount - a.matchCount);
   }, [products, recipesFromDB]);
-
-  const sortedRecipes = displayAndSortRecipes();
 
   const addProduct = (product) => {
     if (product) {
-      setProducts((prevProducts) => {
-        const newProducts = { ...prevProducts };
-        if (newProducts[product]) {
-          newProducts[product] += 1;
-        } else {
-          newProducts[product] = 1;
-        }
-        return newProducts;
-      });
+      incrementProductCount(product);
     }
   };
+
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -193,14 +174,14 @@ const ChooseRecipe = () => {
 
       {/* Second Row: Recipe Cards */}
       <div>
-        {sortedRecipes.map((recipe, index) => (
-          <div key={index} style={{ border: '1px solid #ccc', padding: '10px', margin: '10px', width: '300px' }}>
-            <Link to={`/recipe/${recipe.id}`}>
-              <h3>{recipe.name}</h3>
-            </Link>
-            <p>Podudarni sastojci: {recipe.matchCount}/{recipe.ingredients?.length}</p>
-          </div>
-        ))}
+      {sortedRecipes.map((recipe, index) => (
+    <div key={index} style={{ border: '1px solid #ccc', padding: '10px', margin: '10px', width: '300px' }}>
+      <Link to={`/recipe/${recipe.id}`}>
+        <h3>{recipe.name}</h3>
+      </Link>
+      <p>Podudarni sastojci: {recipe.matchCount}/{recipe.ingredients?.length}</p>
+    </div>
+  ))}
       </div>
     </div>
   );  

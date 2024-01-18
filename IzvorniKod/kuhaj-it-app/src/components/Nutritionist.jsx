@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import { Container, Form, Col, Button } from 'react-bootstrap';
 
-function Nutritionist() {
+const Nutritionist = () => {
   const [currentUser, setCurrentUser] = useState(null);
   const [ingredients, setIngredients] = useState([]); 
   const [categories, setCategories] = useState([]);
@@ -40,8 +41,8 @@ function Nutritionist() {
   };
 
   useEffect(() => {
-    const storedUser = sessionStorage.getItem('currentUser');
-    setCurrentUser(storedUser ? JSON.parse(storedUser) : null);
+    const storedUser = JSON.parse(sessionStorage.getItem('currentUser'));
+    setCurrentUser(storedUser);
     
     fetch('/labels') // Labels for categorizing ingredients
 
@@ -291,8 +292,9 @@ function Nutritionist() {
       </div>
     </Container>
   );
-};
+}
 
 export default Nutritionist;
+
 
 

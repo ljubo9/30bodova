@@ -9,7 +9,6 @@ import app.roles.SpecialUser;
 import app.roles.User;
 import app.roles.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -20,13 +19,11 @@ public class UserService implements UserDetailsService{
 
 	private final UserRepository userRepository;
 	private final BCryptPasswordEncoder encoder;
-    private final AuthenticationManager authenticationManager;
 	
 	@Autowired
-	public UserService(UserRepository userRepository, BCryptPasswordEncoder encoder, AuthenticationManager authenticationManager) {
+	public UserService(UserRepository userRepository, BCryptPasswordEncoder encoder) {
 		this.userRepository = userRepository;
 		this.encoder = encoder;
-		this.authenticationManager = authenticationManager;
 	}
 	
 	 public List<User> getUsers() {
@@ -34,10 +31,17 @@ public class UserService implements UserDetailsService{
 	 }
 	 
 	 public boolean registerUser(User user) {
-		 checkUserDataValid(user);
-		 userRepository.save(user);
-		 return false;
+		 try {
+			 user.setPassword(encoder.encode(user.getPassword()));
+			 checkUserDataValid(user);
+			 userRepository.save(user);
+			 return true;
+		 }
+		 catch (Exception e) {
+			 return false;
+		 }
 	 }
+	 
 
 	 public void changeInfo(User userup){
 
@@ -89,13 +93,13 @@ public class UserService implements UserDetailsService{
 		return user.get();
 	}
 
-	public List<User> loadAllEnthusiasts() {
+	public List<Enthusiast> loadAllEnthusiasts() {
 		List<User> users = userRepository.findAll();
-		List<User> enthusiasts = new ArrayList<>();
+		List<Enthusiast> enthusiasts = new ArrayList<>();
 		for (User user : users) {
 			if (user.getRole().equals(Role.ENTHUSIAST)) {
-				enthusiasts.add(user);
-				System.out.println(user.getUsername());
+				Enthusiast en = (Enthusiast) user;
+				enthusiasts.add(en);
 			}
 		}
 		return enthusiasts;
