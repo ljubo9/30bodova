@@ -95,16 +95,25 @@ const Recipe = () => {
           
           <h3>Ingredients:</h3>
           <ul>
+            {!recipe.ingredients || recipe.ingredients.length === 0? (
+              <h2>Nema sastojaka</h2>
+            ) : (<div>
             {recipe.ingredients.map((ingredient, index) => (
               <li key={index}>
                 <p>Name: {ingredient.name}</p>
                 <p>Quantity: {ingredient.quantity}</p>
               </li>
             ))}
+            </div>
+            )}
+            
           </ul>
 
           <h3>Steps of making:</h3>
           <ul>
+          {!recipe.stepOfMaking || recipe.stepOfMaking.length === 0? (
+              <h2>Nema koraka pripreme</h2>
+            ) : (<div>
             {recipe.stepsOfMaking.map((stepOfMaking, index) => (
               <li key={index}>
                 <p>Step number: {stepOfMaking.stepNum}</p>
@@ -118,11 +127,16 @@ const Recipe = () => {
                 )}
               </li>
             ))}
+            </div>
+            )}
           </ul>
 
           <h3>Recenzije:</h3>
           <ul>
-            {/*iteriranje po polju recenzija */}
+
+          {!recipe.reviews || recipe.reviews.length === 0? (
+              <h2>Nema recenzija</h2>
+            ) : (<div>
             {recipe.reviews.map(async (review) => {
               {/*dohvaćanje odgovora iz baze*/}
               const response = await fetchResponse(review.id);
@@ -156,6 +170,8 @@ const Recipe = () => {
                 </li>
               );
             })}
+            </div>
+            )}
           </ul>
           {/*dodavanje nove recentije  */}
           <div>

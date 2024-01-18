@@ -7,6 +7,7 @@ const Nutritionist = () => {
   const [currentUser, setCurrentUser] = useState(null);
   const [ingredients, setIngredients] = useState([]); 
   const [categories, setCategories] = useState([]);
+  const [newCategory, setNewCategory] = useState('');
   const [labels, setLabels] = useState([]);
   const [newIngredientInfo, setNewIngredientInfo] = useState({
     name: '',
@@ -60,6 +61,7 @@ const Nutritionist = () => {
       .catch(error => console.error('Error fetching ingredients:', error));
   };
 
+
   const addIngredient = () => {
     const formData = new FormData();
     formData.append('name', newIngredientInfo.name);
@@ -75,13 +77,18 @@ const Nutritionist = () => {
     formData.append('weight', newIngredientInfo.weight);
     formData.append('labels', newIngredientInfo.labels.join(','));
 
+    // Check if a new category is entered, and add it to the categories list
+    if (newCategory.trim() !== '') {
+      setCategories([...categories, newCategory]);
+    }
+
+    formData.append('category', newIngredientInfo.category || newCategory);
+
     newIngredientInfo.labels.forEach((label, index) => {
       formData.append(`labels[${index}]`, label);
     });
 
     fetch('/ingredients', {
-
-
       method: 'POST',
       body: formData,
     })
@@ -92,6 +99,7 @@ const Nutritionist = () => {
       })
       .catch(error => console.error('Error adding ingredient:', error));
   };
+
 
   return (
     <Container>
@@ -220,6 +228,16 @@ const Nutritionist = () => {
               onChange={(e) => setNewIngredientInfo({ ...newIngredientInfo, labels: e.target.value.split(',') })}
             />
           </Form.Group>
+
+          <Form.Group as={Col} controlId="newCategory">
+              <Form.Label>Nova kategorija</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Unesi novu kategoriju"
+                value={newCategory}
+                onChange={(e) => setNewCategory(e.target.value)}
+              />
+            </Form.Group>
 
           </Row>
 
