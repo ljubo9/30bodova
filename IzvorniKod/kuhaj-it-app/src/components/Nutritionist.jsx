@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { Container, Form, Col, Button } from 'react-bootstrap';
 
-function Nutritionist() {
+const Nutritionist = () => {
   const [currentUser, setCurrentUser] = useState(null);
   const [ingredients, setIngredients] = useState([]); 
   const [categories, setCategories] = useState([]);
