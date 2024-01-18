@@ -141,8 +141,8 @@ insert into public."recipe"
 VALUES(4, 60, 'Vegeterijanski pire od krumpira s povrćem', 'slano', 5, 5);
 
 insert into public."ingredient"
-(id, "name")
-VALUES(1, 'meso');
+(id, "name", energy)
+VALUES(1, 'meso', 200);
 
 
 insert into public."recipe_ingredient"
@@ -219,6 +219,42 @@ VALUES(1, 4, 6);
 insert into public."recipe_ingredient"
 ("quantity", recipe_id, ingredient_id)
 VALUES(1, 2, 2);
+
+insert into public."consumed_recipe"
+(id, "date", recipe_id, user_id)
+values(1,'2024-01-18', 3, 6);
+
+insert into public."consumed_recipe"
+(id, "date", recipe_id, user_id)
+values(2,'2024-01-18', 4, 6);
+
+insert into public."consumed_recipe"
+(id, "date", recipe_id, user_id)
+values(3,'2024-01-17', 3, 6);
+
+insert into public."consumed_recipe"
+(id, "date", recipe_id, user_id)
+values(4,'2024-01-16', 3, 6);
+
+insert into public."consumed_recipe"
+(id, "date", recipe_id, user_id)
+values(5,'2024-01-16', 4, 6);
+
+insert into public."consumed_recipe"
+(id, "date", recipe_id, user_id)
+values(6,'2024-01-16', 3, 6);
+
+insert into public."consumed_recipe"
+(id, "date", recipe_id, user_id)
+values(7,'2024-01-16', 4, 6)
+
+insert into public."consumed_recipe"
+(id, "date", recipe_id, user_id)
+values(8,'2024-01-14', 3, 6)
+
+insert into public."consumed_recipe"
+(id, "date", recipe_id, user_id)
+values(9,'2024-01-14', 4, 6)
 
 insert into public."step_of_making"
 (id, "description", step_num, recipe_id)
