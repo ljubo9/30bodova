@@ -65,7 +65,8 @@ function CulinaryEnthusiast() {
 
   useEffect(() => {
     //svi entuzijasti se filtriraju 
-    if (!searchTerm) {
+    if (searchTerm == '') {
+      console.log(1);
       setFilteredEnthusiasts(enthusiasts)
     }
     else {
