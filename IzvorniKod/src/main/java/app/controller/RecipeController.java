@@ -46,7 +46,7 @@ public class RecipeController {
 
             if (recipe != null) {
                 // Convert the Recipe entity to a RecipeDTO
-                RecipeDTO recipeDTO = RecipeDTO.fromEntity(recipe);
+                RecipeDTO recipeDTO = new RecipeDTO(recipe);
                 return new ResponseEntity<>(recipeDTO, HttpStatus.OK);
             } else {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -61,7 +61,7 @@ public class RecipeController {
         try {
             // Convert the RecipeDTO to a Recipe entity and create the recipe
             Recipe createdRecipe = recipeService.createRecipe(recipeDTO.toEntity());
-            RecipeDTO createdRecipeDTO = RecipeDTO.fromEntity(createdRecipe);
+            RecipeDTO createdRecipeDTO = new RecipeDTO(createdRecipe);
             return new ResponseEntity<>(createdRecipeDTO, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -117,7 +117,7 @@ public class RecipeController {
     		}
     		Set<RecipeDTO> recipedto = new HashSet<>();
     		for (Recipe c : recipes) {
-    			recipedto.add(RecipeDTO.fromEntity(c));
+    			recipedto.add(new RecipeDTO(c));
     		}
     		return new ResponseEntity<>(recipedto, HttpStatus.OK);
     	}
@@ -139,7 +139,7 @@ public class RecipeController {
     		Set<RecipeDTO> recipedto = new HashSet<>();
 
     		for (Recipe c : recipes) {
-    			recipedto.add(RecipeDTO.fromEntity(c));
+    			recipedto.add(new RecipeDTO(c));
     		}
     		return new ResponseEntity<>(recipedto, HttpStatus.OK);
     	}
@@ -198,7 +198,7 @@ public class RecipeController {
 				Set<Recipe> recipes = getNLatestRecipes(en, 3);
 				Set<RecipeDTO> recipedto = new HashSet<>();
 	    		for (Recipe c : recipes) {
-	    			recipedto.add(RecipeDTO.fromEntity(c));
+	    			recipedto.add(new RecipeDTO(c));
 	    		}
 				list.put(en.getUsername(), recipedto);
 			}
@@ -289,7 +289,7 @@ public class RecipeController {
 			List<Recipe> recipes = recipeService.getAllRecipes();
 			HashSet<RecipeDTO> recipesDTO = new HashSet<>();
 			for (Recipe r : recipes) {
-				recipesDTO.add(RecipeDTO.fromEntity(r));
+				recipesDTO.add(new RecipeDTO(r));
 			}
 			
 			return new ResponseEntity<>(recipesDTO, HttpStatus.OK);

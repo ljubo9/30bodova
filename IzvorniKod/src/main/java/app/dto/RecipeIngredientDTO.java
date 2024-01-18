@@ -4,59 +4,36 @@ import app.recipe.Recipe;
 import app.recipe.RecipeIngredient;
 public class RecipeIngredientDTO {
 
-    private Ingredient ingredient;
-    private int quantity;
+    public IngredientDTO ingredient;
+    public int quantity;
+    public int recipeId;
 
-    public Recipe getRecipe() {
-        return recipe;
-    }
-
-    public void setRecipe(Recipe recipe) {
-        this.recipe = recipe;
-    }
-
-    private Recipe recipe;
 
     public RecipeIngredientDTO() {
         // Default constructor
     }
 
-    public RecipeIngredientDTO(Ingredient ingredient,Recipe recipe, int quantity) {
-        this.ingredient = ingredient;
-        this.recipe=recipe;
+    public RecipeIngredientDTO(Ingredient ingredient, int quantity, Recipe r) {
+        this.ingredient = new IngredientDTO(ingredient);
         this.quantity = quantity;
+        this.recipeId = r.getId();
     }
 
-    public Ingredient getIngredient() {
-        return this.ingredient;
+    public RecipeIngredientDTO(RecipeIngredient r) {
+    	this.ingredient = new IngredientDTO(r.getIngredient());
     }
 
-    public void setIngredient(Ingredient ingredient) {
-        this.ingredient = ingredient;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-
+    
     public RecipeIngredient toEntity() {
-        RecipeIngredient recipeIngredient = new RecipeIngredient(this.ingredient,this.recipe,this.quantity);
+        RecipeIngredient recipeIngredient = new RecipeIngredient(this);
 
         // Set other properties accordingly
         return recipeIngredient;
     }
+    
 
     public static RecipeIngredientDTO fromEntity(RecipeIngredient recipeIngredient) {
         RecipeIngredientDTO dto = new RecipeIngredientDTO();
-        dto.setIngredient(recipeIngredient.getIngredient());
-        dto.setRecipe(recipeIngredient.getRecipe());
-        dto.setQuantity(recipeIngredient.getQuantity());
-        // Map other properties accordingly
-        return dto;
+        return new RecipeIngredientDTO(recipeIngredient);
     }
 }

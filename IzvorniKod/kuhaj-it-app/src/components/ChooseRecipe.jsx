@@ -60,8 +60,9 @@ const ChooseRecipe = () => {
         console.error("Greška pri dohvaćanju recepata:", error.message);
       }
     };
-
+    console.log(1);
     fetchRecipes();
+    console.log(recipesFromDB);
   }, []);
 
   useEffect(() => {
@@ -99,7 +100,7 @@ const ChooseRecipe = () => {
 
   const displayAndSortRecipes = () => {
     const matchedRecipes = recipesFromDB.map((recipe) => {
-      const matchCount = recipe.requiredProducts.filter((product) => 
+      const matchCount = recipe.ingredients.filter((product) => 
         products.hasOwnProperty(product) && products[product] > 0
       ).length;
       return { ...recipe, matchCount };

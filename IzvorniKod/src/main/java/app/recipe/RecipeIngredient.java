@@ -1,5 +1,7 @@
 package app.recipe;
 
+import app.dto.RecipeDTO;
+import app.dto.RecipeIngredientDTO;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -34,6 +36,11 @@ public class RecipeIngredient {
 		
 	}
 	
+
+	public RecipeIngredient(RecipeIngredientDTO recipeIngredientDTO) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public void setIngredient(Ingredient ingredient) {
 		this.ingredient = ingredient;
 	}
