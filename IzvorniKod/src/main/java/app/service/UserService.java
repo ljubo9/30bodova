@@ -1,9 +1,13 @@
-package app.roles;
+package app.service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import app.roles.Role;
+import app.roles.SpecialUser;
+import app.roles.User;
+import app.roles.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.UserDetailsService;

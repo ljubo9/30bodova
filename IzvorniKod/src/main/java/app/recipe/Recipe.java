@@ -1,6 +1,7 @@
 package app.recipe;
 
 import java.util.List;
+import java.util.Set;
 
 import app.dto.RecipeDTO;
 import app.roles.User;
@@ -61,6 +62,24 @@ public class Recipe {
         this.portionSize = portionSize;
         this.cookTime = cookTime;
         this.creator=creator;
+
+        Set<Recipe> creatorRecipes = creator.getRecipes();
+        creatorRecipes.add(this);
+        creator.setRecipes(creatorRecipes);
+    }
+
+    public Recipe( String name,int portionSize, int cookTime,User creator, String category) {
+
+        this.name = name;
+
+        this.portionSize = portionSize;
+        this.cookTime = cookTime;
+        this.creator=creator;
+        this.category = category;
+
+        Set<Recipe> creatorRecipes = creator.getRecipes();
+        creatorRecipes.add(this);
+        creator.setRecipes(creatorRecipes);
     }
 
     public Recipe() {

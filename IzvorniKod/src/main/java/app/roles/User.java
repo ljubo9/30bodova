@@ -67,7 +67,7 @@ public class User implements UserDetails {
 	@OneToMany
 	private List<ConsumedRecipe> consumedRecipes;
 	
-	private User(String username, String password, String name, String surname) {
+	public User(String username, String password, String name, String surname) {
 		// TODO Auto-generated constructor stub
 		if (username == null || password == null ||
 		    name == null || surname == null) throw new IllegalArgumentException("All fields must be filled out");
@@ -181,6 +181,9 @@ public class User implements UserDetails {
 	public List<ConsumedRecipe> getConsumedRecipes() {
 		return consumedRecipes;
 	}
-	
 
+
+    public void setRecipes(Set<Recipe> creatorRecipes) {
+		this.recipes = creatorRecipes;
+    }
 }

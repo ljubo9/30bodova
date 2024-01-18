@@ -25,7 +25,7 @@ import app.recipe.Cookbook;
 import app.recipe.Ingredient;
 import app.recipe.Recipe;
 import app.roles.User;
-import app.roles.UserService;
+import app.service.UserService;
 import app.service.RecipeService;
 
 @RestController
