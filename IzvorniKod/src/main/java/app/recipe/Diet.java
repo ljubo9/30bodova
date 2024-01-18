@@ -1,9 +1,10 @@
 package app.recipe;
 
+import java.util.List;
 import app.roles.User;
 import jakarta.persistence.*;
 
-import java.util.List;
+
 
 @Entity
 public class Diet {
@@ -20,10 +21,21 @@ public class Diet {
     private User creator;
 
     @OneToMany
+    private List<DietIngredient> dietIngredients;
+
+    @OneToMany
     private List<User> users;
 
     public Diet() {
     	
+    }
+
+    public List<DietIngredient> getDietIngredients() {
+        return dietIngredients;
+    }
+
+    public void setDietIngredients(List<DietIngredient> dietIngredients) {
+        this.dietIngredients = dietIngredients;
     }
     
     public String getName() {

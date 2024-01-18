@@ -1,5 +1,10 @@
-package app.recipe;
+package app.controller;
 
+import app.recipe.Recipe;
+import app.recipe.Response;
+import app.recipe.Review;
+import app.service.RecipeService;
+import app.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

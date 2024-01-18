@@ -1,6 +1,8 @@
-package app.recipe;
+package app.service;
 import java.util.Optional;
 
+import app.recipe.Image;
+import app.repository.StorageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
