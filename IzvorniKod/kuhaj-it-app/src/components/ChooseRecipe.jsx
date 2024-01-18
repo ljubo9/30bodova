@@ -161,6 +161,7 @@ const ChooseRecipe = () => {
 
 
           </div>
+
           {/* List of Products */}
           <div>
             {Object.entries(products).map(([product, count], index) => (
@@ -196,7 +197,7 @@ const ChooseRecipe = () => {
             <Link to={`/recipe/${recipe.id}`}>
               <h3>{recipe.name}</h3>
             </Link>
-            <p>Podudarni sastojci: {recipe.matchCount}/{recipe.requiredProducts.length}</p>
+            <p>Podudarni sastojci: {recipe.matchCount}/{recipe.requiredProducts?.length || 0}</p>
           </div>
         ))}
       </div>
