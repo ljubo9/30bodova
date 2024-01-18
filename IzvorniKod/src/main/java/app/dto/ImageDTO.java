@@ -33,7 +33,7 @@ public class ImageDTO {
 
     public ImageDTO(Image image) {
 		// TODO Auto-generated constructor stub
-    	this.data = image.getImageData();
+    	if (image != null) this.data = image.getImageData();
 	}
 
 	public Image toEntity() {

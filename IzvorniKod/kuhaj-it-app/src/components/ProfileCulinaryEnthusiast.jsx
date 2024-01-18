@@ -67,7 +67,7 @@ const ProfileCulinaryEnthusiast = () => {
       <ul>
         {recipesData.map((recipe) => (
           <li key={recipe.id}>
-            <Link to={`/recipe/get?id=${recipe.id}`}>{recipe.name}</Link>
+            <Link to={`/recipe/${recipe.id}`}>{recipe.name}</Link>
           </li>
         ))}
       </ul>
