@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const RecipeEditor = () => {
+  const currentUser = localStorage.getItem("currentUser");
   const [recipeData, setRecipeData] = useState({
     name: '',
     category: '',
@@ -17,7 +18,7 @@ const RecipeEditor = () => {
     const fetchCookbooks = async () => {
       try {
         //dohvaćanje kuharica po id-u entuzijasta
-        const response = await fetch(`https://kuhajitbackend.onrender.com/cookbook/${currentUser.username}`);
+        const response = await fetch(`/cookbook/${currentUser.username}`);
         if (response.ok) {
           const cookbooksData = await response.json();
           setCookbooks(cookbooksData);
@@ -126,7 +127,7 @@ const RecipeEditor = () => {
         }
         //ako je uopće odabrana kuharica,na endpoint cookbook se šalje id recepta i id kuharice i onda se taj recept doda u recepte od kuharice
         if (selectedCookbook) {
-          const cookbookResponse = await fetch('https://kuhajitbackend.onrender.com/cookbook', {
+          const cookbookResponse = await fetch('/cookbook', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

@@ -103,4 +103,12 @@ public class UserService implements UserDetailsService{
 		}
 		return enthusiasts;
 	}
+
+	public User loginUser(String username, String password) {
+		// TODO Auto-generated method stub
+		Optional<User> u = userRepository.findUserByUsername(username);
+		if (u.isEmpty()) return null;
+		if (!encoder.matches(password, u.get().getPassword())) return null;
+		return u.get();
+	}
 }

@@ -115,9 +115,6 @@ function LoggedHomePage() {
   console.log(followedChefs);
   console.log(consumedRecipesStatistics);
 
-  if (!recipeList || !dietInfo || !followedChefs || !consumedRecipesStatistics) {
-    return <div>Loading...</div>;
-  }
   
   return (
     <Container>

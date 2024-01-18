@@ -77,8 +77,16 @@ public class UserController {
 	@ResponseBody
 	public ResponseEntity<UserDTO> login(@RequestParam("username") String username, @RequestParam("password") String password) throws AuthenticationException {
 		
-		
-		return new ResponseEntity<>(new UserDTO((User) userService.loadUserByUsername(username)), HttpStatus.OK);
+		try {
+			User u = userService.loginUser(username, password);
+			if (u == null) return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			return new ResponseEntity<>(new UserDTO(u), HttpStatus.OK);
+		}
+		catch (Exception e) {
+			System.out.println("Could not log in user:");
+			e.printStackTrace();	
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 
 	@PostMapping(path = "/profile/changeInfo")
