@@ -108,6 +108,7 @@ const Register = () => {
           {isValidPassword === false && (
             <Alert variant="danger" className="mb-3">
               Please choose a stronger password!
+              (At least 8 characters long and contains at least one uppercase letter.)
             </Alert>
           )}
 

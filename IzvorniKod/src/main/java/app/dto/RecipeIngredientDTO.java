@@ -1,5 +1,7 @@
 package app.dto;
-import app.recipe.*;
+import app.recipe.Ingredient;
+import app.recipe.Recipe;
+import app.recipe.RecipeIngredient;
 public class RecipeIngredientDTO {
 
     private Ingredient ingredient;

@@ -4,14 +4,12 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
+import app.recipe.*;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import app.recipe.Cookbook;
-import app.recipe.Recipe;
-import app.recipe.Response;
-import app.recipe.Review;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -46,12 +44,17 @@ public class User implements UserDetails {
 	private String password;
 	private String name;
 	private String surname;
-	
+	@ManyToOne
+	private Diet diet;
+
+	@OneToMany
+	private List<Diet> createdDiets;
 	@ManyToOne
 	private Role role;
 	
 	@OneToMany(mappedBy="creator", cascade = CascadeType.ALL)
 	private Set<Recipe> recipes;
+	
 	@OneToMany(mappedBy = "creator", cascade = CascadeType.ALL)
 	private Set<Cookbook> cookbooks;
 
@@ -61,6 +64,8 @@ public class User implements UserDetails {
 	@OneToMany(mappedBy = "creator", cascade = CascadeType.ALL)
 	private List<Response> responses;
 
+	@OneToMany
+	private List<ConsumedRecipe> consumedRecipes;
 	
 	private User(String username, String password, String name, String surname) {
 		// TODO Auto-generated constructor stub
@@ -144,5 +149,34 @@ public class User implements UserDetails {
 		// TODO Auto-generated method stub
 		return true;
 	}
+
+	public Set<Recipe> getRecipes() {
+		return recipes;
+	}
+
+	public Set<Cookbook> getCookbooks() {
+		return cookbooks;
+	}
+
+	public List<Review> getReviews() {
+		return reviews;
+	}
+
+	public List<Response> getResponses() {
+		return responses;
+	}
+
+	public Diet getDiet() {
+		return diet;
+	}
+
+	public List<Diet> getCreatedDiets() {
+		return createdDiets;
+	}
+
+	public List<ConsumedRecipe> getConsumedRecipes() {
+		return consumedRecipes;
+	}
+	
 
 }

@@ -3,6 +3,7 @@ import { Html5QrcodeScanner } from "html5-qrcode";
 import { Link } from 'react-router-dom';
 
 
+
 const ChooseRecipe = () => {
   const [products, setProducts] = useState({});
   const [scanner, setScanner] = useState(null);
@@ -29,10 +30,11 @@ const ChooseRecipe = () => {
     });
   };
 
+  
   useEffect(() => {
     const fetchIngredients = async () => {
       try {
-        const response = await fetch('https://kuhajitbackend.onrender.com/ingredients'); // Pretpostavka URL-a
+        const response = await fetch('/ingredients/all'); // Pretpostavka URL-a
         const data = await response.json();
         setIngredients(data);
       } catch (error) {
@@ -46,10 +48,11 @@ const ChooseRecipe = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await fetch("https://kuhajitbackend.onrender.com/recipes");
+        const response = await fetch("/recipes/all");
         if (response.ok) {
           const data = await response.json();
           setRecipesFromDB(data);
+          console.log(data);
         } else {
           console.error("Greška pri dohvaćanju recepata:", response.statusText);
         }
@@ -91,6 +94,7 @@ const ChooseRecipe = () => {
 
     return () => scanner?.clear();
   }, [scanner]);
+
 
 
   const displayAndSortRecipes = () => {
@@ -165,9 +169,17 @@ const ChooseRecipe = () => {
 
                 {/* Row for +, Count and - Buttons */}
                 <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <button onClick={() => decrementProductCount(product)} style={{ marginRight: '5px', border: 'none', outline: 'none', backgroundColor: 'transparent' }}><i class="bi bi-dash-circle-fill"></i></button>
+                  <button onClick={() => decrementProductCount(product)} style={{ marginRight: '5px', border: 'none', outline: 'none', backgroundColor: 'transparent' }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle-fill" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1z"/>
+                    </svg>
+                  </button>
                   <span style={{ marginRight: '5px' }}>{count}</span>
-                  <button onClick={() => incrementProductCount(product)} style={{ border: 'none', outline: 'none', backgroundColor: 'transparent' }}><i class="bi bi-plus-circle-fill"></i></button>
+                  <button onClick={() => incrementProductCount(product)} style={{ border: 'none', outline: 'none', backgroundColor: 'transparent' }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
+                    </svg>
+                  </button>
                 </div>
               </div>
             ))}

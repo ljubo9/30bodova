@@ -1,5 +1,7 @@
 package app.roles;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.apache.tomcat.websocket.AuthenticationException;
@@ -14,6 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -24,8 +27,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import app.dto.RecipeDTO;
+import app.dto.SpecialUserDTO;
 import app.dto.UserDTO;
+import app.recipe.ConsumedRecipe;
 
 @RestController
 @RequestMapping
@@ -60,31 +64,34 @@ public class UserController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			throw new IllegalArgumentException();
-
 		}
-		System.out.printf("Username: %s, password: %s\n", form.getUsername(), form.getPassword());
-		String encodedPassword = encoder.encode(form.getPassword());
-		form.setPassword(encodedPassword);
+		
 		if (image.isPresent()) {
 			form.setPhoto_url(image.get().getOriginalFilename());
 		}
 		user = AuthorizationForm.parseUser(form);
-		userService.addUser(user);
+		userService.registerUser(user);
 	}
 	
 	@PostMapping(path = "/login", consumes = "multipart/form-data")
 	@ResponseBody
-	public UserDTO login(@RequestParam("username") String username, @RequestParam("password") String password) throws AuthenticationException {
+	public ResponseEntity<UserDTO> login(@RequestParam("username") String username, @RequestParam("password") String password) throws AuthenticationException {
 		
-		Authentication authRes = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
-
-		if (!authRes.isAuthenticated()) throw new AuthenticationException("Wrong username or password.");
-		return new UserDTO((User) userService.loadUserByUsername(username));
+		try {
+			User u = userService.loginUser(username, password);
+			if (u == null) return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			return new ResponseEntity<>(new UserDTO(u), HttpStatus.OK);
+		}
+		catch (Exception e) {
+			System.out.println("Could not log in user:");
+			e.printStackTrace();	
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 
-	@PostMapping(path = "/profile")
-	public String changeInfo(@RequestParam("username") String username, @RequestParam("password") String password) throws AuthenticationException{
-		/* User currentUser = (User)userService.loadUserByUsername(username);
+	@PostMapping(path = "/profile/changeInfo")
+	public String changeInfo(@RequestBody AuthorizationForm updatedUser, @RequestBody int id) throws AuthenticationException{
+		/*User currentUser = userService.loadUserById(id);
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		if (!auth.isAuthenticated()) return "redirect:/login";
 		currentUser.setUsername(username)
@@ -93,11 +100,26 @@ public class UserController {
 		return null;
 	}
 	
-	@GetMapping(path = "/profile/{username}")
+	@GetMapping(path = "/user/{username}")
 	public UserDTO getUser(@PathVariable String username) {
 		User user = (User) userService.loadUserByUsername(username);
 		UserDTO dto= new UserDTO(user);
 		return dto;
+	}
+	
+	@PostMapping(path = "/profile/{username}", consumes = "multipart/form-data")
+	public ResponseEntity<UserDTO> editUser(@PathVariable String username, @RequestParam("newUsername") String newUsername, @RequestParam("newPassword") String newPassword, @RequestParam("oldPassword") String oldPassword) {
+		try {
+			User oldUser = (User)userService.loadUserByUsername(username);
+			if (oldUser == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			oldUser.setUsername(newUsername);
+			oldUser.setPassword(oldPassword);
+			return new ResponseEntity<>(new UserDTO(oldUser), HttpStatus.OK);
+		}
+		catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
 	}
 	
 	@PostMapping(path = "/authenticate", consumes = "multipart/form-data")
@@ -109,14 +131,68 @@ public class UserController {
 	
 	
 	@GetMapping(path = "/enthusiasts/{username}")
-	public UserDTO getEnthuiast(@PathVariable String username) {
-		return getUser(username);
+	public ResponseEntity<SpecialUserDTO> getSpecialUser(@PathVariable String username) {
+		try {
+			SpecialUser su = (SpecialUser) userService.loadUserByUsername(username);
+			if (su == null) {
+				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			}
+			SpecialUserDTO dto = new SpecialUserDTO(su);
+			return new ResponseEntity<>(dto, HttpStatus.OK);
+		}
+		catch(Exception e) {
+			System.out.println("Could not fetch special user: ");
+			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
-	@GetMapping(path = "/recipes/user/{username}") 
-	public RecipeDTO[] getRecipe(@PathVariable String username) {
-		User user = (User) userService.loadUserByUsername(username);
-		return null;
-		
+	@GetMapping(path = "/statistic/user/{username}")
+	public ResponseEntity<List<ConsumedRecipe>> getConsumedRecipes(@PathVariable String username) {
+		try {
+			User u = (User) userService.loadUserByUsername(username);
+			if (u == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(u.getConsumedRecipes(), HttpStatus.OK);
+		}
+		catch (Exception e) {
+			System.out.println("Could not fetch consumedd recipes: ");
+			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
+	
+	@GetMapping(path = "/followed-enthusiasts/{username}")
+	public ResponseEntity<List<SpecialUserDTO>> getFollowedEnthusiasts(@PathVariable String username) {
+		try {
+			User u = (User) userService.loadUserByUsername(username);
+			if (u == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			/** get all enthusiasts from user **/
+			return new ResponseEntity<>(null, HttpStatus.OK);
+
+		}
+		catch(Exception e) {
+			System.out.println("Could not fetch followed enthusiasts: ");
+			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	@GetMapping(path = "/enthusiasts") 
+	public ResponseEntity<List<SpecialUserDTO>> getAllEnthusiasts() {
+		try {
+			List<User> en = userService.loadAllEnthusiasts();
+			List<SpecialUserDTO> endto = new ArrayList<>();
+			for (User e : en) {
+				endto.add(new SpecialUserDTO(e));
+			}
+			return new ResponseEntity<>(endto, HttpStatus.OK);
+		}
+		catch(Exception e) {
+			System.out.println("Could not fetch all enthusiasts:");
+			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	
 }

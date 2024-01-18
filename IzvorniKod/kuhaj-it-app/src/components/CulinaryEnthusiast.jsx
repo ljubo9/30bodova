@@ -11,17 +11,17 @@ function CulinaryEnthusiast() {
   const fetchCreatorsByCategory = async (category) => {
     try {
       // Dohvaćanje svih kuharica iz baze čija je kategorija jednaka stisnutoj
-      const cookbooksResponse = await fetch(`/cookbooks?category=${category}`);
+      const cookbooksResponse = await fetch(`/cookbooks/category?category=${category}`);
       if (!cookbooksResponse.ok) {
         throw new Error(`Error fetching cookbooks: ${cookbooksResponse.statusText}`);
 
       }
-  
+      
       const cookbooksData = await cookbooksResponse.json();
       const cookbookAuthors = cookbooksData.map(cookbook => cookbook.creator);
   
       // Dohvaćanje svih recepata iz baze čija je kategorija jednaka stisnutoj
-      const recipesResponse = await fetch(`/recipes?category=${category}`);
+      const recipesResponse = await fetch(`/recipes/category?category=${category}`);
       if (!recipesResponse.ok) {
         throw new Error(`Error fetching recipes: ${recipesResponse.statusText}`);
       }
@@ -65,10 +65,17 @@ function CulinaryEnthusiast() {
 
   useEffect(() => {
     //svi entuzijasti se filtriraju 
-    const filteredByUsername = enthusiasts.filter((enthusiast) =>
-      enthusiast.username.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setFilteredEnthusiasts(filteredByUsername);
+    if (searchTerm == '') {
+      console.log(1);
+      setFilteredEnthusiasts(enthusiasts)
+    }
+    else {
+      const filteredByUsername = enthusiasts.filter((enthusiast) =>
+        enthusiast.username.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredEnthusiasts(filteredByUsername);
+    }
+    console.log(filteredEnthusiasts);
   }, [searchTerm, enthusiasts]);
 
   useEffect(() => {
@@ -129,7 +136,7 @@ function CulinaryEnthusiast() {
         )}
       </div>
       <ul className="bg-light">
-        {filteredEnthusiasts.map((enthusiast) => (
+        { filteredEnthusiasts.map((enthusiast) => (
           <li key={enthusiast.id}>
             <Link to={`/enthusiast/${enthusiast.username}`}>
               <h3>{enthusiast.username}</h3>

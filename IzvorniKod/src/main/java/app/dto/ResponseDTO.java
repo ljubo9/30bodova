@@ -1,5 +1,5 @@
 package app.dto;
-import app.recipe.*;
+import app.recipe.Response;
 public class ResponseDTO {
 
     private int id;

@@ -30,6 +30,10 @@ public class RecipeIngredient {
 		this.quantity = quantity;
 	}
 
+	public RecipeIngredient() {
+		
+	}
+	
 	public void setIngredient(Ingredient ingredient) {
 		this.ingredient = ingredient;
 	}

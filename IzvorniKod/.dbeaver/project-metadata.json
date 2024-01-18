@@ -1,1 +1,1 @@
-{"resources":{"Scripts/Script.sql":{"default-datasource":"postgres-jdbc-18ba5d38df6-384f4a0fddfbf686","default-catalog":"kuhajit","default-schema":"public"}}}
+{"resources":{"Scripts/Script.sql":{"default-schema":"public","default-datasource":"postgres-jdbc-18ba5d38df6-384f4a0fddfbf686","default-catalog":"kuhajit"}}}

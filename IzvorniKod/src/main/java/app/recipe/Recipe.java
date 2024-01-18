@@ -12,11 +12,17 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private String stepsOfMaking;
+
+    @OneToMany
+    private List<StepOfMaking> stepsOfMaking;
+    
     private int portionSize;
     private int cookTime;
     @ManyToMany(mappedBy = "recipes")
     private List<Cookbook> cookbooks;
+
+    @ManyToMany
+    private List<Diet> diets;
     @ManyToOne
     private User creator;
     
@@ -27,27 +33,38 @@ public class Recipe {
     @JoinColumn(name = "recipe_id")
     private List<RecipeIngredient> ingredients;
 
-    public List<Image> getImages() {
-        return images;
-    }
+    private String category;
 
-    public void setImages(List<Image> images) {
-        this.images = images;
-    }
-
-    @OneToMany
-    private List<Image> images;
-    
-    public Recipe(int id, String name, List<RecipeIngredient> ingredients, String stepsOfMaking, int portionSize, int cookTime, List<Image> images) {
-        this.id = id;
+    public Recipe( int id,String name, List<RecipeIngredient> ingredients,List<StepOfMaking> stepsOfMaking, int portionSize, int cookTime) {
+        this.id=id;
         this.name = name;
         this.ingredients = ingredients;
         this.stepsOfMaking = stepsOfMaking;
         this.portionSize = portionSize;
         this.cookTime = cookTime;
-        this.images = images;
+
+    }
+    public Recipe( String name, List<RecipeIngredient> ingredients,List<StepOfMaking> stepsOfMaking, int portionSize, int cookTime) {
+
+        this.name = name;
+        this.ingredients = ingredients;
+        this.stepsOfMaking = stepsOfMaking;
+        this.portionSize = portionSize;
+        this.cookTime = cookTime;
+
+    }
+    public Recipe( String name,int portionSize, int cookTime,User creator) {
+
+        this.name = name;
+
+        this.portionSize = portionSize;
+        this.cookTime = cookTime;
+        this.creator=creator;
     }
 
+    public Recipe() {
+    	
+    }
 
     public int getId() {
         return id;
@@ -65,11 +82,11 @@ public class Recipe {
         this.ingredients = ingredients;
     }
 
-    public String getStepsOfMaking() {
+    public List<StepOfMaking> getStepsOfMaking() {
         return stepsOfMaking;
     }
 
-    public void setStepsOfMaking(String stepsOfMaking) {
+    public void setStepsOfMaking(List<StepOfMaking> stepsOfMaking) {
         this.stepsOfMaking = stepsOfMaking;
     }
 
@@ -98,15 +115,11 @@ public class Recipe {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public String getCategory() {
+		return this.category;
+	}
     
     
 
-   /* public List<Image> getImages() {
-        return images;
-    }
-
-    public void setImages(List<Image> images) {
-        this.images = images;
-    }
-*/
 }

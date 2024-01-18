@@ -13,8 +13,6 @@ function Navigation() {
   };
 
   const currentUser = sessionStorage.getItem('currentUser');
-  //console.log(currentUser)
-  //console.log(currentUser.role)
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
@@ -25,9 +23,6 @@ function Navigation() {
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/culinary-enthusiasts"> 
               Kulinarski Entuzijasti
-            </Nav.Link>
-            <Nav.Link as={Link} to="/choose-recipe">
-                Choose Recipe
             </Nav.Link>
             {currentUser && currentUser.role === 'nutritionist' && (
             <Nav.Link as={Link} to="/nutritionist">

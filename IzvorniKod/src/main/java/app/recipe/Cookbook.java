@@ -33,13 +33,23 @@ public class Cookbook {
     @ManyToOne
     private User creator;
     
-    public Cookbook(int id, String name, String category, Set<Recipe> recipes) {
-        this.id = id;
+    public Cookbook( String name, String category, Set<Recipe> recipes) {
+
         this.name = name;
         this.category = category;
         /*this.recipes = recipes;*/
     }
 
+    public Cookbook( String name, String category, User creator) {
+
+        this.name = name;
+        this.category = category;
+        this.creator=creator;
+    }
+    
+    public Cookbook() {
+    	
+    }
 
     public int getId() {
         return id;
@@ -65,6 +75,14 @@ public class Cookbook {
         this.category = category;
     }
 
+	public List<Recipe> getRecipes() {
+		return recipes;
+	}
+
+	public User getCreator() {
+		return creator;
+	}
+
    /* public Set<Recipe> getRecipes() {
         return recipes;
     }
@@ -73,4 +91,5 @@ public class Cookbook {
         this.recipes = recipes;
     }*/
 
+    
 }
