@@ -23,7 +23,7 @@ VALUES('User', 1, 'client', '$2a$10$r7oB7KBo2dCmfRedkH5YcO8YWzdUyIcLk9/GuoWjgtRr
 
 insert into public."users"
 (dtype, id, "name", "password", "surname", "username", "biography", "confirmed", "email", role_id)
-VALUES('SpecialUser', 2, 'enthusiast', '$10$keSxcf1m1tBh6ep0EOnz8e1EMryiEozv4f5ztHr9ybt85YVipNWj2', 'enthusiast', 'enthusiast', 'enthusiast', false, 'enthusiast@gmail.com', 2);
+VALUES('SpecialUser', 2, 'enthusiast', '$2a$10$Sd3hzVJFgT.cmYHfHEDl1edqh/a3Z05SK0lLZrUNrbyNP8Z/cZGW2', 'enthusiast', 'enthusiast', 'enthusiast', false, 'enthusiast@gmail.com', 2);
 
 insert into public."users"
 (dtype, id, "name", "password", "surname", "username", "biography", "confirmed", "email", role_id)

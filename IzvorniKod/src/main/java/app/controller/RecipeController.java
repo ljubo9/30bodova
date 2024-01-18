@@ -1,12 +1,11 @@
 package app.controller;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import app.recipe.*;
-import app.service.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,8 +20,13 @@ import org.springframework.web.bind.annotation.RestController;
 import app.dto.CookbookDTO;
 import app.dto.IngredientDTO;
 import app.dto.RecipeDTO;
+import app.recipe.ConsumedRecipe;
+import app.recipe.Cookbook;
+import app.recipe.Ingredient;
+import app.recipe.Recipe;
 import app.roles.User;
 import app.roles.UserService;
+import app.service.RecipeService;
 
 @RestController
 @RequestMapping()
@@ -195,7 +199,7 @@ public class RecipeController {
 			List<User> enthusiasts = userService.loadAllEnthusiasts();
 			
 			for (User en : enthusiasts) {
-				Set<Recipe> recipes = getNLatestRecipes(en, 3);
+				List<Recipe> recipes = getNLatestRecipes(en, 3);
 				Set<RecipeDTO> recipedto = new HashSet<>();
 	    		for (Recipe c : recipes) {
 	    			recipedto.add(new RecipeDTO(c));
@@ -213,16 +217,15 @@ public class RecipeController {
 	}
 
 
-	private Set<Recipe> getNLatestRecipes(User en, int i) {
+	private List<Recipe> getNLatestRecipes(User en, int i) {
 		// TODO Auto-generated method stub
-		Set<Recipe> allRecipe = en.getRecipes();
-		Set<Recipe> finalRecipe = new HashSet<>();
+		List<Recipe> allRecipe = new ArrayList<>(en.getRecipes());
+		List<Recipe> finalRecipe = new ArrayList<>();
 		if (allRecipe.size() <= 3) return allRecipe;
 		/** sort recipes by date**/
-		Recipe[] recipes = (Recipe[]) allRecipe.toArray();
-		finalRecipe.add(recipes[0]);
-		finalRecipe.add(recipes[1]);
-		finalRecipe.add(recipes[2]);
+		finalRecipe.add(allRecipe.get(0));
+		finalRecipe.add(allRecipe.get(1));
+		finalRecipe.add(allRecipe.get(2));
 		return finalRecipe;
 	}
 	
