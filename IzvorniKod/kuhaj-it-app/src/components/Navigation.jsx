@@ -29,11 +29,10 @@ function Navigation() {
             <Nav.Link as={Link} to="/choose-recipe">
                 Choose Recipe
             </Nav.Link>
-            {currentUser && currentUser.role === 'nutritionist' && (
+
             <Nav.Link as={Link} to="/nutritionist">
                 Nutritionist
             </Nav.Link>
-            )}
             
             {currentUser && currentUser.role === 'enthusiast' && (
               <Nav.Link as={Nav.Link} to="/CookbookEditor">
