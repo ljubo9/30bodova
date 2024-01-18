@@ -1,17 +1,23 @@
 package app.service;
 
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import app.recipe.ConsumedRecipe;
 import app.recipe.Cookbook;
 import app.recipe.Ingredient;
 import app.recipe.Recipe;
+import app.recipe.RecipeIngredient;
 import app.repository.CookbookRepository;
 import app.repository.IngredientRepository;
 import app.repository.RecipeRepository;
@@ -119,6 +125,38 @@ public class RecipeService {
 		return ingredientRepository.findAll();
 	}
 
+	public Map<Integer, Integer> getCalorieStatisticsByUsername(String username) {
+		Optional<User> u = userRepository.findUserByUsername(username);
+		if (u.isEmpty()) return null;
+		User user = u.get();
+		List<ConsumedRecipe> consumedRecipes = user.getConsumedRecipes();
+		Map<Integer, Integer> mapa = new HashMap<>();
+
+		for (ConsumedRecipe r: consumedRecipes) {
+			Date d = r.getDate();
+			Calendar today = Calendar.getInstance();
+			Date now = today.getTime();
+			long differenceMS = now.getTime() - d.getTime();
+			long days = (long)(differenceMS / 1000f / 3600f / 24f); 
+			if (days <= 7) {
+				for (RecipeIngredient i : r.getRecipe().getIngredients()) {
+					int cal = (int) ((i.getQuantity() / 100f) * i.getIngredient().getEnergy());
+					if (mapa.containsKey((int)days)) {
+						mapa.put((int)days, mapa.get((int)days) + cal);
+					}
+					else {
+						mapa.put((int)days, cal);
+					}
+				}
+			}
+			
+	
+
+		}
+		return mapa;
+	}
+	
+	
 
 }
 

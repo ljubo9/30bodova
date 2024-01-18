@@ -12,8 +12,11 @@ public class Ingredient {
 	private int id;
 	
 	private String name;
+	
 	@OneToOne
 	private Image image;
+	
+	private int energy; //kcal per 100g
 
 	
 	public Image getImage() {
@@ -38,6 +41,10 @@ public class Ingredient {
 
 	public String getName() {
 		return name;
+	}
+	
+	public int getEnergy() {
+		return energy;
 	}
 	
 	
