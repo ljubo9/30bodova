@@ -231,13 +231,16 @@ const Nutritionist = () => {
 
       <div>
         <h2>Proizvodi</h2>
-        <ul>
-          {ingredients.map((ingredient) => (
+          {!ingredients || ingredients.length === 0 ? (
+            <h2>Nema proizvoda</h2>
+          ) : (<ul>
+            {ingredients.map((ingredient) => (
             <li key={ingredient.id}>
               {ingredient.name} - {ingredient.category}
             </li>
           ))}
-        </ul>
+          </ul>
+          )}
       </div>
 
       <div>
