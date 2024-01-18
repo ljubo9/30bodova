@@ -58,7 +58,7 @@ const ProfileCulinaryEnthusiast = () => {
       <ul>
         {cookbooksData.map((cookbook) => (
           <li key={cookbook.id}>
-            <Link to={`/cookbook/${cookbook.id}`}>{cookbook.name}</Link>
+            <Link to={`/cookbook/get?id=${cookbook.id}`}>{cookbook.name}</Link>
           </li>
         ))}
       </ul>
@@ -67,7 +67,7 @@ const ProfileCulinaryEnthusiast = () => {
       <ul>
         {recipesData.map((recipe) => (
           <li key={recipe.id}>
-            <Link to={`/recipe/${recipe.id}`}>{recipe.name}</Link>
+            <Link to={`/recipe/get?id=${recipe.id}`}>{recipe.name}</Link>
           </li>
         ))}
       </ul>

@@ -42,11 +42,11 @@ public class RecipeController {
     }
 
 
-    @GetMapping("/recipe/{recipeId}")
-    public ResponseEntity<RecipeDTO> getRecipeById(@PathVariable int recipeId) {
+    @GetMapping("/recipe/get")
+    public ResponseEntity<RecipeDTO> getRecipeById(@RequestParam int id) {
         try {
             // Fetch the recipe by ID
-            Recipe recipe = recipeService.loadRecipeById(recipeId);
+            Recipe recipe = recipeService.loadRecipeById(id);
 
             if (recipe != null) {
                 // Convert the Recipe entity to a RecipeDTO
@@ -175,8 +175,8 @@ public class RecipeController {
     	}
     }
     
-    @GetMapping(path = "/cookbook/{id}")
-    public ResponseEntity<CookbookDTO> getCookbook(@PathVariable int id) {
+    @GetMapping(path = "/cookbook/get")
+    public ResponseEntity<CookbookDTO> getCookbook(@RequestParam int id) {
     	try {
     		Cookbook c = recipeService.getCookbookById(id);
     		if (c == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
