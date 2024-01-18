@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { Container, Form, Col, Button } from 'react-bootstrap';
+import { Button, Form, Container, Row, Col } from 'react-bootstrap';
 
 const Nutritionist = () => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -21,6 +21,7 @@ const Nutritionist = () => {
     weight: '',
     labels: [],
   });
+  
   const [dietLimits, setDietLimits] = useState({
     lowCalorie: 2000,
     lowFat: 40,
@@ -45,7 +46,6 @@ const Nutritionist = () => {
 
 
     fetch('https://kuhajitbackend.onrender.com/labels') //labele za kategoriziranje proizvoda
-
       .then(response => response.json())
       .then(data => setLabels(data))
       .catch(error => console.error('Error fetching labels:', error));
@@ -53,8 +53,6 @@ const Nutritionist = () => {
 
   const fetchIngredients = () => {
     fetch('https://kuhajitbackend.onrender.com/ingredients') // Fetching ingredients
-
-
       .then(response => response.json())
       .then(data => setIngredients(data))
       .catch(error => console.error('Error fetching ingredients:', error));
@@ -102,7 +100,7 @@ const Nutritionist = () => {
       <div>
         <h2>Dodaj proizvod</h2>
         <Form>
-          <Form.Row>
+          <Row>
             <Form.Group as={Col} controlId="ingredientName">
               <Form.Label>Ime proizvoda</Form.Label>
               <Form.Control
@@ -221,7 +219,7 @@ const Nutritionist = () => {
             />
           </Form.Group>
 
-          </Form.Row>
+          </Row>
 
           <Button variant="primary" type="button" onClick={addIngredient}>
             Dodaj proizvod
@@ -243,7 +241,7 @@ const Nutritionist = () => {
       <div>
         <h2>Dijete</h2>
         <Form>
-          <Form.Row>
+          <Row>
             <Form.Group as={Col} controlId="lowCalorie">
               <Form.Label>Limitirane kalorije</Form.Label>
               <Form.Control
@@ -273,7 +271,7 @@ const Nutritionist = () => {
                 onChange={(e) => setDietLimits({ ...dietLimits, lowCarb: e.target.value })}
               />
             </Form.Group>
-          </Form.Row>
+          </Row>
 
           <Form.Group controlId="dietDescription">
             <Form.Label>Opis dijete</Form.Label>
@@ -292,8 +290,7 @@ const Nutritionist = () => {
       </div>
     </Container>
   );
-};
-
+}
 
 export default Nutritionist;
 
