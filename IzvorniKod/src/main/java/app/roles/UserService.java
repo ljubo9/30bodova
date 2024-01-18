@@ -99,7 +99,6 @@ public class UserService implements UserDetailsService{
 	}
 
 	public List<User> loadAllEnthusiasts() {
-		// TODO Auto-generated method stub
 		List<User> users = userRepository.findAll();
 		List<User> enthusiasts = new ArrayList<>();
 		for (User user : users) {

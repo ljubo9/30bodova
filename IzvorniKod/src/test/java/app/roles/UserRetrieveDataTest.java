@@ -19,7 +19,7 @@ public class UserRetrieveDataTest {
     private UserService userService;
 
     @Test
-    public void UserDataValidTest(){
+    public void UserRetrieveDataValidTest(){
         User newUser = new User();
         newUser.setUsername("newUser");
         newUser.setPassword("newPassword");
