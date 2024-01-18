@@ -19,7 +19,7 @@ function Navigation() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="/">KuhajIT</Navbar.Brand>
+        <Navbar.Brand href="/home">KuhajIT</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
