@@ -9,7 +9,7 @@ const Cookbook = () => {
   useEffect(() => {
     const fetchCookbookData = async () => {
       try {
-        const response = await fetch(`/cookbook/${culinaryId}`);
+        const response = await fetch(`/cookbook/get?id=${culinaryId}`);
         
         if (response.ok) {
           const data = await response.json();
