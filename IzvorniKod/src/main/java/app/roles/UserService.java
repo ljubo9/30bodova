@@ -28,6 +28,7 @@ public class UserService implements UserDetailsService{
 	 
 	 public boolean registerUser(User user) {
 		 try {
+			 user.setPassword(encoder.encode(user.getPassword()));
 			 checkUserDataValid(user);
 			 userRepository.save(user);
 			 return true;
