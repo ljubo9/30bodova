@@ -23,11 +23,11 @@ VALUES('User', 1, 'client', '$2a$10$r7oB7KBo2dCmfRedkH5YcO8YWzdUyIcLk9/GuoWjgtRr
 
 insert into public."users"
 (dtype, id, "name", "password", "surname", "username", "biography", "confirmed", "email", role_id)
-VALUES('SpecialUser', 2, 'enthusiast', '$2a$10$Sd3hzVJFgT.cmYHfHEDl1edqh/a3Z05SK0lLZrUNrbyNP8Z/cZGW2', 'enthusiast', 'enthusiast', 'enthusiast', false, 'enthusiast@gmail.com', 2);
+VALUES('Enthusiast', 2, 'enthusiast', '$2a$10$Sd3hzVJFgT.cmYHfHEDl1edqh/a3Z05SK0lLZrUNrbyNP8Z/cZGW2', 'enthusiast', 'enthusiast', 'enthusiast', false, 'enthusiast@gmail.com', 2);
 
 insert into public."users"
 (dtype, id, "name", "password", "surname", "username", "biography", "confirmed", "email", role_id)
-VALUES('SpecialUser', 3, 'nutritionist', '$2a$10$vlnthKoYaXs9xXFvz2SFbOdDDKWHXax4lXv5e1Ct2WDNytgFW8mmq', 'nutritionist', 'nutritionist', 'nutritionist', false, 'nutritionist@gmail.com', 3);
+VALUES('Nutritionist', 3, 'nutritionist', '$2a$10$vlnthKoYaXs9xXFvz2SFbOdDDKWHXax4lXv5e1Ct2WDNytgFW8mmq', 'nutritionist', 'nutritionist', 'nutritionist', false, 'nutritionist@gmail.com', 3);
 
 
 insert into public."users"

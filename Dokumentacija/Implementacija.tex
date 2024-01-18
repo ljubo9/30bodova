@@ -45,13 +45,119 @@ Spring Boot je open-source okvir za izgradnju Java web aplikacija i mikroservisa
 	
 		\section{Ispitivanje programskog rješenja}
 			
-			\textbf{\textit{dio 2. revizije}}\\
-			
-			 \textit{U ovom poglavlju je potrebno opisati provedbu ispitivanja implementiranih funkcionalnosti na razini komponenti i na razini cijelog sustava s prikazom odabranih ispitnih slučajeva. Studenti trebaju ispitati temeljnu funkcionalnost i rubne uvjete.}
-	
-			
 			\subsection{Ispitivanje komponenti}
-			\textit{Potrebno je provesti ispitivanje jedinica (engl. unit testing) nad razredima koji implementiraju temeljne funkcionalnosti. Razraditi \textbf{minimalno 6 ispitnih slučajeva} u kojima će se ispitati redovni slučajevi, rubni uvjeti te izazivanje pogreške (engl. exception throwing). Poželjno je stvoriti i ispitni slučaj koji koristi funkcionalnosti koje nisu implementirane. Potrebno je priložiti izvorni kôd svih ispitnih slučajeva te prikaz rezultata izvođenja ispita u razvojnom okruženju (prolaz/pad ispita). }
+\textbf{Test 1: Uspješna registracija} \\
+Provedeno je testiranje uspješne registracije novog, dotad neregistriranog korinsika u sustav. Registracija je uspješna ako ne baca iznimku i ako metoda "registerUser" klase UserService vraća istinitu vrijednost. Na slikama ispod prikazani su test uspješne registracije i metoda "registerUser" klase UserService.
+
+		\begin{figure}[H]
+			\includegraphics[scale=0.4]{slike/registerUser.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Metoda "registerUser" klase UserService}
+			\label{Metoda "registerUser" klase UserService}
+		\end{figure}
+		
+				\begin{figure}[H]
+			\includegraphics[scale=0.4]{slike/userRegistrationTest.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Test uspješne registracije korisnika}
+			\label{Test uspješne registracije korisnika}
+		\end{figure}
+		
+\textbf{Test 2: Uspješna prijava korisnika} \\
+Provedeno je testiranje ispravne prijave korisnika koji je registriran i prisutan u bazi. Prijava je uspješna ako metoda "loginUser" klase UserService ne vraća null vrijednost i ako su svi atributi prethodno stvorenog objekta korisnika i atributi korisnika koji je spremljen u oponašan repozitorij korisnika jednaki. Na slikama ispod prikazani su test uspješne prijave korisnika i metoda "loginUser" klase UserService.
+
+				\begin{figure}[H]
+			\includegraphics[scale=0.4]{slike/loginValidTest.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Test uspješne prijave korisnika}
+			\label{Test uspješne prijave korisnika}
+		\end{figure}
+		
+						\begin{figure}[H]
+			\includegraphics[scale=0.4]{slike/loginUser.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Metoda "loginUser" klase UserService}
+			\label{Metoda "loginUser" klase UserService}
+		\end{figure}
+		
+\textbf{Test 3: Neuspješna prijava korisnika (nepostojeće korisničko ime)} \\
+Provedeno je testiranje neuspješne prijave korisnika zbog unosa neispravnog korisničkog imena, tj. korisničkog imena koje se ne nalazi u oponašanom repozitoriju korisnika koji je simuliran u sklopu testiranja. Neuspješna prijava korisnika manifestira se kroz dohvaćenu null vrijednost prilikom dohvaćanja traženog korisnika iz oponašanog repozitorija korisnika. Na slici ispod prikazan je test neuspješne prijave korisnika zbog nepostojećeg korisničkog imena. Metoda "loginUser" klase UserService prikazana je u slici iznad.
+
+				\begin{figure}[H]
+			\includegraphics[scale=0.4]{slike/loginInvalidUsernameTest.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Test neuspješne prijave korisnika zbog nepostojećeg korisničkog imena}
+			\label{Test neuspješne prijave korisnika zbog nepostojećeg korisničkog imena}
+		\end{figure}
+		
+\textbf{Test 4: Neuspješna prijava korisnika (pogrešna lozinka)} \\
+Provedeno je testiranje neuspješne prijave korisnika zbog unosa ispravnog korisničkog imena, ali neispravne lozinke koja bi omogućila pristup profilu s tim korisničkim imenom. Neuspješna prijava korisnika zbog neispravne lozinke manifestira se kroz dohvaćenu null vrijednost prilikom usporedbi lozinki spremljenog korisnika s tim korisničkim imenom i upisane lozinke za to korisničko ime. Na slici ispod prikazan je test neuspješne prijave korisnika zbog upisane neispravne lozinke. Metoda "loginUser" klase UserService prikazana je u slici iznad.
+
+				\begin{figure}[H]
+			\includegraphics[scale=0.4]{slike/loginInvalidPasswordTest.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Test neuspješne prijave korisnika zbog unosa neispravne lozinke}
+			\label{Test neuspješne prijave korisnika zbog unosa neispravne lozinke}
+		\end{figure}
+		
+\textbf{Test 5: Uspješno dohvaćanje podataka o korisniku iz baze podataka} \\
+
+Provedeno je testiranje uspješnog dohvaćanja podataka o korisniku iz baze podataka. Dohvaćanje podataka o korisniku iz baze podataka je uspješno ako metoda "loadUserByUsername" klase UserService vrati objekt korisnika koji je pronađen putem korisničkog imena i ako su atributi korisnika dohvaćenog iz oponašanog repozitorija korisnika i atributi onog korisnika koji je inicijalno spremljen u oponašani repozitorij jednaki. Na slikama ispod prikazani su test uspješnog dohvaćanja podataka o korisniku iz baze podataka te metoda "loadUserByUsername" klase UserService.
+
+				\begin{figure}[H]
+			\includegraphics[scale=0.4]{slike/loadUserByUsername.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Metoda "loadUserByUsername" klase UserService}
+			\label{Metoda "loadUserByUsername" klase UserService}
+		\end{figure}
+		
+						\begin{figure}[H]
+			\includegraphics[scale=0.4]{slike/userRetrieveDataValidTest.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Test uspješnog dohvaćanja podataka o korisniku na temelju korisničkog imena iz baze podataka}
+			\label{Test uspješnog dohvaćanja podataka o korisniku na temelju korisničkog imena iz baze podataka}
+		\end{figure}
+		
+\textbf{Test 6: Uspješna promjena podataka korisnika} \\
+Provedeno je testiranje uspješne promjene podataka korisnika koji se nalazi u bazi. Promjena podataka je uspješna ako metoda "changeInfo" klase UserServive uspješno osvježi željene podatke u bazi podataka (podaci o korisniku u oponašanom repozitoriju korisnika odgovaraju podacima koji su zadani kao zamjena originalnima). Na slikama ispod prikazani su test uspješne promjene podataka korisnika te metoda "changeInfo" klase UserService.
+
+				\begin{figure}[H]
+			\includegraphics[scale=0.4]{slike/changeInfo.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Metoda "changeInfo" klase UserService}
+			\label{Metoda "changeInfo" klase UserService}
+		\end{figure}
+		
+						\begin{figure}[H]
+			\includegraphics[scale=0.4]{slike/userChangeInfoValidTest1.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Test uspješne promjene podataka korisnika u bazi, 1. dio}
+			\label{Test uspješne promjene podataka korisnika u bazi, 1. dio}
+		\end{figure}
+		
+								\begin{figure}[H]
+			\includegraphics[scale=0.4]{slike/userChangeInfoValidTest2.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Test uspješne promjene podataka korisnika u bazi, 2. dio}
+			\label{Test uspješne promjene podataka korisnika u bazi, 2. dio}
+		\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			
 			
 			

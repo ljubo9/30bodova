@@ -8,11 +8,8 @@ import org.apache.tomcat.websocket.AuthenticationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -177,7 +174,7 @@ public class UserController {
 	@GetMapping(path = "/enthusiasts") 
 	public ResponseEntity<List<SpecialUserDTO>> getAllEnthusiasts() {
 		try {
-			List<User> en = userService.loadAllEnthusiasts();
+			List<Enthusiast> en = userService.loadAllEnthusiasts();
 			List<SpecialUserDTO> endto = new ArrayList<>();
 			for (User e : en) {
 				endto.add(new SpecialUserDTO(e));

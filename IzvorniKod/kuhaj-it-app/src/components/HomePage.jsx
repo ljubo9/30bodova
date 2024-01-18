@@ -10,7 +10,7 @@ function HomePage() {
     const fetchLatestChefData = async () => {
       try {
         //za svakog entuzijasta trebamo dohvatiti njegove najnovije 3 kuharice
-        const cookbooksResponse = await fetch('https://kuhajitbackend.onrender.com/latest-enthusiast-cookbooks');
+        const cookbooksResponse = await fetch('/latest-enthusiast-cookbooks');
         
         if (cookbooksResponse.ok) {
           const cookbooksData = await cookbooksResponse.json();
