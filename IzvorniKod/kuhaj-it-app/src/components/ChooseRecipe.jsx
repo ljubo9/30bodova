@@ -90,6 +90,15 @@ const ChooseRecipe = () => {
     }
   };
 
+  const getMatchCount = (recipe) => {
+    const productNames = Object.keys(products);
+    return recipe.ingredients.filter(ingredient => productNames.includes(ingredient)).length;
+  };
+  
+  const sortedRecipes = useMemo(() => {
+    return [...recipesFromDB].sort((a, b) => getMatchCount(b) - getMatchCount(a));
+  }, [recipesFromDB, products]);
+
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -150,8 +159,16 @@ const ChooseRecipe = () => {
 
         </div>
       </div>
-
       {/* Second Row: Recipe Cards */}
+      <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
+        {sortedRecipes.map((recipe, index) => (
+          <div key={index} style={{ border: '1px solid black', margin: '10px', padding: '10px', width: '200px' }}>
+            <h3>{recipe.name}</h3>
+            <p>{recipe.description}</p>
+            {/* Možete dodati više detalja o receptu ovdje */}
+          </div>
+        ))}
+      </div>
     </div>
   );  
 };
