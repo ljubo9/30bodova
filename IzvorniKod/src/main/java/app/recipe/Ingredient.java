@@ -15,18 +15,7 @@ public class Ingredient {
 	@OneToOne
 	private Image image;
 
-
-	@OneToMany
-	private List<DietIngredient> dietIngredients;
-
-	public List<DietIngredient> getDietIngredients() {
-		return dietIngredients;
-	}
-
-	public void setDietIngredients(List<DietIngredient> dietIngredients) {
-		this.dietIngredients = dietIngredients;
-	}
-
+	
 	public Image getImage() {
 		return image;
 	}

@@ -13,7 +13,7 @@ const Recipe = () => {
     const fetchRecipe = async () => {
       try {
         //endpoint za dohvaćanje recepta po id-u
-        const response = await fetch(`/recipe/${recipeId}`);
+        const response = await fetch(`/recipe/get?id=${recipeId}`);
         const data = await response.json();
 
         setRecipe(data);
