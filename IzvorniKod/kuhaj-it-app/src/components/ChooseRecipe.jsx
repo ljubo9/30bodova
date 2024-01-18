@@ -100,7 +100,7 @@ const ChooseRecipe = () => {
 
   const displayAndSortRecipes = () => {
     const matchedRecipes = recipesFromDB.map((recipe) => {
-      const matchCount = recipe.requiredProducts.filter((product) => 
+      const matchCount = recipe.ingredients.filter((product) => 
         products.hasOwnProperty(product) && products[product] > 0
       ).length;
       return { ...recipe, matchCount };

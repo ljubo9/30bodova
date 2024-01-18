@@ -33,6 +33,9 @@ public class StepOfMaking {
         return recipe;
     }
 
+    public int getId() {
+    	return id;
+    }
     public void setRecipe(Recipe recipe) {
         this.recipe = recipe;
     }
