@@ -23,6 +23,8 @@ const Profile = () => {
     fetchProfileData();
   }, [currentUser]);
 
+  console.log(profileData)
+
   if (!profileData) {
     return <div>Loading...</div>;
   }
