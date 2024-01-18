@@ -111,4 +111,9 @@ public class UserService implements UserDetailsService{
 		if (!encoder.matches(password, u.get().getPassword())) return null;
 		return u.get();
 	}
+
+	public void removeUser(User oldUser) {
+		// TODO Auto-generated method stub
+		userRepository.deleteById(oldUser.getId());
+	}
 }

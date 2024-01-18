@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const RecipeEditor = () => {
-  const currentUser = localStorage.getItem("currentUser");
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   const [recipeData, setRecipeData] = useState({
     name: '',
     category: '',
