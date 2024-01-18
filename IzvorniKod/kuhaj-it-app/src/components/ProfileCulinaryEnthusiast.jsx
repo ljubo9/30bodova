@@ -58,7 +58,7 @@ const ProfileCulinaryEnthusiast = () => {
       <ul>
         {cookbooksData.map((cookbook) => (
           <li key={cookbook.id}>
-            <Link to={`/cookbook/get?id=${cookbook.id}`}>{cookbook.name}</Link>
+            <Link to={`/cookbook/${cookbook.id}`}>{cookbook.name}</Link>
           </li>
         ))}
       </ul>
