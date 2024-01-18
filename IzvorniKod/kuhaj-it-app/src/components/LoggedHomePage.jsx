@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Card, Container, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import CalorieChart from './CalorieChart';
 
 function LoggedHomePage() {
   //const { username } = useParams();
@@ -120,75 +121,89 @@ function LoggedHomePage() {
   
   return (
     <Container>
-      <Row className="mt-4">
-        <Col>
-          <h2>Isprobani recepti</h2>
-          {recipeList.map(recipe => (
-          <Col key={recipe.id} md={4}>
-            <Card className="mb-4">
-              <Card.Body>
-                <Card.Title>{recipe.title}</Card.Title>
-                <Card.Text>
-                  <strong>Sastojci:</strong>
-                  <ul>
-                    {recipe.ingredients.map((ingredient, index) => (
-                      <li key={index}>{ingredient}</li>
-                    ))}
-                  </ul>
-                </Card.Text>
-                <Card.Text>
-                  <strong>Priprema:</strong>
-                  <ol>
-                    {recipe.steps_of_making.map((step, index) => (
-                      <li key={index}>{step}</li>
-                    ))}
-                  </ol>
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
-        </Col>
-      </Row>
 
-      <Row className="mt-4">
-        <Col>
-          <h2>Dijeta</h2>
-          <p>{dietInfo.description}</p>
-        </Col>
-      </Row>
+      {!recipeList ? (
+                <div>Nema isprobanih recepata</div>
+              ) : (<Row className="mt-4">
+              <Col>
+                <h2>Isprobani recepti</h2>
+                {recipeList.map(recipe => (
+                <Col key={recipe.id} md={4}>
+                  <Card className="mb-4">
+                    <Card.Body>
+                      <Card.Title>{recipe.title}</Card.Title>
+                      <Card.Text>
+                        <strong>Sastojci:</strong>
+                        <ul>
+                          {recipe.ingredients.map((ingredient, index) => (
+                            <li key={index}>{ingredient}</li>
+                          ))}
+                        </ul>
+                      </Card.Text>
+                      <Card.Text>
+                        <strong>Priprema:</strong>
+                        <ol>
+                          {recipe.steps_of_making.map((step, index) => (
+                            <li key={index}>{step}</li>
+                          ))}
+                        </ol>
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              ))}
+              </Col>
+            </Row>
+      )}
+      
 
-      <Row className="mt-4">
-        <Col>
-          <h2>Nove kuharice i recepti</h2>
-          {followedChefs.map((chef, index) => (
-            <Card key={index} className="mb-3">
-              <Card.Body>
-                <Card.Title>{chef.name}</Card.Title>
-                <h5>Najnoviji radovi:</h5>
-                <p>
-                  {latestChefCookbooks[chef.id]?.map((latestCookbook, idx) => (
-                    <Link key={idx} to={`/cookbook/${latestCookbook.id}`}>{latestCookbook.title}</Link>
-                  ))}
-                </p>
-                <p>
-                  {latestChefRecipes[chef.id]?.map((latestRecipe, idx) => (
-                    <Link key={idx} to={`/recipe/${latestRecipe.id}`}>{latestRecipe.title}</Link>
-                  ))}
-                </p>
-              </Card.Body>
-            </Card>
-          ))}
-        </Col>
-      </Row>
+      {!dietInfo ? (
+                <div>Nema odabrane dijete</div>
+              ) : (<Row className="mt-4">
+              <Col>
+                <h2>Dijeta</h2>
+                <p>{dietInfo.description}</p>
+              </Col>
+            </Row>
+      )}
 
-      <Row className="mt-4">
-        <Col>
-          <h2>Statistika konzumiranih nutritivnih vrijednosti</h2>
-          {/* Dodajte prikaz statistike konzumiranih nutritivnih vrijednosti */}
-          <p>{consumedRecipesStatistics}</p>
-        </Col>
-      </Row>
+      {!followedChefs ? (
+                <div>Nema novih kuharica i recepata</div>
+              ) : (<Row className="mt-4">
+              <Col>
+                <h2>Nove kuharice i recepti</h2>
+                {followedChefs.map((chef, index) => (
+                  <Card key={index} className="mb-3">
+                    <Card.Body>
+                      <Card.Title>{chef.name}</Card.Title>
+                      <h5>Najnoviji radovi:</h5>
+                      <p>
+                        {latestChefCookbooks[chef.id]?.map((latestCookbook, idx) => (
+                          <Link key={idx} to={`/cookbook/${latestCookbook.id}`}>{latestCookbook.title}</Link>
+                        ))}
+                      </p>
+                      <p>
+                        {latestChefRecipes[chef.id]?.map((latestRecipe, idx) => (
+                          <Link key={idx} to={`/recipe/${latestRecipe.id}`}>{latestRecipe.title}</Link>
+                        ))}
+                      </p>
+                    </Card.Body>
+                  </Card>
+                ))}
+              </Col>
+            </Row>
+      )}
+      
+
+      {!consumedRecipesStatistics ? (
+                <div>Nema statistike nutritivnih vrijednosti</div>
+              ) : (<Row className="mt-4">
+              <div>
+                <h1>Statistika potrošenih kalorija</h1>
+                <CalorieChart consumedRecipesStatistics={consumedRecipesStatistics} />
+                </div>
+            </Row>
+      )}
     </Container>
   );
 }

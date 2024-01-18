@@ -10,6 +10,7 @@
 				\item Administrator
 				\item Razvojni tim
 				\item Svi zainteresirani za kvalitetnu prehranu
+				\item Korisnici
 			\end{packed_enum}
 			
 			\noindent \textbf{Aktori i njihovi funkcionalni zahtjevi:}
@@ -80,7 +81,7 @@
 					\noindent \underbar{\textbf{UC1 - Zahtjev za registraciju}}
 					\begin{packed_item}
 	
-						\item \textbf{Glavni sudionik: Korisnik}
+						\item \textbf{Glavni sudionik: Neregistrirani korisnik}
 						\item  \textbf{Cilj: Stvoriti korisnički profil}
 						\item  \textbf{Sudionici: Baza podataka, administrator}
 						\item  \textbf{Preduvjet: - } 
@@ -148,7 +149,7 @@ registracije
 					\noindent \underbar{\textbf{UC3 - Promjena osobnih podataka}}
 					\begin{packed_item}
 	
-						\item \textbf{Glavni sudionik: Klijent}
+						\item \textbf{Glavni sudionik: Svi registrirani korisnici (klijenti, kulinarski entuzijasti, nutricionisti)}
 						\item  \textbf{Cilj: Promijeniti željene osobne podatke}
 						\item  \textbf{Sudionici: Baza podataka}
 						\item  \textbf{Preduvjet: Prijava } 
@@ -156,10 +157,10 @@ registracije
 						
 						\item[] \begin{packed_enum}
 	
-							\item Korisnik odabire opciju za promjenu podataka
+							\item Registrirani korisnik odabire opciju za promjenu podataka
 					
-							\item Korisnik mijenja željene podatke
-							\item Korisnik sprema promjene
+							\item Registrirani korisnik mijenja željene podatke
+							\item Registrirsni korisnik sprema promjene
 							\item Baza podataka se ažurira
 						\end{packed_enum}
 						
@@ -167,10 +168,10 @@ registracije
 						
 						\item[] \begin{packed_item}
 	
-							\item[3.a] Korisnik ne spremi promjene
+							\item[3.a] Registrirani korisnik ne spremi promjene
 							\item[] \begin{packed_enum}
 								
-								\item Sustav obavještava korisnika da nije spremio podatke prije izlaska
+								\item Sustav obavještava registriranog korisnika da nije spremio podatke prije izlaska
 iz prozora
 								
 							\end{packed_enum}
@@ -181,7 +182,7 @@ iz prozora
 					\noindent \underbar{\textbf{UC4 - Pretraživanje profila kulinarskih entuzijasta}}
 					\begin{packed_item}
 	
-						\item \textbf{Glavni sudionik: Korisnik}
+						\item \textbf{Glavni sudionik: Svi orisnici}
 						\item  \textbf{Cilj: Pretražiti profile kulinarskih entuzijasta}
 						\item  \textbf{Sudionici: Baza podataka}
 						\item  \textbf{Preduvjet: - } 
@@ -200,17 +201,17 @@ iz prozora
 					\noindent \underbar{\textbf{UC5 - Ostavljanje recenzije na recept}}
 					\begin{packed_item}
 	
-						\item \textbf{Glavni sudionik: Korisnik}
+						\item \textbf{Glavni sudionik: Registrirani korisnik}
 						\item  \textbf{Cilj: Ostaviti recenziju na recept}
 						\item  \textbf{Sudionici: Baza podataka}
-						\item  \textbf{Preduvjet: - } 
+						\item  \textbf{Preduvjet: Prijava } 
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
 	
-							\item Korisnik odabire recept na kojem želi ostaviti recenziju
+							\item Registrirani korisnik odabire recept na kojem želi ostaviti recenziju
 					
-							\item Korisnik ostavlja ocjenu ili recenziju na odabrani recept
+							\item Registrirani korisnik ostavlja ocjenu ili recenziju na odabrani recept
 						\end{packed_enum}
 					\end{packed_item}
 					
@@ -358,7 +359,6 @@ iz prozora
 	
 							\item Klijent odabire opciju skeniranja bar koda proizvoda kojeg ima doma
 							\item Klijent skenira proizvod
-							\item Baza podataka se ažurira
 						\end{packed_enum}
 
 					\item  \textbf{Opis mogućih odstupanja:}
@@ -491,20 +491,19 @@ iz prozora
 					\end{packed_item}
 					
 			
-			\noindent \underbar{\textbf{UC19 - Slanje zahtjeva za izradu dijete}}
+			\noindent \underbar{\textbf{UC19 - Izrada dijete}}
 				\begin{packed_item}
 				
-					\item \textbf{Glavni sudionik: Klijent}
-					\item \textbf{Cilj: Dobiti personaliziranu dijetu od nutricionista}
+					\item \textbf{Glavni sudionik: Nutricionist}
+					\item \textbf{Cilj: Izraditi dijetu koju će klijenti pratiti}
 					\item \textbf{Sudionici: Baza podataka}
 					\item \textbf{Preduvjet: Prijava}
 					\item \textbf{Opis osnovnog tijeka:}
 					
 					\item[] \begin{packed_enum}
-						\item Klijent odabire opciju izrade personalizirane dijete
-						\item Klijent upisuje sva ograničenja na proizvode koja želi u dijeti
-						\item Klijent šalje zahtjev za izradom dijete
-						\item Nutricionist mu šalje personaliziranu dijetu
+						\item Nutricionist odabire opciju izrade nove dijete
+						\item Nutricionist upisuje sva ograničenja na proizvode i ostala ograničenja koja je zamislio u dijeti
+						\item Nutricionist sprema novu dijetu, baza podataka se ažurira
 					\end{packed_enum}
 				\end{packed_item}
 				
@@ -514,14 +513,14 @@ iz prozora
 						\item \textbf{Glavni sudionik: Administrator}
 						\item  \textbf{Cilj: Odobriti registraciju kulinarskog entuzijasta ili nutricionista}
 						\item  \textbf{Sudionici: Baza podataka}
-						\item  \textbf{Preduvjet: Autorizacija} 
+						\item  \textbf{Preduvjet: -} 
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
 	
 							\item Administrator odabire zahtjev za registraciju koji želi pregledati
 					
-							\item Ako su uneseni podatci zadovoljavajući, administrator potvrđuje zahjtev za registracijom
+							\item Ako su uneseni podatci zadovoljavajući, administrator potvrđuje zahtjev za registracijom
 						\end{packed_enum}
 						
 						\item  \textbf{Opis mogućih odstupanja:}
@@ -591,8 +590,6 @@ iz prozora
 		\end{figure}
 				
 			\subsection{Sekvencijski dijagrami}
-				
-				\textbf{\textit{dio 1. revizije}}\\
 				
 				\begin{large}{\textbf{Obrazac uporabe UC4 - Pretraživanje profila kulinarskih entuzijasta}}\end{large}
 				
