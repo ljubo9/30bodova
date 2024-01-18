@@ -35,7 +35,6 @@ const ChooseRecipe = () => {
       try {
         const response = await fetch('/ingredients/all'); 
         const data = await response.json();
-        console.log(data)
         setIngredients(data);
       } catch (error) {
         console.error('Greška pri dohvaćanju namirnica:', error);
@@ -51,6 +50,7 @@ const ChooseRecipe = () => {
         const response = await fetch("/recipes/all");
         if (response.ok) {
           const data = await response.json();
+          console.log(data);
           setRecipesFromDB(data);
         } else {
           console.error("Greška pri dohvaćanju recepata:", response.statusText);
@@ -83,27 +83,6 @@ const ChooseRecipe = () => {
 
     return () => scanner?.clear();
   }, [scanner]);
-
-  // Ažuriranje recepata svaki put kada se promijeni 'products'
-  useEffect(() => {
-    const updatedRecipes = recipesFromDB.map(recipe => {
-      const matchCount = recipe.ingredients.filter(ingredient => 
-        products.hasOwnProperty(ingredient.name)
-      ).length;
-      return { ...recipe, matchCount };
-    });
-
-    setRecipesFromDB(updatedRecipes);
-  }, [products]);
-
-  const sortedRecipes = useMemo(() => {
-    return recipesFromDB.map(recipe => {
-      const matchCount = recipe.ingredients.filter(ingredient => 
-        products.hasOwnProperty(ingredient.name)
-      ).length;
-      return { ...recipe, matchCount };
-    }).sort((a, b) => b.matchCount - a.matchCount);
-  }, [products, recipesFromDB]);
 
   const addProduct = (product) => {
     if (product) {
@@ -173,16 +152,6 @@ const ChooseRecipe = () => {
       </div>
 
       {/* Second Row: Recipe Cards */}
-      <div>
-      {sortedRecipes.map((recipe, index) => (
-    <div key={index} style={{ border: '1px solid #ccc', padding: '10px', margin: '10px', width: '300px' }}>
-      <Link to={`/recipe/${recipe.id}`}>
-        <h3>{recipe.name}</h3>
-      </Link>
-      <p>Podudarni sastojci: {recipe.matchCount}/{recipe.ingredients?.length}</p>
-    </div>
-  ))}
-      </div>
     </div>
   );  
 };
