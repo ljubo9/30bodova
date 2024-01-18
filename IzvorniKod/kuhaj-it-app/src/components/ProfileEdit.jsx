@@ -19,14 +19,14 @@ function ProfileEdit() {
 
   const handleChangeData = async () => {
     try {
-      const currentUser = sessionStorage.getItem('currentUser');
+      const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
       const formData = new FormData();
 
       formData.append('newUsername', userData.newUsername);
       formData.append('newPassword', userData.newPassword);
       formData.append('oldPassword', userData.oldPassword);
 
-      const updateResponse = await fetch(`/profile/${currentUser}`, {
+      const updateResponse = await fetch(`/profile/${currentUser.username}`, {
         method: 'POST',
         body: formData,
       });
@@ -37,6 +37,7 @@ function ProfileEdit() {
       }
 
       console.log('User data updated successfully');
+      sessionStorage.setItem("currentUser", JSON.stringify(updateResponse.json()));
       navigate('/');
     } catch (error) {
       console.error('Error updating user data:', error);

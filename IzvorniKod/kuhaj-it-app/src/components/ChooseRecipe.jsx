@@ -35,6 +35,7 @@ const ChooseRecipe = () => {
       try {
         const response = await fetch('/ingredients/all'); 
         const data = await response.json();
+        console.log(data)
         setIngredients(data);
       } catch (error) {
         console.error('Greška pri dohvaćanju namirnica:', error);
