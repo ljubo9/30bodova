@@ -24,6 +24,7 @@ import app.recipe.ConsumedRecipe;
 import app.recipe.Cookbook;
 import app.recipe.Ingredient;
 import app.recipe.Recipe;
+import app.roles.Enthusiast;
 import app.roles.User;
 import app.roles.UserService;
 import app.service.RecipeService;
@@ -199,7 +200,7 @@ public class RecipeController {
 			List<User> enthusiasts = userService.loadAllEnthusiasts();
 			
 			for (User en : enthusiasts) {
-				List<Recipe> recipes = getNLatestRecipes(en, 3);
+				List<Recipe> recipes = getNLatestRecipes((Enthusiast)en, 3);
 				Set<RecipeDTO> recipedto = new HashSet<>();
 	    		for (Recipe c : recipes) {
 	    			recipedto.add(new RecipeDTO(c));
@@ -217,7 +218,7 @@ public class RecipeController {
 	}
 
 
-	private List<Recipe> getNLatestRecipes(User en, int i) {
+	private List<Recipe> getNLatestRecipes(Enthusiast en, int i) {
 		// TODO Auto-generated method stub
 		List<Recipe> allRecipe = new ArrayList<>(en.getRecipes());
 		List<Recipe> finalRecipe = new ArrayList<>();
@@ -256,7 +257,7 @@ public class RecipeController {
 
 	private Set<Cookbook> getNLatestCookbooks(User en, int i) {
 		// TODO Auto-generated method stub
-		Set<Cookbook> allCookbooks = en.getCookbooks();
+		Set<Cookbook> allCookbooks = ((Enthusiast)en).getCookbooks();
 		Set<Cookbook> finalCookbooks = new HashSet<>();
 		if (allCookbooks.size() <= 3) return allCookbooks;
 		/** sort recipes by date**/

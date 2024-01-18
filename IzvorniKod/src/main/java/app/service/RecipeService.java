@@ -6,15 +6,16 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import app.recipe.Cookbook;
 import app.recipe.Ingredient;
 import app.recipe.Recipe;
 import app.repository.CookbookRepository;
 import app.repository.IngredientRepository;
 import app.repository.RecipeRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
+import app.roles.Enthusiast;
 import app.roles.User;
 import app.roles.UserRepository;
 
@@ -68,7 +69,7 @@ public class RecipeService {
     public Set<Cookbook> getCookbooksByUsername(String username) {
     	Optional<User> u = userRepository.findUserByUsername(username);
     	if (u.isPresent()) {
-    		return u.get().getCookbooks();
+    		return ((Enthusiast)u.get()).getCookbooks();
     	}
     	return null;
     }
@@ -77,7 +78,7 @@ public class RecipeService {
 		// TODO Auto-generated method stub
 		Optional<User> u = userRepository.findUserByUsername(username);
     	if (u.isPresent()) {
-    		return u.get().getRecipes();
+    		return ((Enthusiast)u.get()).getRecipes();
     	}
     	return null;
 	}

@@ -51,12 +51,6 @@ public class User implements UserDetails {
 	private List<Diet> createdDiets;
 	@ManyToOne
 	private Role role;
-	
-	@OneToMany(mappedBy="creator", cascade = CascadeType.ALL)
-	private Set<Recipe> recipes;
-	
-	@OneToMany(mappedBy = "creator", cascade = CascadeType.ALL)
-	private Set<Cookbook> cookbooks;
 
 	@OneToMany(mappedBy = "creator", cascade = CascadeType.ALL)
 	private List<Review> reviews;
@@ -148,14 +142,6 @@ public class User implements UserDetails {
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
 		return true;
-	}
-
-	public Set<Recipe> getRecipes() {
-		return recipes;
-	}
-
-	public Set<Cookbook> getCookbooks() {
-		return cookbooks;
 	}
 
 	public List<Review> getReviews() {
