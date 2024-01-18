@@ -2,6 +2,7 @@ package app.recipe;
 
 import jakarta.persistence.*;
 
+
 @Entity
 public class DietIngredient {
 

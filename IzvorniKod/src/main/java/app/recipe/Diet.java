@@ -1,9 +1,10 @@
 package app.recipe;
 
+import java.util.List;
 import app.roles.User;
 import jakarta.persistence.*;
 
-import java.util.List;
+
 
 @Entity
 public class Diet {
@@ -19,7 +20,7 @@ public class Diet {
     @ManyToOne
     private User creator;
 
-    @ManyToOne
+    @OneToMany
     private List<DietIngredient> dietIngredients;
 
     @OneToMany

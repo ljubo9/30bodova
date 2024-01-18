@@ -14,9 +14,9 @@ public class Ingredient {
 	private String name;
 	@OneToOne
 	private Image image;
-	
 
-	@ManyToOne
+
+	@OneToMany
 	private List<DietIngredient> dietIngredients;
 
 	public List<DietIngredient> getDietIngredients() {
