@@ -77,7 +77,8 @@ public class RecipeService {
 	public Set<Recipe> getRecipesByUsername(String username) {
 		// TODO Auto-generated method stub
 		Optional<User> u = userRepository.findUserByUsername(username);
-        return u.map(User::getRecipes).orElse(null);
+        if (u.isEmpty()) return null;
+        return ((Enthusiast)u.get()).getRecipes();
     }
 
 	public Set<Recipe> getRecipesByCategory(String category) {

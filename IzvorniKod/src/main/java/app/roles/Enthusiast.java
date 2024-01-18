@@ -24,6 +24,13 @@ public class Enthusiast extends SpecialUser {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Enthusiast(String username, String password, String name, String surname, Role role, Image photo,
+			String biography, String email) {
+		// TODO Auto-generated constructor stub
+		super(username, password, name, surname, Role.ENTHUSIAST, photo, biography, email);
+
+	}
+
 	public Set<Recipe> getRecipes() {
 		return recipes;
 	}

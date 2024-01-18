@@ -197,7 +197,7 @@ public class RecipeController {
     public ResponseEntity<Map<String, Set<RecipeDTO>>> getLatestRecipes() {
 		try {
 			Map<String, Set<RecipeDTO>> list = new HashMap<>();
-			List<User> enthusiasts = userService.loadAllEnthusiasts();
+			List<Enthusiast> enthusiasts = userService.loadAllEnthusiasts();
 			
 			for (User en : enthusiasts) {
 				List<Recipe> recipes = getNLatestRecipes((Enthusiast)en, 3);
@@ -234,10 +234,10 @@ public class RecipeController {
     public ResponseEntity<Map<String, Set<CookbookDTO>>> getLatestCookbooks() {
 		try {
 			Map<String, Set<CookbookDTO>> list = new HashMap<>();
-			List<User> enthusiasts = userService.loadAllEnthusiasts();
+			List<Enthusiast> enthusiasts = userService.loadAllEnthusiasts();
 			
 			for (User en : enthusiasts) {
-				Set<Cookbook> cookbooks = getNLatestCookbooks(en, 3);
+				Set<Cookbook> cookbooks = getNLatestCookbooks((Enthusiast)en, 3);
 				Set<CookbookDTO> cookbookdto = new HashSet<>();
 	    		for (Cookbook c : cookbooks) {
 	    			cookbookdto.add(new CookbookDTO(c));
@@ -255,9 +255,9 @@ public class RecipeController {
 	}
 
 
-	private Set<Cookbook> getNLatestCookbooks(User en, int i) {
+	private Set<Cookbook> getNLatestCookbooks(Enthusiast en, int i) {
 		// TODO Auto-generated method stub
-		Set<Cookbook> allCookbooks = ((Enthusiast)en).getCookbooks();
+		Set<Cookbook> allCookbooks = en.getCookbooks();
 		Set<Cookbook> finalCookbooks = new HashSet<>();
 		if (allCookbooks.size() <= 3) return allCookbooks;
 		/** sort recipes by date**/

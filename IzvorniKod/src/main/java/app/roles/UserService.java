@@ -89,12 +89,13 @@ public class UserService implements UserDetailsService{
 		return user.get();
 	}
 
-	public List<User> loadAllEnthusiasts() {
+	public List<Enthusiast> loadAllEnthusiasts() {
 		List<User> users = userRepository.findAll();
-		List<User> enthusiasts = new ArrayList<>();
+		List<Enthusiast> enthusiasts = new ArrayList<>();
 		for (User user : users) {
 			if (user.getRole().equals(Role.ENTHUSIAST)) {
-				enthusiasts.add(user);
+				Enthusiast en = (Enthusiast) user;
+				enthusiasts.add(en);
 				System.out.println(user.getUsername());
 			}
 		}
