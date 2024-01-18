@@ -1,5 +1,6 @@
 package app.dto;
 
+import app.roles.SpecialUser;
 import app.roles.User;
 
 public class UserDTO {
@@ -10,6 +11,8 @@ public class UserDTO {
 	public String username;
 	public String password;
 	public String role;
+	public String biography;
+	public ImageDTO image;
 	
 	public UserDTO(User u) {
 		
@@ -19,6 +22,10 @@ public class UserDTO {
 		this.username = u.getUsername();
 		this.password = u.getPassword();
 		this.role = u.getRole().getName();
+		if (this.role.equalsIgnoreCase("enthusiast") || this.role.equalsIgnoreCase("nutritionist")) {
+			this.biography = ((SpecialUser) u).getBiography();
+			this.image = new ImageDTO(((SpecialUser) u).getImage());
+		}
 	}
 	
 	

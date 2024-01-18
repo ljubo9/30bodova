@@ -13,7 +13,7 @@ const Recipe = () => {
     const fetchRecipe = async () => {
       try {
         //endpoint za dohvaćanje recepta po id-u
-        const response = await fetch(`/recipe/${recipeId}`);
+        const response = await fetch(`/recipe/get/${recipeId}`);
         const data = await response.json();
 
         setRecipe(data);
@@ -28,7 +28,7 @@ const Recipe = () => {
   const fetchResponse = async (reviewId) => {
     try {
       //ednpoint za dohvavaćanje odgovora po review.id
-      const response = await fetch(`/response?reviewId=${reviewId}`);
+      const response = await fetch(`/response?reviewId=${recipeId}`);
       const data = await response.json();
 
       return data[0];  //vraća jedan jedini response ili undefined

@@ -43,7 +43,7 @@ public class RecipeController {
     }
 
 
-    @GetMapping("/recipe/get")
+    @GetMapping("/recipe/get/{id}")
     public ResponseEntity<RecipeDTO> getRecipeById(@RequestParam int id) {
         try {
             // Fetch the recipe by ID
