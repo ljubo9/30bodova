@@ -196,9 +196,17 @@ function LoggedHomePage() {
               </Col>
             </Row>
       )}
+      {!consumedRecipesStatistics || consumedRecipesStatistics.length === 0? (
+        <h2>Nema statistike nutritivnih vrijednosti</h2>
+      ) : (<Row className="mt-4">
+      <div>
+        <h1>Statistika potrošenih kalorija</h1>
+        <CalorieChart consumedRecipesStatistics={consumedRecipesStatistics} />
+        </div>
+      </Row>
+      )}
     </Container>
   );
-
   
 }
 /*
