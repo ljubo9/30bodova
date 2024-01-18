@@ -33,12 +33,12 @@ function Navigation() {
             )}
             
             {currentUser && currentUser.role === 'ENTHUSIAST' && (
-              <Nav.Link as={Nav.Link} to="/cookbook-editor">
+              <Nav.Link as={Link} to="/cookbook-editor">
                 Add cookbook
               </Nav.Link>
             )}
             {currentUser && currentUser.role === 'ENTHUSIAST' && (
-              <Nav.Link as={Nav.Link} to="/recipe-editor">
+              <Nav.Link as={Link} to="/recipe-editor">
                 Add recipe
               </Nav.Link>
             )}
