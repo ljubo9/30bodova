@@ -4,6 +4,8 @@ import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 import CookbookEditor from './CookbookEditor'; 
 
 function Navigation() {
+  const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -12,7 +14,6 @@ function Navigation() {
     navigate('/');
   };
 
-  const currentUser = sessionStorage.getItem('currentUser');
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
@@ -48,7 +49,7 @@ function Navigation() {
                 <Nav.Link as={Link} to="/choose-recipe">
                   Choose Recipe
                 </Nav.Link>
-                <Nav.Link disabled>{currentUser}</Nav.Link>
+                <Nav.Link disabled>{currentUser.username}</Nav.Link>
                 <Button variant="dark" onClick={handleLogout}>
                   Logout
                 </Button>

@@ -6,7 +6,7 @@ import CalorieChart from './CalorieChart';
 
 function LoggedHomePage() {
   //const { username } = useParams();
-  const username = sessionStorage.getItem('currentUser');
+  const user = JSON.parse(sessionStorage.getItem('currentUser'));
   const [recipeList, setRecipeList] = useState(null);
   const [dietInfo, setDiet] = useState(null);
   const [consumedRecipesStatistics, setConsumedRecipesStatistics] = useState(null);
@@ -21,7 +21,7 @@ function LoggedHomePage() {
         //ruta za recepte koje je neki user konzumiro
         //svakom useru trebalo bi dodati listu recepata koje je konzumirao
         //al ja bi to dodala ko mapu di je ključ taj recept a vrijednost je lista datuma kad je sve taj recept konzumirao jer nam to treba za statistiku
-        const response = await fetch(`/recipes/user/${username}`);
+        const response = await fetch(`/recipes/user/${user.username}`);
         if (response.ok) {
           const data = await response.json();
           setRecipeList(data);
@@ -41,7 +41,7 @@ function LoggedHomePage() {
         //svaka dijeta bi jos trebala imat listu zabranjenih sastojaka
         //i trebala bi imati mapu gdje je ključ koji je neki sastojak, a vrijednost je maksimalna kolicina tog sastojka koju smije konzumirati
         //i ima dnevni limit
-        const response = await fetch(`/diet/user/${username}`);
+        const response = await fetch(`/diet/user/${user.username}`);
         if (response.ok) {
           const data = await response.json();
           setDiet(data);
@@ -56,7 +56,7 @@ function LoggedHomePage() {
     const fetchFollowedChefs = async () => {
       try {
         //msm da bi ovo bilo najlakse za usera dodamo atribut followed_Enthusiasts koji je lista entuzijasta koje user prati
-        const response = await fetch(`/followed-enthusiasts/${username}`);
+        const response = await fetch(`/followed-enthusiasts/${user.username}`);
         if (response.ok) {
           const data = await response.json();
           setFollowedChefs(data);
@@ -91,7 +91,7 @@ function LoggedHomePage() {
     const fetchConsumedRecipesStatistics = async () => {
       try {
         //ruta za statistiku usera - vratiti npr. broj kalorija koje je user konzumiro svaki dan u zadnjih 7 dana
-        const response = await fetch(`/statistic/user/${username}`);
+        const response = await fetch(`/statistic/user/${user.username}`);
         if (response.ok) {
           const data = await response.json();
           setConsumedRecipesStatistics(data);
@@ -108,12 +108,13 @@ function LoggedHomePage() {
     fetchFollowedChefs();
     fetchLatestChefData();
     fetchConsumedRecipesStatistics();
-  }, [username]);
+    console.log(user.username);
+    console.log(recipeList);
+    console.log(dietInfo);
+    console.log(followedChefs);
+    console.log(consumedRecipesStatistics);
+  }, [user]);
 
-  console.log(recipeList);
-  console.log(dietInfo);
-  console.log(followedChefs);
-  console.log(consumedRecipesStatistics);
 
   
   return (

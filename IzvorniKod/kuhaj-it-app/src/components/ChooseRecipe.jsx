@@ -36,6 +36,7 @@ const ChooseRecipe = () => {
       try {
         const response = await fetch('/ingredients/all'); // Pretpostavka URL-a
         const data = await response.json();
+        console.log(data)
         setIngredients(data);
       } catch (error) {
         console.error('Greška pri dohvaćanju namirnica:', error);

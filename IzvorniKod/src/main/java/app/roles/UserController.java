@@ -36,16 +36,11 @@ import app.recipe.ConsumedRecipe;
 public class UserController {
 	
 	private final UserService userService;
-	private final BCryptPasswordEncoder encoder;
-	private final AuthenticationManager authenticationManager;
 	
 	
 	@Autowired
-	public UserController(UserService userService, BCryptPasswordEncoder encoder,
-						  AuthenticationManager authenticationManager) {
+	public UserController(UserService userService) {
 		 this.userService = userService;
-		 this.encoder = encoder;
-		 this.authenticationManager = authenticationManager;
 	}
 	
 	@PostMapping(path = "/register", consumes = "multipart/form-data")
