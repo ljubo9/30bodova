@@ -107,8 +107,10 @@ public class UserController {
 		try {
 			User oldUser = (User)userService.loadUserByUsername(username);
 			if (oldUser == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			userService.removeUser(oldUser);
 			oldUser.setUsername(newUsername);
-			oldUser.setPassword(oldPassword);
+			oldUser.setPassword(newPassword);
+			userService.registerUser(oldUser);
 			return new ResponseEntity<>(new UserDTO(oldUser), HttpStatus.OK);
 		}
 		catch (Exception e) {
