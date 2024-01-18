@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const RecipeEditor = () => {
-  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
   console.log(currentUser);
   const [recipeData, setRecipeData] = useState({
     name: '',
@@ -19,6 +19,7 @@ const RecipeEditor = () => {
     const fetchCookbooks = async () => {
       try {
         //dohvaćanje kuharica po id-u entuzijasta
+        console.log(currentUser)
         const response = await fetch(`/cookbook/${currentUser.username}`);
         if (response.ok) {
           const cookbooksData = await response.json();
