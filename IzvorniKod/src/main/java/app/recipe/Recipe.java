@@ -24,6 +24,7 @@ public class Recipe {
 
     @ManyToMany
     private List<Diet> diets;
+    
     @ManyToOne
     private User creator;
     

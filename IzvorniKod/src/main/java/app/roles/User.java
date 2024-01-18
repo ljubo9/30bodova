@@ -2,14 +2,15 @@
 
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 
-import app.recipe.*;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import app.recipe.ConsumedRecipe;
+import app.recipe.Diet;
+import app.recipe.Response;
+import app.recipe.Review;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -20,6 +21,7 @@ import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
@@ -44,6 +46,7 @@ public class User implements UserDetails {
 	private String password;
 	private String name;
 	private String surname;
+	
 	@ManyToOne
 	private Diet diet;
 

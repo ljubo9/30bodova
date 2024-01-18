@@ -32,12 +32,12 @@ VALUES('Nutritionist', 3, 'nutritionist', '$2a$10$vlnthKoYaXs9xXFvz2SFbOdDDKWHXa
 
 insert into public."users"
 (dtype, id, "name", "password", "surname", "username", "biography", "confirmed", "email", role_id)
-VALUES('SpecialUser', 4, 'admin', '$2a$10$9dERkNAb3Y5VYaR1drQWie3iuq2ZweVUJiYTzLmDtjFEenQ/EZ0om', 'admin', 'admin', 'admin', true, 'admin@gmail.com', 4);
+VALUES('Enthusiast', 4, 'admin', '$2a$10$9dERkNAb3Y5VYaR1drQWie3iuq2ZweVUJiYTzLmDtjFEenQ/EZ0om', 'admin', 'admin', 'admin', true, 'admin@gmail.com', 4);
 
 
 insert into public."users"
 (dtype, id, "name", "password", "surname", "username", "biography", "confirmed", "email", role_id)
-VALUES('SpecialUser', 5, 'marko', '$2a$10$9dERkNAb3Y5VYaR1drQWie3iuq2ZweVUJiYTzLmDtjFEenQ/EZ0om', 'markic', 'marko19', 'ja sam marko', true, 'marko@gmail.com', 2);
+VALUES('Enthusiast', 5, 'marko', '$2a$10$9dERkNAb3Y5VYaR1drQWie3iuq2ZweVUJiYTzLmDtjFEenQ/EZ0om', 'markic', 'marko19', 'ja sam marko', true, 'marko@gmail.com', 2);
 
 
 insert into public."diet"
