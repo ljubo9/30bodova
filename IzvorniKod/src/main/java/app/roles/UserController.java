@@ -36,16 +36,11 @@ import app.recipe.ConsumedRecipe;
 public class UserController {
 	
 	private final UserService userService;
-	private final BCryptPasswordEncoder encoder;
-	private final AuthenticationManager authenticationManager;
 	
 	
 	@Autowired
-	public UserController(UserService userService, BCryptPasswordEncoder encoder,
-						  AuthenticationManager authenticationManager) {
+	public UserController(UserService userService) {
 		 this.userService = userService;
-		 this.encoder = encoder;
-		 this.authenticationManager = authenticationManager;
 	}
 	
 	@PostMapping(path = "/register", consumes = "multipart/form-data")
@@ -77,8 +72,16 @@ public class UserController {
 	@ResponseBody
 	public ResponseEntity<UserDTO> login(@RequestParam("username") String username, @RequestParam("password") String password) throws AuthenticationException {
 		
-		
-		return new ResponseEntity<>(new UserDTO((User) userService.loadUserByUsername(username)), HttpStatus.OK);
+		try {
+			User u = userService.loginUser(username, password);
+			if (u == null) return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			return new ResponseEntity<>(new UserDTO(u), HttpStatus.OK);
+		}
+		catch (Exception e) {
+			System.out.println("Could not log in user:");
+			e.printStackTrace();	
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 
 	@PostMapping(path = "/profile/changeInfo")
@@ -104,8 +107,10 @@ public class UserController {
 		try {
 			User oldUser = (User)userService.loadUserByUsername(username);
 			if (oldUser == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			userService.removeUser(oldUser);
 			oldUser.setUsername(newUsername);
-			oldUser.setPassword(oldPassword);
+			oldUser.setPassword(newPassword);
+			userService.registerUser(oldUser);
 			return new ResponseEntity<>(new UserDTO(oldUser), HttpStatus.OK);
 		}
 		catch (Exception e) {
@@ -159,7 +164,7 @@ public class UserController {
 			User u = (User) userService.loadUserByUsername(username);
 			if (u == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			/** get all enthusiasts from user **/
-			return new ResponseEntity<>(null, HttpStatus.OK);
+			return new ResponseEntity<>(new ArrayList<>(), HttpStatus.OK);
 
 		}
 		catch(Exception e) {

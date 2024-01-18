@@ -124,10 +124,9 @@ public class AuthorizationForm {
 		if (form.getRole().getName().equalsIgnoreCase("CLIENT")) {
 			return new Client(form.getUsername(), form.getPassword(), form.getName(), form.getSurname());
 		}
-		Image img = new Image(form.getPhoto_url(), form.getPhoto_url());
+		//Image img = new Image(form.getPhoto_url(), form.getPhoto_url());
 		return new SpecialUser(form.getUsername(), form.getPassword(), form.getName(),
-				form.getSurname(), form.getRole(), img, form.getBiography(), form.getEmail());
-		
+				form.getSurname(), form.getRole(), null, form.getBiography(), form.getEmail());
 	}
 	
 	

@@ -9,6 +9,7 @@ public class UserDTO {
 	public String surname;
 	public String username;
 	public String password;
+	public String role;
 	
 	public UserDTO(User u) {
 		
@@ -17,6 +18,7 @@ public class UserDTO {
 		this.surname = u.getSurname();
 		this.username = u.getUsername();
 		this.password = u.getPassword();
+		this.role = u.getRole().getName();
 	}
 	
 	

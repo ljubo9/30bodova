@@ -1,4 +1,4 @@
-package app.recipe;
+package app.service;
 
 
 import java.util.HashSet;
@@ -6,6 +6,12 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+import app.recipe.Cookbook;
+import app.recipe.Ingredient;
+import app.recipe.Recipe;
+import app.repository.CookbookRepository;
+import app.repository.IngredientRepository;
+import app.repository.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,12 +23,15 @@ public class RecipeService {
     private final RecipeRepository recipeRepository;
     private final CookbookRepository cookbookRepository;
     private final UserRepository userRepository;
+    private final IngredientRepository ingredientRepository;
 
     @Autowired
-    public RecipeService(RecipeRepository recipeRepository, CookbookRepository cookbookRepository, UserRepository userRepository) {
+    public RecipeService(RecipeRepository recipeRepository, CookbookRepository cookbookRepository, UserRepository userRepository,
+    		IngredientRepository ingredientRepository) {
         this.recipeRepository = recipeRepository;
         this.cookbookRepository = cookbookRepository;
         this.userRepository = userRepository;
+        this.ingredientRepository = ingredientRepository;
     }
 
     public Recipe loadRecipeById(int recipeId) {
@@ -91,6 +100,11 @@ public class RecipeService {
 		return setCookbooks;
 	}
 
+	public Cookbook getCookbookById(int id) {
+		Optional<Cookbook> c = cookbookRepository.findById(id);
+		return c.orElse(null);
+	}
+	
     // Example method for deleting a recipe
     public void deleteRecipe(int recipeId) {
         recipeRepository.deleteById(recipeId);
@@ -100,6 +114,12 @@ public class RecipeService {
 		// TODO Auto-generated method stub
 		cookbookRepository.save(c); 
 	}
+
+	public List<Ingredient> getAllIngredients() {
+		// TODO Auto-generated method stub
+		return ingredientRepository.findAll();
+	}
+
 
 }
 

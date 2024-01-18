@@ -3,7 +3,6 @@ package app.dto;
 import java.util.List;
 
 import app.recipe.Diet;
-import app.recipe.Ingredient;
 
 public class DietDTO {
 	

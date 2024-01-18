@@ -1,5 +1,7 @@
-package app.recipe;
+package app.controller;
 
+import app.recipe.Diet;
+import app.service.DietService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,6 +33,7 @@ public class DietController {
 			User u = (User) userService.loadUserByUsername(username);
 			if (u == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			Diet diet = u.getDiet();
+			if (diet == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			DietDTO dietdto = new DietDTO(diet);
 			return new ResponseEntity<>(dietdto, HttpStatus.OK);
 		}

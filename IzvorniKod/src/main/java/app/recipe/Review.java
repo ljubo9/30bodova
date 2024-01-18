@@ -37,6 +37,10 @@ public class Review {
         this.mark = mark;
         this.message = message;
     }
+    
+    public Review() {
+    	
+    }
 
 
 

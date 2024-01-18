@@ -1,4 +1,5 @@
-package app.recipe;
+package app.controller;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -16,10 +17,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import app.dto.CookbookDTO;
+import app.dto.IngredientDTO;
 import app.dto.RecipeDTO;
-import app.roles.Enthusiast;
+import app.recipe.ConsumedRecipe;
+import app.recipe.Cookbook;
+import app.recipe.Ingredient;
+import app.recipe.Recipe;
 import app.roles.User;
 import app.roles.UserService;
+import app.service.RecipeService;
 
 @RestController
 @RequestMapping()
@@ -35,15 +42,15 @@ public class RecipeController {
     }
 
 
-    @GetMapping("/recipe/{recipeId}")
-    public ResponseEntity<RecipeDTO> getRecipeById(@PathVariable int recipeId) {
+    @GetMapping("/recipe/get")
+    public ResponseEntity<RecipeDTO> getRecipeById(@RequestParam int id) {
         try {
             // Fetch the recipe by ID
-            Recipe recipe = recipeService.loadRecipeById(recipeId);
+            Recipe recipe = recipeService.loadRecipeById(id);
 
             if (recipe != null) {
                 // Convert the Recipe entity to a RecipeDTO
-                RecipeDTO recipeDTO = RecipeDTO.fromEntity(recipe);
+                RecipeDTO recipeDTO = new RecipeDTO(recipe);
                 return new ResponseEntity<>(recipeDTO, HttpStatus.OK);
             } else {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -58,21 +65,25 @@ public class RecipeController {
         try {
             // Convert the RecipeDTO to a Recipe entity and create the recipe
             Recipe createdRecipe = recipeService.createRecipe(recipeDTO.toEntity());
-            RecipeDTO createdRecipeDTO = RecipeDTO.fromEntity(createdRecipe);
+            RecipeDTO createdRecipeDTO = new RecipeDTO(createdRecipe);
             return new ResponseEntity<>(createdRecipeDTO, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
     
-    @GetMapping(path = "/cookbooks?creator={username}")
-    public ResponseEntity<Set<Cookbook>> getCookbooks(@PathVariable String username) {
+    @GetMapping(path = "/cookbooks")
+    public ResponseEntity<Set<CookbookDTO>> getCookbooks(@RequestParam String creator) {
     	try {
-    		Set<Cookbook> cookbooks = recipeService.getCookbooksByUsername(username);
+    		Set<Cookbook> cookbooks = recipeService.getCookbooksByUsername(creator);
     		if (cookbooks == null) {
     			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     		}
-    		return new ResponseEntity<>(cookbooks, HttpStatus.OK);
+    		Set<CookbookDTO> cookbookdto = new HashSet<>();
+    		for (Cookbook c : cookbooks) {
+    			cookbookdto.add(new CookbookDTO(c));
+    		}
+    		return new ResponseEntity<>(cookbookdto, HttpStatus.OK);
     	}
     	catch(Exception e) {
     		System.out.println("Could not fetch cookbooks:");
@@ -81,14 +92,18 @@ public class RecipeController {
     	}
     }
     
-    @GetMapping(path = "/cookbooks?category={category}")
-    public ResponseEntity<Set<Cookbook>> getCookbooksByCategory(@PathVariable String category) {
+    @GetMapping(path = "/cookbooks/category")
+    public ResponseEntity<Set<CookbookDTO>> getCookbooksByCategory(@RequestParam String category) {
     	try {
     		Set<Cookbook> cookbooks = recipeService.getCookbooksByCategory(category);
     		if (cookbooks == null) {
     			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     		}
-    		return new ResponseEntity<>(cookbooks, HttpStatus.OK);
+    		Set<CookbookDTO> cookbookdto = new HashSet<>();
+    		for (Cookbook c : cookbooks) {
+    			cookbookdto.add(new CookbookDTO(c));
+    		}
+    		return new ResponseEntity<>(cookbookdto, HttpStatus.OK);
     	}
     	catch(Exception e) {
     		System.out.println("Could not fetch cookbooks:");
@@ -97,14 +112,18 @@ public class RecipeController {
     	}
     }
     
-    @GetMapping(path = "/recipes?creator={username}") 
-    public ResponseEntity<Set<Recipe>> getRecipes(@PathVariable String username) {
+    @GetMapping(path = "/recipes") 
+    public ResponseEntity<Set<RecipeDTO>> getRecipes(@RequestParam String creator) {
     	try {
-    		Set<Recipe> recipes = recipeService.getRecipesByUsername(username);
+    		Set<Recipe> recipes = recipeService.getRecipesByUsername(creator);
     		if (recipes == null) {
     			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     		}
-    		return new ResponseEntity<>(recipes, HttpStatus.OK);
+    		Set<RecipeDTO> recipedto = new HashSet<>();
+    		for (Recipe c : recipes) {
+    			recipedto.add(new RecipeDTO(c));
+    		}
+    		return new ResponseEntity<>(recipedto, HttpStatus.OK);
     	}
     	catch(Exception e) {
     		System.out.println("Could fetch recipes:");
@@ -114,14 +133,19 @@ public class RecipeController {
     	
     }
     
-    @GetMapping(path = "/recipes?category={category}") 
-    public ResponseEntity<Set<Recipe>> getRecipesByCategory(@PathVariable String category) {
+    @GetMapping(path = "/recipes/category") 
+    public ResponseEntity<Set<RecipeDTO>> getRecipesByCategory(@RequestParam String category) {
     	try {
     		Set<Recipe> recipes = recipeService.getRecipesByCategory(category);
     		if (recipes == null) {
     			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     		}
-    		return new ResponseEntity<>(recipes, HttpStatus.OK);
+    		Set<RecipeDTO> recipedto = new HashSet<>();
+
+    		for (Recipe c : recipes) {
+    			recipedto.add(new RecipeDTO(c));
+    		}
+    		return new ResponseEntity<>(recipedto, HttpStatus.OK);
     	}
     	catch(Exception e) {
     		System.out.println("Could fetch recipes:");
@@ -131,6 +155,7 @@ public class RecipeController {
     	
     }
    
+    
     
     @PostMapping(path = "/cookbook", consumes = "multipart/form-data")
     public ResponseEntity<String> createCookbook(@RequestParam("cookbookName") String cookbookName,
@@ -150,20 +175,36 @@ public class RecipeController {
     	}
     }
     
+    @GetMapping(path = "/cookbook/get")
+    public ResponseEntity<CookbookDTO> getCookbook(@RequestParam int id) {
+    	try {
+    		Cookbook c = recipeService.getCookbookById(id);
+    		if (c == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    		return new ResponseEntity<>(new CookbookDTO(c), HttpStatus.OK);
+    	}
+    	catch(Exception e) {
+    		return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    	}
+    }
+    
     /*
     @GetMapping(path = "/products")
     public ResponseEntity<List<RecipeIngredients>> getIngredients()
     */
     
     @GetMapping(path = "/latest-enthusiast-recipes")
-    public ResponseEntity<Map<String, Set<Recipe>>> getLatestRecipes() {
+    public ResponseEntity<Map<String, Set<RecipeDTO>>> getLatestRecipes() {
 		try {
-			Map<String, Set<Recipe>> list = new HashMap<>();
+			Map<String, Set<RecipeDTO>> list = new HashMap<>();
 			List<User> enthusiasts = userService.loadAllEnthusiasts();
 			
 			for (User en : enthusiasts) {
-				Set<Recipe> recipes = getNLatestRecipes(en, 3);
-				list.put(en.getUsername(), recipes);
+				List<Recipe> recipes = getNLatestRecipes(en, 3);
+				Set<RecipeDTO> recipedto = new HashSet<>();
+	    		for (Recipe c : recipes) {
+	    			recipedto.add(new RecipeDTO(c));
+	    		}
+				list.put(en.getUsername(), recipedto);
 			}
 			
 			return new ResponseEntity<>(list, HttpStatus.OK);
@@ -176,28 +217,31 @@ public class RecipeController {
 	}
 
 
-	private Set<Recipe> getNLatestRecipes(User en, int i) {
+	private List<Recipe> getNLatestRecipes(User en, int i) {
 		// TODO Auto-generated method stub
-		Set<Recipe> allRecipe = en.getRecipes();
-		Set<Recipe> finalRecipe = new HashSet<>();
+		List<Recipe> allRecipe = new ArrayList<>(en.getRecipes());
+		List<Recipe> finalRecipe = new ArrayList<>();
 		if (allRecipe.size() <= 3) return allRecipe;
 		/** sort recipes by date**/
-		Recipe[] recipes = (Recipe[]) allRecipe.toArray();
-		finalRecipe.add(recipes[0]);
-		finalRecipe.add(recipes[1]);
-		finalRecipe.add(recipes[2]);
+		finalRecipe.add(allRecipe.get(0));
+		finalRecipe.add(allRecipe.get(1));
+		finalRecipe.add(allRecipe.get(2));
 		return finalRecipe;
 	}
 	
-	@GetMapping(path = "/latest-enthusiast/cookbooks")
-    public ResponseEntity<Map<String, Set<Cookbook>>> getLatestCookbooks() {
+	@GetMapping(path = "/latest-enthusiast-cookbooks")
+    public ResponseEntity<Map<String, Set<CookbookDTO>>> getLatestCookbooks() {
 		try {
-			Map<String, Set<Cookbook>> list = new HashMap<>();
+			Map<String, Set<CookbookDTO>> list = new HashMap<>();
 			List<User> enthusiasts = userService.loadAllEnthusiasts();
 			
 			for (User en : enthusiasts) {
 				Set<Cookbook> cookbooks = getNLatestCookbooks(en, 3);
-				list.put(en.getUsername(), cookbooks);
+				Set<CookbookDTO> cookbookdto = new HashSet<>();
+	    		for (Cookbook c : cookbooks) {
+	    			cookbookdto.add(new CookbookDTO(c));
+	    		}
+				list.put(en.getUsername(), cookbookdto);
 			}
 			
 			return new ResponseEntity<>(list, HttpStatus.OK);
@@ -240,6 +284,42 @@ public class RecipeController {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
+	}
+	
+	@GetMapping(path = "/recipes/all")
+	public ResponseEntity<Set<RecipeDTO>> getAllRecipes() {
+		try {
+			List<Recipe> recipes = recipeService.getAllRecipes();
+			HashSet<RecipeDTO> recipesDTO = new HashSet<>();
+			for (Recipe r : recipes) {
+				recipesDTO.add(new RecipeDTO(r));
+			}
+			
+			return new ResponseEntity<>(recipesDTO, HttpStatus.OK);
+	
+		}
+		catch (Exception e){
+			System.out.println("Could not fetch all recipes:");
+			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	@GetMapping(path = "/ingredients/all")
+	public ResponseEntity<Set<IngredientDTO>> getAllIngredients() {
+		try {
+			List<Ingredient> ingredients = recipeService.getAllIngredients();
+			HashSet<IngredientDTO> ingredientsDTO = new HashSet<>();
+			for (Ingredient i : ingredients) {
+				ingredientsDTO.add(new IngredientDTO(i));
+			}
+			
+			return new ResponseEntity<>(ingredientsDTO, HttpStatus.OK);
+		}
+		catch (Exception e) {
+			System.out.println("Could not fetch all ingredients:");
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 
 }

@@ -1,5 +1,9 @@
-package app.recipe;
+package app.service;
 
+import app.recipe.Response;
+import app.recipe.Review;
+import app.repository.ResponseRepository;
+import app.repository.ReviewRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import  app.dto.*;
@@ -16,6 +20,7 @@ public class ReviewService {
         this.reviewRepository = reviewRepository;
         this.responseRepository = responseRepository;
     }
+   
 
     public Review loadReviewById(int reviewId) {
         // Assuming you have a method in your repository to get response by reviewId

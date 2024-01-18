@@ -67,6 +67,7 @@ public class UserService implements UserDetailsService{
 			specialUser.setEmail(specialUserUp.getEmail());
 			user = specialUser;
 		}
+		
 		userRepository.deleteById(user.getId());
 		checkUserDataValid(user);
 		userRepository.save(user);
@@ -108,5 +109,18 @@ public class UserService implements UserDetailsService{
 			}
 		}
 		return enthusiasts;
+	}
+
+	public User loginUser(String username, String password) {
+		// TODO Auto-generated method stub
+		Optional<User> u = userRepository.findUserByUsername(username);
+		if (u.isEmpty()) return null;
+		if (!encoder.matches(password, u.get().getPassword())) return null;
+		return u.get();
+	}
+
+	public void removeUser(User oldUser) {
+		// TODO Auto-generated method stub
+		userRepository.deleteById(oldUser.getId());
 	}
 }

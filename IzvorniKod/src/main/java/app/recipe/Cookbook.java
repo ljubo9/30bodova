@@ -46,6 +46,10 @@ public class Cookbook {
         this.category = category;
         this.creator=creator;
     }
+    
+    public Cookbook() {
+    	
+    }
 
     public int getId() {
         return id;
@@ -71,6 +75,14 @@ public class Cookbook {
         this.category = category;
     }
 
+	public List<Recipe> getRecipes() {
+		return recipes;
+	}
+
+	public User getCreator() {
+		return creator;
+	}
+
    /* public Set<Recipe> getRecipes() {
         return recipes;
     }
@@ -79,4 +91,5 @@ public class Cookbook {
         this.recipes = recipes;
     }*/
 
+    
 }

@@ -1,5 +1,6 @@
-package app.recipe;
+package app.repository;
 
+import app.recipe.Recipe;
 import app.roles.SpecialUser;
 import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.jpa.repository.JpaRepository;

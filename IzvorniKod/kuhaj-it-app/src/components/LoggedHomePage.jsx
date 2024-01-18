@@ -2,16 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Card, Container, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import CalorieChart from './CalorieChart';
 
 function LoggedHomePage() {
   //const { username } = useParams();
-  const username = sessionStorage.getItem('currentUser');
-  const [recipeList, setRecipeList] = useState(null);
-  const [dietInfo, setDiet] = useState(null);
-  const [consumedRecipesStatistics, setConsumedRecipesStatistics] = useState(null);
+  const user = JSON.parse(sessionStorage.getItem('currentUser'));
+  const [recipeList, setRecipeList] = useState([]);
+  const [dietInfo, setDiet] = useState([]);
+  //const [consumedRecipesStatistics, setConsumedRecipesStatistics] = useState([]);
   const [followedChefs, setFollowedChefs] = useState([]);
-  const [latestChefCookbooks, setLatestChefCookbooks] = useState({});
-  const [latestChefRecipes, setLatestChefRecipes] = useState({});
+  const [latestChefCookbooks, setLatestChefCookbooks] = useState([]);
+  const [latestChefRecipes, setLatestChefRecipes] = useState([]);
     
 
   useEffect(() => {
@@ -20,7 +21,7 @@ function LoggedHomePage() {
         //ruta za recepte koje je neki user konzumiro
         //svakom useru trebalo bi dodati listu recepata koje je konzumirao
         //al ja bi to dodala ko mapu di je ključ taj recept a vrijednost je lista datuma kad je sve taj recept konzumirao jer nam to treba za statistiku
-        const response = await fetch(`/recipes/user/${username}`);
+        const response = await fetch(`/recipes/user/${user.username}`);
         if (response.ok) {
           const data = await response.json();
           setRecipeList(data);
@@ -40,7 +41,7 @@ function LoggedHomePage() {
         //svaka dijeta bi jos trebala imat listu zabranjenih sastojaka
         //i trebala bi imati mapu gdje je ključ koji je neki sastojak, a vrijednost je maksimalna kolicina tog sastojka koju smije konzumirati
         //i ima dnevni limit
-        const response = await fetch(`/diet/user/${username}`);
+        const response = await fetch(`/diet/user/${user.username}`);
         if (response.ok) {
           const data = await response.json();
           setDiet(data);
@@ -55,7 +56,7 @@ function LoggedHomePage() {
     const fetchFollowedChefs = async () => {
       try {
         //msm da bi ovo bilo najlakse za usera dodamo atribut followed_Enthusiasts koji je lista entuzijasta koje user prati
-        const response = await fetch(`/followed-enthusiasts/${username}`);
+        const response = await fetch(`/followed-enthusiasts/${user.username}`);
         if (response.ok) {
           const data = await response.json();
           setFollowedChefs(data);
@@ -90,10 +91,10 @@ function LoggedHomePage() {
     const fetchConsumedRecipesStatistics = async () => {
       try {
         //ruta za statistiku usera - vratiti npr. broj kalorija koje je user konzumiro svaki dan u zadnjih 7 dana
-        const response = await fetch(`/statistic/user/${username}`);
+        const response = await fetch(`/statistic/user/${user.username}`);
         if (response.ok) {
           const data = await response.json();
-          setConsumedRecipesStatistics(data);
+          //setConsumedRecipesStatistics(data);
         } else {
           console.error('Error fetching consumed recipes statistics:', response.statusText);
         }
@@ -107,16 +108,14 @@ function LoggedHomePage() {
     fetchFollowedChefs();
     fetchLatestChefData();
     fetchConsumedRecipesStatistics();
-  }, [username]);
+    console.log(user.username);
+    console.log(recipeList);
+    console.log(dietInfo);
+    console.log(followedChefs);
+    //console.log(consumedRecipesStatistics);
+  }, []);
 
-  console.log(recipeList);
-  console.log(dietInfo);
-  console.log(followedChefs);
-  console.log(consumedRecipesStatistics);
 
-  if (!recipeList || !dietInfo || !followedChefs || !consumedRecipesStatistics) {
-    return <div>Loading...</div>;
-  }
   
   return (
     <Container>
@@ -126,26 +125,30 @@ function LoggedHomePage() {
               ) : (<Row className="mt-4">
               <Col>
                 <h2>Isprobani recepti</h2>
-                {recipeList.map(recipe => (
+                {recipeList && recipeList?.map(recipe => (
                 <Col key={recipe.id} md={4}>
                   <Card className="mb-4">
                     <Card.Body>
-                      <Card.Title>{recipe.title}</Card.Title>
+                      <Card.Title>{recipe.name}</Card.Title>
                       <Card.Text>
                         <strong>Sastojci:</strong>
+                        {recipe.ingredients ? (
                         <ul>
-                          {recipe.ingredients.map((ingredient, index) => (
-                            <li key={index}>{ingredient}</li>
+                          {recipe.ingrediens && recipe.ingredients?.map((ingredient, index) => (
+                            <li key={index}>{ingredient.name}</li>
                           ))}
                         </ul>
+                        ) : (<div>Nema sastojaka</div>)}
                       </Card.Text>
                       <Card.Text>
                         <strong>Priprema:</strong>
+                        {recipe.steps_of_making ? (
                         <ol>
-                          {recipe.steps_of_making.map((step, index) => (
-                            <li key={index}>{step}</li>
+                          {recipe.steps_of_making && recipe.steps_of_making?.map((step, index) => (
+                            <li key={index}>{step.description}</li>
                           ))}
                         </ol>
+                        ) : (<div> Nema koraka</div>)}
                       </Card.Text>
                     </Card.Body>
                   </Card>
@@ -171,21 +174,25 @@ function LoggedHomePage() {
               ) : (<Row className="mt-4">
               <Col>
                 <h2>Nove kuharice i recepti</h2>
-                {followedChefs.map((chef, index) => (
+                {followedChefs && followedChefs?.map((chef, index) => (
                   <Card key={index} className="mb-3">
                     <Card.Body>
                       <Card.Title>{chef.name}</Card.Title>
                       <h5>Najnoviji radovi:</h5>
+                      {latestChefCookbooks[chef.id] ? (
                       <p>
-                        {latestChefCookbooks[chef.id]?.map((latestCookbook, idx) => (
-                          <Link key={idx} to={`/cookbook/${latestCookbook.id}`}>{latestCookbook.title}</Link>
+                        {latestChefCookbooks[chef.id] && latestChefCookbooks[chef.id]?.map((latestCookbook, idx) => (
+                          <Link key={idx} to={`/cookbook/${latestCookbook.id}`}>{latestCookbook.name}</Link>
                         ))}
                       </p>
+                      ) : (<div> Nema kuharica </div>)}
+                      {latestChefRecipes[chef.id] ? (
                       <p>
-                        {latestChefRecipes[chef.id]?.map((latestRecipe, idx) => (
-                          <Link key={idx} to={`/recipe/${latestRecipe.id}`}>{latestRecipe.title}</Link>
+                        {latestChefRecipes[chef.id] && latestChefRecipes[chef.id]?.map((latestRecipe, idx) => (
+                          <Link key={idx} to={`/recipe/${latestRecipe.id}`}>{latestRecipe.name}</Link>
                         ))}
                       </p>
+                      ) : (<div> Nema recepata</div>)}
                     </Card.Body>
                   </Card>
                 ))}
@@ -194,17 +201,21 @@ function LoggedHomePage() {
       )}
       
 
-      {!consumedRecipesStatistics ? (
-                <div>Nema statistike nutritivnih vrijednosti</div>
-              ) : (<Row className="mt-4">
-              <Col>
-                <h2>Statistika konzumiranih nutritivnih vrijednosti</h2>
-                <p>{consumedRecipesStatistics}</p>
-              </Col>
-            </Row>
-      )}
     </Container>
   );
+
+  
 }
 
+              /*
+{!consumedRecipesStatistics ? (
+  <div>Nema statistike nutritivnih vrijednosti</div>
+) : (<Row className="mt-4">
+<div>
+  <h1>Statistika potrošenih kalorija</h1>
+  <CalorieChart consumedRecipesStatistics={consumedRecipesStatistics} />
+  </div>
+</Row>
+)}
+*/
 export default LoggedHomePage;

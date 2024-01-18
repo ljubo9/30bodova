@@ -2,6 +2,7 @@ package app.recipe;
 
 import java.util.List;
 
+import app.dto.RecipeDTO;
 import app.roles.User;
 import jakarta.persistence.*;
 
@@ -62,8 +63,21 @@ public class Recipe {
         this.creator=creator;
     }
 
+    public Recipe() {
+    	
+    }
 
-    public int getId() {
+    public Recipe(String name2, int portionSize2, int cookTime2) {
+		// TODO Auto-generated constructor stub
+    	this.name = name2;
+    	this.portionSize = portionSize2;
+    	this.cookTime = cookTime2;
+	}
+	public Recipe(RecipeDTO recipeDTO) {
+		// TODO Auto-generated constructor stub
+		/** needs to be implemented **/
+	}
+	public int getId() {
         return id;
     }
 

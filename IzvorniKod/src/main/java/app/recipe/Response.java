@@ -26,6 +26,9 @@ public class Response {
         this.message = message;
     }
 
+    public Response() {
+    	
+    }
 
     public User getCreator() {
         return creator;

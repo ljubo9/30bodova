@@ -25,10 +25,17 @@ public class StepOfMaking {
         this.image = image;
     }
 
+    public StepOfMaking() {
+    	
+    }
+    
     public Recipe getRecipe() {
         return recipe;
     }
 
+    public int getId() {
+    	return id;
+    }
     public void setRecipe(Recipe recipe) {
         this.recipe = recipe;
     }

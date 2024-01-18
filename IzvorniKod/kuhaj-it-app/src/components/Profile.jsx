@@ -9,7 +9,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const profileResponse = await fetch(`/user/${username}`);
+        const profileResponse = await fetch(`/user/${currentUser}`);
         if (profileResponse.ok) {
           const profileData = await profileResponse.json();
           setProfileData(profileData);
