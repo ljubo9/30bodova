@@ -19,14 +19,20 @@ function ProfileEdit() {
 
   const handleChangeData = async () => {
     try {
-      const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+      const currentUser = sessionStorage.getItem('currentUser');
       const formData = new FormData();
 
-      formData.append('newUsername', userData.newUsername);
-      formData.append('newPassword', userData.newPassword);
-      formData.append('oldPassword', userData.oldPassword);
+      if (userData.newUsername.trim() !== '') {
+        formData.append('newUsername', userData.newUsername);
+      }
 
-      const updateResponse = await fetch(`/profile/${currentUser.username}`, {
+      if (userData.newPassword.trim() !== '') {
+        formData.append('newPassword', userData.newPassword);
+      }
+
+      formData.append('oldPassword', userData.oldPassword);
+      
+      const updateResponse = await fetch(`https://kuhajitbackend.onrender.com/profile/${currentUser}`, {
         method: 'POST',
         body: formData,
       });
@@ -37,7 +43,6 @@ function ProfileEdit() {
       }
 
       console.log('User data updated successfully');
-      sessionStorage.setItem("currentUser", JSON.stringify(updateResponse.json()));
       navigate('/');
     } catch (error) {
       console.error('Error updating user data:', error);
