@@ -47,20 +47,24 @@ function HomePage() {
         </div>
       </div>
       <h5>Najnoviji radovi:</h5>
-      <Row>
-        {Object.keys(latestChefCookbooks).map((chefId) => (
-          <Col key={chefId}>
-            <h6>Chef ID: {chefId}</h6>
-            <ul>
-              {latestChefCookbooks[chefId].map((cookbook) => (
-                <li key={cookbook.id}>
-                  <Link to={`/cookbook/${cookbook.id}`}>{cookbook.title}</Link>
-                </li>
-              ))}
-            </ul>
-          </Col>
-        ))}
-      </Row>
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      {Object.keys(latestChefCookbooks).map((chefId, index) => (
+        <div key={chefId} style={{ marginTop: index < Object.keys(latestChefCookbooks).length - 1 ? '20px' : 0 }}>
+          <h6>Entuzijast: {chefId}</h6>
+          <ul>
+            {latestChefCookbooks[chefId].map((cookbook) => (
+              <li key={cookbook.id}>
+                <Link to={`/cookbook/${cookbook.id}`}>{cookbook.title}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+      </div>
+
+      </div>
+
     </>
   );
 }
