@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -16,32 +15,31 @@ public class UserService implements UserDetailsService{
 
 	private final UserRepository userRepository;
 	private final BCryptPasswordEncoder encoder;
-
-
+	
 	@Autowired
 	public UserService(UserRepository userRepository, BCryptPasswordEncoder encoder) {
 		this.userRepository = userRepository;
 		this.encoder = encoder;
 	}
+	
+	 public List<User> getUsers() {
+		 return userRepository.findAll();
+	 }
+	 
+	 public boolean registerUser(User user) {
+		 try {
+			 user.setPassword(encoder.encode(user.getPassword()));
+			 checkUserDataValid(user);
+			 userRepository.save(user);
+			 return true;
+		 }
+		 catch (Exception e) {
+			 return false;
+		 }
+	 }
+	 
 
-	public List<User> getUsers() {
-		return userRepository.findAll();
-	}
-
-	public boolean registerUser(User user) {
-		try {
-			String encodedPassword = encoder.encode(user.getPassword());
-			user.setPassword(encodedPassword);
-			checkUserDataValid(user);
-			userRepository.save(user);
-			return true;
-		}
-		catch (Exception e) {
-			return false;
-		}
-	}
-
-	public void changeInfo(User userup){
+	 public void changeInfo(User userup){
 
 		Optional<User> user1=userRepository.findById(userup.getId());
 		if (!user1.isPresent()) throw new IllegalArgumentException("Cannot update non-existent user.");
@@ -78,7 +76,7 @@ public class UserService implements UserDetailsService{
 	}
 
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	public User loadUserByUsername(String username) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
 		Optional<User> user = userRepository.findUserByUsername(username);
 		if (!user.isPresent()) return null;
@@ -92,7 +90,6 @@ public class UserService implements UserDetailsService{
 	}
 
 	public List<User> loadAllEnthusiasts() {
-		// TODO Auto-generated method stub
 		List<User> users = userRepository.findAll();
 		List<User> enthusiasts = new ArrayList<>();
 		for (User user : users) {
