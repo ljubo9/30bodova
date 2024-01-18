@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import { Card, Container, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import CalorieChart from './CalorieChart';
 
 function LoggedHomePage() {
-  //const { username } = useParams();
   const user = JSON.parse(sessionStorage.getItem('currentUser'));
   const [recipeList, setRecipeList] = useState([]);
   const [dietInfo, setDiet] = useState([]);
@@ -120,8 +118,8 @@ function LoggedHomePage() {
   return (
     <Container>
 
-      {!recipeList ? (
-                <div>Nema isprobanih recepata</div>
+      {!recipeList || recipeList.length === 0 ? (
+                <h2>Nema isprobanih recepata</h2>
               ) : (<Row className="mt-4">
               <Col>
                 <h2>Isprobani recepti</h2>
@@ -159,18 +157,17 @@ function LoggedHomePage() {
       )}
       
 
-      {!dietInfo ? (
-                <div>Nema odabrane dijete</div>
-              ) : (<Row className="mt-4">
-              <Col>
-                <h2>Dijeta</h2>
-                <p>{dietInfo.description}</p>
-              </Col>
-            </Row>
+      {!dietInfo || dietInfo.length === 0 ? (
+        <h2>Nema odabrane dijete</h2>
+      ) : (<Row className="mt-4">
+          <Col>
+            <h2>Dijeta</h2>
+            <p>{dietInfo.description}</p>
+          </Col>
+        </Row>
       )}
-
-      {!followedChefs ? (
-                <div>Nema novih kuharica i recepata</div>
+      {!followedChefs  || followedChefs.length === 0 ? (
+                <h2>Nema novih kuharica i recepata</h2>
               ) : (<Row className="mt-4">
               <Col>
                 <h2>Nove kuharice i recepti</h2>
@@ -199,8 +196,6 @@ function LoggedHomePage() {
               </Col>
             </Row>
       )}
-      
-
     </Container>
   );
 

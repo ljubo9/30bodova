@@ -14,6 +14,7 @@ function Navigation() {
     navigate('/');
   };
 
+  console.log(currentUser)
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
@@ -25,25 +26,25 @@ function Navigation() {
             <Nav.Link as={Link} to="/culinary-enthusiasts"> 
               Kulinarski Entuzijasti
             </Nav.Link>
-            {currentUser && currentUser.role === 'nutritionist' && (
+            {currentUser && currentUser.role === 'NUTRITIONIST' && (
             <Nav.Link as={Link} to="/nutritionist">
                 Nutritionist
             </Nav.Link>
             )}
             
-            {currentUser && currentUser.role === 'enthusiast' && (
+            {currentUser && currentUser.role === 'ENTHUSIAST' && (
               <Nav.Link as={Nav.Link} to="/CookbookEditor">
                 Add cookbook
               </Nav.Link>
             )}
-            {currentUser && currentUser.role === 'enthusiast' && (
+            {currentUser && currentUser.role === 'ENTHUSIAST' && (
               <Nav.Link as={Nav.Link} to="/RecipeEditor">
                 Add recipe
               </Nav.Link>
             )}
             {currentUser ? (
               <>
-                <Nav.Link as={Link} to={`/profile/${currentUser.username}`}>
+                <Nav.Link as={Link} to={`/user/${currentUser.username}`}>
                   {currentUser.username}
                 </Nav.Link>
                 <Nav.Link as={Link} to="/choose-recipe">
