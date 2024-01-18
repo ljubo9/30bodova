@@ -96,7 +96,6 @@ public class UserService implements UserDetailsService{
 			if (user.getRole().equals(Role.ENTHUSIAST)) {
 				Enthusiast en = (Enthusiast) user;
 				enthusiasts.add(en);
-				System.out.println(user.getUsername());
 			}
 		}
 		return enthusiasts;

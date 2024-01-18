@@ -23,6 +23,10 @@ public class Enthusiast extends SpecialUser {
 		super(username, password, name, surname, Role.ENTHUSIAST, photo, biography, email);
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Enthusiast() {
+		
+	}
 
 	public Enthusiast(String username, String password, String name, String surname, Role role, Image photo,
 			String biography, String email) {

@@ -17,5 +17,8 @@ public class Nutritionist extends SpecialUser {
 		super(username, password, name, surname, Role.ENTHUSIAST, image, biography, email);
 
 	}
+	public Nutritionist() {
+		
+	}
 
 }
