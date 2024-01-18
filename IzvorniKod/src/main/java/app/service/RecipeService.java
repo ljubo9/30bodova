@@ -76,11 +76,8 @@ public class RecipeService {
 	public Set<Recipe> getRecipesByUsername(String username) {
 		// TODO Auto-generated method stub
 		Optional<User> u = userRepository.findUserByUsername(username);
-    	if (u.isPresent()) {
-    		return u.get().getRecipes();
-    	}
-    	return null;
-	}
+        return u.map(User::getRecipes).orElse(null);
+    }
 
 	public Set<Recipe> getRecipesByCategory(String category) {
 		List<Recipe> recipes = recipeRepository.findAll();

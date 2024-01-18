@@ -35,20 +35,6 @@ public class UserService implements UserDetailsService{
 		 return false;
 	 }
 
-     public User loginUser(String username, String password){
-		Optional<User> user = userRepository.findUserByUsername(username);
-		if(user.isEmpty()){
-			return null;
-		}
-
-		String cryptedPassword = encoder.encode(password);
-		if(!cryptedPassword.equals(user.get().getPassword())){
-			return null;
-		}
-
-		return user.get();
-	 }
-
 	 public void changeInfo(User userup){
 
 		Optional<User> user1=userRepository.findById(userup.getId());
