@@ -7,11 +7,11 @@ const Profile = () => {
 
   useEffect(() => {
     const fetchProfileData = async () => {
-      setProfileData(currentUser);
+      setProfileData(currentUser)
     };
 
     fetchProfileData();
-  }, [currentUser]);
+  }, []);
 
   console.log(profileData)
 
