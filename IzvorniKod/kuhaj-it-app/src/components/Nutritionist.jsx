@@ -243,7 +243,7 @@ const Nutritionist = () => {
       <div>
         <h2>Dijete</h2>
         <Form>
-          <Form.Row>
+          <Row>
             <Form.Group as={Col} controlId="lowCalorie">
               <Form.Label>Limitirane kalorije</Form.Label>
               <Form.Control
@@ -273,7 +273,7 @@ const Nutritionist = () => {
                 onChange={(e) => setDietLimits({ ...dietLimits, lowCarb: e.target.value })}
               />
             </Form.Group>
-          </Form.Row>
+          </Row>
 
           <Form.Group controlId="dietDescription">
             <Form.Label>Opis dijete</Form.Label>
