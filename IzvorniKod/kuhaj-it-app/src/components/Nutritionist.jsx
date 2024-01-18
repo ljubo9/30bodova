@@ -294,6 +294,6 @@ const Nutritionist = () => {
   );
 };
 
-export default Nutritionist;
 
+export default Nutritionist;
 

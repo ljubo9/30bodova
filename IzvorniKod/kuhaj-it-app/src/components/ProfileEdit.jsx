@@ -22,10 +22,16 @@ function ProfileEdit() {
       const currentUser = sessionStorage.getItem('currentUser');
       const formData = new FormData();
 
-      formData.append('newUsername', userData.newUsername);
-      formData.append('newPassword', userData.newPassword);
-      formData.append('oldPassword', userData.oldPassword);
+      if (userData.newUsername.trim() !== '') {
+        formData.append('newUsername', userData.newUsername);
+      }
 
+      if (userData.newPassword.trim() !== '') {
+        formData.append('newPassword', userData.newPassword);
+      }
+
+      formData.append('oldPassword', userData.oldPassword);
+      
       const updateResponse = await fetch(`https://kuhajitbackend.onrender.com/profile/${currentUser}`, {
         method: 'POST',
         body: formData,
