@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Container, Form, Col, Button } from 'react-bootstrap';
+import { Container, Form, Col, Row, Button } from 'react-bootstrap';
 
 const Nutritionist = () => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -102,7 +102,7 @@ const Nutritionist = () => {
       <div>
         <h2>Dodaj proizvod</h2>
         <Form>
-          <Form.Row>
+          <Row>
             <Form.Group as={Col} controlId="ingredientName">
               <Form.Label>Ime proizvoda</Form.Label>
               <Form.Control
@@ -221,7 +221,7 @@ const Nutritionist = () => {
             />
           </Form.Group>
 
-          </Form.Row>
+          </Row>
 
           <Button variant="primary" type="button" onClick={addIngredient}>
             Dodaj proizvod
