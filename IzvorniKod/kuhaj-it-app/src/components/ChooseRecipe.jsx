@@ -197,7 +197,7 @@ const ChooseRecipe = () => {
             <Link to={`/recipe/${recipe.id}`}>
               <h3>{recipe.name}</h3>
             </Link>
-            <p>Podudarni sastojci: {recipe.matchCount}/{recipe.requiredProducts?.length || 0}</p>
+            <p>Podudarni sastojci: {recipe.matchCount}/{recipe.ingredients?.length}</p>
           </div>
         ))}
       </div>
