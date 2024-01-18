@@ -1,4 +1,5 @@
 package app.controller;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -319,6 +320,22 @@ public class RecipeController {
 		}
 		catch (Exception e) {
 			System.out.println("Could not fetch all ingredients:");
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	
+	@GetMapping(path = "/statistic/user/{username}")
+	public ResponseEntity<Map<Integer, Integer>> getCalorieStatistics(@PathVariable String username) {
+		try {
+			Map<Integer, Integer> mapa = recipeService.getCalorieStatisticsByUsername(username);
+			if (mapa == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			
+			return new ResponseEntity<>(mapa, HttpStatus.OK);
+		}
+		catch (Exception e) {
+			System.out.println("Could not fetch consumedd recipes: ");
+			e.printStackTrace();
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
