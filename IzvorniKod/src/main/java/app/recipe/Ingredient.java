@@ -2,6 +2,8 @@ package app.recipe;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Ingredient {
 
@@ -12,6 +14,18 @@ public class Ingredient {
 	private String name;
 	@OneToOne
 	private Image image;
+	
+
+	@ManyToOne
+	private List<DietIngredient> dietIngredients;
+
+	public List<DietIngredient> getDietIngredients() {
+		return dietIngredients;
+	}
+
+	public void setDietIngredients(List<DietIngredient> dietIngredients) {
+		this.dietIngredients = dietIngredients;
+	}
 
 	public Image getImage() {
 		return image;

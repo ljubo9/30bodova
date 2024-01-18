@@ -1,5 +1,6 @@
-package app.recipe;
+package app.service;
 
+import app.repository.DietRepository;
 import org.springframework.stereotype.Service;
 
 @Service

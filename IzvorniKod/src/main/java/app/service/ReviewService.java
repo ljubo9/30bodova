@@ -1,5 +1,9 @@
-package app.recipe;
+package app.service;
 
+import app.recipe.Response;
+import app.recipe.Review;
+import app.repository.ResponseRepository;
+import app.repository.ReviewRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import  app.dto.*;

@@ -19,11 +19,22 @@ public class Diet {
     @ManyToOne
     private User creator;
 
+    @ManyToOne
+    private List<DietIngredient> dietIngredients;
+
     @OneToMany
     private List<User> users;
 
     public Diet() {
     	
+    }
+
+    public List<DietIngredient> getDietIngredients() {
+        return dietIngredients;
+    }
+
+    public void setDietIngredients(List<DietIngredient> dietIngredients) {
+        this.dietIngredients = dietIngredients;
     }
     
     public String getName() {
