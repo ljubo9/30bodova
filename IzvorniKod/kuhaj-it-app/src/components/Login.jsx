@@ -51,7 +51,7 @@ function Login() {
         const userDataResponse = await fetch(`/user/${username}`);
         if (userDataResponse.ok) {
           const userData = await userDataResponse.json();
-          sessionStorage.setItem('currentUser', JSON.stringify({role: userData.role }));
+          sessionStorage.setItem('currentUser', JSON.stringify(userData));
         }
         navigate('/home');
         

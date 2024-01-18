@@ -3,13 +3,13 @@ import { Link, useParams } from 'react-router-dom';
 import { Card, Container, Row, Col } from 'react-bootstrap';
 
 const Cookbook = () => {
-  const { id } = useParams();
+  const { culinaryId } = useParams();
   const [cookbookData, setCookbookData] = useState(null);
 
   useEffect(() => {
     const fetchCookbookData = async () => {
       try {
-        const response = await fetch(`/cookbook/${id}`);
+        const response = await fetch(`/cookbook/${culinaryId}`);
         
         if (response.ok) {
           const data = await response.json();
@@ -23,7 +23,7 @@ const Cookbook = () => {
     };
 
     fetchCookbookData();
-  }, [id]);
+  }, [culinaryId]);
 
   if (!cookbookData) {
     return <p>Loading...</p>;

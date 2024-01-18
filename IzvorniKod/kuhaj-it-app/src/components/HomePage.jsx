@@ -1,8 +1,30 @@
-import React from 'react';
-import { Card, Image } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Card, Image, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import cookingImage from '../assets/cooking.png'; 
 
 function HomePage() {
+  const [latestChefCookbooks, setLatestChefCookbooks] = useState({});
+
+  useEffect(() => {
+    const fetchLatestChefData = async () => {
+      try {
+        //za svakog entuzijasta trebamo dohvatiti njegove najnovije 3 kuharice
+        const cookbooksResponse = await fetch('/latest-enthusiast-cookbooks');
+        
+        if (cookbooksResponse.ok) {
+          const cookbooksData = await cookbooksResponse.json();
+          setLatestChefCookbooks(cookbooksData);
+        } else {
+          console.error('Error fetching latest chef data:', cookbooksResponse.statusText);
+        }
+      } catch (error) {
+        console.error('Error fetching latest chef data:', error.message);
+      }
+    };
+    fetchLatestChefData();
+  });
+
   return (
     <>
       <div
@@ -24,6 +46,21 @@ function HomePage() {
           </Card>
         </div>
       </div>
+      <h5>Najnoviji radovi:</h5>
+      <Row>
+        {Object.keys(latestChefCookbooks).map((chefId) => (
+          <Col key={chefId}>
+            <h6>Chef ID: {chefId}</h6>
+            <ul>
+              {latestChefCookbooks[chefId].map((cookbook) => (
+                <li key={cookbook.id}>
+                  <Link to={`/cookbook/${cookbook.id}`}>{cookbook.title}</Link>
+                </li>
+              ))}
+            </ul>
+          </Col>
+        ))}
+      </Row>
     </>
   );
 }

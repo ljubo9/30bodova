@@ -92,6 +92,7 @@ const Recipe = () => {
 
 
           {/*prikazivanje informacija o ingredients */}
+          
           <h3>Ingredients:</h3>
           <ul>
             {recipe.ingredients.map((ingredient, index) => (

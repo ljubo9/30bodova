@@ -8,11 +8,8 @@ import org.apache.tomcat.websocket.AuthenticationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,16 +33,11 @@ import app.recipe.ConsumedRecipe;
 public class UserController {
 	
 	private final UserService userService;
-	private final BCryptPasswordEncoder encoder;
-	private final AuthenticationManager authenticationManager;
 	
 	
 	@Autowired
-	public UserController(UserService userService, BCryptPasswordEncoder encoder,
-						  AuthenticationManager authenticationManager) {
+	public UserController(UserService userService) {
 		 this.userService = userService;
-		 this.encoder = encoder;
-		 this.authenticationManager = authenticationManager;
 	}
 	
 	@PostMapping(path = "/register", consumes = "multipart/form-data")
@@ -112,8 +104,10 @@ public class UserController {
 		try {
 			User oldUser = (User)userService.loadUserByUsername(username);
 			if (oldUser == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			userService.removeUser(oldUser);
 			oldUser.setUsername(newUsername);
-			oldUser.setPassword(oldPassword);
+			oldUser.setPassword(newPassword);
+			userService.registerUser(oldUser);
 			return new ResponseEntity<>(new UserDTO(oldUser), HttpStatus.OK);
 		}
 		catch (Exception e) {
@@ -167,7 +161,7 @@ public class UserController {
 			User u = (User) userService.loadUserByUsername(username);
 			if (u == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			/** get all enthusiasts from user **/
-			return new ResponseEntity<>(null, HttpStatus.OK);
+			return new ResponseEntity<>(new ArrayList<>(), HttpStatus.OK);
 
 		}
 		catch(Exception e) {
@@ -180,7 +174,7 @@ public class UserController {
 	@GetMapping(path = "/enthusiasts") 
 	public ResponseEntity<List<SpecialUserDTO>> getAllEnthusiasts() {
 		try {
-			List<User> en = userService.loadAllEnthusiasts();
+			List<Enthusiast> en = userService.loadAllEnthusiasts();
 			List<SpecialUserDTO> endto = new ArrayList<>();
 			for (User e : en) {
 				endto.add(new SpecialUserDTO(e));
