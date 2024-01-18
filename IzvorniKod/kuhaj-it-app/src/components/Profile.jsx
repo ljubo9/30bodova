@@ -2,14 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
 const Profile = () => {
-  const currentUser = sessionStorage.getItem('currentUser');
-  const { username } = useParams();
+  const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
   const [profileData, setProfileData] = useState(null);
 
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const profileResponse = await fetch(`/user/${currentUser}`);
+        const profileResponse = await fetch(`/user/${currentUser.username}`);
         if (profileResponse.ok) {
           const profileData = await profileResponse.json();
           setProfileData(profileData);
@@ -22,7 +21,9 @@ const Profile = () => {
     };
 
     fetchProfileData();
-  }, [username]);
+  }, [currentUser]);
+
+  console.log(profileData)
 
   if (!profileData) {
     return <div>Loading...</div>;
@@ -34,15 +35,15 @@ const Profile = () => {
       <p>Ime: {profileData.name} {profileData.surname}</p>
       <p>Korisničko ime: {profileData.username}</p>
 
-      {currentUser.role === 'enthusiast' || currentUser.role === 'nutritionist' ? (
+      {currentUser.role === 'ENTHUSIAST' || currentUser.role === 'NUTRITIONIST' ? (
         <div>
           <img src={profileData.image} alt="Profile" style={{ width: '150px', height: '150px', borderRadius: '50%' }} />
           <p>Biografija: {profileData.biography}</p>
         </div>
       ) : null}
 
-      {currentUser.role === 'enthusiast' ? (
-          <Link as={Link} to={`/enthusiast/${username}`}>
+      {currentUser.role === 'ENTHUSIAST' ? (
+          <Link as={Link} to={`/enthusiast/${profileData.username}`}>
             Moje kuharice i recepti
           </Link>
         ) : null}
