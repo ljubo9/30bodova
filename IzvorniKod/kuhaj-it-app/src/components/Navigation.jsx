@@ -44,13 +44,12 @@ function Navigation() {
             )}
             {currentUser ? (
               <>
-                <Nav.Link as={Link} to={`/user/${currentUser.username}`}>
-                  {currentUser.username}
-                </Nav.Link>
                 <Nav.Link as={Link} to="/choose-recipe">
                   Choose Recipe
                 </Nav.Link>
-                <Nav.Link disabled>{currentUser.username}</Nav.Link>
+                <Nav.Link as={Link} to={`/user/${currentUser.username}`}>
+                  {currentUser.username}
+                </Nav.Link>
                 <Button variant="dark" onClick={handleLogout}>
                   Logout
                 </Button>
