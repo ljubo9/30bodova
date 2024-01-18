@@ -9,7 +9,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const profileResponse = await fetch(`https://kuhajitbackend.onrender.com/user/${username}`);
+        const profileResponse = await fetch(`https://kuhajitbackend.onrender.com/user/${currentUser}`);
         if (profileResponse.ok) {
           const profileData = await profileResponse.json();
           setProfileData(profileData);
@@ -41,11 +41,11 @@ const Profile = () => {
         </div>
       ) : null}
 
-      {currentUser.role === 'enthusiast' && (
+      {currentUser.role === 'enthusiast' ? (
           <Link as={Link} to={`/enthusiast/${username}`}>
             Moje kuharice i recepti
           </Link>
-        )}
+        ) : null}
 
     </div>
   );
