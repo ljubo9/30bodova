@@ -44,7 +44,7 @@ function Login() {
 
       if (response.ok) {
         // provjera jel aktiviran korisnik
-        const activationStatusResponse = await fetch(`/user/activation/${username}`);
+        const activationStatusResponse = await fetch(`https://kuhajitbackend.onrender.com/user/activation/${username}`);
         if (activationStatusResponse.ok) {
           const activationStatusData = await activationStatusResponse.json();
           if (activationStatusData.status === 'activated') {
