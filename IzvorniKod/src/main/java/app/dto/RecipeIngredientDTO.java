@@ -21,6 +21,8 @@ public class RecipeIngredientDTO {
 
     public RecipeIngredientDTO(RecipeIngredient r) {
     	this.ingredient = new IngredientDTO(r.getIngredient());
+    	this.quantity = r.getQuantity();
+    	this.recipeId = r.getRecipe().getId();
     }
 
     
