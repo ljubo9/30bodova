@@ -3,7 +3,6 @@ import { useParams, Link } from 'react-router-dom';
 
 const Profile = () => {
   const currentUser = sessionStorage.getItem('currentUser');
-  const { username } = useParams();
   const [profileData, setProfileData] = useState(null);
 
   useEffect(() => {
@@ -22,7 +21,7 @@ const Profile = () => {
     };
 
     fetchProfileData();
-  }, [username]);
+  }, [currentUser]);
 
   if (!profileData) {
     return <div>Loading...</div>;
@@ -42,7 +41,7 @@ const Profile = () => {
       ) : null}
 
       {currentUser.role === 'enthusiast' ? (
-          <Link as={Link} to={`/enthusiast/${username}`}>
+          <Link as={Link} to={`/enthusiast/${currentUser}`}>
             Moje kuharice i recepti
           </Link>
         ) : null}

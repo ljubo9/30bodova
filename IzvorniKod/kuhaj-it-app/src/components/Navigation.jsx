@@ -43,7 +43,7 @@ function Navigation() {
             )}
             {currentUser ? (
               <>
-                <Nav.Link as={Link} to={`/profile/${currentUser.username}`}>
+                <Nav.Link as={Link} to={`/user/${currentUser.username}`}>
                   {currentUser.username}
                 </Nav.Link>
                 <Nav.Link as={Link} to="/choose-recipe">
