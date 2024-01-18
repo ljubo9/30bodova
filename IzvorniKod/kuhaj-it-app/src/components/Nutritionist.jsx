@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Container, Form, Col, Row, Button } from 'react-bootstrap';
+import { Button, Form, Container, Row, Col } from 'react-bootstrap';
 
 const Nutritionist = () => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -22,6 +22,7 @@ const Nutritionist = () => {
     weight: '',
     labels: [],
   });
+  
   const [dietLimits, setDietLimits] = useState({
     lowCalorie: 2000,
     lowFat: 40,
@@ -46,16 +47,13 @@ const Nutritionist = () => {
 
 
     fetch('https://kuhajitbackend.onrender.com/labels') //labele za kategoriziranje proizvoda
-
       .then(response => response.json())
       .then(data => setLabels(data))
       .catch(error => console.error('Error fetching labels:', error));
   }, []);
 
   const fetchIngredients = () => {
-    fetch('/ingredients') // Fetching ingredients
-
-
+    fetch('https://kuhajitbackend.onrender.com/ingredients') // Fetching ingredients
       .then(response => response.json())
       .then(data => setIngredients(data))
       .catch(error => console.error('Error fetching ingredients:', error));
@@ -297,7 +295,6 @@ const Nutritionist = () => {
     </Container>
   );
 }
-
 
 export default Nutritionist;
 

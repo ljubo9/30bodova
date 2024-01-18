@@ -9,12 +9,12 @@ import CulinaryEnthusiast from './components/CulinaryEnthusiast';
 import ProfileCulinaryEnthusiast from './components/ProfileCulinaryEnthusiast';
 import LoggedHomePage from './components/LoggedHomePage';
 import ChooseRecipe from './components/ChooseRecipe';
-import Nutritionist  from './components/Nutritionist';
 import Cookbook from './components/Cookbook';
 import Recipe from './components/Recipe';
 import Profile from './components/Profile';
 import CookbookEditor from './components/CookbookEditor';
 import RecipeEditor from './components/RecipeEditor';
+import Nutritionist from './components/Nutritionist';
 
 function App() {
   return (
