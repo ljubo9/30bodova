@@ -229,7 +229,7 @@ public class RecipeController {
 		return finalRecipe;
 	}
 	
-	@GetMapping(path = "/latest-enthusiast/cookbooks")
+	@GetMapping(path = "/latest-enthusiast-cookbooks")
     public ResponseEntity<Map<String, Set<CookbookDTO>>> getLatestCookbooks() {
 		try {
 			Map<String, Set<CookbookDTO>> list = new HashMap<>();
