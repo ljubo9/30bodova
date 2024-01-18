@@ -43,18 +43,23 @@ function Login() {
       });
 
       if (response.ok) {
-      
-        sessionStorage.setItem('isLoggedIn', 'true');
-        sessionStorage.setItem('currentUser', username);
-        //moramo dohvatiti ulogu iz baze da stavimo pod currentUser.role
-        //endpoint za dohvaćanje podataka o ulogiranom korisniku iz baze
-        const userDataResponse = await fetch(`/user/${username}`);
-        if (userDataResponse.ok) {
-          const userData = await userDataResponse.json();
-          sessionStorage.setItem('currentUser', JSON.stringify({role: userData.role }));
-        }
-        navigate('/home');
-        
+        // provjera jel aktiviran korisnik
+        const activationStatusResponse = await fetch(`/user/activation/${username}`);
+        if (activationStatusResponse.ok) {
+          const activationStatusData = await activationStatusResponse.json();
+          if (activationStatusData.status === 'activated') {
+            sessionStorage.setItem('isLoggedIn', 'true');
+            sessionStorage.setItem('currentUser', username);
+            //moramo dohvatiti ulogu iz baze da stavimo pod currentUser.role
+            //endpoint za dohvaćanje podataka o ulogiranom korisniku iz baze
+            const userDataResponse = await fetch(`/user/${username}`);
+            if (userDataResponse.ok) {
+              const userData = await userDataResponse.json();
+              sessionStorage.setItem('currentUser', JSON.stringify({ role: userData.role }));
+            }
+            navigate('/home');
+           } 
+        }          
       } else {
         setLoginStatus('error');
         console.error('Login failed');

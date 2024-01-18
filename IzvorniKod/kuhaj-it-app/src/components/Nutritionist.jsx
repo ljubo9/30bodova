@@ -43,9 +43,7 @@ function Nutritionist() {
     const storedUser = sessionStorage.getItem('currentUser');
     setCurrentUser(storedUser ? JSON.parse(storedUser) : null);
 
-ljubic_react
-    fetch('https://kuhajitbackend.onrender.com/labels') // Labels for categorizing ingredients
-=======
+
     fetch('https://kuhajitbackend.onrender.com/labels') //labele za kategoriziranje proizvoda
 
       .then(response => response.json())

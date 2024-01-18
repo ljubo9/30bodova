@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Navbar, Container, Nav, Button } from 'react-bootstrap';
+import { Navbar, NavLink, Container, Nav, Button } from 'react-bootstrap';
 import RecipeAndCookbookEditor from './RecipeAndCookbookEditor'; // Import the component
 
 function Navigation() {
@@ -13,8 +13,6 @@ function Navigation() {
   };
 
   const currentUser = sessionStorage.getItem('currentUser');
-  console.log(currentUser)
-  console.log(currentUser.role)
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary">

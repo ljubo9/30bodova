@@ -35,6 +35,7 @@ const Register = () => {
       name: firstName,
       surname: lastName,
       role: selectedRole.toUpperCase(),
+      status: 'pending',
       ...(selectedRole === 'nutritionist' || selectedRole === 'enthusiast'
         ? {
             email: email,
@@ -107,7 +108,7 @@ const Register = () => {
         <Col xs={12} md={6}>
           {isValidPassword === false && (
             <Alert variant="danger" className="mb-3">
-              Please choose a stronger password!
+              Please choose a stronger password! Atleast one uppercase letter and 8 characters long!
             </Alert>
           )}
 
