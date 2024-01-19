@@ -33,6 +33,7 @@ public class User implements UserDetails {
 	private String password;
 	private String name;
 	private String surname;
+	private String email;
 
 
 
@@ -53,7 +54,7 @@ public class User implements UserDetails {
 	@OneToMany
 	private List<ConsumedRecipe> consumedRecipes;
 	
-	private User(String username, String password, String name, String surname) {
+	private User(String username, String password, String name, String surname,  String email) {
 		// TODO Auto-generated constructor stub
 		if (username == null || password == null ||
 		    name == null || surname == null) throw new IllegalArgumentException("All fields must be filled out");
@@ -62,11 +63,12 @@ public class User implements UserDetails {
 		this.name = name;
 		this.surname = surname;
 		this.role = null;
+		this.email = email;
 	}
 	
-	public User(String username, String password, String name, String surname, Role role) {
+	public User(String username, String password, String name, String surname, Role role, String email) {
 		// TODO Auto-generated constructor stub
-		this(username, password, name, surname);
+		this(username, password, name, surname, email);
 		this.role = role;
 	}
 	public User(){}
@@ -85,10 +87,17 @@ public class User implements UserDetails {
 	public int getId() {
 		return id;
 	}
+	public String getEmail() {
+		return email;
+	}
 
 	
 	public Role getRole() {
 		return role;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public void setId(int id){

@@ -5,6 +5,7 @@ import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 
 function Navigation() {
   const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+  const isLoggedIn = sessionStorage.getItem('isLoggedIn');
   console.log(currentUser);
   const navigate = useNavigate();
 
@@ -19,7 +20,10 @@ function Navigation() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="/home">KuhajIT</Navbar.Brand>
+      {isLoggedIn ? (
+              <Navbar.Brand href="/home">KuhajIT</Navbar.Brand>
+        ) : (<Navbar.Brand href="/">KuhajIT</Navbar.Brand>)}
+
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
@@ -29,11 +33,13 @@ function Navigation() {
             <Nav.Link as={Link} to="/culinary-enthusiasts"> 
               Kulinarski Entuzijasti
             </Nav.Link>
-            {currentUser && currentUser.role === 'NUTRITIONIST' && (
+            <Nav.Link as={Link} to="/choose-recipe">
+                Choose Recipe
+            </Nav.Link>
+
             <Nav.Link as={Link} to="/nutritionist">
                 Nutricionist
             </Nav.Link>
-            )}
             
             {currentUser && currentUser.role === 'ENTHUSIAST' && (
               <Nav.Link as={Link} to="/cookbook-editor">
