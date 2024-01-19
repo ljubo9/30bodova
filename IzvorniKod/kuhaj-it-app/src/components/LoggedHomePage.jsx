@@ -106,10 +106,10 @@ function LoggedHomePage() {
     fetchFollowedChefs();
     fetchLatestChefData();
     fetchConsumedRecipesStatistics();
-    console.log(user.username);
+    /*console.log(user.username);
     console.log(recipeList);
     console.log(dietInfo);
-    console.log(followedChefs);
+    console.log(followedChefs);*/
     console.log(consumedRecipesStatistics);
   }, []);
 

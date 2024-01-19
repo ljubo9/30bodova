@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import javax.mail.MessagingException;
+
 import org.apache.tomcat.websocket.AuthenticationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,17 +32,20 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import app.dto.SpecialUserDTO;
 import app.dto.UserDTO;
 import app.recipe.ConsumedRecipe;
+import app.service.EmailService;
 
 @RestController
 @RequestMapping
 public class UserController {
 	
 	private final UserService userService;
+	private final EmailService emailService;
 	
 	
 	@Autowired
-	public UserController(UserService userService) {
+	public UserController(UserService userService, EmailService emailService) {
 		 this.userService = userService;
+		 this.emailService = emailService;
 	}
 	
 	@PostMapping(path = "/register", consumes = "multipart/form-data")
@@ -66,6 +71,11 @@ public class UserController {
 		}
 		user = AuthorizationForm.parseUser(form);
 		userService.registerUser(user);
+
+		try {
+            emailService.posaljiPotvrdu(user.getEmail());
+        } catch (MessagingException | jakarta.mail.MessagingException e) {
+		}
 	}
 	
 	@PostMapping(path = "/login", consumes = "multipart/form-data")
