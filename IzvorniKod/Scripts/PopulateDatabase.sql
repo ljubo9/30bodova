@@ -246,15 +246,15 @@ values(6,'2024-01-16', 3, 6);
 
 insert into public."consumed_recipe"
 (id, "date", recipe_id, user_id)
-values(7,'2024-01-16', 4, 6)
+values(7,'2024-01-16', 4, 6);
 
 insert into public."consumed_recipe"
 (id, "date", recipe_id, user_id)
-values(8,'2024-01-14', 3, 6)
+values(8,'2024-01-14', 3, 6);
 
 insert into public."consumed_recipe"
 (id, "date", recipe_id, user_id)
-values(9,'2024-01-14', 4, 6)
+values(9,'2024-01-14', 4, 6);
 
 insert into public."step_of_making"
 (id, "description", step_num, recipe_id)
