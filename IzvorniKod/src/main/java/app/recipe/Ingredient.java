@@ -15,7 +15,7 @@ public class Ingredient {
 	@ManyToOne
 	private Image image;
 	
-	@OneToOne
+	@ManyToOne
 	private Category cat;
 	
 	@ManyToMany
