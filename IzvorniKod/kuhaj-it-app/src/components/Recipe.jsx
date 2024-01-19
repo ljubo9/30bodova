@@ -30,6 +30,11 @@ const Recipe = () => {
   };
 
   useEffect(() => {
+    console.log('Recipe:', recipe);
+    console.log('Review Response:', reviewResponse);
+  }, [recipe, reviewResponse]);
+
+  useEffect(() => {
     fetchRecipe();
   }, [recipeId]);
 
@@ -120,7 +125,9 @@ const Recipe = () => {
           <p>Vlasnik recepta: {recipe.creator}</p>
           <p>Veličina porcije {recipe.portionSize}</p>
           <p>Vrijeme spremanja: {recipe.cookTime}</p>
-          <p>Kategorija: {recipe.category}</p>
+          {recipe.category ? (
+          <p>Kategorija: {recipe.category.name}</p>
+          ) : ( <p></p>)}
 
           <h3>Sastojci:</h3>
           <ul>
@@ -172,13 +179,13 @@ const Recipe = () => {
                     <p>Poruka: {review.message}</p>
                     <p>Ocjena: {review.mark}</p>
                     <p>Autor: {review.username || 'Anoniman'}</p>
-                    {reviewResponse && (
+                    {reviewResponse &&  (
                       <div>
                         <p>Odgovor: {reviewResponse.message}</p>
                         <p>Autor odgovora: {reviewResponse.username}</p>
                       </div>
                     )}
-                    {!review.response && currentUser.username === recipe.creator && (
+                    {!reviewResponse && currentUser.username === recipe.creator && (
                       <div>
                         <Form.Control
                           as="textarea"
