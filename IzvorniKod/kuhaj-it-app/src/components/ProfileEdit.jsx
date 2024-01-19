@@ -22,13 +22,10 @@ function ProfileEdit() {
       const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
       const formData = new FormData();
 
-      if (userData.newUsername.trim() !== '') {
-        formData.append('newUsername', userData.newUsername);
-      }
 
-      if (userData.newPassword.trim() !== '') {
-        formData.append('newPassword', userData.newPassword);
-      }
+      formData.append('newUsername', userData.newUsername);
+    
+      formData.append('newPassword', userData.newPassword);
 
       formData.append('oldPassword', userData.oldPassword);
       
@@ -40,6 +37,10 @@ function ProfileEdit() {
       if (!updateResponse.ok) {
         console.error('Failed to update user data');
         return;
+      }
+
+      if(formData.newUsername!=""){
+        currentUser.username=formData.newUsername;
       }
 
       console.log('User data updated successfully');
