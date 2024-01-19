@@ -32,7 +32,7 @@ function ProfileEdit() {
 
       formData.append('oldPassword', userData.oldPassword);
       
-      const updateResponse = await fetch(`/profile/${currentUser.username}`, {
+      const updateResponse = await fetch(`https://kuhajitbackend.onrender.com/profile/${currentUser.username}`, {
         method: 'POST',
         body: formData,
       });

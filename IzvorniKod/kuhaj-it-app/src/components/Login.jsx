@@ -37,14 +37,14 @@ function Login() {
     }
 
     try {
-      const response = await fetch('/login', {
+      const response = await fetch('https://kuhajitbackend.onrender.com/login', {
         method: 'POST',
         body: formData,
       });
 
       if (response.ok) {
         // provjera jel aktiviran korisnik
-        const activationStatusResponse = await fetch(`/user/activation/${username}`);
+        const activationStatusResponse = await fetch(`https://kuhajitbackend.onrender.com/user/activation/${username}`);
         if (activationStatusResponse.ok) {
           const responseData = await response.json();
           const activationStatusData = await activationStatusResponse.text();

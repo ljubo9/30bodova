@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Bar } from 'react-chartjs-2';
-import { Chart as ChartJS } from 'chart.js/auto';
-import { Chart } from 'react-chartjs-2';
 
 const CalorieChart = ({ consumedRecipesStatistics }) => {
   const daysOfWeek = Object.keys({"22.01.":35, "23.01.": 45, "24.01.": 60, "25.01.": 43, "26.01.": 55, "27.01.": 20, "28.01.": 100});

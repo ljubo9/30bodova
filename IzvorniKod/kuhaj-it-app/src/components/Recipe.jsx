@@ -16,7 +16,7 @@ const Recipe = () => {
 
   const fetchRecipe = async () => {
     try {
-      const response = await fetch(`/recipe/get/${recipeId}`);
+      const response = await fetch(`https://kuhajitbackend.onrender.com/recipe/get/${recipeId}`);
       if (response.ok) {
         const data = await response.json();
         setRecipe(data);
@@ -46,7 +46,7 @@ const Recipe = () => {
 
   const handleResponseSubmit = async (reviewId) => {
     try {
-      const response = await fetch(`/response`, {
+      const response = await fetch(`https://kuhajitbackend.onrender.com/response`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -74,7 +74,7 @@ const Recipe = () => {
       form.append('mark', parseInt(reviewRating, 10) || 0);
       form.append('username', currentUser.username || '');
 
-      const response = await fetch(`/review`, {
+      const response = await fetch(`https://kuhajitbackend.onrender.com/review`, {
         method: 'POST',
         body: form,
       });
@@ -95,7 +95,7 @@ const Recipe = () => {
       formData.append("recipeId", recipeId);
       formData.append("username", currentUser.username);
       formData.append("date", selectedDate?.toISOString().slice(0, 10) || '')
-      const response = await fetch(`/recipes/addToTriedRecipes`, {
+      const response = await fetch(`https://kuhajitbackend.onrender.com/recipes/addToTriedRecipes`, {
         method: 'POST',
         body : formData
       });
