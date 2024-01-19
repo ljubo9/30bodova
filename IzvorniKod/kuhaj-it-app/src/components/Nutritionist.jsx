@@ -38,17 +38,15 @@ const Nutritionist = () => {
     newDiet.append("lowCarb", dietLimits.lowCarb);
     newDiet.append("dietDescription", dietLimits.dietDescription);
     try {
-      fetch("/diet/add", { 
+      fetch(`/diet/add/${currentUser.name}`, { 
         method: "POST",
         body: newDiet
       })
+      console.log("Diet added sucessfuly");
     }
     catch(error) {
       console.error("Could not add diet: ", error);
     }
-
-
-
 
     console.log('New Diet:', newDiet);
 

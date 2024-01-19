@@ -35,6 +35,8 @@ public class User implements UserDetails {
 	private String surname;
 	private String email;
 
+	
+	public static User ANONYMOUS = new User(1000000, "anonymous", "anonymous", "anonymous", "anonymous", "anonymous");
 
 	@ManyToOne
 	private Diet diet;
@@ -69,11 +71,18 @@ public class User implements UserDetails {
 		this.confirmed = true;
 	}
 	
+	private User(int id, String username, String password, String name, String surname, String email) {
+		this(username, password, name, surname, email);
+		this.id = id;
+	}
+	
 	public User(String username, String password, String name, String surname, Role role, String email) {
 		// TODO Auto-generated constructor stub
 		this(username, password, name, surname, email);
 		this.role = role;
 	}
+	
+
 	public User(){}
 	public String getUsername() {
 		return username;
