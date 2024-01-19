@@ -53,7 +53,6 @@ const ChooseRecipe = () => {
         const response = await fetch("/recipes/all");
         if (response.ok) {
           const data = await response.json();
-          console.log(data);
           setRecipesFromDB(data);
           console.log(data);
         } else {
@@ -99,27 +98,6 @@ const ChooseRecipe = () => {
     return () => scanner?.clear();
   }, [scanner]);
 
-
-
-  // const displayAndSortRecipes = () => {
-  //   const matchedRecipes = recipesFromDB.map((recipe) => {
-  //     const matchCount = recipe.ingredients.filter((product) => 
-  //       products.hasOwnProperty(product) && products[product] > 0
-  //     ).length;
-  //     return { ...recipe, matchCount };
-  //   });
-  
-  //   matchedRecipes.sort((a, b) => b.matchCount - a.matchCount);
-  //   return matchedRecipes;
-  // };
-
-  // useEffect(() => {
-  //   displayAndSortRecipes();
-  // }, [products, recipesFromDB]);
-  
-
-  // const sortedRecipes = displayAndSortRecipes();
-
   const addProduct = (product) => {
     if (product) {
       setProducts((prevProducts) => {
@@ -149,13 +127,38 @@ const ChooseRecipe = () => {
           if (products[ingredient.ingredient.name] > 0) {
             return true;
           }
-          // if (Object.keys(products).includes(ingredient.ingredient.name)) {
-          //   return true;
-          // }
         });
       })
     )
   }, [products]);
+
+  useEffect(() => {
+    setRecepti(recipesFromDB.map(recept => {
+      let matchCount = 0;
+      recept.ingredients.forEach(ing => {
+        if (products[ing.ingredient.name]) {
+          matchCount += 1;
+        }
+      });
+      return { ...recept, matchCount };
+    }));
+  }, [products, recipesFromDB]);
+
+  useEffect(() => {
+    const sortedRecipes = [...recipesFromDB].map(recept => {
+      let matchCount = 0;
+      recept.ingredients.forEach(ing => {
+        if (products[ing.ingredient.name]) {
+          matchCount += 1;
+        }
+      });
+      return { ...recept, matchCount };
+    }).sort((a, b) => b.matchCount - a.matchCount);
+  
+    setRecepti(sortedRecipes);
+  }, [products, recipesFromDB]);
+  
+  
 
 
   return (
@@ -228,12 +231,12 @@ const ChooseRecipe = () => {
       <Row>
         {recepti && typeof recepti !== undefined && recepti.length > 0 && recepti.map((recipe, index) => (
           <Col md={4} key={index}>
-            <div className="bg-white p-3 rounded mb-4">
-              <Link to={`/recipe/${recipe.id}`} className="text-decoration-none text-dark">
-                <h3>{recipe.name}</h3>
+            <Link to={`/recipe/${recipe.id}`} className="text-decoration-none text-dark">
+              <div className="bg-white p-3 rounded mb-4">
+                  <h3>{recipe.name}</h3>
+                <p>Podudarni sastojci: {recipe.matchCount}/{recipe.ingredients?.length}</p>
+              </div>
               </Link>
-              <p>Podudarni sastojci: {recipe.matchCount}/{recipe.ingredients?.length}</p>
-            </div>
           </Col>
         ))}
       </Row>
