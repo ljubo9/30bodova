@@ -130,6 +130,21 @@ const ChooseRecipe = () => {
     }
   };
 
+  const [recepti, setRecepti] = useState([])
+
+  useEffect(()=>{
+    setRecepti(sortedRecipes)
+  },[])
+
+  useEffect(()=>{
+    const filteredRecepti = sortedRecipes.filter((recipe) => {
+      const productInRecipe = recipe.ingredients.includes(selectedProduct);
+      return products.hasOwnProperty(selectedProduct) && products[selectedProduct] > 0 && productInRecipe;
+    });
+  
+    setRecepti(filteredRecepti);
+  },[products])
+  
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
       {/* First Row */}
@@ -192,7 +207,7 @@ const ChooseRecipe = () => {
 
       {/* Second Row: Recipe Cards */}
       <div>
-        {sortedRecipes.map((recipe, index) => (
+        {recepti.map((recipe, index) => (
           <div key={index} style={{ border: '1px solid #ccc', padding: '10px', margin: '10px', width: '300px' }}>
             <Link to={`/recipe/${recipe.id}`}>
               <h3>{recipe.name}</h3>
