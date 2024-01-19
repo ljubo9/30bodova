@@ -7,12 +7,11 @@ function CulinaryEnthusiast() {
   const [filterSubcategory, setFilterSubcategory] = useState('');
   const [filteredEnthusiasts, setFilteredEnthusiasts] = useState([]);  //filtirani entuzijasti po kategoriji ili searchu
   const [enthusiasts, setEnthusiasts] = useState([]);  //svi entuzijasti iz baze
-  const [isLoadingEnthusiasts, setIsLoadingEnthusiasts] = useState(true); // Loading state for enthusiasts
-  const [isLoadingCreators, setIsLoadingCreators] = useState(false); // Loading state for creators
+  const [isLoading, setIsLoading] = useState(true); // Added loading state
 
   const fetchCreatorsByCategory = async (category) => {
-    setIsLoadingCreators(true);
     try {
+      setIsLoading(true);
       // Dohvaćanje svih kuharica iz baze čija je kategorija jednaka stisnutoj
       const cookbooksResponse = await fetch(`/cookbooks/category?category=${category}`);
       if (!cookbooksResponse.ok) {
@@ -39,7 +38,7 @@ function CulinaryEnthusiast() {
     } catch (error) {
       console.error('Error fetching creators:', error.message);
     } finally {
-      setIsLoadingCreators(false);
+      setIsLoading(false);
     }
   };
   
@@ -53,6 +52,7 @@ function CulinaryEnthusiast() {
   useEffect(() => {
     const fetchAllEnthusiasts = async () => {
       try {
+        setIsLoading(true);
       //dohvacanje svih entuzijasta iz baze
         const response = await fetch('/enthusiasts');
         if (response.ok) {
@@ -64,7 +64,7 @@ function CulinaryEnthusiast() {
       } catch (error) {
         console.error('Error fetching enthusiasts:', error.message);
       } finally {
-        setIsLoadingEnthusiasts(false);
+        setIsLoading(false);
       }
     };
 
@@ -72,24 +72,23 @@ function CulinaryEnthusiast() {
   }, []);
 
   useEffect(() => {
-    //svi entuzijasti se filtriraju 
-    console.log(searchTerm);
-    if (searchTerm === '') {
-      setFilteredEnthusiasts(enthusiasts)
+    if (!isLoading) {
+      if (searchTerm === '') {
+        setFilteredEnthusiasts(enthusiasts);
+      } else {
+        const filteredByUsername = enthusiasts.filter((enthusiast) =>
+          enthusiast.username.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        setFilteredEnthusiasts(filteredByUsername);
+      }
     }
-    else {
-      console.log(enthusiasts);
-      const filteredByUsername = enthusiasts.filter((enthusiast) =>
-        enthusiast.username.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      console.log(enthusiasts);
-      setFilteredEnthusiasts(filteredByUsername);
-    }
-  }, [searchTerm, enthusiasts]);
+  }, [searchTerm, enthusiasts, isLoading]);
 
   useEffect(() => {
-    fetchCreatorsByCategory(filterSubcategory);
-  }, [filterSubcategory]);
+    if (filterSubcategory && !isLoading) {
+      fetchCreatorsByCategory(filterSubcategory);
+    }
+  }, [filterSubcategory, isLoading]);
 
   const menuOptions = [
     {
@@ -145,7 +144,7 @@ function CulinaryEnthusiast() {
         )}
       </div>
       <div className="bg-light">
-        {isLoadingEnthusiasts || isLoadingCreators ? (
+        {isLoading ? (
           <p>Loading...</p> // Loading indicator
         ) : (
           <ul>
