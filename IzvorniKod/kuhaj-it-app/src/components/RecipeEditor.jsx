@@ -21,10 +21,11 @@ const RecipeEditor = () => {
       try {
         //dohvaćanje kuharica po id-u entuzijasta
         console.log(currentUser)
-        const response = await fetch(`/cookbook/${currentUser.username}`);
+        const response = await fetch(`/cookbook/get/${currentUser.id}`);
         if (response.ok) {
           const cookbooksData = await response.json();
           setCookbooks(cookbooksData);
+          console.log(cookbooksData);
         } else {
           console.error('Greška prilikom dohvaćanja kuharica.');
         }

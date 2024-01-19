@@ -38,7 +38,7 @@ const Nutritionist = () => {
     newDiet.append("lowCarb", dietLimits.lowCarb);
     newDiet.append("dietDescription", dietLimits.dietDescription);
     try {
-      fetch("/diet/add", { 
+      fetch(`/diet/add/${currentUser.name}`, { 
         method: "POST",
         body: newDiet
       })

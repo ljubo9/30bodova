@@ -22,7 +22,8 @@ public class Cookbook {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    @OneToOne
+    
+    @ManyToOne
     private Category category;
     @ManyToMany
     @JoinTable(

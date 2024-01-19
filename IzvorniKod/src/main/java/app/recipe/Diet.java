@@ -30,11 +30,12 @@ public class Diet {
     private List<User> users;
 
     
-    public Diet(int lowCalorie, int lowFat, int lowCarb, String description) {
+    public Diet(User u, int lowCalorie, int lowFat, int lowCarb, String description) {
     	this.lowCalorie = lowCalorie;
     	this.lowFat = lowFat;
     	this.lowCarb = lowCarb;
     	this.description = description;
+    	this.creator = u;
     }
     
     public Diet() {

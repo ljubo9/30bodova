@@ -30,8 +30,8 @@ import app.recipe.Ingredient;
 import app.recipe.Recipe;
 import app.roles.Enthusiast;
 import app.roles.User;
-import app.service.UserService;
 import app.service.RecipeService;
+import app.service.UserService;
 
 @RestController
 @RequestMapping()
@@ -184,12 +184,16 @@ public class RecipeController {
     	}
     }
     
-    @GetMapping(path = "/cookbook/get")
-    public ResponseEntity<CookbookDTO> getCookbook(@RequestParam int id) {
+    @GetMapping(path = "/cookbook/get/{id}")
+    public ResponseEntity<List<CookbookDTO>> getCookbook(@PathVariable int id) {
     	try {
-    		Cookbook c = recipeService.getCookbookById(id);
-    		if (c == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    		return new ResponseEntity<>(new CookbookDTO(c), HttpStatus.OK);
+    		List<Cookbook> cb = recipeService.getCookbookByUsername(id);
+    		if (cb == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    		List<CookbookDTO> list = new ArrayList<>();
+    		for (Cookbook c : cb) {
+    			list.add(new CookbookDTO(c));
+    		}
+    		return new ResponseEntity<>(list, HttpStatus.OK);
     	}
     	catch(Exception e) {
     		return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -341,7 +345,7 @@ public class RecipeController {
 			return new ResponseEntity<>(mapa, HttpStatus.OK);
 		}
 		catch (Exception e) {
-			System.out.println("Could not fetch consumedd recipes: ");
+			System.out.println("Could not fetch consumed recipes: ");
 			e.printStackTrace();
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
