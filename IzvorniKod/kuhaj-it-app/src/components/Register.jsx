@@ -180,17 +180,6 @@ const Register = () => {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="email">
-                  <Form.Label>Email</Form.Label>
-                  <Form.Control
-                    type="email"
-                    placeholder="Upiši svoj mail"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
-            </Form.Group>
-
             <Form.Group className="mb-3" controlId="role">
               <Form.Label>Uloga</Form.Label>
               <Form.Select
@@ -205,6 +194,16 @@ const Register = () => {
 
             {['nutritionist', 'enthusiast'].includes(selectedRole) && (
               <>
+                  <Form.Group className="mb-3" controlId="email">
+                      <Form.Label>Email</Form.Label>
+                      <Form.Control
+                        type="email"
+                        placeholder="Upiši svoj mail"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                      />
+                </Form.Group>
                 <Form.Group className="mb-3" controlId="bio">
                   <Form.Label>Biografija</Form.Label>
                   <Form.Control
