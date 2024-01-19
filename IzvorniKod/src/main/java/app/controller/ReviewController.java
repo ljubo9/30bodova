@@ -74,7 +74,7 @@ public class ReviewController {
     }
     
     @PostMapping(path = "/review", consumes = "multipart/form-data") 
-    public ResponseEntity<String> addReview(@RequestParam("id") int recipeId, @RequestParam("message") String message, @RequestParam("mark") int mark, @RequestParam("username") String username) {
+    public ResponseEntity<String> addReview(@RequestParam("recipeId") int recipeId, @RequestParam("message") String message, @RequestParam("mark") int mark, @RequestParam("username") String username) {
     	try {
     		Recipe r = recipeService.loadRecipeById(recipeId);
     		User u = (User) userService.loadUserByUsername(username);

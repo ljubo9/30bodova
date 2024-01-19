@@ -9,11 +9,13 @@ const Cookbook = () => {
   useEffect(() => {
     const fetchCookbookData = async () => {
       try {
-        const response = await fetch(`/cookbook/${culinaryId}`);
+        const response = await fetch(`/cookbook/get?id=${culinaryId}`);
+        
         
         if (response.ok) {
           const data = await response.json();
           setCookbookData(data);
+          console.log(data);
         } else {
           console.error('Error fetching cookbook data:', response.statusText);
         }
@@ -29,18 +31,19 @@ const Cookbook = () => {
     return <p>Loading...</p>;
   }
 
-  const { cookbookTitle, creator, category, recipes } = cookbookData;
+  const { name, category, creatorid, recipes } = cookbookData;
+  console.log(cookbookData)
 
   return (
     <Container>
       <Row className="mt-4">
         <Col>
-          <h2>{cookbookTitle}</h2>
+          <h2>{name}</h2>
           <p>
-            <strong>Kreator:</strong> {creator}
+            <strong>Kreator: </strong> {cookbookData.creator}
           </p>
           <p>
-            <strong>Kategorija:</strong> {category}
+            <strong>Kategorija:</strong> {cookbookData.category}
           </p>
         </Col>
       </Row>
@@ -48,6 +51,10 @@ const Cookbook = () => {
       <Row className="mt-4">
         <Col>
           <h3>Recepti u kuharici</h3>
+          {!recipes || recipes.length === 0? (
+              <div>Nema recepata</div>
+          ) : (
+          <div>
           {recipes.map((recipe, index) => (
             <Card key={index} className="mb-3">
               <Card.Body>
@@ -58,6 +65,8 @@ const Cookbook = () => {
               </Card.Body>
             </Card>
           ))}
+          </div>
+          )}
         </Col>
       </Row>
     </Container>

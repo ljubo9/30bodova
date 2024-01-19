@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Spinner, ListGroup, Container } from 'react-bootstrap';
 
 function CulinaryEnthusiast() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -7,9 +8,11 @@ function CulinaryEnthusiast() {
   const [filterSubcategory, setFilterSubcategory] = useState('');
   const [filteredEnthusiasts, setFilteredEnthusiasts] = useState([]);  //filtirani entuzijasti po kategoriji ili searchu
   const [enthusiasts, setEnthusiasts] = useState([]);  //svi entuzijasti iz baze
+  const [isLoading, setIsLoading] = useState(true); // Added loading state
 
   const fetchCreatorsByCategory = async (category) => {
     try {
+      setIsLoading(true);
       // Dohvaćanje svih kuharica iz baze čija je kategorija jednaka stisnutoj
       const cookbooksResponse = await fetch(`/cookbooks/category?category=${category}`);
       if (!cookbooksResponse.ok) {
@@ -35,6 +38,8 @@ function CulinaryEnthusiast() {
       setFilteredEnthusiasts(allAuthors);
     } catch (error) {
       console.error('Error fetching creators:', error.message);
+    } finally {
+      setIsLoading(false);
     }
   };
   
@@ -48,6 +53,7 @@ function CulinaryEnthusiast() {
   useEffect(() => {
     const fetchAllEnthusiasts = async () => {
       try {
+        setIsLoading(true);
       //dohvacanje svih entuzijasta iz baze
         const response = await fetch('/enthusiasts');
         if (response.ok) {
@@ -58,6 +64,8 @@ function CulinaryEnthusiast() {
         }
       } catch (error) {
         console.error('Error fetching enthusiasts:', error.message);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -65,24 +73,23 @@ function CulinaryEnthusiast() {
   }, []);
 
   useEffect(() => {
-    //svi entuzijasti se filtriraju 
-    console.log(searchTerm);
-    if (searchTerm === '') {
-      setFilteredEnthusiasts(enthusiasts)
+    if (!isLoading) {
+      if (searchTerm === '') {
+        setFilteredEnthusiasts(enthusiasts);
+      } else {
+        const filteredByUsername = enthusiasts.filter((enthusiast) =>
+          enthusiast.username.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        setFilteredEnthusiasts(filteredByUsername);
+      }
     }
-    else {
-      console.log(enthusiasts);
-      const filteredByUsername = enthusiasts.filter((enthusiast) =>
-        enthusiast.username.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      console.log(enthusiasts);
-      setFilteredEnthusiasts(filteredByUsername);
-    }
-  }, [searchTerm, enthusiasts]);
+  }, [searchTerm, enthusiasts, isLoading]);
 
   useEffect(() => {
-    fetchCreatorsByCategory(filterSubcategory);
-  }, [filterSubcategory]);
+    if (filterSubcategory && !isLoading) {
+      fetchCreatorsByCategory(filterSubcategory);
+    }
+  }, [filterSubcategory, isLoading]);
 
   const menuOptions = [
     {
@@ -137,18 +144,65 @@ function CulinaryEnthusiast() {
           </select>
         )}
       </div>
-      <ul className="bg-light">
-        { filteredEnthusiasts.map((enthusiast) => (
-          <li key={enthusiast.id}>
-            <Link to={`/enthusiast/${enthusiast.username}`}>
-              <h3>{enthusiast.username}</h3>
-            </Link>
-            <p>{enthusiast.biography}</p>
-          </li>
-        ))}
-      </ul>
+
+    <Container className="bg-light p-3">
+      {isLoading ? (
+      <Spinner animation="border" role="status">
+      <span className="sr-only">Loading...</span>
+      </Spinner>
+      ) : (
+      <ListGroup>
+      {filteredEnthusiasts.map((enthusiast) => (
+      <ListGroup.Item key={enthusiast.id}>
+        <Link to={`/enthusiast/${enthusiast.username}`}>
+          <h3 className="text-black">{enthusiast.username}</h3>
+        </Link>
+        <p>{enthusiast.biography}</p>
+      </ListGroup.Item>
+    ))}
+  </ListGroup>
+)}
+
+    </Container>
     </>
   );
-}
+};
 
+      {/*<div className="bg-light">
+        {isLoadingEnthusiasts || isLoadingCreators ? (
+          <p>Loading...</p> // Loading indicator
+        ) : (
+          <ul>
+            {filteredEnthusiasts.map((enthusiast) => (
+              <li key={enthusiast.id}>
+                <Link to={`/enthusiast/${enthusiast.username}`}>
+                  <h3>{enthusiast.username}</h3>
+                </Link>
+                <p>{enthusiast.biography}</p>
+              </li>
+            ))}
+          </ul>
+        )}
+            </div>*/}
+
+            /*
+            <Container className="bg-light p-3">
+      {isLoadingEnthusiasts || isLoadingCreators ? (
+        <Spinner animation="border" role="status">
+          <span className="sr-only">Loading...</span>
+        </Spinner>
+      ) : (
+        <ListGroup>
+          {filteredEnthusiasts.map((enthusiast) => (
+            <ListGroup.Item key={enthusiast.id}>
+              <Link to={`/enthusiast/${enthusiast.username}`}>
+                <h3 className="text-black">{enthusiast.username}</h3>
+              </Link>
+              <p>{enthusiast.biography}</p>
+            </ListGroup.Item>
+          ))}
+        </ListGroup>
+      )}
+    </Container>
+    */
 export default CulinaryEnthusiast;

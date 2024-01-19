@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-
+import { Container, Form, Row, Col, Button } from 'react-bootstrap';
 const RecipeEditor = () => {
-  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
   console.log(currentUser);
   const [recipeData, setRecipeData] = useState({
     name: '',
@@ -19,6 +19,7 @@ const RecipeEditor = () => {
     const fetchCookbooks = async () => {
       try {
         //dohvaćanje kuharica po id-u entuzijasta
+        console.log(currentUser)
         const response = await fetch(`/cookbook/${currentUser.username}`);
         if (response.ok) {
           const cookbooksData = await response.json();
@@ -159,112 +160,117 @@ const RecipeEditor = () => {
   };
 
   return (
-    <div>
+    <Container className="mt-4 p-2 border border-black">
       <h2>Dodaj recept</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Ime recepta:
-          <input
+      <Form onSubmit={handleSubmit}>
+        <Form.Group controlId="recipeName">
+          <Form.Label>Ime recepta:</Form.Label>
+          <Form.Control
             type="text"
             name="name"
             value={recipeData.name}
             onChange={(e) => handleInputChange(e, null, null)}
           />
-        </label>
-        <br />
-        <label>
-          Kategorija:
-          <input
+        </Form.Group>
+
+        <Form.Group controlId="recipeCategory">
+          <Form.Label>Kategorija:</Form.Label>
+          <Form.Control
             type="text"
             name="category"
             value={recipeData.category}
             onChange={(e) => handleInputChange(e, null, null)}
           />
-        </label>
-        <br />
-        <label>
-          Veličina porcije:
-          <input
+        </Form.Group>
+
+        <Form.Group controlId="portionSize">
+          <Form.Label>Veličina porcije:</Form.Label>
+          <Form.Control
             type="text"
             name="portionSize"
             value={recipeData.portionSize}
             onChange={(e) => handleInputChange(e, null, null)}
           />
-        </label>
-        <br />
-        <label>
-          Vrijeme kuhanja:
-          <input
+        </Form.Group>
+
+        <Form.Group controlId="cookTime">
+          <Form.Label>Vrijeme kuhanja:</Form.Label>
+          <Form.Control
             type="text"
             name="cookTime"
             value={recipeData.cookTime}
             onChange={(e) => handleInputChange(e, null, null)}
           />
-        </label>
-        <br />
+        </Form.Group>
 
-        <h3>Dodaj namirnice:</h3>
+        <h3 className="mt-2">Dodaj namirnice:</h3>
         {ingredients.map((ingredient, index) => (
-          <div key={index}>
-            <label>
-              Naziv namirnice:
-              <input
-                type="text"
-                name="name"
-                value={ingredient.name}
-                onChange={(e) => handleInputChange(e, index, 'ingredients')}
-              />
-            </label>
-            <label>
-              Količina:
-              <input
-                type="text"
-                name="quantity"
-                value={ingredient.quantity}
-                onChange={(e) => handleInputChange(e, index, 'ingredients')}
-              />
-            </label>
-          </div>
+          <Row key={index}>
+            <Col>
+              <Form.Group controlId={`ingredientName${index}`}>
+                <Form.Label>Naziv namirnice:</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="name"
+                  value={ingredient.name}
+                  onChange={(e) => handleInputChange(e, index, 'ingredients')}
+                />
+              </Form.Group>
+            </Col>
+            <Col>
+              <Form.Group controlId={`ingredientQuantity${index}`}>
+                <Form.Label>Količina:</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="quantity"
+                  value={ingredient.quantity}
+                  onChange={(e) => handleInputChange(e, index, 'ingredients')}
+                />
+              </Form.Group>
+            </Col>
+          </Row>
         ))}
-        <button type="button" onClick={addIngredientRow}>
+        <Button variant="dark" className="mb-2 mt-2" onClick={addIngredientRow}>
           Dodaj namirnicu
-        </button>
+        </Button>
 
-        <h3>Dodaj korake pripreme:</h3>
+        <h3 className="mt-2">Dodaj korake pripreme:</h3>
         {steps.map((step, index) => (
-          <div key={index}>
-            <label>
-              Redni broj koraka: {step.number}
-            </label>
-            <label>
-              Opis koraka:
-              <input
-                type="text"
-                name="description"
-                value={step.description}
-                onChange={(e) => handleInputChange(e, index, 'steps')}
-                required
-              />
-            </label>
-            <label>
-              Slika:
-              <input
-                type="file"
-                name="image"
-                accept="image/*"
-                onChange={(e) => handleImageChange(e, index)}
-                required
-              />
-            </label>
-          </div>
+          <Row key={index}>
+            <Col>
+              <Form.Group controlId={`stepDescription${index}`}>
+                <Form.Label>Opis koraka:</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="description"
+                  value={step.description}
+                  onChange={(e) => handleInputChange(e, index, 'steps')}
+                  required
+                />
+              </Form.Group>
+            </Col>
+            <Col>
+              <Form.Group controlId={`stepImage${index}`}>
+                <Form.Label>Slika:</Form.Label>
+                <Form.Control
+                  type="file"
+                  name="image"
+                  accept="image/*"
+                  onChange={(e) => handleImageChange(e, index)}
+                  required
+                />
+              </Form.Group>
+            </Col>
+          </Row>
         ))}
-        <button type="button" onClick={addStepRow}>
+        <Button variant="dark" className="mb-2 mt-2" onClick={addStepRow}>
           Dodaj korak pripreme
-        </button>
+        </Button>
 
-        <label>
-          Odaberi kuharicu:
-          <select
+        <Form.Group controlId="selectedCookbook">
+          <Form.Label>Odaberi kuharicu:</Form.Label>
+          <Form.Control
+            as="select"
             name="selectedCookbook"
             value={selectedCookbook}
             onChange={(e) => setSelectedCookbook(e.target.value)}
@@ -277,13 +283,14 @@ const RecipeEditor = () => {
                 {cookbook.name}
               </option>
             ))}
-          </select>
-        </label>
-        <br />
+          </Form.Control>
+        </Form.Group>
 
-        <button type="submit">Dodaj recept</button>
-      </form>
-    </div>
+        <Button variant="dark" className="mb-2 mt-2" type="submit">
+          Dodaj recept
+        </Button>
+      </Form>
+    </Container>
   );
 };
 

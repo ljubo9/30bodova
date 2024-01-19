@@ -98,6 +98,8 @@ public class UserService implements UserDetailsService{
 		List<Enthusiast> enthusiasts = new ArrayList<>();
 		for (User user : users) {
 			if (user.getRole().equals(Role.ENTHUSIAST)) {
+				System.out.println(user.getRole().getName());
+				System.out.println(user.getUsername());
 				Enthusiast en = (Enthusiast) user;
 				enthusiasts.add(en);
 			}

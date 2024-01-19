@@ -24,7 +24,14 @@ public class Recipe {
     private List<Cookbook> cookbooks;
 
     @ManyToMany
+
+    @JoinTable(
+            name = "recipe_diet",
+            joinColumns = @JoinColumn(name = "diet_id"),
+            inverseJoinColumns = @JoinColumn(name = "recipe_id"),
+            uniqueConstraints = @UniqueConstraint(columnNames = {"diet_id", "recipe_id"}))
     private List<Diet> diets;
+    
     @ManyToOne
     private User creator;
     
@@ -149,6 +156,20 @@ public class Recipe {
 	public String getCategory() {
 		return this.category;
 	}
+	public List<Cookbook> getCookbooks() {
+		return cookbooks;
+	}
+	public List<Diet> getDiets() {
+		return diets;
+	}
+	public User getCreator() {
+		return creator;
+	}
+	public List<Review> getReviews() {
+		return reviews;
+	}
+	
+	
     
     
 

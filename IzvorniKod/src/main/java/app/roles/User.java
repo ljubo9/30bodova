@@ -2,29 +2,18 @@
 
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 
-import app.recipe.*;
-import org.springframework.dao.DataIntegrityViolationException;
+import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
+import app.recipe.ConsumedRecipe;
+import app.recipe.Diet;
+import app.recipe.Response;
+import app.recipe.Review;
 
-@Entity 
+  @Entity
 @Table(name="users", uniqueConstraints = @UniqueConstraint(columnNames = {"username"}))
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class User implements UserDetails {
@@ -44,10 +33,13 @@ public class User implements UserDetails {
 	private String password;
 	private String name;
 	private String surname;
+	private String email;
+
+
 	@ManyToOne
 	private Diet diet;
 
-	@OneToMany
+	@OneToMany(mappedBy = "creator")
 	private List<Diet> createdDiets;
 	@ManyToOne
 	private Role role;
@@ -61,7 +53,10 @@ public class User implements UserDetails {
 	@OneToMany
 	private List<ConsumedRecipe> consumedRecipes;
 	
-	public User(String username, String password, String name, String surname) {
+	private boolean confirmed;
+
+	
+	public User(String username, String password, String name, String surname, String email) {
 		// TODO Auto-generated constructor stub
 		if (username == null || password == null ||
 		    name == null || surname == null) throw new IllegalArgumentException("All fields must be filled out");
@@ -69,12 +64,14 @@ public class User implements UserDetails {
 		this.password = password;
 		this.name = name;
 		this.surname = surname;
+		this.email = email;
 		this.role = null;
+		this.confirmed = true;
 	}
 	
-	public User(String username, String password, String name, String surname, Role role) {
+	public User(String username, String password, String name, String surname, Role role, String email) {
 		// TODO Auto-generated constructor stub
-		this(username, password, name, surname);
+		this(username, password, name, surname, email);
 		this.role = role;
 	}
 	public User(){}
@@ -168,6 +165,29 @@ public class User implements UserDetails {
 		return consumedRecipes;
 	}
 
+
+	public void setConsumedRecipes(List<ConsumedRecipe> consumedRecipes) {
+		this.consumedRecipes = consumedRecipes;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public boolean isConfirmed() {
+		return confirmed;
+	}
+
+	public void setConfirmed(boolean confirmed) {
+		this.confirmed = confirmed;
+	}
+	
+	
+	
 
     public void setRecipes(Set<Recipe> creatorRecipes) {
 		this.recipes = creatorRecipes;

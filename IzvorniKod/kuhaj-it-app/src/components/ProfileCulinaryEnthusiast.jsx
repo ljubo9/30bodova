@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { Container, Row, Col, ListGroup } from 'react-bootstrap';
 
 const ProfileCulinaryEnthusiast = () => {
   const { username } = useParams();
@@ -50,11 +51,45 @@ const ProfileCulinaryEnthusiast = () => {
   }
 
   return (
-    <div>
-      <h2>{profileData.firstName} {profileData.lastName}</h2>
-      <p>Username: {profileData.username}</p>
+    <div className="bg-secondary p-2 min-vh-100"> 
+    <Container className="bg-light">
+      <Row>
+        <Col className="border border-black m-2 p-2">
+          <h2>{profileData.name} {profileData.surname}</h2>
+          <p>Korisničko ime: {profileData.username}</p>
+        </Col>
+      </Row>
 
-      <h3>Cookbooks:</h3>
+      <Row>
+        <Col className="m-2">
+          <h3>Kuharice:</h3>
+          <ListGroup>
+            {cookbooksData.map((cookbook) => (
+              <ListGroup.Item key={cookbook.id}>
+                <Link to={`/cookbook/${cookbook.id}`}>{cookbook.name}</Link>
+              </ListGroup.Item>
+            ))}
+          </ListGroup>
+        </Col>
+
+        <Col className="m-2">
+          <h3>Recepti:</h3>
+          <ListGroup>
+            {recipesData.map((recipe) => (
+              <ListGroup.Item key={recipe.id}>
+                <Link to={`/recipe/${recipe.id}`}>{recipe.name}</Link>
+              </ListGroup.Item>
+            ))}
+          </ListGroup>
+        </Col>
+      </Row>
+    </Container>
+    </div>
+    /*<div>
+      <h2>{profileData.firstName} {profileData.lastName}</h2>
+      <p>Korisničko ime: {profileData.username}</p>
+
+      <h3>Kuharice:</h3>
       <ul>
         {cookbooksData.map((cookbook) => (
           <li key={cookbook.id}>
@@ -63,15 +98,15 @@ const ProfileCulinaryEnthusiast = () => {
         ))}
       </ul>
 
-      <h3>Recipes:</h3>
+      <h3>Recepti:</h3>
       <ul>
         {recipesData.map((recipe) => (
           <li key={recipe.id}>
-            <Link to={`/recipe/get?id=${recipe.id}`}>{recipe.name}</Link>
+            <Link to={`/recipe/${recipe.id}`}>{recipe.name}</Link>
           </li>
         ))}
       </ul>
-    </div>
+        </div>*/
   );
 };
 

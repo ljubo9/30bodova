@@ -7,7 +7,7 @@ function LoggedHomePage() {
   const user = JSON.parse(sessionStorage.getItem('currentUser'));
   const [recipeList, setRecipeList] = useState([]);
   const [dietInfo, setDiet] = useState([]);
-  //const [consumedRecipesStatistics, setConsumedRecipesStatistics] = useState([]);
+  const [consumedRecipesStatistics, setConsumedRecipesStatistics] = useState([]);
   const [followedChefs, setFollowedChefs] = useState([]);
   const [latestChefCookbooks, setLatestChefCookbooks] = useState([]);
   const [latestChefRecipes, setLatestChefRecipes] = useState([]);
@@ -92,7 +92,7 @@ function LoggedHomePage() {
         const response = await fetch(`/statistic/user/${user.username}`);
         if (response.ok) {
           const data = await response.json();
-          //setConsumedRecipesStatistics(data);
+          setConsumedRecipesStatistics(data);
         } else {
           console.error('Error fetching consumed recipes statistics:', response.statusText);
         }
@@ -106,11 +106,11 @@ function LoggedHomePage() {
     fetchFollowedChefs();
     fetchLatestChefData();
     fetchConsumedRecipesStatistics();
-    console.log(user.username);
+    /*console.log(user.username);
     console.log(recipeList);
     console.log(dietInfo);
-    console.log(followedChefs);
-    //console.log(consumedRecipesStatistics);
+    console.log(followedChefs);*/
+    console.log(consumedRecipesStatistics);
   }, []);
 
 
@@ -196,21 +196,17 @@ function LoggedHomePage() {
               </Col>
             </Row>
       )}
+      {/* {!consumedRecipesStatistics || consumedRecipesStatistics.length === 0? (
+        <h2>Nema statistike nutritivnih vrijednosti</h2>
+      ) : (<Row className="mt-4">
+      <div>
+        <h1>Statistika potrošenih kalorija</h1>
+        <CalorieChart consumedRecipesStatistics={consumedRecipesStatistics} />
+        </div>
+      </Row>
+      )} */}
     </Container>
   );
-
   
 }
-
-              /*
-{!consumedRecipesStatistics ? (
-  <div>Nema statistike nutritivnih vrijednosti</div>
-) : (<Row className="mt-4">
-<div>
-  <h1>Statistika potrošenih kalorija</h1>
-  <CalorieChart consumedRecipesStatistics={consumedRecipesStatistics} />
-  </div>
-</Row>
-)}
-*/
 export default LoggedHomePage;

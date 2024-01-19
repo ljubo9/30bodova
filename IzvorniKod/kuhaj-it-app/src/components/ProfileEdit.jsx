@@ -22,10 +22,16 @@ function ProfileEdit() {
       const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
       const formData = new FormData();
 
-      formData.append('newUsername', userData.newUsername);
-      formData.append('newPassword', userData.newPassword);
-      formData.append('oldPassword', userData.oldPassword);
+      if (userData.newUsername.trim() !== '') {
+        formData.append('newUsername', userData.newUsername);
+      }
 
+      if (userData.newPassword.trim() !== '') {
+        formData.append('newPassword', userData.newPassword);
+      }
+
+      formData.append('oldPassword', userData.oldPassword);
+      
       const updateResponse = await fetch(`/profile/${currentUser.username}`, {
         method: 'POST',
         body: formData,
@@ -37,7 +43,6 @@ function ProfileEdit() {
       }
 
       console.log('User data updated successfully');
-      sessionStorage.setItem("currentUser", JSON.stringify(updateResponse.json()));
       navigate('/');
     } catch (error) {
       console.error('Error updating user data:', error);
@@ -45,7 +50,7 @@ function ProfileEdit() {
   };
 
   return (
-    <div className="bg-light">
+    <div className="bg-secondary">
       <Row className="d-flex justify-content-center align-items-center p-5" style={{ height: '100vh' }}>
         <div className="col-md-6">
           <Card>
@@ -79,7 +84,7 @@ function ProfileEdit() {
               />
             </Form.Group>
 
-            <Button variant="dark" onClick={handleChangeData}>
+            <Button variant="dark" className="m-2" onClick={handleChangeData}>
               Promijeni podatke
             </Button>
           </Card>

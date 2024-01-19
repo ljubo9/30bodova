@@ -29,7 +29,12 @@ public class ImageDTO {
     }
 
 
-    public Image toEntity() {
+    public ImageDTO(Image image) {
+		// TODO Auto-generated constructor stub
+    	if (image != null) this.data = image.getImageData();
+	}
+
+	public Image toEntity() {
         Image image = new Image(this.getName(),this.getData());
 
         // Set other properties accordingly

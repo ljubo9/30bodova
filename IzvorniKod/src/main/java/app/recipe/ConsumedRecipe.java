@@ -14,15 +14,19 @@ public class ConsumedRecipe {
     Recipe recipe;
 
     @ManyToOne
+	@JoinTable(
+			name = "user_consumed_recipes",
+			joinColumns = @JoinColumn(name = "user_id"),
+			inverseJoinColumns = @JoinColumn(name = "recipe_id"),
+			uniqueConstraints = @UniqueConstraint(columnNames = {"user_id", "recipe_id"}))
     User user;
 
     Date date;
     
     
 
-	public ConsumedRecipe(int id, Recipe recipe, User user, Date date) {
+	public ConsumedRecipe(Recipe recipe, User user, Date date) {
 		super();
-		this.id = id;
 		this.recipe = recipe;
 		this.user = user;
 		this.date = date;
