@@ -4,14 +4,18 @@ import { Chart as ChartJS } from 'chart.js/auto';
 import { Chart } from 'react-chartjs-2';
 
 const CalorieChart = ({ consumedRecipesStatistics }) => {
-  const daysOfWeek = Object.keys({"22.01.":35, "23.01.": 45, "24.01.": 60, "25.01.": 43, "26.01.": 55, "27.01.": 20, "28.01.": 100});
-  const caloriesConsumed = Object.values({"22.01.":35, "23.01.": 45, "24.01.": 60, "25.01.": 43, "26.01.": 55, "27.01.": 20, "28.01.": 100});
+  //const daysOfWeek = Object.keys({"22.01.":35, "23.01.": 45, "24.01.": 60, "25.01.": 43, "26.01.": 55, "27.01.": 20, "28.01.": 100});
+  //const caloriesConsumed = Object.values({"22.01.":35, "23.01.": 45, "24.01.": 60, "25.01.": 43, "26.01.": 55, "27.01.": 20, "28.01.": 100});
+  const [daysOfWeek, setDaysOfWeek] = useState(null);
+  const [caloriesConsumed, setCaloriesConsumated] = useState(null);
 
   console.log(daysOfWeek);
   console.log(caloriesConsumed);
   useEffect(() => {
-    //const daysOfWeek = Object.keys(consumedRecipesStatistics);
-    //const caloriesConsumed = Object.values(consumedRecipesStatistics);
+    const daysOfWeek = Object.keys(consumedRecipesStatistics);
+    const caloriesConsumed = Object.values(consumedRecipesStatistics);
+    setCaloriesConsumated(caloriesConsumed);
+    setDaysOfWeek(daysOfWeek);
   }, [consumedRecipesStatistics]);
 
   return (
