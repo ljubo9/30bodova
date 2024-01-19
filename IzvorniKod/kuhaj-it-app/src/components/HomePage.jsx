@@ -23,6 +23,7 @@ function HomePage() {
       }
     };
     fetchLatestChefData();
+    //console.log(latestChefCookbooks["marko19"])
   });
 
   return (
@@ -55,7 +56,7 @@ function HomePage() {
           <ul>
             {latestChefCookbooks[chefId].map((cookbook) => (
               <li key={cookbook.id}>
-                <Link to={`/cookbook/${cookbook.id}`}>{cookbook.title}</Link>
+                <Link to={`/cookbook/${cookbook.id}`}>{cookbook.name}</Link>
               </li>
             ))}
           </ul>
