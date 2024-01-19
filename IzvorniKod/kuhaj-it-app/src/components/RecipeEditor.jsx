@@ -77,14 +77,15 @@ const RecipeEditor = () => {
       console.log(recipeData);
       const form = new FormData();
 
-      form.append("category", recipeData.category);
+      form.append("categoryName", recipeData.category);
       form.append("cookTime", recipeData.cookTime);
       form.append("portionSize", recipeData.portionSize);
       form.append("name", recipeData.name);
+      form.append("username", currentUser.username);
 
 
 
-      const response = await fetch(`/recipe/${currentUser.username}`, {
+      const response = await fetch(`/recipe`, {
         method: 'POST',
         body: form
       });
@@ -94,15 +95,15 @@ const RecipeEditor = () => {
         console.log(responseData.id);
 
         for (const ingredient of ingredients) {
+
+          const form = new FormData()
+          form.append("recipeId", responseData.id);
+          form.append("ingredientName", ingredient.name);
+          form.append("ingredientQuantity", ingredient.quantity);
+          
           const ingredientResponse = await fetch('/RecipeIngredient', {
             method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              recipeId: responseData.id,
-              ingredient,
-            }),
+            body: form
           });
 
           if (ingredientResponse.ok) {
@@ -113,16 +114,15 @@ const RecipeEditor = () => {
         }
 
         for (const step of steps) {
+          const form = new FormData();
+          form.append("recipeId", responseData.id);
+          form.append("stepNumber", step.number);
+          form.append("stepDescription", step.description);
+          form.append("stepImage", step.image);
           const stepResponse = await fetch('/StepOfMaking', {
             method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              recipeId: responseData.id,
-              step,
-            }),
-          });
+            body: form
+        });
 
           if (stepResponse.ok) {
             console.log('Podaci o koraku pripreme uspješno poslani.');

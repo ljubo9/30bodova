@@ -23,12 +23,15 @@ import app.recipe.Ingredient;
 import app.recipe.Label;
 import app.recipe.Recipe;
 import app.recipe.RecipeIngredient;
+import app.recipe.StepOfMaking;
 import app.repository.CategoryRepository;
 import app.repository.ConsumedRecipeRepository;
 import app.repository.CookbookRepository;
 import app.repository.IngredientRepository;
 import app.repository.LabelRepository;
+import app.repository.RecipeIngredientRepository;
 import app.repository.RecipeRepository;
+import app.repository.StepOfMakingRepository;
 import app.repository.UserRepository;
 import app.roles.Enthusiast;
 import app.roles.Role;
@@ -43,11 +46,14 @@ public class RecipeService {
     private final ConsumedRecipeRepository consumedRecipeRepository;
     private final CategoryRepository categoryRepository;
     private final LabelRepository labelRepository;
+    private final RecipeIngredientRepository recipeIngredientRepository;
+    private final StepOfMakingRepository stepOfMakingRepository;
 
     @Autowired
     public RecipeService(RecipeRepository recipeRepository, CookbookRepository cookbookRepository, UserRepository userRepository,
     		IngredientRepository ingredientRepository, ConsumedRecipeRepository consumedRecipeRepository, CategoryRepository categoryRepository,
-    		LabelRepository labelRepository) {
+    		LabelRepository labelRepository, RecipeIngredientRepository recipeIngredientRepository,
+    		StepOfMakingRepository stepOfMakingRepository) {
         this.recipeRepository = recipeRepository;
         this.cookbookRepository = cookbookRepository;
         this.userRepository = userRepository;
@@ -55,6 +61,8 @@ public class RecipeService {
         this.consumedRecipeRepository  = consumedRecipeRepository;
         this.categoryRepository  = categoryRepository;
         this.labelRepository  = labelRepository;
+        this.recipeIngredientRepository  = recipeIngredientRepository;
+        this.stepOfMakingRepository = stepOfMakingRepository;
         
     }
 
@@ -256,6 +264,26 @@ public class RecipeService {
 		// TODO Auto-generated method stub
 		Optional<List<Cookbook>> cb = cookbookRepository.findByCreatorId(id);
 		return cb.orElse(null);
+	}
+
+	public void addRecipe(Recipe newRecipe) {
+		// TODO Auto-generated method stub
+		recipeRepository.save(newRecipe);
+	}
+
+	public void addRecipeIngredient(int recipeId, String name, int ingredientQuantity) {
+		// TODO Auto-generated method stub
+		Optional<Recipe> r = recipeRepository.findById(recipeId);
+		if (r.isEmpty()) return ;
+		Recipe recipe = r.get();
+		Ingredient i = new Ingredient(name);
+		RecipeIngredient ri = new RecipeIngredient(i, recipe, ingredientQuantity);
+		recipeIngredientRepository.save(ri);
+	}
+
+	public void addStepOfMaking(StepOfMaking sm) {
+		// TODO Auto-generated method stub
+		stepOfMakingRepository.save(sm);
 	}
 	
 	
