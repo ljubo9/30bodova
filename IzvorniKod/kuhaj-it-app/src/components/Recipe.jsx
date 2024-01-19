@@ -21,7 +21,7 @@ const Recipe = () => {
       if (response.ok) {
         const data = await response.json();
         setRecipe(data);
-        console.log(data);
+        console.log(data)
       } 
       else {
         console.error('Recept se ne može dohvatiti: ', response.statusText);
@@ -130,6 +130,7 @@ const Recipe = () => {
           <p>Ime recepta: {recipe.name}</p>
           <p>Veličina porcije {recipe.portionSize}</p>
           <p>Vrijeme spremanja: {recipe.cookTime}</p>
+  
 
           {/* Prikaz informacija o sastojcima */}
           <h3>Sastojci:</h3>
