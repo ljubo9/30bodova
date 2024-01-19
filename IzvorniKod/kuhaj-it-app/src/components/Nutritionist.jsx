@@ -42,13 +42,11 @@ const Nutritionist = () => {
         method: "POST",
         body: newDiet
       })
+      console.log("Diet added sucessfuly");
     }
     catch(error) {
       console.error("Could not add diet: ", error);
     }
-
-
-
 
     console.log('New Diet:', newDiet);
 

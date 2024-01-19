@@ -37,17 +37,14 @@ Za razvoj backenda naše aplikacije korišten je \textcolor{blue}{\underline{\hr
 Spring Boot je open-source okvir za izgradnju Java web aplikacija i mikroservisa, dio šireg Spring ekosustava. Posebno je fokusiran na pojednostavljenje konfiguracije, ubrzanje razvoja i olakšavanje izgradnje samostalnih aplikacija.
 
 
+Baza podataka razvijena je pomoću sustava za upravljanje bazom podataka \textcolor{blue}{\underline{\href{https://www.postgresql.org/download/}{\textcolor{blue}{PostgreSQL}}}}\footnote{\url{https://www.postgresql.org/download/}}.
 			\eject 
 			
-			
-			
-		
-	
 		\section{Ispitivanje programskog rješenja}
 			
 			\subsection{Ispitivanje komponenti}
 \textbf{Test 1: Uspješna registracija} \\
-Provedeno je testiranje uspješne registracije novog, dotad neregistriranog korinsika u sustav. Registracija je uspješna ako ne baca iznimku i ako metoda "registerUser" klase UserService vraća istinitu vrijednost. Na slikama ispod prikazani su test uspješne registracije i metoda "registerUser" klase UserService.
+Provedeno je testiranje uspješne registracije novog, dotad neregistriranog korinsika u sustav. Registracija je uspješna ako ne baca iznimku i ako metoda "registerUser" klase UserService vraća istinitu vrijednost. Na slikama ispod prikazani su test uspješne registracije i metoda "registerUser" klase UserService, kao i potvrda uspješne provedbe testa.
 
 		\begin{figure}[H]
 			\includegraphics[scale=0.4]{slike/registerUser.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
@@ -62,6 +59,14 @@ Provedeno je testiranje uspješne registracije novog, dotad neregistriranog kori
 			\caption{Test uspješne registracije korisnika}
 			\label{Test uspješne registracije korisnika}
 		\end{figure}
+		
+					\begin{figure}[H]
+			\includegraphics[scale=0.4]{slike/JUnit_register.JPG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Potvrda uspješnog izvođenja testa registracije}
+			\label{Potvrda uspješnog izvođenja testa registracije}
+		\end{figure}
+		
 		
 \textbf{Test 2: Uspješna prijava korisnika} \\
 Provedeno je testiranje ispravne prijave korisnika koji je registriran i prisutan u bazi. Prijava je uspješna ako metoda "loginUser" klase UserService ne vraća null vrijednost i ako su svi atributi prethodno stvorenog objekta korisnika i atributi korisnika koji je spremljen u oponašan repozitorij korisnika jednaki. Na slikama ispod prikazani su test uspješne prijave korisnika i metoda "loginUser" klase UserService.
@@ -100,9 +105,18 @@ Provedeno je testiranje neuspješne prijave korisnika zbog unosa ispravnog koris
 			\label{Test neuspješne prijave korisnika zbog unosa neispravne lozinke}
 		\end{figure}
 		
+		Na slici ispod prikazane su potvrde uspješnog izvođenja testova vezanih uz login.
+		
+			\begin{figure}[H]
+			\includegraphics[scale=0.4]{slike/JUnit_login.JPG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Potvrda uspješnog izvođenja testova vezanih uz login}
+			\label{Potvrda uspješnog izvođenja testova vezanih uz login}
+		\end{figure}
+			
 \textbf{Test 5: Uspješno dohvaćanje podataka o korisniku iz baze podataka} \\
 
-Provedeno je testiranje uspješnog dohvaćanja podataka o korisniku iz baze podataka. Dohvaćanje podataka o korisniku iz baze podataka je uspješno ako metoda "loadUserByUsername" klase UserService vrati objekt korisnika koji je pronađen putem korisničkog imena i ako su atributi korisnika dohvaćenog iz oponašanog repozitorija korisnika i atributi onog korisnika koji je inicijalno spremljen u oponašani repozitorij jednaki. Na slikama ispod prikazani su test uspješnog dohvaćanja podataka o korisniku iz baze podataka te metoda "loadUserByUsername" klase UserService.
+Provedeno je testiranje uspješnog dohvaćanja podataka o korisniku iz baze podataka. Dohvaćanje podataka o korisniku iz baze podataka je uspješno ako metoda "loadUserByUsername" klase UserService vrati objekt korisnika koji je pronađen putem korisničkog imena i ako su atributi korisnika dohvaćenog iz oponašanog repozitorija korisnika i atributi onog korisnika koji je inicijalno spremljen u oponašani repozitorij jednaki. Na slikama ispod prikazani su test uspješnog dohvaćanja podataka o korisniku iz baze podataka te metoda "loadUserByUsername" klase UserService, kao i potvrda uspješno izvedenog testa o dohvaćanju podataka o korisniku iz baze podataka.
 
 				\begin{figure}[H]
 			\includegraphics[scale=0.4]{slike/loadUserByUsername.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
@@ -118,8 +132,15 @@ Provedeno je testiranje uspješnog dohvaćanja podataka o korisniku iz baze poda
 			\label{Test uspješnog dohvaćanja podataka o korisniku na temelju korisničkog imena iz baze podataka}
 		\end{figure}
 		
+			\begin{figure}[H]
+			\includegraphics[scale=0.4]{slike/JUnit_retrieve.JPG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Potvrda uspješnog izvođenja testa dohvaćanja podataka o korisniku}
+			\label{Potvrda uspješnog izvođenja testa dohvaćanja podataka o korisniku}
+		\end{figure}
+		
 \textbf{Test 6: Uspješna promjena podataka korisnika} \\
-Provedeno je testiranje uspješne promjene podataka korisnika koji se nalazi u bazi. Promjena podataka je uspješna ako metoda "changeInfo" klase UserServive uspješno osvježi željene podatke u bazi podataka (podaci o korisniku u oponašanom repozitoriju korisnika odgovaraju podacima koji su zadani kao zamjena originalnima). Na slikama ispod prikazani su test uspješne promjene podataka korisnika te metoda "changeInfo" klase UserService.
+Provedeno je testiranje uspješne promjene podataka korisnika koji se nalazi u bazi. Promjena podataka je uspješna ako metoda "changeInfo" klase UserServive uspješno osvježi željene podatke u bazi podataka (podaci o korisniku u oponašanom repozitoriju korisnika odgovaraju podacima koji su zadani kao zamjena originalnima). Na slikama ispod prikazani su test uspješne promjene podataka korisnika te metoda "changeInfo" klase UserService, kao i potvrda uspješnog izvođenja testa o promjeni podataka korisnika.
 
 				\begin{figure}[H]
 			\includegraphics[scale=0.4]{slike/changeInfo.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
@@ -128,7 +149,7 @@ Provedeno je testiranje uspješne promjene podataka korisnika koji se nalazi u b
 			\label{Metoda "changeInfo" klase UserService}
 		\end{figure}
 		
-						\begin{figure}[H]
+			\begin{figure}[H]
 			\includegraphics[scale=0.4]{slike/userChangeInfoValidTest1.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
 			\centering
 			\caption{Test uspješne promjene podataka korisnika u bazi, 1. dio}
@@ -141,6 +162,67 @@ Provedeno je testiranje uspješne promjene podataka korisnika koji se nalazi u b
 			\caption{Test uspješne promjene podataka korisnika u bazi, 2. dio}
 			\label{Test uspješne promjene podataka korisnika u bazi, 2. dio}
 		\end{figure}
+		
+		\begin{figure}[H]
+			\includegraphics[scale=0.4]{slike/JUnit_change.JPG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Potvrda uspješnog izvođenja testova vezanih uz promjenu podataka korisnika}
+			\label{Potvrda uspješnog izvođenja testova vezanih uz promjenu podataka korisnika}
+		\end{figure}
+		
+		
+			
+		\textbf{Test 7: Uspješno dohvaćanje recepata po korisničkom imenu autora recepata}
+		
+		Provedeno je testiranje uspješnog dohvaćanja recepata po korisničkom imenu autora recepata. Dohvaćanje recepata je uspješno ako dohvaćeni set recepata kojima je autor stvoreni korisnik nije null vrijednost te ako su očekivani set recepata i dohvaćeni set recepata jednaki. Na slikama ispod prikazani su test uspješnog dohvaćanja recepata po korisničkom imenu autora recepata te metoda "getRecipesByUsername" klase RecipeService.
+		
+		\begin{figure}[H]
+			\includegraphics[scale=0.4]{slike/loadRecipesUsernameValidTest.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Test uspješnog dohvaćanja recepata po korisničkom imenu}
+			\label{Test uspješnog dohvaćanja recepata po korisničkom imenu}
+		\end{figure}
+		
+				\begin{figure}[H]
+			\includegraphics[scale=0.4]{slike/getRecipesByUsername.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Metoda "getRecipesByUsername" klase RecipeService}
+			\label{Metoda "getRecipesByUsername" klase RecipeService}
+		\end{figure}
+		
+		\textbf{Test 8: Uspješno dohvaćanje recepata po kategoriji recepta}
+		
+		Provedeno je testiranje uspješnog dohvaćanja recepata po kategoriji recepta. Dohvaćanje recepata je uspješno ako dohvaćeni set recepata iz oponašanog repozitorija recepata s određenom kategorijom nije null vrijednost te ako su očekivani set recepata i dohvaćeni set recepata jednaki. Na slikama ispod prikazani su test uspješnog dohvaćanja recepata po kategoriji te metoda "getRecipesByCategory" klase RecipeService.
+		
+				\begin{figure}[H]
+			\includegraphics[scale=0.4]{slike/loadRecipesCategoryValidTest.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Test uspješnog dohvaćanja recepata po kategoriji}
+			\label{Test uspješnog dohvaćanja recepata po kategoriji}
+		\end{figure}
+		
+			\begin{figure}[H]
+			\includegraphics[scale=0.4]{slike/getRecipesByCategory.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Metoda "getRecipesByCategory" klase RecipeService}
+			\label{Metoda "getRecipesByCategory" klase RecipeService}
+		\end{figure}
+		
+		Na slici ispod prikazana je potvrda uspješnosti izvođenja testova o dohvaćanju recepata na temelju korisničkog imena/kategorije.
+		
+		\begin{figure}[H]
+			\includegraphics[scale=0.4]{slike/JUnit_loadRecipes.JPG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Potvrda uspješnog izvođenja testova vezanih uz dohvaćanje recepata}
+			\label{Potvrda uspješnog izvođenja testova vezanih uz dohvaćanje recepata}
+		\end{figure}
+		
+		
+		
+		
+
+		
+		
 
 
 
@@ -194,15 +276,24 @@ Provedeno je testiranje uspješne promjene podataka korisnika koji se nalazi u b
 			\eject 
 		
 		\section{Upute za puštanje u pogon}
-		Naša KuhajIT web-aplikacija, razvijena u okviru ovog projekta, puštena je u pogon putem web platforme  \textcolor{blue}{\underline{\href{https://render.com/}{\textcolor{blue}{Render}}}}\footnote{\url{https://render.com/}}. Render je platforma koja pruža usluge za deploy, hosting i skaliranje web aplikacija, servisa i web stranica. Ističe se jednostavnošću upotrebe, brzim implementacijama i podrškom za različite jezike i okvire, i upravo smo ju zbog tog razloga i odabrali za tzv. deploy. Na Render-u je postavljen Spring Boot poslužitelj, kojega smo spremili u Docker kontejner, a koji odgovara na upite korisnika i statička stranica, koja služi za prikaz React web aplikacije. Ispod je priložena slika komponenata postavljenih na Render.
+		Naša KuhajIT web-aplikacija, razvijena u okviru ovog projekta, puštena je u pogon putem web platforme  \textcolor{blue}{\underline{\href{https://render.com/}{\textcolor{blue}{Render}}}}\footnote{\url{https://render.com/}}. Render je platforma koja pruža usluge za deploy, hosting i skaliranje web aplikacija, servisa i web stranica. Ističe se jednostavnošću upotrebe, brzim implementacijama i podrškom za različite jezike i okvire, i upravo smo ju zbog tog razloga i odabrali za tzv. deploy. Na Render-u je postavljen Spring Boot poslužitelj, kojega smo spremili u Docker kontejner, a koji odgovara na upite korisnika, statička stranica, koja služi za prikaz React web aplikacije te PostgreSQL baza podataka. Ispod su priložene dvije slike komponenata postavljenih na Render.
 		
 		
 			\begin{figure}[H]
 			\includegraphics[scale=0.3]{slike/Render_OVERVIEW.JPG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
 			\centering
-			\caption{Pregled prenesenih komponenti}
-			\label{Pregled prenesenih komponenti}
+			\caption{Pregled prenesenih komponenti, frontend i backend}
+			\label{Pregled prenesenih komponenti, frontend i backend}
 		\end{figure}
+		
+					\begin{figure}[H]
+			\includegraphics[scale=0.3]{slike/Render_OVERVIEW_DATABASE.JPG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Pregled prenesenih komponenti, baza podataka}
+			\label{Pregled prenesenih komponenti, baza podataka}
+		\end{figure}
+		
+		
 		
 		\textbf{Postavljanje Spring Boot poslužitelja} \\
 		Dio razloga zbog kojeg smo odabrali baš Render za deploy je jednostavnost postavljanja komponenti na njega. Tako je bilo i s postavljanjem Spring Boot poslužitelja koji komunicira sa React aplikacijom, spremljenom u \textcolor{blue}{\underline{\href{https://docker.com/}{\textcolor{blue}{Docker}}}}\footnote{\url{https://docker.com/}} "kontejner". Korištenje Docker-a nam je uvelike olakšalo cijeli proces deploy-a, jer Docker nudi izolirane okoline, zvane kontejnerima, koje sadrže sve potrebno za pokretanje aplikacije, stoga se nije potrebno oslanjati na ono što je instalirano na Render poslužitelju. Na slici ispod prikazan je kod Dockerfile-a. Dockerfile je dokument koji sadrži sve naredbe koje bi se trebale pozvati u naredbenom retku kako bi se aplikacija ispravno i cjelovito pokrenula.
@@ -270,7 +361,7 @@ Na početku, potrebno je u gornjem desnom kutu web platforme Render odabrati opc
 			\label{Postavke za postavljanje Spring poslužitelja, 2. dio}
 		\end{figure}
 		
-		Ono što je bilo važno podesiti je bila lokacija Dockerfile-a, koju smo mi podesili na ./IzvorniKod/Dockerfile. Usto, označili smo i opciju "Auto-Deploy" s "Yes" , tako da se svaki put kada se neka nova izmjena napravi u kodu, Spring Boot poslužitelj se iznova "deploy-a". Time je deploy Spring Boot poslužitelja priveden kraju.
+		Ono što je bilo važno podesiti je bila lokacija Dockerfile-a, koju smo mi podesili na ./IzvorniKod/Dockerfile. Usto, označili smo i opciju "Auto-Deploy" s "Yes" , tako da se svaki put kada se neka nova izmjena napravi u kodu, Spring Boot poslužitelj se iznova "deploy-a". Time je deploy Spring Boot poslužitelja priveden kraju. \\
 		
 	\textbf{Postavljanje React web aplikacije} \\
 	Kao i postavljanje Spring Boot poslužitelja, postavljanje React web aplikacije na Render je izrazito jednostavno. Svi koraci do podešavanja postavki za ispravan rad React web aplikacije jednaki su kao za postavljanje Spring Boot poslužitelja: dodavanje novog "web service-a", odabir opcije spajanja s GitHub repozitorijem, spajanje sa željenim GitHub računom te odabir GitHub repozitorija u kojem se nalazi projekt.
@@ -296,7 +387,40 @@ Na početku, potrebno je u gornjem desnom kutu web platforme Render odabrati opc
 		
 		Na gornjoj je slici vidljivo da smo za "naredbu izgradnje", naredbu koja će instalirati sve biblioteke, pokrenuti migracije i kompajlirati sve potrebno za ispravan rad naše React web aplikacije, odabrali naredbu "npm install".
 		Ono što je još trebalo podesiti je naredba pokretanja, koju smo podesili na "npm start".
-		Isto kao i kod podešavanja Spring Boot poslužitelja, odabrali smo opciju Auto-Deploy.
+		Isto kao i kod podešavanja Spring Boot poslužitelja, odabrali smo opciju Auto-Deploy. \\
+		
+				\textbf{Postavljanje baze podataka} \\
+				Iako nešto drugačije od "deploy-anja" Spring Boot poslužitelja i React web aplikacije, postavljanje PostgreSQL baze podataka na platformu Render također je izrazito jednostavno. \\
+				Za početak, potrebno je na početnoj stranici stisnuti gumb New, a zatim odabrati opciju PostgreSQL, kako je prikazano na slici ispod.
+				
+				\begin{figure}[H]
+			\includegraphics[scale=0.4]{slike/Render_PostgreSQL.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Dodavanje nove PostgreSQL baze podataka}
+			\label{Dodavanje nove PostgreSQL baze podataka}
+		\end{figure}
+		
+		Odabirom opcije PostgreSQL, otvara se novi prozor na kojem je moguće unijeti razne podatke o bazi podataka: ime, korisnika, verziju PostgreSQL-a itd. Podatke koje smo mi unijeli prikazani su na slikama ispod.
+		
+			\begin{figure}[H]
+			\includegraphics[scale=0.4]{slike/Render_DATABASE_1.JPG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Postavke baze podataka na Render-u, 1. dio}
+			\label{Postavke baze podataka na Render-u, 1. dio}
+		\end{figure}
+		
+		\begin{figure}[H]
+			\includegraphics[scale=0.4]{slike/Render_DATABASE_2.JPG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Postavke baze podataka na Render-u, 2. dio}
+			\label{Postavke baze podataka na Render-u, 2. dio}
+		\end{figure}
+		
+		Postavka "Password" šifra je usera koja služi za spajanje na bazu i vidljiva je u datoteci application.properties, dok su polja Internal Database URL, External Database URL i PSQL Command generirana od strane platforme Render.
+		
+		Stvorena baza podataka je prazna, a mi ju moramo napuniti podacima. Skripta za izravno punjenje baze podataka (inicijaliziranje svih tablica i veza između njih te punjenje nekim testnim podacima) nalazi se u datoteci Script.sql, a mi smo ju pokretali izravno iz razvojnog okruženja Eclipse IDE.
+		
+				
 	
 		
 	

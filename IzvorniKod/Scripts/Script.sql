@@ -41,12 +41,17 @@ VALUES('Enthusiast', 5, 'marko', '$2a$10$9dERkNAb3Y5VYaR1drQWie3iuq2ZweVUJiYTzLm
 
 
 insert into public."diet"
-(id, "name", "description", creator_id)
-VALUES(1, 'bolonjez dijeta', 'bolonjez dijeta', 1);
+(id, "name", "description", creator_id, "low_calorie", "low_fat", "low_carb")
+VALUES(1, 'bolonjez dijeta', 'bolonjez dijeta', 1, 20, 40 ,30);
 
 insert into public."users"
 (dtype, id, "name", "password", "surname", "username", role_id, diet_id, "confirmed")
 VALUES('Client', 6, 'iva', '$2a$10$9dERkNAb3Y5VYaR1drQWie3iuq2ZweVUJiYTzLmDtjFEenQ/EZ0om', 'ivic', 'iva25', 1, 1, true);
+
+insert into public."users"
+(dtype, id, "name", "password", "surname", "username", role_id, "confirmed")
+VALUES('Client', 1000000, 'anonymous', 'anonymous', 'anonyous', 'anonymous', 1, false);
+
 
 insert into public."category"
 (id, "name")

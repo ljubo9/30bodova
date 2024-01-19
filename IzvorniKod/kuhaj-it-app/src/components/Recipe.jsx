@@ -80,7 +80,7 @@ const Recipe = () => {
       });
 
       if (!response.ok) {
-        console.error('Response nije ispravno poslan', response.statusText);
+        console.error('Review nije ispravno poslan', response.statusText);
       } else {
         fetchRecipe();
       }
@@ -91,16 +91,13 @@ const Recipe = () => {
 
   const handleAddToTriedRecipes = async () => {
     try {
+      const formData = new FormData();
+      formData.append("recipeId", recipeId);
+      formData.append("username", currentUser.username);
+      formData.append("date", selectedDate?.toISOString().slice(0, 10) || '')
       const response = await fetch(`/recipes/addToTriedRecipes`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          recipeId,
-          username: currentUser.username || '',
-          date: selectedDate?.toISOString().slice(0, 10) || '',
-        }),
+        body : formData
       });
     } catch (error) {
       console.error('Pogreška pri dodavanju recepta u isprobane:', error);
@@ -117,7 +114,9 @@ const Recipe = () => {
           <p>Vlasnik recepta: {recipe.creator}</p>
           <p>Veličina porcije {recipe.portionSize}</p>
           <p>Vrijeme spremanja: {recipe.cookTime}</p>
-          <p>Kategorija: {recipe.category}</p>
+          {recipe.category ? (
+          <p>Kategorija: {recipe.category.name}</p>
+          ) : (<p></p>)}
 
           <h3>Sastojci:</h3>
           <ul>

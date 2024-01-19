@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 
 @Entity
 public class Review {
+	
 
     public int getId() {
         return id;
@@ -40,6 +41,10 @@ public class Review {
     
     public Review() {
     	
+    }
+    
+    public static Review getAnonymous(Recipe reviewGivenTo, int mark, String message) {
+    	return new Review(User.ANONYMOUS, reviewGivenTo, mark, message);
     }
 
 
