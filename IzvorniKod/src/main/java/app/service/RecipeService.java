@@ -31,7 +31,7 @@ import app.repository.LabelRepository;
 import app.repository.RecipeRepository;
 import app.roles.Enthusiast;
 import app.roles.User;
-import app.roles.UserRepository;
+import app.repository.UserRepository;
 
 @Service
 public class RecipeService {
@@ -97,7 +97,6 @@ public class RecipeService {
     }
 
 	public Set<Recipe> getRecipesByUsername(String username) {
-		// TODO Auto-generated method stub
 		Optional<User> u = userRepository.findUserByUsername(username);
         if (u.isEmpty()) return null;
         return ((Enthusiast)u.get()).getRecipes();

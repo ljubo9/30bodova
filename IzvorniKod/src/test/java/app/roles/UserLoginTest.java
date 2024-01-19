@@ -8,6 +8,8 @@ import static org.mockito.Mockito.when;
 
 import java.util.Optional;
 
+import app.repository.UserRepository;
+import app.service.UserService;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,16 +21,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 class UserLoginTest {
 
     @MockBean
-    private  UserRepository userRepository;
-
+    private UserRepository userRepository;
     @Autowired
     private UserService userService;
-    
     @Autowired
     private BCryptPasswordEncoder encoder;
-    
     static User newUser;
-
     @BeforeAll
     public static void initUser(){
         newUser = new User();
@@ -37,7 +35,6 @@ class UserLoginTest {
         newUser.setName("New");
         newUser.setSurname("User");
     }
-
     @Test
     public void loginValidTest(){
     	User encryptedUser = new User();
@@ -50,11 +47,6 @@ class UserLoginTest {
 
         assertNotNull(savedUser);
         assertTrue(encoder.matches(newUser.getPassword(), savedUser.getPassword()));
-    }
-
-    private void compareUsers(User newUser, User savedUser) {
-        assertEquals(newUser.getUsername(), savedUser.getUsername());
-        assertEquals(newUser.getPassword(), savedUser.getPassword());
     }
 
     @Test

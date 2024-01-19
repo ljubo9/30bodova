@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import app.dto.DietDTO;
 import app.roles.User;
-import app.roles.UserService;
+import app.service.UserService;
 
 @RestController
 @RequestMapping()

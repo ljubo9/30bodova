@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import app.dto.ResponseDTO;
 import app.roles.User;
-import app.roles.UserService;
+import app.service.UserService;
 
 
 @RestController
