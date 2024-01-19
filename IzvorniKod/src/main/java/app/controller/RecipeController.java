@@ -14,20 +14,23 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import app.dto.CategoryDTO;
 import app.dto.CookbookDTO;
 import app.dto.IngredientDTO;
 import app.dto.RecipeDTO;
+import app.dto.UserDTO;
 import app.recipe.Category;
 import app.recipe.ConsumedRecipe;
 import app.recipe.Cookbook;
+import app.recipe.Image;
 import app.recipe.Ingredient;
 import app.recipe.Recipe;
+import app.recipe.StepOfMaking;
 import app.roles.Enthusiast;
 import app.roles.User;
 import app.service.RecipeService;
@@ -65,13 +68,29 @@ public class RecipeController {
         }
     }
 
-    @PostMapping(consumes = "application/json")
-    public ResponseEntity<RecipeDTO> createRecipe(@RequestBody RecipeDTO recipeDTO) {
+    @PostMapping(path = "/recipe", consumes = "multipart/form-data")
+    public ResponseEntity<RecipeDTO> createRecipe(@RequestParam("username") String username,
+    		@RequestParam("categoryName") String category,
+    		@RequestParam("cookTime") int cookTime,
+    		@RequestParam("portionSize") int portionSize,
+    		@RequestParam("name") String name
+    		) {
         try {
-            Recipe createdRecipe = recipeService.createRecipe(recipeDTO.toEntity());
-            RecipeDTO createdRecipeDTO = new RecipeDTO(createdRecipe);
+        	Category c = recipeService.findCategoryByName(category);
+        	CategoryDTO cDTO ;
+        	if (c != null ) cDTO = new CategoryDTO(c);
+        	else {
+        		Category sc = new Category(category);
+        		recipeService.addCategory(sc);
+        		cDTO = new CategoryDTO(recipeService.findCategoryByName(category));
+        	}
+        	User u = userService.loadUserByUsername(username);
+            Recipe newRecipe = new Recipe(name, portionSize, cookTime, u, c);
+            recipeService.addRecipe(newRecipe);
+            RecipeDTO createdRecipeDTO = new RecipeDTO(newRecipe);
             return new ResponseEntity<>(createdRecipeDTO, HttpStatus.CREATED);
         } catch (Exception e) {
+        	e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -281,14 +300,14 @@ public class RecipeController {
 	}
 	
 	@GetMapping(path = "/recipes/user/{username}")
-	public ResponseEntity<Set<Recipe>> getConsumedRecipes(@PathVariable String username) {
+	public ResponseEntity<Set<RecipeDTO>> getConsumedRecipes(@PathVariable String username) {
 		try {
 			User u = (User)userService.loadUserByUsername(username);
 			if (u == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			List<ConsumedRecipe> consumed = u.getConsumedRecipes();
-			Set<Recipe> recipes = new HashSet<>();
+			Set<RecipeDTO> recipes = new HashSet<>();
 			for (ConsumedRecipe r : consumed) {
-				recipes.add(r.getRecipe());
+				recipes.add(new RecipeDTO(r.getRecipe()));
 			}
 			return new ResponseEntity<>(recipes, HttpStatus.OK);
 		}
@@ -393,6 +412,36 @@ public class RecipeController {
 		}
 		catch (Exception e) {
 			System.out.println("Could not add ingredient");
+			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	@PostMapping(path = "/RecipeIngredient")
+	public ResponseEntity<String> addRecipeIngredient(@RequestParam("recipeId") int recipeId, 
+			@RequestParam("ingredientName") String name, @RequestParam("ingredientQuantity") int ingredientQuantity) {
+		try {
+			recipeService.addRecipeIngredient(recipeId, name, ingredientQuantity);
+			return new ResponseEntity<>(HttpStatus.OK);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR); 
+		}
+	}
+	
+	@PostMapping(path = "/StepOfMaking")
+	public ResponseEntity<String> addStepOfMaking(@RequestParam("recipeId") int recipeId, 
+			@RequestParam("stepNumber") int num, @RequestParam("stepDescription") String description, @RequestParam("stepImage") Optional<MultipartFile> image) {
+		try {
+			Recipe r = recipeService.loadRecipeById(recipeId);
+			Image img = null;
+			if (image.isPresent()) img = new Image(image.get().getName(), image.get().getBytes());
+			StepOfMaking stm = new StepOfMaking(r, num, description, img);
+			recipeService.addStepOfMaking(stm);
+			return new ResponseEntity<>(HttpStatus.OK);
+		}
+		catch (Exception e) {
 			e.printStackTrace();
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}

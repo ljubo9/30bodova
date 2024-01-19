@@ -6,6 +6,7 @@ import java.util.Set;
 import app.dto.RecipeDTO;
 import app.roles.User;
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,13 +17,22 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.UniqueConstraint;
 
 @Entity
 public class Recipe {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	
+	@Id
+	@SequenceGenerator(
+			name = "recipe_sequence",
+			sequenceName = "student_sequence",
+			allocationSize = 1
+	)
+	@GeneratedValue(
+			strategy = GenerationType.SEQUENCE,
+			generator = "recipe_sequence")
+	@Column(columnDefinition = "serial", insertable = false)
     private int id;
     private String name;
     
@@ -85,7 +95,7 @@ public class Recipe {
         this.creator=creator;
     }
 
-    public Recipe( String name,int portionSize, int cookTime,User creator, Category category) {
+    public Recipe( String name,int portionSize, int cookTime, User creator, Category category) {
 
         this.name = name;
 

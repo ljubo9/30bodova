@@ -181,14 +181,14 @@ const Register = () => {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="email">
-                  <Form.Label>Email</Form.Label>
-                  <Form.Control
-                    type="email"
-                    placeholder="Upiši svoj mail"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
+                      <Form.Label>Email</Form.Label>
+                      <Form.Control
+                        type="email"
+                        placeholder="Upiši svoj mail"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                      />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="role">

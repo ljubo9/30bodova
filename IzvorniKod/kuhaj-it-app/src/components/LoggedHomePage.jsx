@@ -23,6 +23,7 @@ function LoggedHomePage() {
         const response = await fetch(`https://kuhajitbackend.onrender.com/recipes/user/${user.username}`);
         if (response.ok) {
           const data = await response.json();
+          console.log(data);
           setRecipeList(data);
         } else {
           console.error('Error fetching recipes:', response.statusText);
