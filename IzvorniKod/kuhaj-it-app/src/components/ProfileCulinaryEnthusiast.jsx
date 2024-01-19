@@ -55,7 +55,7 @@ const ProfileCulinaryEnthusiast = () => {
     <Container className="bg-light">
       <Row>
         <Col className="border border-black m-2 p-2">
-          <h2>{profileData.firstName} {profileData.lastName}</h2>
+          <h2>{profileData.name} {profileData.surname}</h2>
           <p>Korisničko ime: {profileData.username}</p>
         </Col>
       </Row>

@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+/*import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 
 const CalorieChart = ({ consumedRecipesStatistics }) => {
   const [chartData, setChartData] = useState({});
+  const [haveData, setHaveData] = useState(false);
 
   useEffect(() => {
     //const daysOfWeek = Object.keys(consumedRecipesStatistics);
@@ -38,7 +39,7 @@ const CalorieChart = ({ consumedRecipesStatistics }) => {
   return (
     <div>
       <h2>Graf potrošenih kalorija u zadnjih 7 dana</h2>
-      {haveData && (
+      {haveData ? (
         <Bar
           data={chartData}
           options={{
@@ -57,12 +58,60 @@ const CalorieChart = ({ consumedRecipesStatistics }) => {
                 beginAtZero: true,
               },
             },
+          }}
+        />
+      ) : (
+        <p>Error loading data</p>
+      )}
+    </div>
+  );
+};
+
+export default CalorieChart;*/
+
+import React, { useEffect, useState } from 'react';
+import { Bar } from 'react-chartjs-2';
+
+const CalorieChart = ({ consumedRecipesStatistics }) => {
+  const [chartData, setChartData] = useState({});
+
+  useEffect(() => {
+    //const daysOfWeek = Object.keys(consumedRecipesStatistics);
+    //const caloriesConsumed = Object.values(consumedRecipesStatistics);
+    const daysOfWeek = Object.keys({"22.01.":35, "23.01.": 45, "24.01.": 60, "25.01.": 43, "26.01.": 55, "27.01.": 20, "28.01.": 100});
+    const caloriesConsumed = Object.values({"22.01.":35, "23.01.": 45, "24.01.": 60, "25.01.": 43, "26.01.": 55, "27.01.": 20, "28.01.": 100});
+
+    setChartData({
+      labels: daysOfWeek,
+      datasets: [
+        {
+          label: 'Potrošene kalorije',
+          data: caloriesConsumed,
+          fill: false,
+          borderColor: 'rgba(75,192,192,1)',
+          borderWidth: 2,
+        },
+      ],
+    });
+  }, [consumedRecipesStatistics]);
+
+  return (
+    <div>
+      <h2>Graf potrošenih kalorija u zadnjih 7 dana</h2>
+      <Bar
+        data={chartData}
+        options={{
+          scales: {
+            x: {
+              type: 'category',
+              labels: chartData.labels,
+            },
             y: {
               beginAtZero: true,
             },
-          }}
-        />
-  )}
+          },
+        }}
+      />
     </div>
   );
 };
