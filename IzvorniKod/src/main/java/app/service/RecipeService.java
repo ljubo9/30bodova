@@ -1,6 +1,7 @@
 package app.service;
 
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -12,15 +13,21 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import app.recipe.Category;
 import app.recipe.ConsumedRecipe;
 import app.recipe.Cookbook;
+import app.recipe.Image;
 import app.recipe.Ingredient;
+import app.recipe.Label;
 import app.recipe.Recipe;
 import app.recipe.RecipeIngredient;
+import app.repository.CategoryRepository;
 import app.repository.ConsumedRecipeRepository;
 import app.repository.CookbookRepository;
 import app.repository.IngredientRepository;
+import app.repository.LabelRepository;
 import app.repository.RecipeRepository;
 import app.roles.Enthusiast;
 import app.roles.User;
@@ -33,15 +40,21 @@ public class RecipeService {
     private final UserRepository userRepository;
     private final IngredientRepository ingredientRepository;
     private final ConsumedRecipeRepository consumedRecipeRepository;
+    private final CategoryRepository categoryRepository;
+    private final LabelRepository labelRepository;
 
     @Autowired
     public RecipeService(RecipeRepository recipeRepository, CookbookRepository cookbookRepository, UserRepository userRepository,
-    		IngredientRepository ingredientRepository, ConsumedRecipeRepository consumedRecipeRepository) {
+    		IngredientRepository ingredientRepository, ConsumedRecipeRepository consumedRecipeRepository, CategoryRepository categoryRepository,
+    		LabelRepository labelRepository) {
         this.recipeRepository = recipeRepository;
         this.cookbookRepository = cookbookRepository;
         this.userRepository = userRepository;
         this.ingredientRepository = ingredientRepository;
         this.consumedRecipeRepository  = consumedRecipeRepository;
+        this.categoryRepository  = categoryRepository;
+        this.labelRepository  = labelRepository;
+        
     }
 
     public Recipe loadRecipeById(int recipeId) {
@@ -172,6 +185,68 @@ public class RecipeService {
 		consumedRecipeRepository.save(recipe);
 		userRepository.save(user);
 		
+	}
+
+	public Category findCategoryByName(String name) {
+		// TODO Auto-generated method stub
+		Optional<Category> cat = categoryRepository.findByName(name);
+		return cat.orElse(null);
+	}
+
+	public void addCategory(Category cat) {
+		// TODO Auto-generated method stub
+		categoryRepository.save(cat);
+	}
+
+	public void addIngredient(String name, String category, int calories, int protein, int carbs, int fat, int sugar,
+			int salt, int saturatedFat, Optional<MultipartFile> img, int weight, List<String> labels) {
+		// TODO Auto-generated method stub
+		if (ingredientRepository.findByName(name).isPresent()) return;
+		Category cat = getOrAddCategory(category);
+		List<Label> label = getOrAddLabels(labels);
+		try {
+			Image image = img.isPresent() ? new Image(img.get().getName() ,img.get().getBytes()) : null;
+			Ingredient ing = new Ingredient(name, cat, calories, protein, carbs, salt, saturatedFat,
+					image, weight, label);
+			ingredientRepository.save(ing);
+		}
+		catch(Exception e) {
+			throw new IllegalStateException("Could not add ingredient");
+		}
+		
+		
+		
+	}
+	
+	private List<Label> getOrAddLabels(List<String> labels) {
+		// TODO Auto-generated method stub
+		List<Label> finalList = new ArrayList<>();
+		for (String l : labels) {
+			Optional<Label> labelO = labelRepository.findByName(l);
+			Label lab;
+			if(labelO.isEmpty()) {
+				lab = new Label(l);
+				labelRepository.save(lab);
+			}
+			else {
+				lab = labelO.get();
+			}
+			finalList.add(lab);
+		}
+		return finalList;
+	}
+
+	public Category getOrAddCategory(String category) {
+		Optional<Category> catO = categoryRepository.findByName(category);
+		Category cat;
+		if(catO.isEmpty()) {
+			cat = new Category(category);
+			categoryRepository.save(cat);
+		}
+		else {
+			cat = catO.get();
+		}
+		return cat;
 	}
 	
 	

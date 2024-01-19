@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import app.recipe.Category;
 import app.recipe.Recipe;
 import app.recipe.StepOfMaking;
 
@@ -20,7 +21,7 @@ public class RecipeDTO {
     public List<ReviewDTO> reviews;
     
     public String creator;
-    public String category;
+    public CategoryDTO category;
     
 
 
@@ -62,7 +63,7 @@ public class RecipeDTO {
         this.reviews = reviewDTOs;
         
         this.creator = recipe.getCreator().getUsername();
-        this.category = recipe.getCategory();
+        this.category = new CategoryDTO(recipe.getCategory());
 
     }
 

@@ -5,7 +5,18 @@ import java.util.Set;
 
 import app.dto.RecipeDTO;
 import app.roles.User;
-import jakarta.persistence.*;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.UniqueConstraint;
 
 @Entity
 public class Recipe {
@@ -14,6 +25,9 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+    
+    @OneToOne
+    private Category cat;
 
     @OneToMany
     private List<StepOfMaking> stepsOfMaking;
@@ -42,15 +56,15 @@ public class Recipe {
     @JoinColumn(name = "recipe_id")
     private List<RecipeIngredient> ingredients;
 
-    private String category;
 
-    public Recipe( int id,String name, List<RecipeIngredient> ingredients,List<StepOfMaking> stepsOfMaking, int portionSize, int cookTime) {
+    public Recipe( int id,String name, List<RecipeIngredient> ingredients,List<StepOfMaking> stepsOfMaking, int portionSize, int cookTime, Category cat) {
         this.id=id;
         this.name = name;
         this.ingredients = ingredients;
         this.stepsOfMaking = stepsOfMaking;
         this.portionSize = portionSize;
         this.cookTime = cookTime;
+        this.cat = cat;
 
     }
     public Recipe( String name, List<RecipeIngredient> ingredients,List<StepOfMaking> stepsOfMaking, int portionSize, int cookTime) {
@@ -153,9 +167,10 @@ public class Recipe {
 		this.name = name;
 	}
 	
-	public String getCategory() {
-		return this.category;
+	public Category getCategory() {
+		return this.cat;
 	}
+	
 	public List<Cookbook> getCookbooks() {
 		return cookbooks;
 	}
