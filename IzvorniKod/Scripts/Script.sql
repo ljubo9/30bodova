@@ -50,7 +50,7 @@ VALUES('Client', 6, 'iva', '$2a$10$9dERkNAb3Y5VYaR1drQWie3iuq2ZweVUJiYTzLmDtjFEe
 
 
 insert into public."ingredient"
-(id, "name", "energy")
+(id, "calories", "carbs", "name", "protein", "salt", "saturated_fat", "energy")
 VALUES(2, 'sir', 100);
 
 insert into public."ingredient"
