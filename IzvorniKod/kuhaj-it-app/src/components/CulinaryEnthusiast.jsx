@@ -7,8 +7,11 @@ function CulinaryEnthusiast() {
   const [filterSubcategory, setFilterSubcategory] = useState('');
   const [filteredEnthusiasts, setFilteredEnthusiasts] = useState([]);  //filtirani entuzijasti po kategoriji ili searchu
   const [enthusiasts, setEnthusiasts] = useState([]);  //svi entuzijasti iz baze
+  const [isLoadingEnthusiasts, setIsLoadingEnthusiasts] = useState(true); // Loading state for enthusiasts
+  const [isLoadingCreators, setIsLoadingCreators] = useState(false); // Loading state for creators
 
   const fetchCreatorsByCategory = async (category) => {
+    setIsLoadingCreators(true);
     try {
       // Dohvaćanje svih kuharica iz baze čija je kategorija jednaka stisnutoj
       const cookbooksResponse = await fetch(`/cookbooks/category?category=${category}`);
@@ -35,6 +38,8 @@ function CulinaryEnthusiast() {
       setFilteredEnthusiasts(allAuthors);
     } catch (error) {
       console.error('Error fetching creators:', error.message);
+    } finally {
+      setIsLoadingCreators(false);
     }
   };
   
@@ -58,6 +63,8 @@ function CulinaryEnthusiast() {
         }
       } catch (error) {
         console.error('Error fetching enthusiasts:', error.message);
+      } finally {
+        setIsLoadingEnthusiasts(false);
       }
     };
 
@@ -137,16 +144,22 @@ function CulinaryEnthusiast() {
           </select>
         )}
       </div>
-      <ul className="bg-light">
-        { filteredEnthusiasts.map((enthusiast) => (
-          <li key={enthusiast.id}>
-            <Link to={`/enthusiast/${enthusiast.username}`}>
-              <h3>{enthusiast.username}</h3>
-            </Link>
-            <p>{enthusiast.biography}</p>
-          </li>
-        ))}
-      </ul>
+      <div className="bg-light">
+        {isLoadingEnthusiasts || isLoadingCreators ? (
+          <p>Loading...</p> // Loading indicator
+        ) : (
+          <ul>
+            {filteredEnthusiasts.map((enthusiast) => (
+              <li key={enthusiast.id}>
+                <Link to={`/enthusiast/${enthusiast.username}`}>
+                  <h3>{enthusiast.username}</h3>
+                </Link>
+                <p>{enthusiast.biography}</p>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </>
   );
 }
