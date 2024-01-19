@@ -14,6 +14,7 @@ const Cookbook = () => {
         if (response.ok) {
           const data = await response.json();
           setCookbookData(data);
+          console.log(data);
         } else {
           console.error('Error fetching cookbook data:', response.statusText);
         }
@@ -37,10 +38,10 @@ const Cookbook = () => {
         <Col>
           <h2>{cookbookTitle}</h2>
           <p>
-            <strong>Kreator:</strong> {creator}
+            <strong>Kreator: </strong> {cookbookData.creator}
           </p>
           <p>
-            <strong>Kategorija:</strong> {category}
+            <strong>Kategorija:</strong> {cookbookData.category}
           </p>
         </Col>
       </Row>

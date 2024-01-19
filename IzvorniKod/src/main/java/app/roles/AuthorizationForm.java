@@ -122,7 +122,7 @@ public class AuthorizationForm {
 	public static User parseUser(AuthorizationForm form) {
 		if (form == null) throw new NullPointerException("Reference to form is null.");
 		if (form.getRole().getName().equalsIgnoreCase("CLIENT")) {
-			return new Client(form.getUsername(), form.getPassword(), form.getName(), form.getSurname());
+			return new Client(form.getUsername(), form.getPassword(), form.getName(), form.getSurname(), form.getEmail());
 		}
 		//Image img = new Image(form.getPhoto_url(), form.getPhoto_url());
 		else if (form.getRole().getName().equalsIgnoreCase("ENTHUSIAST")) {

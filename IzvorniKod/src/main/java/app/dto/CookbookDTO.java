@@ -8,6 +8,7 @@ public class CookbookDTO {
     public String name;
     public String category;
     public int creatorid;
+    public String creator;
     
     public CookbookDTO() {
     	
@@ -18,6 +19,7 @@ public class CookbookDTO {
     	this.name = c.getName();
     	this.category = c.getCategory();
     	this.creatorid = c.getCreator().getId();
+    	this.creator = c.getCreator().getUsername();
     }
     
 }

@@ -13,23 +13,25 @@ const Recipe = () => {
   const [reviewResponse, setReviewResponse] = useState({});
   const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
 
-  useEffect(() => {
-    const fetchRecipe = async () => {
-      try {
-        //endpoint za dohvaćanje recepta po id-u
-        const response = await fetch(`/recipe/get/${recipeId}`);
-        if (response.ok) {
-          const data = await response.json();
-          setRecipe(data);
-          console.log(data);
-        } 
-        else {
-          console.error('Recept se ne može dohvatiti: ', response.statusText);
-        }
-      } catch (error) {
-        console.error('Pogreška pri dohvaćanju recepta:', error);
+
+  const fetchRecipe = async () => {
+    try {
+      //endpoint za dohvaćanje recepta po id-u
+      const response = await fetch(`/recipe/get/${recipeId}`);
+      if (response.ok) {
+        const data = await response.json();
+        setRecipe(data);
+        console.log(data);
+      } 
+      else {
+        console.error('Recept se ne može dohvatiti: ', response.statusText);
       }
-    };
+    } catch (error) {
+      console.error('Pogreška pri dohvaćanju recepta:', error);
+    }
+  };
+  
+  useEffect(() => {
 
     fetchRecipe();
   }, [recipeId]);
@@ -49,6 +51,7 @@ const Recipe = () => {
   const handleResponseSubmit = async (reviewId) => {
     try {
       // slanje odgovora na recenziju, šalje se review.id, string odgovor i username
+
       const response = await fetch(`/response`, {
         method: 'POST',
         headers: {
@@ -73,18 +76,23 @@ const Recipe = () => {
   const handleReviewSubmit = async () => {
     try {
       // slanje recenzije, šalje se recipeId, message, mark, username
+      const form = new FormData();
+      form.append("recipeId", recipeId);
+      form.append("message", reviewMessage);
+      form.append("mark", reviewRating);
+      form.append("username", currentUser.username);
+
       const response = await fetch(`/review`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          recipeId,
-          message: reviewMessage,
-          mark: reviewRating,
-          username: currentUser.username,
-        }),
+        body: form
       });
+
+      if (!response.ok) {
+        console.error("Response nije ispravno poslan", response.statusText);
+      }
+      else {
+        fetchRecipe();
+      }
 
       // Ovdje možete rukovati odgovorom, ako je potrebno
     } catch (error) {
