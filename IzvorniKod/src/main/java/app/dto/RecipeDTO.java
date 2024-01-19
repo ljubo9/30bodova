@@ -10,6 +10,7 @@ public class RecipeDTO {
 
     public int id;
     public String name;
+    
 
     public List<StepOfMakingDTO> stepsOfMaking;
     public int portionSize;
@@ -17,6 +18,10 @@ public class RecipeDTO {
     public List<RecipeIngredientDTO> ingredients;
     public List<ImageDTO> images;
     public List<ReviewDTO> reviews;
+    
+    public String creator;
+    public String category;
+    
 
 
     // Constructors, getters, and setters
@@ -55,6 +60,9 @@ public class RecipeDTO {
                 .map(ReviewDTO::fromEntity)
                 .collect(Collectors.toList());
         this.reviews = reviewDTOs;
+        
+        this.creator = recipe.getCreator().getUsername();
+        this.category = recipe.getCategory();
 
     }
 
