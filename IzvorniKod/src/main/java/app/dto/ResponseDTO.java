@@ -2,7 +2,7 @@ package app.dto;
 import app.recipe.Response;
 public class ResponseDTO {
 
-    private int id;
+    public int id;
 
     public int getId() {
         return id;
@@ -20,16 +20,27 @@ public class ResponseDTO {
         this.message = message;
     }
 
-    private String message;
-    // Add other fields as needed
+    public String message;
 
-    // Constructors, getters, and setters
+    public int review_id;
+    public int creator_id;
 
+    public int getCreatorId(){
+        return creator_id;
+    }
+
+    public void setCreatorId(int creator_id){
+        this.creator_id = creator_id;
+    }
+
+    public int getReviewId() { return review_id;}
+    public void setReviewId(int review_id){this.review_id = review_id;}
     public static ResponseDTO fromEntity(Response response) {
         ResponseDTO dto = new ResponseDTO();
         dto.setId(response.getId());
         dto.setMessage(response.getMessage());
-        // Map other properties accordingly
+        dto.setReviewId(response.getReviewId());
+        dto.setCreatorId(response.getCreator().getId());
         return dto;
     }
 }

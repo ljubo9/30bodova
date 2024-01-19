@@ -7,7 +7,7 @@ import java.util.Optional;
 import app.roles.Role;
 import app.roles.SpecialUser;
 import app.roles.User;
-import app.roles.UserRepository;
+import app.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

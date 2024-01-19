@@ -17,7 +17,7 @@ import app.repository.IngredientRepository;
 import app.repository.RecipeRepository;
 import app.roles.Enthusiast;
 import app.roles.User;
-import app.roles.UserRepository;
+import app.repository.UserRepository;
 
 @Service
 public class RecipeService {

@@ -18,12 +18,10 @@ public class ImageDTO {
         this.name = name;
     }
 
-    private String name;
+    public String name;
     private byte[] data;
 
-    // Constructors, getters, and setters
     public ImageDTO() {
-        // Default constructor
     }
 
     public ImageDTO(byte[] data) {

@@ -1,5 +1,6 @@
 package app.roles;
 
+import app.repository.UserRepository;
 import app.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ import static org.mockito.Mockito.when;
 @SpringBootTest
 public class UserRetrieveDataTest {
     @MockBean
-    private  UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Autowired
     private UserService userService;

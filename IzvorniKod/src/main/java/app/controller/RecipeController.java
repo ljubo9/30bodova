@@ -64,7 +64,6 @@ public class RecipeController {
     @PostMapping(consumes = "application/json")
     public ResponseEntity<RecipeDTO> createRecipe(@RequestBody RecipeDTO recipeDTO) {
         try {
-            // Convert the RecipeDTO to a Recipe entity and create the recipe
             Recipe createdRecipe = recipeService.createRecipe(recipeDTO.toEntity());
             RecipeDTO createdRecipeDTO = new RecipeDTO(createdRecipe);
             return new ResponseEntity<>(createdRecipeDTO, HttpStatus.CREATED);
