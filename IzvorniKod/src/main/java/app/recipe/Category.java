@@ -17,6 +17,10 @@ public class Category {
 		this.name = name;
 	}
 
+	public Category() {
+		
+	}
+	
 	public int getId() {
 		return id;
 	}

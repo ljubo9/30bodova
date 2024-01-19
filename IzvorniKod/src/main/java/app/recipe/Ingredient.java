@@ -13,12 +13,13 @@ public class Ingredient {
 
 	private String name;
 	@ManyToOne
-
 	private Image image;
 	
+	@OneToOne
 	private Category cat;
 	
-	List<Label> labels;
+	@ManyToMany
+	private List<Label> labels;
 	
 	private int calories;
 	private int carbs;
@@ -77,6 +78,32 @@ public class Ingredient {
 	public Category getCat() {
 		return cat;
 	}
+
+	public List<Label> getLabels() {
+		return labels;
+	}
+
+	public int getCalories() {
+		return calories;
+	}
+
+	public int getCarbs() {
+		return carbs;
+	}
+
+	public int getProtein() {
+		return protein;
+	}
+
+	public int getSalt() {
+		return salt;
+	}
+
+	public int getSaturatedFat() {
+		return saturatedFat;
+	}
+	
+	
 	
 	
 
