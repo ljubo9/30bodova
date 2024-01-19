@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2024.1.3)  19 JAN 2024 23:14
-=======
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2024.1.3)  19 JAN 2024 17:47
->>>>>>> 339c0c133f68a813c64612dff185c525e152b10d
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2024.1.3)  20 JAN 2024 00:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1143,11 +1139,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-<<<<<<< HEAD
-l.30 ...6}Zaključak i budući rad}{67}{chapter.6}
-=======
-l.30 ...6}Zaključak i budući rad}{63}{chapter.6}
->>>>>>> 339c0c133f68a813c64612dff185c525e152b10d
+l.30 ...chapter}{Popis literature}{69}{chapter*.4}
                                                   % [1
 
 ])
@@ -1415,7 +1407,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 ]
-<slike/coolinarika.PNG, id=182, 1154.51324pt x 582.978pt>
+<slike/coolinarika.PNG, id=177, 1154.51324pt x 582.978pt>
 File: slike/coolinarika.PNG Graphic file (type png)
 <use slike/coolinarika.PNG>
 Package pdftex.def Info: slike/coolinarika.PNG  used on input line 14.
@@ -1425,7 +1417,7 @@ Overfull \hbox (26.18633pt too wide) in paragraph at lines 14--16
  [][] 
  []
 
-<slike/indexRecepti.PNG, id=184, 902.1705pt x 515.526pt>
+<slike/indexRecepti.PNG, id=179, 902.1705pt x 515.526pt>
 File: slike/indexRecepti.PNG Graphic file (type png)
 <use slike/indexRecepti.PNG>
 Package pdftex.def Info: slike/indexRecepti.PNG  used on input line 21.
@@ -1599,7 +1591,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [19]
-<dijagrami/UML_Korisnik_Klijent.png, id=371, 874.76813pt x 758.835pt>
+<dijagrami/UML_Korisnik_Klijent.png, id=366, 874.76813pt x 758.835pt>
 File: dijagrami/UML_Korisnik_Klijent.png Graphic file (type png)
 <use dijagrami/UML_Korisnik_Klijent.png>
 Package pdftex.def Info: dijagrami/UML_Korisnik_Klijent.png  used on input line
@@ -1615,7 +1607,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [20]
-<dijagrami/UML_KulinarskiEntuzijast_Nutricionist_Admin.png, id=383, 1121.69063p
+<dijagrami/UML_KulinarskiEntuzijast_Nutricionist_Admin.png, id=378, 1121.69063p
 t x 748.29562pt>
 File: dijagrami/UML_KulinarskiEntuzijast_Nutricionist_Admin.png Graphic file (t
 ype png)
@@ -1643,7 +1635,7 @@ has been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.587 				
            <./dijagrami/UML_Korisnik_Klijent.png>]
-<dijagrami/SEQ_UC4.png, id=392, 678.28406pt x 560.0925pt>
+<dijagrami/SEQ_UC4.png, id=387, 678.28406pt x 560.0925pt>
 File: dijagrami/SEQ_UC4.png Graphic file (type png)
 <use dijagrami/SEQ_UC4.png>
 Package pdftex.def Info: dijagrami/SEQ_UC4.png  used on input line 596.
@@ -1664,7 +1656,7 @@ has been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.601 	
         <./dijagrami/UML_KulinarskiEntuzijast_Nutricionist_Admin.png>]
-<dijagrami/SEQ_UC8.png, id=400, 685.05937pt x 516.42938pt>
+<dijagrami/SEQ_UC8.png, id=395, 685.05937pt x 516.42938pt>
 File: dijagrami/SEQ_UC8.png Graphic file (type png)
 <use dijagrami/SEQ_UC8.png>
 Package pdftex.def Info: dijagrami/SEQ_UC8.png  used on input line 609.
@@ -1696,12 +1688,12 @@ has been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.618 				
            <./dijagrami/SEQ_UC4.png> <./dijagrami/SEQ_UC8.png>]
-<dijagrami/SEQ_UC13.png, id=410, 834.11626pt x 582.67688pt>
+<dijagrami/SEQ_UC13.png, id=405, 834.11626pt x 582.67688pt>
 File: dijagrami/SEQ_UC13.png Graphic file (type png)
 <use dijagrami/SEQ_UC13.png>
 Package pdftex.def Info: dijagrami/SEQ_UC13.png  used on input line 621.
 (pdftex.def)             Requested size: 333.6406pt x 233.06662pt.
-<dijagrami/SEQ_UC14.png, id=411, 666.99188pt x 401.24907pt>
+<dijagrami/SEQ_UC14.png, id=406, 666.99188pt x 401.24907pt>
 File: dijagrami/SEQ_UC14.png Graphic file (type png)
 <use dijagrami/SEQ_UC14.png>
 Package pdftex.def Info: dijagrami/SEQ_UC14.png  used on input line 633.
@@ -1767,13 +1759,13 @@ Overfull \hbox (7.73766pt too wide) in paragraph at lines 3--4
 turu zas-no-vanu na doga[]dajima.
  []
 
-<slike/event_driven_architecture.PNG, id=427, 402.00188pt x 203.25937pt>
+<slike/event_driven_architecture.PNG, id=422, 402.00188pt x 203.25937pt>
 File: slike/event_driven_architecture.PNG Graphic file (type png)
 <use slike/event_driven_architecture.PNG>
 Package pdftex.def Info: slike/event_driven_architecture.PNG  used on input lin
 e 11.
 (pdftex.def)             Requested size: 160.7979pt x 81.30229pt.
-<slike/mvc.PNG, id=428, 334.851pt x 311.36325pt>
+<slike/mvc.PNG, id=423, 334.851pt x 311.36325pt>
 File: slike/mvc.PNG Graphic file (type png)
 <use slike/mvc.PNG>
 Package pdftex.def Info: slike/mvc.PNG  used on input line 26.
@@ -1803,7 +1795,7 @@ Overfull \hbox (2.32166pt too wide) in paragraph at lines 32--33
 -tavno za-mi-je-nili []zeljene
  []
 
-<slike/divide_and_conquer.PNG, id=436, 469.755pt x 364.36125pt>
+<slike/divide_and_conquer.PNG, id=431, 469.755pt x 364.36125pt>
 File: slike/divide_and_conquer.PNG Graphic file (type png)
 <use slike/divide_and_conquer.PNG>
 Package pdftex.def Info: slike/divide_and_conquer.PNG  used on input line 35.
@@ -1837,7 +1829,7 @@ has been already used, duplicate ignored
 l.45 		\item B
               aza podataka - omogućuje organiziranu pohranu podataka koje j...
  <./slike/mvc.PNG> <./slike/divide_and_conquer.PNG>]
-<slike/architecture.PNG, id=446, 378.213pt x 200.54926pt>
+<slike/architecture.PNG, id=441, 378.213pt x 200.54926pt>
 File: slike/architecture.PNG Graphic file (type png)
 <use slike/architecture.PNG>
 Package pdftex.def Info: slike/architecture.PNG  used on input line 49.
@@ -2081,7 +2073,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [36]
-<slike/er.PNG, id=496, 995.72pt x 1606.0pt>
+<slike/er.PNG, id=491, 995.72pt x 1606.0pt>
 File: slike/er.PNG Graphic file (type png)
 <use slike/er.PNG>
 Package pdftex.def Info: slike/er.PNG  used on input line 419.
@@ -2102,7 +2094,7 @@ has been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.425 				\eject
                 	 <./slike/er.PNG>]
-<dijagrami/UML_dijagram_razreda_controllers.png, id=503, 889.07156pt x 767.8687
+<dijagrami/UML_dijagram_razreda_controllers.png, id=498, 889.07156pt x 767.8687
 4pt>
 File: dijagrami/UML_dijagram_razreda_controllers.png Graphic file (type png)
 <use dijagrami/UML_dijagram_razreda_controllers.png>
@@ -2143,7 +2135,7 @@ p/m/n/12 spe-ci-fi-ka-cija su raz-reda \OT1/jkp/m/it/12 User\OT1/jkp/m/n/12 , s
 toga naslje[]duju
  []
 
-<dijagrami/UML_dijagram_razreda_models.png, id=511, 2306.6175pt x 1491.32156pt>
+<dijagrami/UML_dijagram_razreda_models.png, id=506, 2306.6175pt x 1491.32156pt>
 
 File: dijagrami/UML_dijagram_razreda_models.png Graphic file (type png)
 <use dijagrami/UML_dijagram_razreda_models.png>
@@ -2164,13 +2156,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [39]
-<dijagrami/UML_dijagram_razreda_dtos.png, id=517, 715.17188pt x 666.23906pt>
+<dijagrami/UML_dijagram_razreda_dtos.png, id=512, 715.17188pt x 666.23906pt>
 File: dijagrami/UML_dijagram_razreda_dtos.png Graphic file (type png)
 <use dijagrami/UML_dijagram_razreda_dtos.png>
 Package pdftex.def Info: dijagrami/UML_dijagram_razreda_dtos.png  used on input
  line 469.
 (pdftex.def)             Requested size: 143.03183pt x 133.24544pt.
-<dijagrami/UML_dijagram_razreda_repositories.png, id=518, 874.01532pt x 512.665
+<dijagrami/UML_dijagram_razreda_repositories.png, id=513, 874.01532pt x 512.665
 31pt>
 File: dijagrami/UML_dijagram_razreda_repositories.png Graphic file (type png)
 <use dijagrami/UML_dijagram_razreda_repositories.png>
@@ -2200,7 +2192,7 @@ has been already used, duplicate ignored
 l.484 		\end{figure}
                      <./dijagrami/UML_dijagram_razreda_models.png> <./dijagrami
 /UML_dijagram_razreda_dtos.png>]
-<dijagrami/UML_dijagram_razreda_services.png, id=528, 843.90282pt x 587.94656pt
+<dijagrami/UML_dijagram_razreda_services.png, id=523, 843.90282pt x 587.94656pt
 >
 File: dijagrami/UML_dijagram_razreda_services.png Graphic file (type png)
 <use dijagrami/UML_dijagram_razreda_services.png>
@@ -2230,7 +2222,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.4.10})
 l.498 		\eject
                <./dijagrami/UML_dijagram_razreda_repositories.png> <./dijagrami
 /UML_dijagram_razreda_services.png>]
-<dijagrami/UML_dijagram_stanja.png, id=538, 1343.0175pt x 825.0825pt>
+<dijagrami/UML_dijagram_stanja.png, id=533, 1343.0175pt x 825.0825pt>
 File: dijagrami/UML_dijagram_stanja.png Graphic file (type png)
 <use dijagrami/UML_dijagram_stanja.png>
 Package pdftex.def Info: dijagrami/UML_dijagram_stanja.png  used on input line 
@@ -2261,7 +2253,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.4.11})
                                                   \__shipout_drop_firstpage_...
 l.531 		\eject
                <./dijagrami/UML_dijagram_stanja.png>]
-<dijagrami/UML_dijagram_aktivnosti.png, id=552, 861.2175pt x 1828.58156pt>
+<dijagrami/UML_dijagram_aktivnosti.png, id=547, 861.2175pt x 1828.58156pt>
 File: dijagrami/UML_dijagram_aktivnosti.png Graphic file (type png)
 <use dijagrami/UML_dijagram_aktivnosti.png>
 Package pdftex.def Info: dijagrami/UML_dijagram_aktivnosti.png  used on input l
@@ -2283,7 +2275,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.4.12})
                                                   \__shipout_drop_firstpage_...
 l.543 		\eject
                <./dijagrami/UML_dijagram_aktivnosti.png>]
-<dijagrami/UML_dijagram_komponenti.png, id=560, 1568.86125pt x 700.11563pt>
+<dijagrami/UML_dijagram_komponenti.png, id=555, 1568.86125pt x 700.11563pt>
 File: dijagrami/UML_dijagram_komponenti.png Graphic file (type png)
 <use dijagrami/UML_dijagram_komponenti.png>
 Package pdftex.def Info: dijagrami/UML_dijagram_komponenti.png  used on input l
@@ -2351,73 +2343,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-<<<<<<< HEAD
 [47]
-<slike/registerUser.PNG, id=623, 266.49562pt x 88.83188pt>
-=======
-[46]
-<slike/registerUser.PNG, id=619, 266.49562pt x 88.83188pt>
->>>>>>> 339c0c133f68a813c64612dff185c525e152b10d
+<slike/registerUser.PNG, id=618, 266.49562pt x 88.83188pt>
 File: slike/registerUser.PNG Graphic file (type png)
 <use slike/registerUser.PNG>
 Package pdftex.def Info: slike/registerUser.PNG  used on input line 50.
 (pdftex.def)             Requested size: 106.59636pt x 35.5321pt.
-<<<<<<< HEAD
-<slike/userRegistrationTest.PNG, id=624, 672.26157pt x 397.485pt>
-=======
-<slike/userRegistrationTest.PNG, id=620, 672.26157pt x 397.485pt>
->>>>>>> 339c0c133f68a813c64612dff185c525e152b10d
+<slike/userRegistrationTest.PNG, id=619, 672.26157pt x 397.485pt>
 File: slike/userRegistrationTest.PNG Graphic file (type png)
 <use slike/userRegistrationTest.PNG>
 Package pdftex.def Info: slike/userRegistrationTest.PNG  used on input line 57.
 
 (pdftex.def)             Requested size: 268.89986pt x 158.99118pt.
-<<<<<<< HEAD
-<slike/JUnit_register.JPG, id=625, 448.67625pt x 186.6975pt>
+<slike/JUnit_register.JPG, id=620, 448.67625pt x 186.6975pt>
 File: slike/JUnit_register.JPG Graphic file (type jpg)
 <use slike/JUnit_register.JPG>
 Package pdftex.def Info: slike/JUnit_register.JPG  used on input line 64.
 (pdftex.def)             Requested size: 179.46732pt x 74.67767pt.
-=======
-<slike/loginValidTest.PNG, id=621, 683.55376pt x 491.58656pt>
-File: slike/loginValidTest.PNG Graphic file (type png)
-<use slike/loginValidTest.PNG>
-Package pdftex.def Info: slike/loginValidTest.PNG  used on input line 67.
-(pdftex.def)             Requested size: 273.41666pt x 196.63113pt.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[47
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.1}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.72 		
-       
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.2}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.72 		
-        <./slike/registerUser.PNG> <./slike/userRegistrationTest.PNG>]
-<slike/loginUser.PNG, id=631, 454.69875pt x 216.81pt>
-File: slike/loginUser.PNG Graphic file (type png)
-<use slike/loginUser.PNG>
-Package pdftex.def Info: slike/loginUser.PNG  used on input line 74.
-(pdftex.def)             Requested size: 181.87627pt x 86.72246pt.
-<slike/loginInvalidUsernameTest.PNG, id=632, 725.71124pt x 471.26062pt>
-File: slike/loginInvalidUsernameTest.PNG Graphic file (type png)
-<use slike/loginInvalidUsernameTest.PNG>
-Package pdftex.def Info: slike/loginInvalidUsernameTest.PNG  used on input line
- 84.
-(pdftex.def)             Requested size: 290.27936pt x 188.5009pt.
->>>>>>> 339c0c133f68a813c64612dff185c525e152b10d
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2444,57 +2386,25 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.5.3})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-<<<<<<< HEAD
 l.73 
       <./slike/registerUser.PNG> <./slike/userRegistrationTest.PNG> <./slike/JU
 nit_register.JPG>]
-<slike/loginValidTest.PNG, id=637, 683.55376pt x 491.58656pt>
+<slike/loginValidTest.PNG, id=632, 683.55376pt x 491.58656pt>
 File: slike/loginValidTest.PNG Graphic file (type png)
 <use slike/loginValidTest.PNG>
 Package pdftex.def Info: slike/loginValidTest.PNG  used on input line 75.
 (pdftex.def)             Requested size: 273.41666pt x 196.63113pt.
-<slike/loginUser.PNG, id=638, 454.69875pt x 216.81pt>
+<slike/loginUser.PNG, id=633, 454.69875pt x 216.81pt>
 File: slike/loginUser.PNG Graphic file (type png)
 <use slike/loginUser.PNG>
 Package pdftex.def Info: slike/loginUser.PNG  used on input line 82.
 (pdftex.def)             Requested size: 181.87627pt x 86.72246pt.
-<slike/loginInvalidUsernameTest.PNG, id=639, 725.71124pt x 471.26062pt>
+<slike/loginInvalidUsernameTest.PNG, id=634, 725.71124pt x 471.26062pt>
 File: slike/loginInvalidUsernameTest.PNG Graphic file (type png)
 <use slike/loginInvalidUsernameTest.PNG>
 Package pdftex.def Info: slike/loginInvalidUsernameTest.PNG  used on input line
  92.
 (pdftex.def)             Requested size: 290.27936pt x 188.5009pt.
-=======
-l.89 		
-       
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.4}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.89 		
-        <./slike/loginValidTest.PNG> <./slike/loginUser.PNG>]
-Overfull \hbox (17.0047pt too wide) in paragraph at lines 90--92
-\OT1/jkp/m/n/12 Provedeno je tes-ti-ra-nje ne-us-pje[]sne pri-jave ko-ris-nika 
-zbog unosa is-prav-nog ko-risni[]ckog
- []
-
-<slike/loginInvalidPasswordTest.PNG, id=643, 733.23938pt x 471.26062pt>
-File: slike/loginInvalidPasswordTest.PNG Graphic file (type png)
-<use slike/loginInvalidPasswordTest.PNG>
-Package pdftex.def Info: slike/loginInvalidPasswordTest.PNG  used on input line
- 94.
-(pdftex.def)             Requested size: 293.29056pt x 188.5009pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 100--101
-
- []
-
-
-Overfull \hbox (4.36891pt too wide) in paragraph at lines 102--103
-\OT1/jkp/m/n/12 po-zi-to-rija ko-ris-nika i atri-buti onog ko-ris-nika koji je 
-ini-ci-jalno sprem-ljen u opona[]sani
- []
->>>>>>> 339c0c133f68a813c64612dff185c525e152b10d
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2515,7 +2425,6 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.5.5})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-<<<<<<< HEAD
 l.97 		
         <./slike/loginValidTest.PNG> <./slike/loginUser.PNG>]
 Overfull \hbox (17.0047pt too wide) in paragraph at lines 98--100
@@ -2523,13 +2432,13 @@ Overfull \hbox (17.0047pt too wide) in paragraph at lines 98--100
 zbog unosa is-prav-nog ko-risni[]ckog
  []
 
-<slike/loginInvalidPasswordTest.PNG, id=649, 733.23938pt x 471.26062pt>
+<slike/loginInvalidPasswordTest.PNG, id=644, 733.23938pt x 471.26062pt>
 File: slike/loginInvalidPasswordTest.PNG Graphic file (type png)
 <use slike/loginInvalidPasswordTest.PNG>
 Package pdftex.def Info: slike/loginInvalidPasswordTest.PNG  used on input line
  102.
 (pdftex.def)             Requested size: 293.29056pt x 188.5009pt.
-<slike/JUnit_login.JPG, id=650, 475.7775pt x 259.97125pt>
+<slike/JUnit_login.JPG, id=645, 475.7775pt x 259.97125pt>
 File: slike/JUnit_login.JPG Graphic file (type jpg)
 <use slike/JUnit_login.JPG>
 Package pdftex.def Info: slike/JUnit_login.JPG  used on input line 111.
@@ -2543,15 +2452,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [50
-=======
-l.103 
-      
->>>>>>> 339c0c133f68a813c64612dff185c525e152b10d
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.6}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-<<<<<<< HEAD
 l.116 			
          
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.7}) 
@@ -2571,12 +2475,12 @@ Overfull \hbox (4.36891pt too wide) in paragraph at lines 119--120
 ini-ci-jalno sprem-ljen u opona[]sani
  []
 
-<slike/loadUserByUsername.PNG, id=660, 545.78906pt x 104.64093pt>
+<slike/loadUserByUsername.PNG, id=655, 545.78906pt x 104.64093pt>
 File: slike/loadUserByUsername.PNG Graphic file (type png)
 <use slike/loadUserByUsername.PNG>
 Package pdftex.def Info: slike/loadUserByUsername.PNG  used on input line 122.
 (pdftex.def)             Requested size: 218.31175pt x 41.85562pt.
-<slike/userRetrieveDataValidTest.PNG, id=661, 679.03688pt x 493.0922pt>
+<slike/userRetrieveDataValidTest.PNG, id=656, 679.03688pt x 493.0922pt>
 File: slike/userRetrieveDataValidTest.PNG Graphic file (type png)
 <use slike/userRetrieveDataValidTest.PNG>
 Package pdftex.def Info: slike/userRetrieveDataValidTest.PNG  used on input lin
@@ -2603,35 +2507,15 @@ has been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.134 		
          <./slike/JUnit_login.JPG> <./slike/loadUserByUsername.PNG>]
-<slike/JUnit_retrieve.JPG, id=670, 454.69875pt x 211.79124pt>
+<slike/JUnit_retrieve.JPG, id=665, 454.69875pt x 211.79124pt>
 File: slike/JUnit_retrieve.JPG Graphic file (type jpg)
 <use slike/JUnit_retrieve.JPG>
 Package pdftex.def Info: slike/JUnit_retrieve.JPG  used on input line 136.
 (pdftex.def)             Requested size: 181.87627pt x 84.715pt.
-<slike/changeInfo.PNG, id=671, 638.385pt x 390.70969pt>
+<slike/changeInfo.PNG, id=666, 638.385pt x 390.70969pt>
 File: slike/changeInfo.PNG Graphic file (type png)
 <use slike/changeInfo.PNG>
 Package pdftex.def Info: slike/changeInfo.PNG  used on input line 146.
-=======
-l.103 
-       <./slike/loginInvalidUsernameTest.PNG> <./slike/loginInvalidPasswordTest
-.PNG>]
-<slike/loadUserByUsername.PNG, id=653, 545.78906pt x 104.64093pt>
-File: slike/loadUserByUsername.PNG Graphic file (type png)
-<use slike/loadUserByUsername.PNG>
-Package pdftex.def Info: slike/loadUserByUsername.PNG  used on input line 105.
-(pdftex.def)             Requested size: 218.31175pt x 41.85562pt.
-<slike/userRetrieveDataValidTest.PNG, id=654, 679.03688pt x 493.0922pt>
-File: slike/userRetrieveDataValidTest.PNG Graphic file (type png)
-<use slike/userRetrieveDataValidTest.PNG>
-Package pdftex.def Info: slike/userRetrieveDataValidTest.PNG  used on input lin
-e 112.
-(pdftex.def)             Requested size: 271.60994pt x 197.23338pt.
-<slike/changeInfo.PNG, id=655, 638.385pt x 390.70969pt>
-File: slike/changeInfo.PNG Graphic file (type png)
-<use slike/changeInfo.PNG>
-Package pdftex.def Info: slike/changeInfo.PNG  used on input line 122.
->>>>>>> 339c0c133f68a813c64612dff185c525e152b10d
 (pdftex.def)             Requested size: 255.34947pt x 156.2811pt.
 
 
@@ -2642,117 +2526,37 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-<<<<<<< HEAD
 [52
-=======
-[50
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.7}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.127 		
-        
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.8}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.127 		
-         <./slike/loadUserByUsername.PNG> <./slike/userRetrieveDataValidTest.PN
-G>]
-<slike/userChangeInfoValidTest1.PNG, id=665, 613.54219pt x 483.30562pt>
-File: slike/userChangeInfoValidTest1.PNG Graphic file (type png)
-<use slike/userChangeInfoValidTest1.PNG>
-Package pdftex.def Info: slike/userChangeInfoValidTest1.PNG  used on input line
- 129.
-(pdftex.def)             Requested size: 245.41252pt x 193.31882pt.
-<slike/userChangeInfoValidTest2.PNG, id=666, 568.37344pt x 182.18062pt>
-File: slike/userChangeInfoValidTest2.PNG Graphic file (type png)
-<use slike/userChangeInfoValidTest2.PNG>
-Package pdftex.def Info: slike/userChangeInfoValidTest2.PNG  used on input line
- 136.
-(pdftex.def)             Requested size: 227.34535pt x 72.87094pt.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[51
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.9}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.146 		D
-         ODAJ TE DVIJE SLIKE
->>>>>>> 339c0c133f68a813c64612dff185c525e152b10d
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.10})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-<<<<<<< HEAD
 l.151 		
         
-=======
-l.146 		D
-         ODAJ TE DVIJE SLIKE
->>>>>>> 339c0c133f68a813c64612dff185c525e152b10d
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.11})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-<<<<<<< HEAD
 l.151 		
          <./slike/userRetrieveDataValidTest.PNG> <./slike/JUnit_retrieve.JPG>]
-<slike/userChangeInfoValidTest1.PNG, id=680, 613.54219pt x 483.30562pt>
+<slike/userChangeInfoValidTest1.PNG, id=675, 613.54219pt x 483.30562pt>
 File: slike/userChangeInfoValidTest1.PNG Graphic file (type png)
 <use slike/userChangeInfoValidTest1.PNG>
 Package pdftex.def Info: slike/userChangeInfoValidTest1.PNG  used on input line
  153.
 (pdftex.def)             Requested size: 245.41252pt x 193.31882pt.
-<slike/userChangeInfoValidTest2.PNG, id=681, 568.37344pt x 182.18062pt>
+<slike/userChangeInfoValidTest2.PNG, id=676, 568.37344pt x 182.18062pt>
 File: slike/userChangeInfoValidTest2.PNG Graphic file (type png)
 <use slike/userChangeInfoValidTest2.PNG>
 Package pdftex.def Info: slike/userChangeInfoValidTest2.PNG  used on input line
  160.
 (pdftex.def)             Requested size: 227.34535pt x 72.87094pt.
-<slike/JUnit_change.JPG, id=682, 476.78125pt x 180.675pt>
+<slike/JUnit_change.JPG, id=677, 476.78125pt x 180.675pt>
 File: slike/JUnit_change.JPG Graphic file (type jpg)
 <use slike/JUnit_change.JPG>
 Package pdftex.def Info: slike/JUnit_change.JPG  used on input line 167.
 (pdftex.def)             Requested size: 190.7091pt x 72.2687pt.
 
-=======
-l.146 		D
-         ODAJ TE DVIJE SLIKE <./slike/changeInfo.PNG> <./slike/userChangeInfoVa
-lidTest1.PNG> <./slike/userChangeInfoValidTest2.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 179--180
-
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[52]
-Overfull \hbox (41.7368pt too wide) in paragraph at lines 196--197
-\OT1/jkp/m/n/12 nika pris-tupa apli-ka-ciji Ku-ha-jIT. Ko-mu-ni-ka-cija izme[]d
-u ra[]cunala ko-ris-nika i poslu[]ziteljskog
- []
-
-<dijagrami/UML_dijagram_razmjestaja.PNG, id=686, 728.7225pt x 606.01407pt>
-File: dijagrami/UML_dijagram_razmjestaja.PNG Graphic file (type png)
-<use dijagrami/UML_dijagram_razmjestaja.PNG>
-Package pdftex.def Info: dijagrami/UML_dijagram_razmjestaja.PNG  used on input 
-line 199.
-(pdftex.def)             Requested size: 291.48383pt x 242.40132pt.
->>>>>>> 339c0c133f68a813c64612dff185c525e152b10d
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -2766,61 +2570,34 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.5.12})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-<<<<<<< HEAD
-l.172 		
-        
+l.172 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.13})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.172 		
-        
+l.172 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.14})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.172 		
-         <./slike/changeInfo.PNG> <./slike/userChangeInfoValidTest1.PNG> <./sli
-ke/userChangeInfoValidTest2.PNG>]
-<slike/loadRecipesUsernameValidTest.PNG, id=694, 971.88094pt x 484.81125pt>
+l.172 
+       <./slike/changeInfo.PNG> <./slike/userChangeInfoValidTest1.PNG> <./slike
+/userChangeInfoValidTest2.PNG>]
+<slike/loadRecipesUsernameValidTest.PNG, id=689, 971.88094pt x 484.81125pt>
 File: slike/loadRecipesUsernameValidTest.PNG Graphic file (type png)
 <use slike/loadRecipesUsernameValidTest.PNG>
 Package pdftex.def Info: slike/loadRecipesUsernameValidTest.PNG  used on input 
-line 180.
+line 178.
 (pdftex.def)             Requested size: 388.74548pt x 193.92105pt.
-<slike/getRecipesByUsername.PNG, id=695, 810.77907pt x 110.66344pt>
+<slike/getRecipesByUsername.PNG, id=690, 810.77907pt x 110.66344pt>
 File: slike/getRecipesByUsername.PNG Graphic file (type png)
 <use slike/getRecipesByUsername.PNG>
-Package pdftex.def Info: slike/getRecipesByUsername.PNG  used on input line 187
+Package pdftex.def Info: slike/getRecipesByUsername.PNG  used on input line 185
 .
 (pdftex.def)             Requested size: 324.30588pt x 44.26457pt.
 
-=======
-l.207 			\eject
-                <./dijagrami/UML_dijagram_razmjestaja.PNG>]
-<slike/Render_OVERVIEW.JPG, id=697, 1314.9125pt x 176.66pt>
-File: slike/Render_OVERVIEW.JPG Graphic file (type jpg)
-<use slike/Render_OVERVIEW.JPG>
-Package pdftex.def Info: slike/Render_OVERVIEW.JPG  used on input line 214.
-(pdftex.def)             Requested size: 394.47679pt x 52.9984pt.
-<slike/Render_OVERVIEW_DATABASE.JPG, id=698, 1019.81pt x 126.4725pt>
-File: slike/Render_OVERVIEW_DATABASE.JPG Graphic file (type jpg)
-<use slike/Render_OVERVIEW_DATABASE.JPG>
-Package pdftex.def Info: slike/Render_OVERVIEW_DATABASE.JPG  used on input line
- 221.
-(pdftex.def)             Requested size: 305.94536pt x 37.94203pt.
-
-Overfull \hbox (18.6612pt too wide) in paragraph at lines 229--231
-\OT1/jkp/m/n/12 koji ko-mu-ni-cira sa Re-act apli-ka-ci-jom, sprem-lje-nom u []
-$[]$[][][][][][] "kon-tej-ner". Kori[]stenje
- []
-
-<slike/Dockerfile.PNG, id=702, 765.6103pt x 491.58656pt>
-File: slike/Dockerfile.PNG Graphic file (type png)
-<use slike/Dockerfile.PNG>
-Package pdftex.def Info: slike/Dockerfile.PNG  used on input line 233.
-(pdftex.def)             Requested size: 306.2387pt x 196.63113pt.
->>>>>>> 339c0c133f68a813c64612dff185c525e152b10d
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -2834,43 +2611,38 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.5.15})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-<<<<<<< HEAD
-l.196 		
+l.194 		
         
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.16})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.196 		
+l.194 		
         
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.17})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.196 		
+l.194 		
          <./slike/JUnit_change.JPG> <./slike/loadRecipesUsernameValidTest.PNG> 
 <./slike/getRecipesByUsername.PNG>]
-<slike/loadRecipesCategoryValidTest.PNG, id=707, 936.49875pt x 486.31688pt>
+<slike/loadRecipesCategoryValidTest.PNG, id=702, 936.49875pt x 486.31688pt>
 File: slike/loadRecipesCategoryValidTest.PNG Graphic file (type png)
 <use slike/loadRecipesCategoryValidTest.PNG>
 Package pdftex.def Info: slike/loadRecipesCategoryValidTest.PNG  used on input 
-line 198.
+line 196.
 (pdftex.def)             Requested size: 374.59286pt x 194.5233pt.
-<slike/getRecipesByCategory.PNG, id=708, 554.07pt x 137.7647pt>
+<slike/getRecipesByCategory.PNG, id=703, 554.07pt x 137.7647pt>
 File: slike/getRecipesByCategory.PNG Graphic file (type png)
 <use slike/getRecipesByCategory.PNG>
-Package pdftex.def Info: slike/getRecipesByCategory.PNG  used on input line 205
+Package pdftex.def Info: slike/getRecipesByCategory.PNG  used on input line 203
 .
 (pdftex.def)             Requested size: 221.62407pt x 55.10489pt.
-<slike/JUnit_loadRecipes.JPG, id=709, 452.69125pt x 207.77625pt>
+<slike/JUnit_loadRecipes.JPG, id=704, 452.69125pt x 207.77625pt>
 File: slike/JUnit_loadRecipes.JPG Graphic file (type jpg)
 <use slike/JUnit_loadRecipes.JPG>
-Package pdftex.def Info: slike/JUnit_loadRecipes.JPG  used on input line 214.
+Package pdftex.def Info: slike/JUnit_loadRecipes.JPG  used on input line 212.
 (pdftex.def)             Requested size: 181.07329pt x 83.10901pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 248--249
-
- []
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2885,40 +2657,31 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.5.18})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.249 			
-         
+l.246 		
+        
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.19})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.249 			
-         
+l.246 		
+        
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.20})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.249 			
-          <./slike/loadRecipesCategoryValidTest.PNG> <./slike/getRecipesByCateg
-ory.PNG> <./slike/JUnit_loadRecipes.JPG>]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[56]
-Overfull \hbox (41.7368pt too wide) in paragraph at lines 265--266
+l.246 		
+         <./slike/loadRecipesCategoryValidTest.PNG> <./slike/getRecipesByCatego
+ry.PNG> <./slike/JUnit_loadRecipes.JPG>]
+Overfull \hbox (41.7368pt too wide) in paragraph at lines 247--248
 \OT1/jkp/m/n/12 nika pris-tupa apli-ka-ciji Ku-ha-jIT. Ko-mu-ni-ka-cija izme[]d
 u ra[]cunala ko-ris-nika i poslu[]ziteljskog
  []
 
-<dijagrami/UML_dijagram_razmjestaja.PNG, id=729, 728.7225pt x 606.01407pt>
+<dijagrami/UML_dijagram_razmjestaja.PNG, id=715, 728.7225pt x 606.01407pt>
 File: dijagrami/UML_dijagram_razmjestaja.PNG Graphic file (type png)
 <use dijagrami/UML_dijagram_razmjestaja.PNG>
 Package pdftex.def Info: dijagrami/UML_dijagram_razmjestaja.PNG  used on input 
-line 268.
+line 250.
 (pdftex.def)             Requested size: 291.48383pt x 242.40132pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2928,34 +2691,34 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[57
+[56
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.21})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.276 			\eject
+l.258 			\eject
                 <./dijagrami/UML_dijagram_razmjestaja.PNG>]
-<slike/Render_OVERVIEW.JPG, id=740, 1314.9125pt x 176.66pt>
+<slike/Render_OVERVIEW.JPG, id=726, 1314.9125pt x 176.66pt>
 File: slike/Render_OVERVIEW.JPG Graphic file (type jpg)
 <use slike/Render_OVERVIEW.JPG>
-Package pdftex.def Info: slike/Render_OVERVIEW.JPG  used on input line 283.
+Package pdftex.def Info: slike/Render_OVERVIEW.JPG  used on input line 265.
 (pdftex.def)             Requested size: 394.47679pt x 52.9984pt.
-<slike/Render_OVERVIEW_DATABASE.JPG, id=741, 1019.81pt x 126.4725pt>
+<slike/Render_OVERVIEW_DATABASE.JPG, id=727, 1019.81pt x 126.4725pt>
 File: slike/Render_OVERVIEW_DATABASE.JPG Graphic file (type jpg)
 <use slike/Render_OVERVIEW_DATABASE.JPG>
 Package pdftex.def Info: slike/Render_OVERVIEW_DATABASE.JPG  used on input line
- 290.
+ 272.
 (pdftex.def)             Requested size: 305.94536pt x 37.94203pt.
 
-Overfull \hbox (18.6612pt too wide) in paragraph at lines 298--300
+Overfull \hbox (18.6612pt too wide) in paragraph at lines 280--282
 \OT1/jkp/m/n/12 koji ko-mu-ni-cira sa Re-act apli-ka-ci-jom, sprem-lje-nom u []
 $[]$[][][][][][] "kon-tej-ner". Kori[]stenje
  []
 
-<slike/Dockerfile.PNG, id=745, 765.6103pt x 491.58656pt>
+<slike/Dockerfile.PNG, id=731, 765.6103pt x 491.58656pt>
 File: slike/Dockerfile.PNG Graphic file (type png)
 <use slike/Dockerfile.PNG>
-Package pdftex.def Info: slike/Dockerfile.PNG  used on input line 302.
+Package pdftex.def Info: slike/Dockerfile.PNG  used on input line 284.
 (pdftex.def)             Requested size: 306.2387pt x 196.63113pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2965,57 +2728,33 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[58
+[57
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.22})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.307 		
+l.289 		
         
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.23})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.307 		
+l.289 		
          <./slike/Render_OVERVIEW.JPG> <./slike/Render_OVERVIEW_DATABASE.JPG>]
-<slike/Render_NEW.PNG, id=755, 1019.30812pt x 165.61874pt>
+<slike/Render_NEW.PNG, id=741, 1019.30812pt x 165.61874pt>
 File: slike/Render_NEW.PNG Graphic file (type png)
 <use slike/Render_NEW.PNG>
-Package pdftex.def Info: slike/Render_NEW.PNG  used on input line 312.
+Package pdftex.def Info: slike/Render_NEW.PNG  used on input line 294.
 (pdftex.def)             Requested size: 407.71602pt x 66.2463pt.
-<slike/Render_WEB_SERVICE.PNG, id=756, 579.66562pt x 353.82187pt>
+<slike/Render_WEB_SERVICE.PNG, id=742, 579.66562pt x 353.82187pt>
 File: slike/Render_WEB_SERVICE.PNG Graphic file (type png)
 <use slike/Render_WEB_SERVICE.PNG>
-Package pdftex.def Info: slike/Render_WEB_SERVICE.PNG  used on input line 320.
+Package pdftex.def Info: slike/Render_WEB_SERVICE.PNG  used on input line 302.
 (pdftex.def)             Requested size: 231.86214pt x 141.52623pt.
-<slike/Render_ODABIR_OPCIJE.PNG, id=757, 1022.31938pt x 501.37312pt>
+<slike/Render_ODABIR_OPCIJE.PNG, id=743, 1022.31938pt x 501.37312pt>
 File: slike/Render_ODABIR_OPCIJE.PNG Graphic file (type png)
 <use slike/Render_ODABIR_OPCIJE.PNG>
-Package pdftex.def Info: slike/Render_ODABIR_OPCIJE.PNG  used on input line 329
-=======
-l.238 		
-        
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.14})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.238 		
-         <./slike/Render_OVERVIEW.JPG> <./slike/Render_OVERVIEW_DATABASE.JPG>]
-<slike/Render_NEW.PNG, id=713, 1019.30812pt x 165.61874pt>
-File: slike/Render_NEW.PNG Graphic file (type png)
-<use slike/Render_NEW.PNG>
-Package pdftex.def Info: slike/Render_NEW.PNG  used on input line 243.
-(pdftex.def)             Requested size: 407.71602pt x 66.2463pt.
-<slike/Render_WEB_SERVICE.PNG, id=714, 579.66562pt x 353.82187pt>
-File: slike/Render_WEB_SERVICE.PNG Graphic file (type png)
-<use slike/Render_WEB_SERVICE.PNG>
-Package pdftex.def Info: slike/Render_WEB_SERVICE.PNG  used on input line 251.
-(pdftex.def)             Requested size: 231.86214pt x 141.52623pt.
-<slike/Render_ODABIR_OPCIJE.PNG, id=715, 1022.31938pt x 501.37312pt>
-File: slike/Render_ODABIR_OPCIJE.PNG Graphic file (type png)
-<use slike/Render_ODABIR_OPCIJE.PNG>
-Package pdftex.def Info: slike/Render_ODABIR_OPCIJE.PNG  used on input line 260
->>>>>>> 339c0c133f68a813c64612dff185c525e152b10d
+Package pdftex.def Info: slike/Render_ODABIR_OPCIJE.PNG  used on input line 311
 .
 (pdftex.def)             Requested size: 408.9205pt x 200.54568pt.
 
@@ -3027,67 +2766,36 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-<<<<<<< HEAD
-[59
+[58
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.24})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.333 		\end{figure}
+l.315 		\end{figure}
                     
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.25})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.333 		\end{figure}
-=======
-[55
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.15})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.264 		\end{figure}
->>>>>>> 339c0c133f68a813c64612dff185c525e152b10d
+l.315 		\end{figure}
                     
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.26})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-<<<<<<< HEAD
-l.333 		\end{figure}
+l.315 		\end{figure}
                      <./slike/Dockerfile.PNG> <./slike/Render_NEW.PNG> <./slike
 /Render_WEB_SERVICE.PNG>]
-<slike/Render_ODABIR_REPOZITORIJA.PNG, id=769, 1006.51031pt x 252.19218pt>
+<slike/Render_ODABIR_REPOZITORIJA.PNG, id=755, 1006.51031pt x 252.19218pt>
 File: slike/Render_ODABIR_REPOZITORIJA.PNG Graphic file (type png)
 <use slike/Render_ODABIR_REPOZITORIJA.PNG>
 Package pdftex.def Info: slike/Render_ODABIR_REPOZITORIJA.PNG  used on input li
-ne 338.
+ne 320.
 (pdftex.def)             Requested size: 402.59698pt x 100.87508pt.
-<slike/Render_BACKEND_1.JPG, id=770, 1055.945pt x 884.30376pt>
+<slike/Render_BACKEND_1.JPG, id=756, 1055.945pt x 884.30376pt>
 File: slike/Render_BACKEND_1.JPG Graphic file (type jpg)
 <use slike/Render_BACKEND_1.JPG>
-Package pdftex.def Info: slike/Render_BACKEND_1.JPG  used on input line 347.
-=======
-l.264 		\end{figure}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.17})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.264 		\end{figure}
-                     <./slike/Dockerfile.PNG> <./slike/Render_NEW.PNG> <./slike
-/Render_WEB_SERVICE.PNG>]
-<slike/Render_ODABIR_REPOZITORIJA.PNG, id=727, 1006.51031pt x 252.19218pt>
-File: slike/Render_ODABIR_REPOZITORIJA.PNG Graphic file (type png)
-<use slike/Render_ODABIR_REPOZITORIJA.PNG>
-Package pdftex.def Info: slike/Render_ODABIR_REPOZITORIJA.PNG  used on input li
-ne 269.
-(pdftex.def)             Requested size: 402.59698pt x 100.87508pt.
-<slike/Render_BACKEND_1.JPG, id=728, 1055.945pt x 884.30376pt>
-File: slike/Render_BACKEND_1.JPG Graphic file (type jpg)
-<use slike/Render_BACKEND_1.JPG>
-Package pdftex.def Info: slike/Render_BACKEND_1.JPG  used on input line 278.
->>>>>>> 339c0c133f68a813c64612dff185c525e152b10d
+Package pdftex.def Info: slike/Render_BACKEND_1.JPG  used on input line 329.
 (pdftex.def)             Requested size: 422.37051pt x 353.71524pt.
 
 
@@ -3098,31 +2806,54 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-<<<<<<< HEAD
-[60
+[59
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.27})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.352 		
+l.334 		
         
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.28})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.352 		
+l.334 		
          <./slike/Render_ODABIR_OPCIJE.PNG> <./slike/Render_ODABIR_REPOZITORIJA
 .PNG>]
-Overfull \hbox (4.00563pt too wide) in paragraph at lines 355--356
+Overfull \hbox (4.00563pt too wide) in paragraph at lines 337--338
 []\OT1/jkp/m/n/12 Na slici is-pod mo[]ze se vi-djeti drugi dio po-treb-nih pos-
 tavki za pos-tav-lja-nje Spring
  []
 
-<slike/Render_BACKEND_2.JPG, id=781, 1046.91125pt x 897.3525pt>
+<slike/Render_BACKEND_2.JPG, id=766, 1046.91125pt x 897.3525pt>
 File: slike/Render_BACKEND_2.JPG Graphic file (type jpg)
 <use slike/Render_BACKEND_2.JPG>
-Package pdftex.def Info: slike/Render_BACKEND_2.JPG  used on input line 358.
+Package pdftex.def Info: slike/Render_BACKEND_2.JPG  used on input line 340.
 (pdftex.def)             Requested size: 418.75708pt x 358.93463pt.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[60
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.29})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.345 		
+         <./slike/Render_BACKEND_1.JPG>]
+Underfull \hbox (badness 10000) in paragraph at lines 346--347
+
+ []
+
+<slike/Render_FRONTEND_1.JPG, id=774, 1064.97874pt x 818.05624pt>
+File: slike/Render_FRONTEND_1.JPG Graphic file (type jpg)
+<use slike/Render_FRONTEND_1.JPG>
+Package pdftex.def Info: slike/Render_FRONTEND_1.JPG  used on input line 354.
+(pdftex.def)             Requested size: 425.98395pt x 327.21669pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -3132,21 +2863,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [61
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.29})
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.30})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.363 		
-         <./slike/Render_BACKEND_1.JPG>]
-Underfull \hbox (badness 10000) in paragraph at lines 364--365
-
+l.358 		\end{figure}
+                     <./slike/Render_BACKEND_2.JPG>]
+Overfull \hbox (10.85684pt too wide) in paragraph at lines 360--362
+\OT1/jkp/m/n/12 ov-dje smo za ko-ri-jen-ski di-rek-to-rij oda-brali di-rek-to-r
+ij IzvorniKod/kuhaj-it-app. Drugi
  []
 
-<slike/Render_FRONTEND_1.JPG, id=788, 1064.97874pt x 818.05624pt>
-File: slike/Render_FRONTEND_1.JPG Graphic file (type jpg)
-<use slike/Render_FRONTEND_1.JPG>
-Package pdftex.def Info: slike/Render_FRONTEND_1.JPG  used on input line 372.
-(pdftex.def)             Requested size: 425.98395pt x 327.21669pt.
+<slike/Render_FRONTEND_2.JPG, id=781, 1055.945pt x 884.30376pt>
+File: slike/Render_FRONTEND_2.JPG Graphic file (type jpg)
+<use slike/Render_FRONTEND_2.JPG>
+Package pdftex.def Info: slike/Render_FRONTEND_2.JPG  used on input line 364.
+(pdftex.def)             Requested size: 422.37051pt x 353.71524pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -3156,22 +2888,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [62
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.30})
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.31})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.376 		\end{figure}
-                     <./slike/Render_BACKEND_2.JPG>]
-Overfull \hbox (10.85684pt too wide) in paragraph at lines 378--380
-\OT1/jkp/m/n/12 ov-dje smo za ko-ri-jen-ski di-rek-to-rij oda-brali di-rek-to-r
-ij IzvorniKod/kuhaj-it-app. Drugi
+l.369 		
+         <./slike/Render_FRONTEND_1.JPG>]
+Underfull \hbox (badness 10000) in paragraph at lines 370--373
+
  []
 
-<slike/Render_FRONTEND_2.JPG, id=795, 1055.945pt x 884.30376pt>
-File: slike/Render_FRONTEND_2.JPG Graphic file (type jpg)
-<use slike/Render_FRONTEND_2.JPG>
-Package pdftex.def Info: slike/Render_FRONTEND_2.JPG  used on input line 382.
-(pdftex.def)             Requested size: 422.37051pt x 353.71524pt.
+<slike/Render_PostgreSQL.PNG, id=788, 347.79938pt x 317.68687pt>
+File: slike/Render_PostgreSQL.PNG Graphic file (type png)
+<use slike/Render_PostgreSQL.PNG>
+Package pdftex.def Info: slike/Render_PostgreSQL.PNG  used on input line 379.
+(pdftex.def)             Requested size: 139.11728pt x 127.07248pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -3181,168 +2912,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [63
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.31})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.387 		
-         <./slike/Render_FRONTEND_1.JPG>]
-Underfull \hbox (badness 10000) in paragraph at lines 388--391
-
- []
-
-<slike/Render_PostgreSQL.PNG, id=802, 347.79938pt x 317.68687pt>
-File: slike/Render_PostgreSQL.PNG Graphic file (type png)
-<use slike/Render_PostgreSQL.PNG>
-Package pdftex.def Info: slike/Render_PostgreSQL.PNG  used on input line 397.
-(pdftex.def)             Requested size: 139.11728pt x 127.07248pt.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[64
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.32})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.402 		
+l.384 		
          <./slike/Render_FRONTEND_2.JPG>]
-<slike/Render_DATABASE_1.JPG, id=809, 679.53876pt x 484.81125pt>
+<slike/Render_DATABASE_1.JPG, id=795, 679.53876pt x 484.81125pt>
 File: slike/Render_DATABASE_1.JPG Graphic file (type jpg)
 <use slike/Render_DATABASE_1.JPG>
-Package pdftex.def Info: slike/Render_DATABASE_1.JPG  used on input line 406.
+Package pdftex.def Info: slike/Render_DATABASE_1.JPG  used on input line 388.
 (pdftex.def)             Requested size: 271.81068pt x 193.92105pt.
-<slike/Render_DATABASE_2.JPG, id=810, 429.605pt x 482.80376pt>
+<slike/Render_DATABASE_2.JPG, id=796, 429.605pt x 482.80376pt>
 File: slike/Render_DATABASE_2.JPG Graphic file (type jpg)
 <use slike/Render_DATABASE_2.JPG>
-Package pdftex.def Info: slike/Render_DATABASE_2.JPG  used on input line 413.
-=======
-[56
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.18})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.283 		
-        
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.19})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.283 		
-         <./slike/Render_ODABIR_OPCIJE.PNG> <./slike/Render_ODABIR_REPOZITORIJA
-.PNG>]
-Overfull \hbox (4.00563pt too wide) in paragraph at lines 286--287
-[]\OT1/jkp/m/n/12 Na slici is-pod mo[]ze se vi-djeti drugi dio po-treb-nih pos-
-tavki za pos-tav-lja-nje Spring
- []
-
-<slike/Render_BACKEND_2.JPG, id=738, 1046.91125pt x 897.3525pt>
-File: slike/Render_BACKEND_2.JPG Graphic file (type jpg)
-<use slike/Render_BACKEND_2.JPG>
-Package pdftex.def Info: slike/Render_BACKEND_2.JPG  used on input line 289.
-(pdftex.def)             Requested size: 418.75708pt x 358.93463pt.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[57
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.20})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.294 		
-         <./slike/Render_BACKEND_1.JPG>]
-Underfull \hbox (badness 10000) in paragraph at lines 295--296
-
- []
-
-<slike/Render_FRONTEND_1.JPG, id=745, 1064.97874pt x 818.05624pt>
-File: slike/Render_FRONTEND_1.JPG Graphic file (type jpg)
-<use slike/Render_FRONTEND_1.JPG>
-Package pdftex.def Info: slike/Render_FRONTEND_1.JPG  used on input line 303.
-(pdftex.def)             Requested size: 425.98395pt x 327.21669pt.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[58
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.21})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.307 		\end{figure}
-                     <./slike/Render_BACKEND_2.JPG>]
-Overfull \hbox (10.85684pt too wide) in paragraph at lines 309--311
-\OT1/jkp/m/n/12 ov-dje smo za ko-ri-jen-ski di-rek-to-rij oda-brali di-rek-to-r
-ij IzvorniKod/kuhaj-it-app. Drugi
- []
-
-<slike/Render_FRONTEND_2.JPG, id=752, 1055.945pt x 884.30376pt>
-File: slike/Render_FRONTEND_2.JPG Graphic file (type jpg)
-<use slike/Render_FRONTEND_2.JPG>
-Package pdftex.def Info: slike/Render_FRONTEND_2.JPG  used on input line 313.
-(pdftex.def)             Requested size: 422.37051pt x 353.71524pt.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[59
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.22})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.318 		
-         <./slike/Render_FRONTEND_1.JPG>]
-Underfull \hbox (badness 10000) in paragraph at lines 319--322
-
- []
-
-<slike/Render_PostgreSQL.PNG, id=759, 347.79938pt x 317.68687pt>
-File: slike/Render_PostgreSQL.PNG Graphic file (type png)
-<use slike/Render_PostgreSQL.PNG>
-Package pdftex.def Info: slike/Render_PostgreSQL.PNG  used on input line 328.
-(pdftex.def)             Requested size: 139.11728pt x 127.07248pt.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[60
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.23})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.333 		
-         <./slike/Render_FRONTEND_2.JPG>]
-<slike/Render_DATABASE_1.JPG, id=767, 679.53876pt x 484.81125pt>
-File: slike/Render_DATABASE_1.JPG Graphic file (type jpg)
-<use slike/Render_DATABASE_1.JPG>
-Package pdftex.def Info: slike/Render_DATABASE_1.JPG  used on input line 337.
-(pdftex.def)             Requested size: 271.81068pt x 193.92105pt.
-<slike/Render_DATABASE_2.JPG, id=768, 429.605pt x 482.80376pt>
-File: slike/Render_DATABASE_2.JPG Graphic file (type jpg)
-<use slike/Render_DATABASE_2.JPG>
-Package pdftex.def Info: slike/Render_DATABASE_2.JPG  used on input line 344.
->>>>>>> 339c0c133f68a813c64612dff185c525e152b10d
+Package pdftex.def Info: slike/Render_DATABASE_2.JPG  used on input line 395.
 (pdftex.def)             Requested size: 171.83894pt x 193.11807pt.
 
 
@@ -3353,33 +2937,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-<<<<<<< HEAD
-[65
+[64
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.33})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.418 		
+l.400 		
         
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.34})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.418 		
-=======
-[61
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.24})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.349 		
-        
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.25})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.349 		
->>>>>>> 339c0c133f68a813c64612dff185c525e152b10d
+l.400 		
          <./slike/Render_PostgreSQL.PNG> <./slike/Render_DATABASE_1.JPG>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3389,21 +2958,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-<<<<<<< HEAD
-[66
+[65
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.35})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.450 			\eject
-=======
-[62
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.26})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.381 			\eject
->>>>>>> 339c0c133f68a813c64612dff185c525e152b10d
+l.432 			\eject
                 <./slike/Render_DATABASE_2.JPG>])
 \openout2 = `Zakljucak.aux'.
 
@@ -3417,11 +2977,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-<<<<<<< HEAD
-[67
-=======
-[63
->>>>>>> 339c0c133f68a813c64612dff185c525e152b10d
+[66
 
 
 
@@ -3435,11 +2991,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-<<<<<<< HEAD
-[68])
-=======
-[64])
->>>>>>> 339c0c133f68a813c64612dff185c525e152b10d
+[67])
 \openout2 = `Literatura.aux'.
 
  (Literatura.tex
@@ -3463,11 +3015,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-<<<<<<< HEAD
-[69
-=======
-[65
->>>>>>> 339c0c133f68a813c64612dff185c525e152b10d
+[68
 
 
 
@@ -3489,11 +3037,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-<<<<<<< HEAD
-[70
-=======
-[66
->>>>>>> 339c0c133f68a813c64612dff185c525e152b10d
+[69
 
 
 
@@ -3507,11 +3051,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-<<<<<<< HEAD
-[71]
-=======
-[67]
->>>>>>> 339c0c133f68a813c64612dff185c525e152b10d
+[70]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -3520,11 +3060,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-<<<<<<< HEAD
-[72]
-=======
-[68]
->>>>>>> 339c0c133f68a813c64612dff185c525e152b10d
+[71]
 Underfull \hbox (badness 10000) in paragraph at lines 155--156
 
  []
@@ -3545,11 +3081,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-<<<<<<< HEAD
-[73])
-=======
-[69]
->>>>>>> 339c0c133f68a813c64612dff185c525e152b10d
+[72])
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -3558,25 +3090,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-<<<<<<< HEAD
-[74] 
-=======
-[70]
-Underfull \hbox (badness 10000) in paragraph at lines 207--208
-
- []
-
-)
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[71] 
->>>>>>> 339c0c133f68a813c64612dff185c525e152b10d
+[73] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (PROGI_ProjektnaDokumentacija.aux (Dnevnik_promjena_dokumentacije.aux)
 (Opis_projektnog_zadatka.aux) (Specifikacija_programske_potpore.aux)
@@ -3586,32 +3100,22 @@ enddocument/afterlastpage: lastpage setting LastPage.
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `PROGI_ProjektnaDokumentacija.out' has not ch
 anged.
-(rerunfilecheck)             Checksum: F4507B3AF2132B8458D2D284917843D8;5354.
+(rerunfilecheck)             Checksum: B7EF7043B918D6F22BAF41AD853D96BC;5194.
  ) 
 Here is how much of TeX's memory you used:
-<<<<<<< HEAD
- 18364 strings out of 475248
- 336779 string characters out of 5757814
+ 18361 strings out of 475248
+ 336733 string characters out of 5757814
  2065785 words of memory out of 5000000
- 39230 multiletter control sequences out of 15000+600000
+ 39229 multiletter control sequences out of 15000+600000
  635109 words of font info for 204 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  86i,12n,116p,1200b,1077s stack positions out of 10000i,1000n,20000p,200000b,200000s
-=======
- 18274 strings out of 475248
- 333764 string characters out of 5757814
- 2065785 words of memory out of 5000000
- 39152 multiletter control sequences out of 15000+600000
- 632379 words of font info for 198 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 86i,13n,116p,1200b,1049s stack positions out of 10000i,1000n,20000p,200000b,200000s
->>>>>>> 339c0c133f68a813c64612dff185c525e152b10d
-
-pdfTeX warning (dest): name{Hfootnote.14} has been referenced but does not exis
-t, replaced by a fixed one
-
 
 pdfTeX warning (dest): name{Hfootnote.13} has been referenced but does not exis
 t, replaced by a fixed one
@@ -3664,23 +3168,19 @@ pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 , replaced by a fixed one
 
+
+pdfTeX warning (dest): name{page.74} has been referenced but does not exist, re
+placed by a fixed one
+
 <C:/Users/dunja/AppData/Local/Programs/MiKTeX/fonts/type1/public/kpfonts/jkpbit
 8a.pfb><C:/Users/dunja/AppData/Local/Programs/MiKTeX/fonts/type1/public/kpfonts
 /jkpbn8a.pfb><C:/Users/dunja/AppData/Local/Programs/MiKTeX/fonts/type1/public/k
 pfonts/jkpmit8a.pfb><C:/Users/dunja/AppData/Local/Programs/MiKTeX/fonts/type1/p
 ublic/kpfonts/jkpmn8a.pfb><C:/Users/dunja/AppData/Local/Programs/MiKTeX/fonts/t
 ype1/public/kpfonts/jkpttmn8a.pfb>
-<<<<<<< HEAD
-Output written on PROGI_ProjektnaDokumentacija.pdf (75 pages, 7820475 bytes).
+Output written on PROGI_ProjektnaDokumentacija.pdf (74 pages, 7814960 bytes).
 PDF statistics:
- 982 PDF objects out of 1000 (max. 8388607)
- 310 named destinations out of 1000 (max. 500000)
- 513 words of extra memory for PDF output out of 10000 (max. 10000000)
-=======
-Output written on PROGI_ProjektnaDokumentacija.pdf (72 pages, 7028828 bytes).
-PDF statistics:
- 941 PDF objects out of 1000 (max. 8388607)
- 298 named destinations out of 1000 (max. 500000)
- 468 words of extra memory for PDF output out of 10000 (max. 10000000)
->>>>>>> 339c0c133f68a813c64612dff185c525e152b10d
+ 970 PDF objects out of 1000 (max. 8388607)
+ 308 named destinations out of 1000 (max. 500000)
+ 505 words of extra memory for PDF output out of 10000 (max. 10000000)
 
