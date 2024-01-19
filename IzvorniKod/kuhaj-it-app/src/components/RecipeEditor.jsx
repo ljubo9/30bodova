@@ -25,6 +25,7 @@ const RecipeEditor = () => {
         if (response.ok) {
           const cookbooksData = await response.json();
           setCookbooks(cookbooksData);
+          console.log(cookbooksData);
         } else {
           console.error('Greška prilikom dohvaćanja kuharica.');
         }

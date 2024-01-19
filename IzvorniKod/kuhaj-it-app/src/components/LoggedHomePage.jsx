@@ -94,6 +94,7 @@ function LoggedHomePage() {
         if (response.ok) {
           const data = await response.json();
           setConsumedRecipesStatistics(data);
+          console.log(data);
         } else {
           console.error('Error fetching consumed recipes statistics:', response.statusText);
         }

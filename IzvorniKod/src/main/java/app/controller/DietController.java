@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -43,13 +44,16 @@ public class DietController {
 		}
 	}
 	
-	@GetMapping(path = "/diet/add")
-	public  ResponseEntity<String> addUserDiet(@RequestParam("lowCalorie") int lowCalorie,
+	@PostMapping(path = "/diet/add/{username}")
+	public  ResponseEntity<String> addUserDiet(@PathVariable String username,
+			@RequestParam("lowCalorie") int lowCalorie,
 			@RequestParam("lowFat") int lowFat,
 			@RequestParam("lowCarb") int lowCarb,
 			@RequestParam("dietDescription") String dietDescription) {
 		try {
-			Diet d = new Diet(lowCalorie, lowFat, lowCarb, dietDescription);
+			User u = userService.loadUserByUsername(username);
+			if (u == null) return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			Diet d = new Diet(u, lowCalorie, lowFat, lowCarb, dietDescription);
 			dietService.addDiet(d);
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
