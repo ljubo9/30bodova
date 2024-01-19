@@ -33,10 +33,7 @@ function Navigation() {
             <Nav.Link as={Link} to="/culinary-enthusiasts"> 
               Kulinarski Entuzijasti
             </Nav.Link>
-            <Nav.Link as={Link} to="/choose-recipe">
-                Choose Recipe
-            </Nav.Link>
-
+            
             <Nav.Link as={Link} to="/nutritionist">
                 Nutricionist
             </Nav.Link>
