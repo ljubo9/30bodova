@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { Container, Row, Col, ListGroup } from 'react-bootstrap';
 
 const ProfileCulinaryEnthusiast = () => {
   const { username } = useParams();
@@ -50,7 +51,41 @@ const ProfileCulinaryEnthusiast = () => {
   }
 
   return (
-    <div>
+    <div className="bg-secondary p-2 min-vh-100"> 
+    <Container className="bg-light">
+      <Row>
+        <Col className="border border-black m-2 p-2">
+          <h2>{profileData.firstName} {profileData.lastName}</h2>
+          <p>Korisničko ime: {profileData.username}</p>
+        </Col>
+      </Row>
+
+      <Row>
+        <Col className="m-2">
+          <h3>Kuharice:</h3>
+          <ListGroup>
+            {cookbooksData.map((cookbook) => (
+              <ListGroup.Item key={cookbook.id}>
+                <Link to={`/cookbook/${cookbook.id}`}>{cookbook.name}</Link>
+              </ListGroup.Item>
+            ))}
+          </ListGroup>
+        </Col>
+
+        <Col className="m-2">
+          <h3>Recepti:</h3>
+          <ListGroup>
+            {recipesData.map((recipe) => (
+              <ListGroup.Item key={recipe.id}>
+                <Link to={`/recipe/${recipe.id}`}>{recipe.name}</Link>
+              </ListGroup.Item>
+            ))}
+          </ListGroup>
+        </Col>
+      </Row>
+    </Container>
+    </div>
+    /*<div>
       <h2>{profileData.firstName} {profileData.lastName}</h2>
       <p>Korisničko ime: {profileData.username}</p>
 
@@ -71,7 +106,7 @@ const ProfileCulinaryEnthusiast = () => {
           </li>
         ))}
       </ul>
-    </div>
+        </div>*/
   );
 };
 

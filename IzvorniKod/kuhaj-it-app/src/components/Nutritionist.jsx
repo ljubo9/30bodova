@@ -105,11 +105,11 @@ const Nutritionist = () => {
 
     <Container>
       <div className="mt-2 p-2">
-        <Button onClick={fetchIngredients} variant="dark">Dohvati proizvode</Button>
+        <Button onClick={fetchIngredients} variant="dark" className='mt-3'>Dohvati proizvode</Button>
       </div>
 
       <div>
-        <h2>Dodaj proizvod</h2>
+        <h2 className='text-white'>Dodaj proizvod</h2>
         <Form>
           <Row className="p-2">
             <Form.Group as={Col} controlId="ingredientName">
@@ -230,26 +230,16 @@ const Nutritionist = () => {
             />
           </Form.Group>
 
-          <Form.Group as={Col} controlId="newCategory">
-              <Form.Label className='m-1'>Nova kategorija</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Unesi novu kategoriju"
-                value={newCategory}
-                onChange={(e) => setNewCategory(e.target.value)}
-              />
-            </Form.Group>
-
           </Row>
 
-          <Button variant="dark" type="button" className="m-2" onClick={addIngredient}>
+          <Button variant="dark" type="button" className="mt-2 mb-2" onClick={addIngredient}>
             Dodaj proizvod
           </Button>
         </Form>
       </div>
 
       <div>
-        <h2>Proizvodi</h2>
+        <h2 className='text-white'>Proizvodi</h2>
           {!ingredients || ingredients.length === 0 ? (
             <h4>Nema proizvoda</h4>
           ) : (<ul>
@@ -263,7 +253,7 @@ const Nutritionist = () => {
       </div>
 
       <div>
-        <h2>Dijete</h2>
+        <h2 className='text-white'>Dijete</h2>
         <Form>
           <Row>
             <Form.Group as={Col} controlId="lowCalorie">
@@ -307,7 +297,7 @@ const Nutritionist = () => {
             />
           </Form.Group>
 
-          <Button variant="dark" type="button" className="m-2" onClick={createDiet}>
+          <Button variant="dark" type="button" className="mt-3" onClick={createDiet}>
             Stvori dijetu
           </Button>
         </Form>
