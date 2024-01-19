@@ -13,17 +13,17 @@ public class Diet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private String opis;
+    private String description;
 
-    @OneToMany
-    private List<Recipe> allowedRecipes;
+    @ManyToMany
+    private List<Recipe> recipes;
     @ManyToOne
     private User creator;
 
     @OneToMany
     private List<DietIngredient> dietIngredients;
 
-    @OneToMany
+    @OneToMany(mappedBy = "diet")
     private List<User> users;
 
     public Diet() {
@@ -46,20 +46,20 @@ public class Diet {
         this.name = name;
     }
 
-    public String getOpis() {
-        return opis;
+    public String getDescription() {
+        return description;
     }
 
-    public void setOpis(String opis) {
-        this.opis = opis;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public List<Recipe> getAllowedRecipes() {
-        return allowedRecipes;
+    public List<Recipe> getRecipes() {
+        return recipes;
     }
 
-    public void setAllowedRecipes(List<Recipe> allowedRecipes) {
-        this.allowedRecipes = allowedRecipes;
+    public void setRecipes(List<Recipe> recipes) {
+        this.recipes = recipes;
     }
 
     public User getCreator() {

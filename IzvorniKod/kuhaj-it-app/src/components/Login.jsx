@@ -66,7 +66,8 @@ function Login() {
 
   return (
     <Container className="bg-secondary bg-gradient" fluid>
-      <Row className="justify-content-center align-items-center" style={{ height: '100vh' }}>
+        {/* umjesto style={{ height: '100vh' }} može i className="h-screen" */}
+      <Row className="justify-content-center align-items-center" style={{ height: '100vh' }}> 
         <Col xs={12} sm={8} md={6} lg={4}>
           {loginStatus === 'error' && (
             <Alert variant="danger" className="mb-4">

@@ -15,7 +15,7 @@ public class StepOfMaking {
 
     private String description;
 
-    @OneToOne
+    @ManyToOne
     private Image image;
 
     public StepOfMaking(Recipe recipe, int stepNum, String description, Image image) {
