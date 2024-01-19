@@ -46,6 +46,11 @@ public class ConsumedRecipe {
 	public Date getDate() {
 		return date;
 	}
+
+	public void setRecipe(Recipe recipe) { this.recipe = recipe;}
+	public void setDate(Date date) { this.date = date;}
+
+	public void setUser(User user) { this.user = user;}
     
     
 

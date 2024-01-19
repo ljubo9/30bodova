@@ -10,7 +10,7 @@ import org.junit.Test;
 public class LoginTest {
 
     private WebDriver driver;
-    private String baseUrl = "kuhaj";  // Replace with the base URL of your React app
+    private String baseUrl = "kuhajit";  // Replace with the base URL of your React app
 
     @Before
     public void setUp() {
