@@ -1,12 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Container, Row, Col, ListGroup } from 'react-bootstrap';
+import { Container, Row, Col, ListGroup, Button } from 'react-bootstrap';
 
 const ProfileCulinaryEnthusiast = () => {
   const { username } = useParams();
   const [profileData, setProfileData] = useState(null);
   const [cookbooksData, setCookbooksData] = useState([]); // cookbooksData = sve kuharice od kul.entuzijasta
   const [recipesData, setRecipesData] = useState([]); // recipesData = svi recepti ku. entuzijasta
+  const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+  const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+
+  const follow = async () => {
+    const formData = new FormData();
+    formData.append('enthusiast', username);
+    formData.append('user', currentUser.username);
+
+    try {
+      {/* slanje cookbook.name i cookbook.category i creatora na endpoint */}
+      const response = await fetch('/follow', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        console.log('Followed successfully');
+      } else {
+        console.error('Error following');
+      }
+    } catch (error) {
+      console.error('Error:', error.message);
+    }
+  };
 
   useEffect(() => {
     const fetchProfileData = async () => {
@@ -57,6 +81,11 @@ const ProfileCulinaryEnthusiast = () => {
         <Col className="border border-black m-2 p-2">
           <h2>{profileData.name} {profileData.surname}</h2>
           <p>Korisničko ime: {profileData.username}</p>
+          {isLoggedIn && (
+             <Button variant="dark" onClick={follow}>
+                  Zaprati
+                </Button>
+        )}
         </Col>
       </Row>
 
@@ -82,6 +111,7 @@ const ProfileCulinaryEnthusiast = () => {
             ))}
           </ListGroup>
         </Col>
+
       </Row>
     </Container>
     </div>
