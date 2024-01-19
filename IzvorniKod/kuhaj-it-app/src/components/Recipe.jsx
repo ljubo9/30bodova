@@ -13,7 +13,6 @@ const Recipe = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [reviewResponse, setReviewResponse] = useState({});
   const currentUser = JSON.parse(sessionStorage.getItem('currentUser')) || {};
-  const isLoggedIn = sessionStorage.getItem('isLoggedIn');
 
   const fetchRecipe = async () => {
     try {
@@ -28,11 +27,6 @@ const Recipe = () => {
       console.error('Pogreška pri dohvaćanju recepta:', error);
     }
   };
-
-  useEffect(() => {
-    console.log('Recipe:', recipe);
-    console.log('Review Response:', reviewResponse);
-  }, [recipe, reviewResponse]);
 
   useEffect(() => {
     fetchRecipe();
@@ -97,19 +91,17 @@ const Recipe = () => {
 
   const handleAddToTriedRecipes = async () => {
     try {
-      const form = new FormData();
-      form.append("recipeId", recipeId);
-      console.log(currentUser.username);
-      form.append("username", currentUser.username);
-      form.append("date", selectedDate?.toISOString().slice(0, 10));
       const response = await fetch(`/recipes/addToTriedRecipes`, {
         method: 'POST',
-        body: form
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          recipeId,
+          username: currentUser.username || '',
+          date: selectedDate?.toISOString().slice(0, 10) || '',
+        }),
       });
-
-      if (!response.ok) {
-        console.error("Recept se ne može dodati: ", response.statusText);
-      }
     } catch (error) {
       console.error('Pogreška pri dodavanju recepta u isprobane:', error);
     }
@@ -125,9 +117,7 @@ const Recipe = () => {
           <p>Vlasnik recepta: {recipe.creator}</p>
           <p>Veličina porcije {recipe.portionSize}</p>
           <p>Vrijeme spremanja: {recipe.cookTime}</p>
-          {recipe.category ? (
-          <p>Kategorija: {recipe.category.name}</p>
-          ) : ( <p></p>)}
+          <p>Kategorija: {recipe.category}</p>
 
           <h3>Sastojci:</h3>
           <ul>
@@ -179,13 +169,13 @@ const Recipe = () => {
                     <p>Poruka: {review.message}</p>
                     <p>Ocjena: {review.mark}</p>
                     <p>Autor: {review.username || 'Anoniman'}</p>
-                    {reviewResponse &&  (
+                    {reviewResponse && (
                       <div>
                         <p>Odgovor: {reviewResponse.message}</p>
                         <p>Autor odgovora: {reviewResponse.username}</p>
                       </div>
                     )}
-                    {!reviewResponse && currentUser.username === recipe.creator && (
+                    {!review.response && currentUser.username === recipe.creator && (
                       <div>
                         <Form.Control
                           as="textarea"
@@ -225,20 +215,17 @@ const Recipe = () => {
             </Button>
           </div>
 
-          {isLoggedIn && (
-              <div>
-              <h3>Dodajte recept u isprobane:</h3>
-              <DatePicker
-                selected={selectedDate}
-                onChange={(date) => setSelectedDate(date)}
-                dateFormat="dd-MM-yyyy"
-              />
-              <Button variant="dark" className="m-3" onClick={handleAddToTriedRecipes}>
-                Dodaj u isprobane recepte.
-              </Button>
-            </div>
-        )}
-
+          <div>
+            <h3>Dodajte recept u isprobane:</h3>
+            <DatePicker
+              selected={selectedDate}
+              onChange={(date) => setSelectedDate(date)}
+              dateFormat="yyyy-MM-dd"
+            />
+            <Button variant="dark" className="m-3" onClick={handleAddToTriedRecipes}>
+              Dodaj u isprobane recepte.
+            </Button>
+          </div>
         </>
       ) : (
         <p>Loading...</p>

@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { Line } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 
 const CalorieChart = ({ consumedRecipesStatistics }) => {
   const [chartData, setChartData] = useState({});
-  const [haveData, setHaveData] = useState(false);
 
   useEffect(() => {
-    const daysOfWeek = Object.keys(consumedRecipesStatistics);
-    const caloriesConsumed = Object.values(consumedRecipesStatistics);
+    //const daysOfWeek = Object.keys(consumedRecipesStatistics);
+    //const caloriesConsumed = Object.values(consumedRecipesStatistics);
+    const daysOfWeek = Object.keys({"22.01.":35, "23.01.": 45, "24.01.": 60, "25.01.": 43, "26.01.": 55, "27.01.": 20, "28.01.": 100});
+    const caloriesConsumed = Object.values({"22.01.":35, "23.01.": 45, "24.01.": 60, "25.01.": 43, "26.01.": 55, "27.01.": 20, "28.01.": 100});
 
     const fetchData = async () => {
       try {
@@ -19,8 +20,8 @@ const CalorieChart = ({ consumedRecipesStatistics }) => {
             {
               label: 'Potrošene kalorije',
               data: caloriesConsumed,
-              fill: false,
-              borderColor: 'rgba(75,192,192,1)',
+              backgroundColor: 'rgba(75,192,192,0.2)', // Bar color
+              borderColor: 'rgba(75,192,192,1)', // Border color
               borderWidth: 2,
             },
           ],
@@ -37,15 +38,15 @@ const CalorieChart = ({ consumedRecipesStatistics }) => {
   return (
     <div>
       <h2>Graf potrošenih kalorija u zadnjih 7 dana</h2>
-      {haveData ? (
-        <Line
+      {haveData && (
+        <Bar
           data={chartData}
           options={{
             scales: {
               x: {
-                type: 'time', 
+                type: 'time',
                 time: {
-                  unit: 'day', 
+                  unit: 'day',
                 },
                 title: {
                   display: true,
@@ -56,11 +57,12 @@ const CalorieChart = ({ consumedRecipesStatistics }) => {
                 beginAtZero: true,
               },
             },
+            y: {
+              beginAtZero: true,
+            },
           }}
         />
-      ) : (
-        <p>Error loading data</p>
-      )}
+  )}
     </div>
   );
 };
