@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Spinner, ListGroup, Container } from 'react-bootstrap';
 
 function CulinaryEnthusiast() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -144,7 +145,30 @@ function CulinaryEnthusiast() {
           </select>
         )}
       </div>
-      <div className="bg-light">
+
+    <Container className="bg-light p-3">
+      {isLoadingEnthusiasts || isLoadingCreators ? (
+        <Spinner animation="border" role="status">
+          <span className="sr-only">Loading...</span>
+        </Spinner>
+      ) : (
+        <ListGroup>
+          {filteredEnthusiasts.map((enthusiast) => (
+            <ListGroup.Item key={enthusiast.id}>
+              <Link to={`/enthusiast/${enthusiast.username}`}>
+                <h3 className="text-black">{enthusiast.username}</h3>
+              </Link>
+              <p>{enthusiast.biography}</p>
+            </ListGroup.Item>
+          ))}
+        </ListGroup>
+      )}
+    </Container>
+    </>
+  );
+};
+
+      {/*<div className="bg-light">
         {isLoadingEnthusiasts || isLoadingCreators ? (
           <p>Loading...</p> // Loading indicator
         ) : (
@@ -159,9 +183,6 @@ function CulinaryEnthusiast() {
             ))}
           </ul>
         )}
-      </div>
-    </>
-  );
-}
+            </div>*/}
 
 export default CulinaryEnthusiast;
