@@ -16,7 +16,7 @@ const Recipe = () => {
 
   const fetchRecipe = async () => {
     try {
-      const response = await fetch(`/recipe/get/${recipeId}`);
+      const response = await fetch(`https://kuhajitbackend.onrender.com/recipe/get/${recipeId}`);
       if (response.ok) {
         const data = await response.json();
         setRecipe(data);
@@ -46,7 +46,7 @@ const Recipe = () => {
 
   const handleResponseSubmit = async (reviewId) => {
     try {
-      const response = await fetch(`/response`, {
+      const response = await fetch(`https://kuhajitbackend.onrender.com/response`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -74,13 +74,13 @@ const Recipe = () => {
       form.append('mark', parseInt(reviewRating, 10) || 0);
       form.append('username', currentUser.username || '');
 
-      const response = await fetch(`/review`, {
+      const response = await fetch(`https://kuhajitbackend.onrender.com/review`, {
         method: 'POST',
         body: form,
       });
 
       if (!response.ok) {
-        console.error('Response nije ispravno poslan', response.statusText);
+        console.error('Review nije ispravno poslan', response.statusText);
       } else {
         fetchRecipe();
       }
@@ -91,16 +91,13 @@ const Recipe = () => {
 
   const handleAddToTriedRecipes = async () => {
     try {
-      const response = await fetch(`/recipes/addToTriedRecipes`, {
+      const formData = new FormData();
+      formData.append("recipeId", recipeId);
+      formData.append("username", currentUser.username);
+      formData.append("date", selectedDate?.toISOString().slice(0, 10) || '')
+      const response = await fetch(`https://kuhajitbackend.onrender.com/recipes/addToTriedRecipes`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          recipeId,
-          username: currentUser.username || '',
-          date: selectedDate?.toISOString().slice(0, 10) || '',
-        }),
+        body : formData
       });
     } catch (error) {
       console.error('Pogreška pri dodavanju recepta u isprobane:', error);
@@ -117,7 +114,9 @@ const Recipe = () => {
           <p>Vlasnik recepta: {recipe.creator}</p>
           <p>Veličina porcije {recipe.portionSize}</p>
           <p>Vrijeme spremanja: {recipe.cookTime}</p>
-          <p>Kategorija: {recipe.category}</p>
+          {recipe.category ? (
+          <p>Kategorija: {recipe.category.name}</p>
+          ) : (<p></p>)}
 
           <h3>Sastojci:</h3>
           <ul>

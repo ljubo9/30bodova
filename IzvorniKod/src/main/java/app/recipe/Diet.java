@@ -14,6 +14,9 @@ public class Diet {
     private int id;
     private String name;
     private String description;
+    private int lowCalorie;
+    private int lowCarb;
+    private int lowFat;
 
     @ManyToMany
     private List<Recipe> recipes;
@@ -26,6 +29,15 @@ public class Diet {
     @OneToMany(mappedBy = "diet")
     private List<User> users;
 
+    
+    public Diet(User u, int lowCalorie, int lowFat, int lowCarb, String description) {
+    	this.lowCalorie = lowCalorie;
+    	this.lowFat = lowFat;
+    	this.lowCarb = lowCarb;
+    	this.description = description;
+    	this.creator = u;
+    }
+    
     public Diet() {
     	
     }
@@ -77,6 +89,32 @@ public class Diet {
     public void setUsers(List<User> users) {
         this.users = users;
     }
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getLowCalorie() {
+		return lowCalorie;
+	}
+
+	public void setLowCalorie(int lowCalorie) {
+		this.lowCalorie = lowCalorie;
+	}
+
+	public int getLowFat() {
+		return lowFat;
+	}
+
+	public void setLowFat(int lowFat) {
+		this.lowFat = lowFat;
+	}
+    
+    
 
 
 }

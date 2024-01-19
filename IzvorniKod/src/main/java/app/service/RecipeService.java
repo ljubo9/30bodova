@@ -251,6 +251,12 @@ public class RecipeService {
 		}
 		return cat;
 	}
+
+	public List<Cookbook> getCookbookByUsername(int id) {
+		// TODO Auto-generated method stub
+		Optional<List<Cookbook>> cb = cookbookRepository.findByCreatorId(id);
+		return cb.orElse(null);
+	}
 	
 	
 

@@ -39,6 +39,8 @@ public class UserService implements UserDetailsService{
 			 return true;
 		 }
 		 catch (Exception e) {
+			 System.out.println("Could not register user:");
+			 e.printStackTrace();
 			 return false;
 		 }
 	 }
@@ -70,14 +72,12 @@ public class UserService implements UserDetailsService{
 	}
 
 	private void checkUserDataValid(User user) {
-		// TODO Auto-generated method stub
-		if (user instanceof SpecialUser) {
-			Optional<SpecialUser> optionalUserEmail = userRepository.findUserByEmail(((SpecialUser)user).getEmail());
-			if (optionalUserEmail.isPresent()) throw new IllegalStateException("Account with this email already exists");
-		}
+		// TODO Auto-generated method stup
 
 		Optional<User> optionalUserUsername = userRepository.findUserByUsername(user.getUsername());
-		if (optionalUserUsername.isPresent()) throw new IllegalStateException("Account with this username already exists");
+		//Optional<List<User>> optionalUserEmail = userRepository.findUserByEmail(user.getEmail());
+
+		if (optionalUserUsername.isPresent() /*|| optionalUserEmail.isPresent() || (optionalUserEmail.isPresent() && optionalUserEmail.get().size() > 0) */) throw new IllegalStateException("Account with this username already exists");
 	}
 
 	@Override

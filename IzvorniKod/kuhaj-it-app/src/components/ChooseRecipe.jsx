@@ -36,7 +36,7 @@ const ChooseRecipe = () => {
   useEffect(() => {
     const fetchIngredients = async () => {
       try {
-        const response = await fetch('/ingredients/all'); // Pretpostavka URL-a
+        const response = await fetch('https://kuhajitbackend.onrender.com/ingredients/all'); // Pretpostavka URL-a
         const data = await response.json();
         setIngredients(data);
       } catch (error) {
@@ -50,7 +50,7 @@ const ChooseRecipe = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await fetch("/recipes/all");
+        const response = await fetch("https://kuhajitbackend.onrender.com/recipes/all");
         if (response.ok) {
           const data = await response.json();
           setRecipesFromDB(data);

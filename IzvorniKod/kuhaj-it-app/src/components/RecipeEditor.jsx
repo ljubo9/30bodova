@@ -21,10 +21,11 @@ const RecipeEditor = () => {
       try {
         //dohvaćanje kuharica po id-u entuzijasta
         console.log(currentUser)
-        const response = await fetch(`/cookbook/${currentUser.username}`);
+        const response = await fetch(`https://kuhajitbackend.onrender.com/cookbook/${currentUser.username}`);
         if (response.ok) {
           const cookbooksData = await response.json();
           setCookbooks(cookbooksData);
+          console.log(cookbooksData);
         } else {
           console.error('Greška prilikom dohvaćanja kuharica.');
         }
@@ -75,7 +76,7 @@ const RecipeEditor = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('/recipe', {
+      const response = await fetch('https://kuhajitbackend.onrender.com/recipe', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -92,7 +93,7 @@ const RecipeEditor = () => {
 
         //svaka namirnica se pojedinačno šalje na back, šalje se recipe.id i sve informaicje o namirnici
         for (const ingredient of ingredients) {
-          const ingredientResponse = await fetch('/RecipeIngredient', {
+          const ingredientResponse = await fetch('https://kuhajitbackend.onrender.com/RecipeIngredient', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -111,7 +112,7 @@ const RecipeEditor = () => {
         }
         //svaki stepOfMaking se pojedinačno šalje...
         for (const step of steps) {
-          const stepResponse = await fetch('/StepOfMaking', {
+          const stepResponse = await fetch('https://kuhajitbackend.onrender.com/StepOfMaking', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -130,7 +131,7 @@ const RecipeEditor = () => {
         }
         //ako je uopće odabrana kuharica,na endpoint cookbook se šalje id recepta i id kuharice i onda se taj recept doda u recepte od kuharice
         if (selectedCookbook) {
-          const cookbookResponse = await fetch('/cookbook', {
+          const cookbookResponse = await fetch('https://kuhajitbackend.onrender.com/cookbook', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
