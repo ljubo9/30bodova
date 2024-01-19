@@ -144,25 +144,8 @@ function CulinaryEnthusiast() {
           </select>
         )}
       </div>
-
-    <Container className="bg-light p-3">
-      {isLoadingEnthusiasts || isLoadingCreators ? (
-        <Spinner animation="border" role="status">
-          <span className="sr-only">Loading...</span>
-        </Spinner>
-      ) : (
-        <ListGroup>
-          {filteredEnthusiasts.map((enthusiast) => (
-            <ListGroup.Item key={enthusiast.id}>
-              <Link to={`/enthusiast/${enthusiast.username}`}>
-                <h3 className="text-black">{enthusiast.username}</h3>
-              </Link>
-              <p>{enthusiast.biography}</p>
-            </ListGroup.Item>
-          ))}
-        </ListGroup>
-      )}
-    </Container>
+    
+    
     </>
   );
 };
@@ -184,4 +167,24 @@ function CulinaryEnthusiast() {
         )}
             </div>*/}
 
+            /*
+            <Container className="bg-light p-3">
+      {isLoadingEnthusiasts || isLoadingCreators ? (
+        <Spinner animation="border" role="status">
+          <span className="sr-only">Loading...</span>
+        </Spinner>
+      ) : (
+        <ListGroup>
+          {filteredEnthusiasts.map((enthusiast) => (
+            <ListGroup.Item key={enthusiast.id}>
+              <Link to={`/enthusiast/${enthusiast.username}`}>
+                <h3 className="text-black">{enthusiast.username}</h3>
+              </Link>
+              <p>{enthusiast.biography}</p>
+            </ListGroup.Item>
+          ))}
+        </ListGroup>
+      )}
+    </Container>
+    */
 export default CulinaryEnthusiast;
