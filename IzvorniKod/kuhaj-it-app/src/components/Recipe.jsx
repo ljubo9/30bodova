@@ -5,24 +5,27 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 const Recipe = () => {
   const { recipeId } = useParams();
-  const [recipe, setRecipe] = useState(null);
+  const [recipe, setRecipe] = useState({});
   const [responseMessage, setResponseMessage] = useState('');
   const [reviewMessage, setReviewMessage] = useState('');
   const [reviewRating, setReviewRating] = useState(0);
   const [selectedDate, setSelectedDate] = useState(null);
+  const [reviewResponse, setReviewResponse] = useState({});
   const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
 
   useEffect(() => {
     const fetchRecipe = async () => {
       try {
-
-
         //endpoint za dohvaćanje recepta po id-u
         const response = await fetch(`/recipe/get/${recipeId}`);
-
-        const data = await response.json();
-
-        setRecipe(data);
+        if (response.ok) {
+          const data = await response.json();
+          setRecipe(data);
+          console.log(data);
+        } 
+        else {
+          console.error('Recept se ne može dohvatiti: ', response.statusText);
+        }
       } catch (error) {
         console.error('Pogreška pri dohvaćanju recepta:', error);
       }
@@ -31,18 +34,17 @@ const Recipe = () => {
     fetchRecipe();
   }, [recipeId]);
 
-  const fetchResponse = async (reviewId) => {
-    try {
+  useEffect(() => {
+    const fetchReviewResponses = async () => {
+      // Logic to fetch review responses
+      // For each review, fetch its response and update the state
+      // This is a placeholder for the actual logic you would implement
+    };
 
-      //ednpoint za dohvavaćanje odgovora po review.id
-      const response = await fetch(`/response?reviewId=${recipeId}`);
-      const data = await response.json();
-
-      return data[0];  // vraća jedan jedini response ili undefined
-    } catch (error) {
-      console.error('Pogreška pri dohvaćanju odgovora:', error);
+    if (recipe && recipe.reviews) {
+      fetchReviewResponses();
     }
-  };
+  }, [recipe]);
 
   const handleResponseSubmit = async (reviewId) => {
     try {
@@ -58,7 +60,10 @@ const Recipe = () => {
           username: currentUser.username,
         }),
       });
-
+      if (response.ok) {
+        const newResponse = await response.json();
+        setReviewResponse(newResponse);
+      }
       // Ovdje možete rukovati odgovorom, ako je potrebno
     } catch (error) {
       console.error('Pogreška pri slanju odgovora:', error);
@@ -125,10 +130,10 @@ const Recipe = () => {
               <div>Nema sastojaka</div>
             ) : (
               <div>
-                {recipe.ingredients.map((ingredient, index) => (
+                {recipe.ingredients.map((recipeIngredient, index) => (
                   <li key={index}>
-                    <p>Ime: {ingredient.name}</p>
-                    <p>Količina: {ingredient.quantity}</p>
+                    <p>Ime: {recipeIngredient.ingredient.name}</p>
+                    <p>Količina: {recipeIngredient.quantity} g</p>
                   </li>
                 ))}
               </div>
@@ -164,25 +169,23 @@ const Recipe = () => {
               <div>Nema recenzija</div>
             ) : (
               <div>
-                {recipe.reviews.map(async (review) => {
+                {recipe && recipe.reviews && recipe.reviews.map((review) => {
                   // dohvaćanje odgovora iz baze
-                  const response = await fetchResponse(review.id);
-
                   return (
                     <li key={review.id}>
                       <p>Poruka: {review.message}</p>
                       <p>Ocjena: {review.mark}</p>
-                      <p>Autor: {review.creator.username || 'Anoniman'}</p>
+                      <p>Autor: {review.username || 'Anoniman'}</p>
                       {/* ako odgovor postoji prikaži */}
-                      {response && (
+                      {reviewResponse && (
                         <div>
-                          <p>Odgovor: {response.message}</p>
-                          <p>Autor odgovora: {response.creator.username}</p>
+                          <p>Odgovor: {reviewResponse.message}</p>
+                          <p>Autor odgovora: {reviewResponse.username}</p>
                         </div>
                       )}
                       {/* ako je odgovor undefined i trenutno ulogirani korisnik je jednak vlasniku recepta */}
-                      {!response &&
-                        currentUser.username === recipe.creator.username && (
+                      {!review.response &&
+                        currentUser.username === recipe.username && (
                           <div>
                             <textarea
                               value={responseMessage}

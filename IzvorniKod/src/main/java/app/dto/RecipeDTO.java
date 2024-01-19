@@ -16,6 +16,7 @@ public class RecipeDTO {
     public int cookTime;
     public List<RecipeIngredientDTO> ingredients;
     public List<ImageDTO> images;
+    public List<ReviewDTO> reviews;
 
 
     // Constructors, getters, and setters
@@ -49,6 +50,11 @@ public class RecipeDTO {
                 .map(RecipeIngredientDTO::fromEntity)
                 .collect(Collectors.toList());
         this.ingredients = recipeIngredientDTOs;
+        
+        List<ReviewDTO> reviewDTOs = recipe.getReviews().stream()
+                .map(ReviewDTO::fromEntity)
+                .collect(Collectors.toList());
+        this.reviews = reviewDTOs;
 
     }
 

@@ -137,6 +137,20 @@ public class Recipe {
 	public String getCategory() {
 		return this.category;
 	}
+	public List<Cookbook> getCookbooks() {
+		return cookbooks;
+	}
+	public List<Diet> getDiets() {
+		return diets;
+	}
+	public User getCreator() {
+		return creator;
+	}
+	public List<Review> getReviews() {
+		return reviews;
+	}
+	
+	
     
     
 
