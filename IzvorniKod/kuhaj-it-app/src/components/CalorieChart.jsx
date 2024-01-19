@@ -29,7 +29,7 @@ const CalorieChart = ({ consumedRecipesStatistics }) => {
             },
           ],
         }}
-        style={{ height: '500px', width: '500px' }}
+        style={{ height: '400px', width: '400px' }}
         options={{
           scales: {
             x: {
