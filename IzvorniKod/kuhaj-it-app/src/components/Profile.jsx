@@ -31,8 +31,7 @@ const Profile = () => {
           {(currentUser.role === 'ENTHUSIAST' || currentUser.role === 'NUTRITIONIST') && (
             <div>
               <Image
-                src={profileData.image}
-                alt="Profile"
+                src={profileData.image.data}
                 style={{ width: '150px', height: '150px', borderRadius: '50%' }}
               />
               <p>Biografija: {profileData.biography}</p>
