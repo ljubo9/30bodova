@@ -55,7 +55,7 @@ const Cookbook = () => {
               <div className="mb-2">Nema recepata</div>
           ) : (
           <div className="mb-2">
-         {recipes.map((recipe, index) => (
+          {recipes.map((recipe, index) => (
             <Card key={index} className="mb-3">
               <Card.Body>
                 <Card.Title>
