@@ -11,11 +11,7 @@ public class Image {
     private int id;
     private String name;
 
-	@OneToOne
-	private StepOfMaking stepOfMaking;
 
-	@OneToOne
-	private Ingredient ingredient;
 
 
 	@Lob
@@ -27,14 +23,6 @@ public class Image {
 
 	public void setImageData(byte[] imageData) {
 		this.imageData = imageData;
-	}
-
-	public Ingredient getIngredient() {
-		return ingredient;
-	}
-
-	public void setIngredient(Ingredient ingredient) {
-		this.ingredient = ingredient;
 	}
 
 

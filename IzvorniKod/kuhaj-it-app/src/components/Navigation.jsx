@@ -23,30 +23,30 @@ function Navigation() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
+            <Nav.Link as={Link} to="/choose-recipe">
+              Odaberi recept
+            </Nav.Link>
             <Nav.Link as={Link} to="/culinary-enthusiasts"> 
               Kulinarski Entuzijasti
             </Nav.Link>
             {currentUser && currentUser.role === 'NUTRITIONIST' && (
             <Nav.Link as={Link} to="/nutritionist">
-                Nutritionist
+                Nutricionist
             </Nav.Link>
             )}
             
             {currentUser && currentUser.role === 'ENTHUSIAST' && (
               <Nav.Link as={Link} to="/cookbook-editor">
-                Add cookbook
+                Dodaj kuharicu
               </Nav.Link>
             )}
             {currentUser && currentUser.role === 'ENTHUSIAST' && (
               <Nav.Link as={Link} to="/recipe-editor">
-                Add recipe
+                Dodaj recept
               </Nav.Link>
             )}
             {currentUser ? (
               <>
-                <Nav.Link as={Link} to="/choose-recipe">
-                  Choose Recipe
-                </Nav.Link>
                 <Nav.Link as={Link} to={`/user/${currentUser.username}`}>
                   {currentUser.username}
                 </Nav.Link>
@@ -54,7 +54,7 @@ function Navigation() {
                   Logout
                 </Button>
                 <Nav.Link as={Link} to="/profile-edit">
-                  ProfileEdit
+                  Uređivanje profila
                 </Nav.Link>
               </>
             ) : (

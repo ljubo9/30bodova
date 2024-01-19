@@ -66,30 +66,31 @@ function Login() {
 
   return (
     <Container className="bg-secondary bg-gradient" fluid>
-      <Row className="justify-content-center align-items-center" style={{ height: '100vh' }}>
+        {/* umjesto style={{ height: '100vh' }} može i className="h-screen" */}
+      <Row className="justify-content-center align-items-center" style={{ height: '100vh' }}> 
         <Col xs={12} sm={8} md={6} lg={4}>
           {loginStatus === 'error' && (
             <Alert variant="danger" className="mb-4">
-              Wrong credentials. Please try again.
+              Krivi podaci. Probajte ponovo!
             </Alert>
           )}
 
           <Form onSubmit={handleSubmit} className="border border-dark p-4 bg-white">
             <Form.Group className="mb-3" controlId="Username">
-              <Form.Label>Username</Form.Label>
+              <Form.Label>Korisničko ime</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter username"
+                placeholder="Upišite svoje korisničko ime"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
               />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="Password">
-              <Form.Label>Password</Form.Label>
+              <Form.Label>Lozinka</Form.Label>
               <Form.Control
                 type="password"
-                placeholder="Password"
+                placeholder="Lozinka"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />

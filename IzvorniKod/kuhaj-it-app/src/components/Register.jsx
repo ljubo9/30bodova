@@ -107,38 +107,37 @@ const Register = () => {
         <Col xs={12} md={6}>
           {isValidPassword === false && (
             <Alert variant="danger" className="mb-3">
-              Please choose a stronger password!
-              (At least 8 characters long and contains at least one uppercase letter.)
+              Odaberi sigurniju lozinku! Koristi barem 8 znakova i jedno veliko slovo.
             </Alert>
           )}
 
           {registrationStatus === 'success' && (
             <Alert variant="success">
-              Registration successful! You can now sign in.
+              Uspješna registracija, možete se logirati!
             </Alert>
           )}
 
           {registrationStatus === 'error' && (
             <Alert variant="danger">
-              Registration failed. Please try again.
+              Registracija neuspješna. Molimo pokušajte ponovo!
             </Alert>
           )}
 
           {registrationStatus === 'username' && (
             <Alert variant="danger">
-              Invalid argument/s.
+              Neispravni parametri.
             </Alert>
           )}
 
           {registrationStatus === 'require' && (
             <Alert variant="danger">
-              Please fill in all required fields.
+              Popunite sva polja!
             </Alert>
           )}
 
           <Form className="border border-dark p-4 bg-white">
             <Form.Group className="mb-3" controlId="firstName">
-              <Form.Label>First Name</Form.Label>
+              <Form.Label>Ime</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Ime"
@@ -149,7 +148,7 @@ const Register = () => {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="lastName">
-              <Form.Label>Last Name</Form.Label>
+              <Form.Label>Prezime</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Prezime"
@@ -160,7 +159,7 @@ const Register = () => {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="username">
-              <Form.Label>Username</Form.Label>
+              <Form.Label>Korisničko ime</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Odaberi korisničko ime"
@@ -171,7 +170,7 @@ const Register = () => {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="password">
-              <Form.Label>Password</Form.Label>
+              <Form.Label>Lozinka</Form.Label>
               <Form.Control
                 type="password"
                 placeholder="Odaberi sigurnu lozinku"
@@ -193,7 +192,7 @@ const Register = () => {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="role">
-              <Form.Label>Role</Form.Label>
+              <Form.Label>Uloga</Form.Label>
               <Form.Select
                 value={selectedRole}
                 onChange={(e) => setSelectedRole(e.target.value)}

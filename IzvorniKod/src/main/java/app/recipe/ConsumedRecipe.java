@@ -14,6 +14,11 @@ public class ConsumedRecipe {
     Recipe recipe;
 
     @ManyToOne
+	@JoinTable(
+			name = "user_consumed_recipes",
+			joinColumns = @JoinColumn(name = "user_id"),
+			inverseJoinColumns = @JoinColumn(name = "recipe_id"),
+			uniqueConstraints = @UniqueConstraint(columnNames = {"user_id", "recipe_id"}))
     User user;
 
     Date date;
