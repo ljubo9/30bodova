@@ -11,28 +11,23 @@ const Recipe = () => {
   const [reviewRating, setReviewRating] = useState(0);
   const [selectedDate, setSelectedDate] = useState(null);
   const [reviewResponse, setReviewResponse] = useState({});
-  const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
-
+  const currentUser = JSON.parse(sessionStorage.getItem('currentUser')) || {};
 
   const fetchRecipe = async () => {
     try {
-      //endpoint za dohvaćanje recepta po id-u
       const response = await fetch(`/recipe/get/${recipeId}`);
       if (response.ok) {
         const data = await response.json();
         setRecipe(data);
-        console.log(data)
-      } 
-      else {
+      } else {
         console.error('Recept se ne može dohvatiti: ', response.statusText);
       }
     } catch (error) {
       console.error('Pogreška pri dohvaćanju recepta:', error);
     }
   };
-  
-  useEffect(() => {
 
+  useEffect(() => {
     fetchRecipe();
   }, [recipeId]);
 
@@ -50,8 +45,6 @@ const Recipe = () => {
 
   const handleResponseSubmit = async (reviewId) => {
     try {
-      // slanje odgovora na recenziju, šalje se review.id, string odgovor i username
-
       const response = await fetch(`/response`, {
         method: 'POST',
         headers: {
@@ -60,14 +53,13 @@ const Recipe = () => {
         body: JSON.stringify({
           reviewId,
           message: responseMessage,
-          username: currentUser.username,
+          username: currentUser.username || '',
         }),
       });
       if (response.ok) {
         const newResponse = await response.json();
         setReviewResponse(newResponse);
       }
-      // Ovdje možete rukovati odgovorom, ako je potrebno
     } catch (error) {
       console.error('Pogreška pri slanju odgovora:', error);
     }
@@ -75,26 +67,22 @@ const Recipe = () => {
 
   const handleReviewSubmit = async () => {
     try {
-      // slanje recenzije, šalje se recipeId, message, mark, username
       const form = new FormData();
-      form.append("recipeId", recipeId);
-      form.append("message", reviewMessage);
-      form.append("mark", reviewRating);
-      form.append("username", currentUser.username);
+      form.append('recipeId', recipeId);
+      form.append('message', reviewMessage);
+      form.append('mark', parseInt(reviewRating, 10) || 0);
+      form.append('username', currentUser.username || '');
 
       const response = await fetch(`/review`, {
         method: 'POST',
-        body: form
+        body: form,
       });
 
       if (!response.ok) {
-        console.error("Response nije ispravno poslan", response.statusText);
-      }
-      else {
+        console.error('Response nije ispravno poslan', response.statusText);
+      } else {
         fetchRecipe();
       }
-
-      // Ovdje možete rukovati odgovorom, ako je potrebno
     } catch (error) {
       console.error('Pogreška pri slanju recenzije:', error);
     }
@@ -102,7 +90,6 @@ const Recipe = () => {
 
   const handleAddToTriedRecipes = async () => {
     try {
-      // slanje podataka za dodavanje u isprobane recepte
       const response = await fetch(`/recipes/addToTriedRecipes`, {
         method: 'POST',
         headers: {
@@ -110,12 +97,10 @@ const Recipe = () => {
         },
         body: JSON.stringify({
           recipeId,
-          username: currentUser.username,
-          date: selectedDate.toISOString().slice(0, 10),  
+          username: currentUser.username || '',
+          date: selectedDate?.toISOString().slice(0, 10) || '',
         }),
       });
-
-
     } catch (error) {
       console.error('Pogreška pri dodavanju recepta u isprobane:', error);
     }
@@ -126,13 +111,12 @@ const Recipe = () => {
       <h2>Recept</h2>
       {recipe ? (
         <>
-          {/* Prikaz informacija o samom receptu */}
           <p>Ime recepta: {recipe.name}</p>
+          <p>Vlasnik recepta: {recipe.creator}</p>
           <p>Veličina porcije {recipe.portionSize}</p>
           <p>Vrijeme spremanja: {recipe.cookTime}</p>
-  
+          <p>Kategorija: {recipe.category}</p>
 
-          {/* Prikaz informacija o sastojcima */}
           <h3>Sastojci:</h3>
           <ul>
             {!recipe.ingredients || recipe.ingredients.length === 0 ? (
@@ -178,41 +162,36 @@ const Recipe = () => {
               <div>Nema recenzija</div>
             ) : (
               <div>
-                {recipe && recipe.reviews && recipe.reviews.map((review) => {
-                  // dohvaćanje odgovora iz baze
-                  return (
-                    <li key={review.id}>
-                      <p>Poruka: {review.message}</p>
-                      <p>Ocjena: {review.mark}</p>
-                      <p>Autor: {review.username || 'Anoniman'}</p>
-                      {/* ako odgovor postoji prikaži */}
-                      {reviewResponse && (
+                {recipe.reviews.map((review) => (
+                  <li key={review.id}>
+                    <p>Poruka: {review.message}</p>
+                    <p>Ocjena: {review.mark}</p>
+                    <p>Autor: {review.username || 'Anoniman'}</p>
+                    {reviewResponse && (
+                      <div>
+                        <p>Odgovor: {reviewResponse.message}</p>
+                        <p>Autor odgovora: {reviewResponse.username}</p>
+                      </div>
+                    )}
+                    {!review.response &&
+                      currentUser.username === recipe.creator && (
                         <div>
-                          <p>Odgovor: {reviewResponse.message}</p>
-                          <p>Autor odgovora: {reviewResponse.username}</p>
+                          <textarea
+                            value={responseMessage}
+                            onChange={(e) => setResponseMessage(e.target.value)}
+                            placeholder="Odgovori na recenziju..."
+                          />
+                          <button onClick={() => handleResponseSubmit(review.id)}>
+                            Pošalji odgovor
+                          </button>
                         </div>
                       )}
-                      {/* ako je odgovor undefined i trenutno ulogirani korisnik je jednak vlasniku recepta */}
-                      {!review.response &&
-                        currentUser.username === recipe.username && (
-                          <div>
-                            <textarea
-                              value={responseMessage}
-                              onChange={(e) => setResponseMessage(e.target.value)}
-                              placeholder="Odgovori na recenziju..."
-                            />
-                            <button onClick={() => handleResponseSubmit(review.id)}>
-                              Pošalji odgovor
-                            </button>
-                          </div>
-                        )}
-                    </li>
-                  );
-                })}
+                  </li>
+                ))}
               </div>
             )}
           </ul>
-          {/* Dodavanje nove recenzije */}
+
           <div>
             <h3>Dodajte svoju recenziju:</h3>
             <textarea
@@ -233,7 +212,6 @@ const Recipe = () => {
             <button onClick={handleReviewSubmit}>Dodaj recenziju</button>
           </div>
 
-          {/* Dodavanje u isprobane recepte */}
           <div>
             <h3>Dodajte recept u isprobane:</h3>
             <DatePicker
