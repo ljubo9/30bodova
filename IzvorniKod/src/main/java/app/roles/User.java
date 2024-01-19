@@ -164,6 +164,11 @@ public class User implements UserDetails {
 	public List<ConsumedRecipe> getConsumedRecipes() {
 		return consumedRecipes;
 	}
+	
+
+	public void setConsumedRecipes(List<ConsumedRecipe> consumedRecipes) {
+		this.consumedRecipes = consumedRecipes;
+	}
 
 	public String getEmail() {
 		return email;

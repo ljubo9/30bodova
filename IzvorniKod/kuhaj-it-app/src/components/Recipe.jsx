@@ -91,17 +91,19 @@ const Recipe = () => {
 
   const handleAddToTriedRecipes = async () => {
     try {
+      const form = new FormData();
+      form.append("recipeId", recipeId);
+      console.log(currentUser.username);
+      form.append("username", currentUser.username);
+      form.append("date", selectedDate?.toISOString().slice(0, 10));
       const response = await fetch(`/recipes/addToTriedRecipes`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          recipeId,
-          username: currentUser.username || '',
-          date: selectedDate?.toISOString().slice(0, 10) || '',
-        }),
+        body: form
       });
+
+      if (!response.ok) {
+        console.error("Recept se ne može dodati: ", response.statusText);
+      }
     } catch (error) {
       console.error('Pogreška pri dodavanju recepta u isprobane:', error);
     }

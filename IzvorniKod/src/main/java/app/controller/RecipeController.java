@@ -339,5 +339,16 @@ public class RecipeController {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-
+	
+	@PostMapping(path = "/recipes/addToTriedRecipes")
+	public ResponseEntity<String> addConsumedRecipe(@RequestParam("recipeId") int recipeId, @RequestParam("username") String username, @RequestParam("date") Date date) {
+		try {
+			recipeService.addConsumedRecipe(recipeId, username, date);
+			return new ResponseEntity<>(HttpStatus.OK);
+		}
+		catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
 }

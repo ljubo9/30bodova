@@ -47,14 +47,14 @@ const Nutritionist = () => {
     setCurrentUser(storedUser ? JSON.parse(storedUser) : null);
 
 
-    fetch('https://kuhajitbackend.onrender.com/labels') //labele za kategoriziranje proizvoda
+    fetch('/labels') //labele za kategoriziranje proizvoda
       .then(response => response.json())
       .then(data => setLabels(data))
       .catch(error => console.error('Error fetching labels:', error));
   }, []);
 
   const fetchIngredients = () => {
-    fetch('https://kuhajitbackend.onrender.com/ingredients') // Fetching ingredients
+    fetch('/ingredients') // Fetching ingredients
       .then(response => response.json())
       .then(data => setIngredients(data))
       .catch(error => console.error('Error fetching ingredients:', error));
@@ -87,7 +87,7 @@ const Nutritionist = () => {
       formData.append(`labels[${index}]`, label);
     });
 
-    fetch('/ingredients', {
+    fetch('/ingredients/add', {
       method: 'POST',
       body: formData,
     })

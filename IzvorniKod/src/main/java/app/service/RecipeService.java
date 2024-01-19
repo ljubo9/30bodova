@@ -18,6 +18,7 @@ import app.recipe.Cookbook;
 import app.recipe.Ingredient;
 import app.recipe.Recipe;
 import app.recipe.RecipeIngredient;
+import app.repository.ConsumedRecipeRepository;
 import app.repository.CookbookRepository;
 import app.repository.IngredientRepository;
 import app.repository.RecipeRepository;
@@ -31,14 +32,16 @@ public class RecipeService {
     private final CookbookRepository cookbookRepository;
     private final UserRepository userRepository;
     private final IngredientRepository ingredientRepository;
+    private final ConsumedRecipeRepository consumedRecipeRepository;
 
     @Autowired
     public RecipeService(RecipeRepository recipeRepository, CookbookRepository cookbookRepository, UserRepository userRepository,
-    		IngredientRepository ingredientRepository) {
+    		IngredientRepository ingredientRepository, ConsumedRecipeRepository consumedRecipeRepository) {
         this.recipeRepository = recipeRepository;
         this.cookbookRepository = cookbookRepository;
         this.userRepository = userRepository;
         this.ingredientRepository = ingredientRepository;
+        this.consumedRecipeRepository  = consumedRecipeRepository;
     }
 
     public Recipe loadRecipeById(int recipeId) {
@@ -154,6 +157,22 @@ public class RecipeService {
 
 		}
 		return mapa;
+	}
+
+	public void addConsumedRecipe(int recipeId, String username, Date date) {
+		// TODO Auto-generated method stub
+		Optional<User> u = userRepository.findUserByUsername(username);
+		if (u.isEmpty()) return;
+		User user = u.get();
+		Optional<Recipe> r = recipeRepository.findById(recipeId);
+		if (r.isEmpty()) return;
+		ConsumedRecipe recipe = new ConsumedRecipe(r.get(), user, date);
+		List<ConsumedRecipe> consumedRecipes = user.getConsumedRecipes();
+		consumedRecipes.add(recipe);
+		user.setConsumedRecipes(consumedRecipes);
+		consumedRecipeRepository.save(recipe);
+		userRepository.save(user);
+		
 	}
 	
 	

@@ -25,9 +25,8 @@ public class ConsumedRecipe {
     
     
 
-	public ConsumedRecipe(int id, Recipe recipe, User user, Date date) {
+	public ConsumedRecipe(Recipe recipe, User user, Date date) {
 		super();
-		this.id = id;
 		this.recipe = recipe;
 		this.user = user;
 		this.date = date;
