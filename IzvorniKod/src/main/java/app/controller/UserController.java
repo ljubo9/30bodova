@@ -108,6 +108,7 @@ public class UserController {
 		try {
 			User oldUser = (User)userService.loadUserByUsername(username);
 			if (oldUser == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			System.out.println(oldUser);
 			userService.removeUser(oldUser);
 			if(!newUsername.isEmpty()) {
 				oldUser.setUsername(newUsername);
@@ -115,6 +116,7 @@ public class UserController {
 			if(!newPassword.isEmpty()) {
 				oldUser.setPassword(newPassword);
 			}
+			System.out.println(oldUser);
 			userService.registerUser(oldUser);
 			return new ResponseEntity<>(new UserDTO(oldUser), HttpStatus.OK);
 		}
