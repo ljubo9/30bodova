@@ -15,6 +15,22 @@ const RecipeEditor = () => {
   const [steps, setSteps] = useState([{ number: 1, description: '', image: null }]);
   const [cookbooks, setCookbooks] = useState([]);
   const [selectedCookbook, setSelectedCookbook] = useState('');
+  const [mainCategory, setMainCategory] = useState('');
+  const [subcategory, setSubcategory] = useState('');
+
+  const categories = {
+    Slano: ['Obično', 'Vegetarijansko', 'Vegansko', 'Bezglutensko'],
+    Slatko: ['Čokoladno', 'Voćno', 'Bezglutensko', 'Bez laktoze', 'Dijabetes', 'Dijeta'],
+  };
+
+  const handleMainCategoryChange = (e) => {
+    setMainCategory(e.target.value);
+    setSubcategory(''); // Reset subcategory when main category changes
+  };
+
+  const handleSubcategoryChange = (e) => {
+    setSubcategory(e.target.value);
+  };
 
   useEffect(() => {
     const fetchCookbooks = async () => {
@@ -179,18 +195,31 @@ const RecipeEditor = () => {
         </Form.Group>
 
         <Form.Group as={Row} controlId="formRecipeCategory">
-          <Form.Label column sm={2}>
-            Kategorija:
-          </Form.Label>
-          <Col sm={10}>
-            <Form.Control
-              type="text"
-              name="category"
-              value={recipeData.category}
-              onChange={(e) => handleInputChange(e, null, null)}
-            />
-          </Col>
-        </Form.Group>
+        <Form.Label column sm={2}>
+          Kategorija:
+        </Form.Label>
+        <Col sm={4}>
+          <Form.Control as="select" value={mainCategory} onChange={handleMainCategoryChange}>
+            <option value="">Odaberi kategoriju</option>
+            {Object.keys(categories).map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
+          </Form.Control>
+        </Col>
+        <Col sm={4}>
+          <Form.Control as="select" value={subcategory} onChange={handleSubcategoryChange} disabled={!mainCategory}>
+            <option value="">Odaberi podkategoriju</option>
+            {mainCategory &&
+              categories[mainCategory].map((sub) => (
+                <option key={sub} value={sub}>
+                  {sub}
+                </option>
+              ))}
+          </Form.Control>
+        </Col>
+      </Form.Group>
 
         {/* ... (similar structure for other form fields) */}
 
