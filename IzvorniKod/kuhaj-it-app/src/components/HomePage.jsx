@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, ListGroup, Card } from 'react-bootstrap';
+import { Card, Image, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import cookingImage from '../assets/cooking.png'; 
 
@@ -27,21 +27,17 @@ function HomePage() {
   });
 
   return (
-      <>
-      <Container fluid>
-        <div
-          style={{
-            height: '100vh',
-            backgroundImage: `url(${cookingImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            position: 'relative',
-          }}
-        >
-          <Card className="bg-warning bg-gradient p-5 text-center text-black">
+    <>
+      <div
+        style={{
+          height: '100vh',
+          backgroundImage: `url(${cookingImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center', 
+        }}
+      >
+        <div className="d-flex justify-content-center align-items-center position-relative" style={{ height: '100vh' }}>
+          <Card className="bg-warning bg-gradient p-5">
             <Card.Title>
               <h1>Dobrodošli u KuhajIT!</h1>
             </Card.Title>
@@ -50,25 +46,26 @@ function HomePage() {
             </Card.Text>
           </Card>
         </div>
-      </Container>
-      
-      <Container className="mt-3 mb-3 border border-black">
-        <h5 className="mt-2">Najnoviji radovi:</h5>
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          {Object.keys(latestChefCookbooks).map((chefId, index) => (
-            <div key={chefId} style={{ marginTop: index < Object.keys(latestChefCookbooks).length - 1 ? '20px' : 0 }}>
-              <h6>Entuzijast: {chefId}</h6>
-              <ListGroup className="m-2 p-2">
-                {latestChefCookbooks[chefId].map((cookbook) => (
-                  <ListGroup.Item key={cookbook.id}>
-                    <Link to={`/cookbook/${cookbook.id}`}>{cookbook.name}</Link>
-                  </ListGroup.Item>
-                ))}
-              </ListGroup>
-            </div>
-          ))}
+      </div>
+      <h5>Najnoviji radovi:</h5>
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      {Object.keys(latestChefCookbooks).map((chefId, index) => (
+        <div key={chefId} style={{ marginTop: index < Object.keys(latestChefCookbooks).length - 1 ? '20px' : 0 }}>
+          <h6>Entuzijast: {chefId}</h6>
+          <ul>
+            {latestChefCookbooks[chefId].map((cookbook) => (
+              <li key={cookbook.id}>
+                <Link to={`/cookbook/${cookbook.id}`}>{cookbook.name}</Link>
+              </li>
+            ))}
+          </ul>
         </div>
-      </Container>
+      ))}
+      </div>
+
+      </div>
+
     </>
   );
 }

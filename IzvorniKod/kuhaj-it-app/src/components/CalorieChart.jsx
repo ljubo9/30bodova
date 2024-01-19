@@ -3,7 +3,6 @@ import { Bar } from 'react-chartjs-2';
 
 const CalorieChart = ({ consumedRecipesStatistics }) => {
   const [chartData, setChartData] = useState({});
-  const [haveData, setHaveData] = useState(false);
 
   useEffect(() => {
     //const daysOfWeek = Object.keys(consumedRecipesStatistics);
@@ -39,6 +38,7 @@ const CalorieChart = ({ consumedRecipesStatistics }) => {
   return (
     <div>
       <h2>Graf potrošenih kalorija u zadnjih 7 dana</h2>
+<<<<<<< HEAD
       {haveData ? (
         <Bar
           data={chartData}
@@ -57,12 +57,22 @@ const CalorieChart = ({ consumedRecipesStatistics }) => {
               y: {
                 beginAtZero: true,
               },
+=======
+      <Line
+        data={chartData}
+        options={{
+          scales: {
+            x: {
+              type: 'category',
+              labels: chartData.labels,
+>>>>>>> b7d04871140da877e34b907db35b71b99a2db23c
             },
-          }}
-        />
-      ) : (
-        <p>Error loading data</p>
-      )}
+            y: {
+              beginAtZero: true,
+            },
+          },
+        }}
+      />
     </div>
   );
 };
