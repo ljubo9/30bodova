@@ -44,19 +44,15 @@ function Login() {
 
       if (response.ok) {
         // provjera jel aktiviran korisnik
-        const activationStatusResponse = await fetch(`https://kuhajitbackend.onrender.com/user/activation/${username}`);
+        const activationStatusResponse = await fetch(`/user/activation/${username}`);
         if (activationStatusResponse.ok) {
-          const activationStatusData = await activationStatusResponse.json();
-          if (activationStatusData.status === 'activated') {
+          const responseData = await response.json();
+          const activationStatusData = await activationStatusResponse.text();
+          if (activationStatusData === 'activated') {
             sessionStorage.setItem('isLoggedIn', 'true');
-            sessionStorage.setItem('currentUser', username);
+            sessionStorage.setItem('currentUser', JSON.stringify(responseData));
             //moramo dohvatiti ulogu iz baze da stavimo pod currentUser.role
             //endpoint za dohvaćanje podataka o ulogiranom korisniku iz baze
-            const userDataResponse = await fetch(`/user/${username}`);
-            if (userDataResponse.ok) {
-              const userData = await userDataResponse.json();
-              sessionStorage.setItem('currentUser', JSON.stringify({ role: userData.role }));
-            }
             navigate('/home');
            } 
         }          
