@@ -30,6 +30,7 @@ const RecipeEditor = () => {
 
   const handleSubcategoryChange = (e) => {
     setSubcategory(e.target.value);
+    setRecipeData({ ...recipeData, category: e.target.value });
   };
 
   useEffect(() => {
@@ -99,6 +100,7 @@ const RecipeEditor = () => {
         body: JSON.stringify({
           ...recipeData,
           username: currentUser.username,
+          category: recipeData.category,
         }),
       });
 
