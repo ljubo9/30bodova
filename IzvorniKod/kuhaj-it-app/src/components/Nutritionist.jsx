@@ -101,7 +101,7 @@ const Nutritionist = () => {
 
 
   return (
-    <div className="bg-secondary p-2 min-vh-100"> 
+    <div className="bg-light p-2 min-vh-100"> 
 
     <Container>
       <div className="mt-2 p-2">
@@ -109,7 +109,7 @@ const Nutritionist = () => {
       </div>
 
       <div>
-        <h2 className='text-white'>Dodaj proizvod</h2>
+        <h2>Dodaj proizvod</h2>
         <Form>
           <Row className="p-2">
             <Form.Group as={Col} controlId="ingredientName">
@@ -239,7 +239,7 @@ const Nutritionist = () => {
       </div>
 
       <div>
-        <h2 className='text-white'>Proizvodi</h2>
+        <h2>Proizvodi</h2>
           {!ingredients || ingredients.length === 0 ? (
             <h4>Nema proizvoda</h4>
           ) : (<ul>
@@ -253,7 +253,7 @@ const Nutritionist = () => {
       </div>
 
       <div>
-        <h2 className='text-white'>Dijete</h2>
+        <h2>Dijete</h2>
         <Form>
           <Row>
             <Form.Group as={Col} controlId="lowCalorie">

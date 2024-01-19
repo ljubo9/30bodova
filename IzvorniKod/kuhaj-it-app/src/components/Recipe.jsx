@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { Button, Container, Form, ListGroup } from 'react-bootstrap';
 
 const Recipe = () => {
   const { recipeId } = useParams();
@@ -122,17 +123,15 @@ const Recipe = () => {
   };
 
   return (
-    <div>
+    <div className='bg-light p-2 min-vh-100'>
+      <Container className='border border-black p-3'>
       <h2>Recept</h2>
       {recipe ? (
         <>
-          {/* Prikaz informacija o samom receptu */}
           <p>Ime recepta: {recipe.name}</p>
           <p>Veličina porcije {recipe.portionSize}</p>
           <p>Vrijeme spremanja: {recipe.cookTime}</p>
-  
 
-          {/* Prikaz informacija o sastojcima */}
           <h3>Sastojci:</h3>
           <ul>
             {!recipe.ingredients || recipe.ingredients.length === 0 ? (
@@ -173,67 +172,62 @@ const Recipe = () => {
           </ul>
 
           <h3>Recenzije:</h3>
-          <ul>
+          <ListGroup className='m-2'>
             {!recipe.reviews || recipe.reviews.length === 0 ? (
               <div>Nema recenzija</div>
             ) : (
               <div>
-                {recipe && recipe.reviews && recipe.reviews.map((review) => {
-                  // dohvaćanje odgovora iz baze
-                  return (
-                    <li key={review.id}>
-                      <p>Poruka: {review.message}</p>
-                      <p>Ocjena: {review.mark}</p>
-                      <p>Autor: {review.username || 'Anoniman'}</p>
-                      {/* ako odgovor postoji prikaži */}
-                      {reviewResponse && (
-                        <div>
-                          <p>Odgovor: {reviewResponse.message}</p>
-                          <p>Autor odgovora: {reviewResponse.username}</p>
-                        </div>
-                      )}
-                      {/* ako je odgovor undefined i trenutno ulogirani korisnik je jednak vlasniku recepta */}
-                      {!review.response &&
-                        currentUser.username === recipe.username && (
-                          <div>
-                            <textarea
-                              value={responseMessage}
-                              onChange={(e) => setResponseMessage(e.target.value)}
-                              placeholder="Odgovori na recenziju..."
-                            />
-                            <button onClick={() => handleResponseSubmit(review.id)}>
-                              Pošalji odgovor
-                            </button>
-                          </div>
-                        )}
-                    </li>
-                  );
-                })}
+                {recipe.reviews.map((review) => (
+                  <ListGroup.Item key={review.id}>
+                    <p>Poruka: {review.message}</p>
+                    <p>Ocjena: {review.mark}</p>
+                    <p>Autor: {review.username || 'Anoniman'}</p>
+                    {reviewResponse && (
+                      <div>
+                        <p>Odgovor: {reviewResponse.message}</p>
+                        <p>Autor odgovora: {reviewResponse.username}</p>
+                      </div>
+                    )}
+                    {!review.response && currentUser.username === recipe.username && (
+                      <div>
+                        <Form.Control
+                          as="textarea"
+                          value={responseMessage}
+                          onChange={(e) => setResponseMessage(e.target.value)}
+                          placeholder="Odgovori na recenziju..."
+                        />
+                        <Button variant="primary" onClick={() => handleResponseSubmit(review.id)}>
+                          Pošalji odgovor
+                        </Button>
+                      </div>
+                    )}
+                  </ListGroup.Item>
+                ))}
               </div>
             )}
-          </ul>
-          {/* Dodavanje nove recenzije */}
+          </ListGroup>
+
           <div>
             <h3>Dodajte svoju recenziju:</h3>
-            <textarea
+            <Form.Control
+              as="textarea"
               value={reviewMessage}
               onChange={(e) => setReviewMessage(e.target.value)}
               placeholder="Unesite svoju recenziju..."
             />
-            <label>
-              Ocjena:
-              <input
-                type="number"
-                min="1"
-                max="5"
-                value={reviewRating}
-                onChange={(e) => setReviewRating(e.target.value)}
-              />
-            </label>
-            <button onClick={handleReviewSubmit}>Dodaj recenziju</button>
+            <Form.Label className='m-2'>Ocjena:</Form.Label>
+            <Form.Control
+              type="number"
+              min="1"
+              max="5"
+              value={reviewRating}
+              onChange={(e) => setReviewRating(e.target.value)}
+            />
+            <Button variant="dark" className="m-3" onClick={handleReviewSubmit}>
+              Dodaj recenziju
+            </Button>
           </div>
 
-          {/* Dodavanje u isprobane recepte */}
           <div>
             <h3>Dodajte recept u isprobane:</h3>
             <DatePicker
@@ -241,12 +235,15 @@ const Recipe = () => {
               onChange={(date) => setSelectedDate(date)}
               dateFormat="yyyy-MM-dd"
             />
-            <button onClick={handleAddToTriedRecipes}>Dodaj u isprobane recepte.</button>
+            <Button variant="dark" className="m-3" onClick={handleAddToTriedRecipes}>
+              Dodaj u isprobane recepte.
+            </Button>
           </div>
         </>
       ) : (
         <p>Loading...</p>
       )}
+      </Container>
     </div>
   );
 };
