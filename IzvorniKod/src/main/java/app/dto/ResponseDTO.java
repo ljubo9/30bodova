@@ -24,10 +24,9 @@ public class ResponseDTO {
 
     public static ResponseDTO fromEntity(Response response) {
         ResponseDTO dto = new ResponseDTO();
-        dto.setId(response.getId());
-        dto.setMessage(response.getMessage());
-        dto.setReviewId(response.getReviewId());
-        dto.setCreatorId(response.getCreator().getId());
+        dto.id = response.getId();
+        dto.message = response.getMessage();
+        dto.reviewId = response.getReviewId();
         return dto;
     }
 }

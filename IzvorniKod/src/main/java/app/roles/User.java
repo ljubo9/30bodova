@@ -185,11 +185,5 @@ public class User implements UserDetails {
 	public void setConfirmed(boolean confirmed) {
 		this.confirmed = confirmed;
 	}
-	
-	
-	
 
-    public void setRecipes(Set<Recipe> creatorRecipes) {
-		this.recipes = creatorRecipes;
-    }
 }

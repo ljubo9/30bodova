@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import app.roles.Enthusiast;
 import app.roles.Role;
 import app.roles.SpecialUser;
 import app.roles.User;

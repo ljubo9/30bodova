@@ -83,13 +83,9 @@ public class Recipe {
         this.portionSize = portionSize;
         this.cookTime = cookTime;
         this.creator=creator;
-
-        Set<Recipe> creatorRecipes = creator.getRecipes();
-        creatorRecipes.add(this);
-        creator.setRecipes(creatorRecipes);
     }
 
-    public Recipe( String name,int portionSize, int cookTime,User creator, String category) {
+    public Recipe( String name,int portionSize, int cookTime,User creator, Category category) {
 
         this.name = name;
 
@@ -98,9 +94,6 @@ public class Recipe {
         this.creator=creator;
         this.category = category;
 
-        Set<Recipe> creatorRecipes = creator.getRecipes();
-        creatorRecipes.add(this);
-        creator.setRecipes(creatorRecipes);
     }
 
     public Recipe() {
