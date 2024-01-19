@@ -29,15 +29,16 @@ const Cookbook = () => {
     return <p>Loading...</p>;
   }
 
-  const { cookbookTitle, creator, category, recipes } = cookbookData;
+  const { name, category, creatorid, recipes } = cookbookData;
+  console.log(cookbookData)
 
   return (
     <Container>
       <Row className="mt-4">
         <Col>
-          <h2>{cookbookTitle}</h2>
+          <h2>{name}</h2>
           <p>
-            <strong>Kreator:</strong> {creator}
+            <strong>Kreator:</strong> {creatorid}
           </p>
           <p>
             <strong>Kategorija:</strong> {category}
