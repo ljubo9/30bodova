@@ -35,7 +35,7 @@ const Cookbook = () => {
   console.log(cookbookData)
 
   return (
-    <Container>
+    <Container className="mt-4 border border-dark">
       <Row className="mt-4">
         <Col>
           <h2>{name}</h2>
@@ -52,9 +52,9 @@ const Cookbook = () => {
         <Col>
           <h3>Recepti u kuharici</h3>
           {!recipes || recipes.length === 0? (
-              <div>Nema recepata</div>
+              <div className="mb-2">Nema recepata</div>
           ) : (
-          <div>
+          <div className="mb-2">
           {recipes.map((recipe, index) => (
             <Card key={index} className="mb-3">
               <Card.Body>
