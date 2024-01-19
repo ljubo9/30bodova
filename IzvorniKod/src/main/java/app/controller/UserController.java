@@ -75,7 +75,7 @@ public class UserController {
 		
 		try {
 			User u = userService.loginUser(username, password);
-			if (u == null) return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			if (u == null || u.getUsername().equals("anonymous")) return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 			return new ResponseEntity<>(new UserDTO(u), HttpStatus.OK);
 		}
 		catch (Exception e) {
