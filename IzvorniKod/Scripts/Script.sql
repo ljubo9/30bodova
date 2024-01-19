@@ -22,8 +22,8 @@ VALUES('Client', 1, 'client', '$2a$10$r7oB7KBo2dCmfRedkH5YcO8YWzdUyIcLk9/GuoWjgt
 
 
 insert into public."users"
-(dtype, id, "name", "password", "surname", "username", "biography", "confirmed", "email", role_id, "confirmed")
-VALUES('Enthusiast', 2, 'enthusiast', '$2a$10$Sd3hzVJFgT.cmYHfHEDl1edqh/a3Z05SK0lLZrUNrbyNP8Z/cZGW2', 'enthusiast', 'enthusiast', 'enthusiast', true, 'enthusiast@gmail.com', 2);
+(dtype, id, "name", "password", "surname", "username", "biography", "email", role_id, "confirmed")
+VALUES('Enthusiast', 2, 'enthusiast', '$2a$10$Sd3hzVJFgT.cmYHfHEDl1edqh/a3Z05SK0lLZrUNrbyNP8Z/cZGW2', 'enthusiast', 'enthusiast', 'enthusiast', 'enthusiast@gmail.com', 2, true);
 
 insert into public."users"
 (dtype, id, "name", "password", "surname", "username", "biography", "confirmed", "email", role_id)
@@ -48,101 +48,112 @@ insert into public."users"
 (dtype, id, "name", "password", "surname", "username", role_id, diet_id, "confirmed")
 VALUES('Client', 6, 'iva', '$2a$10$9dERkNAb3Y5VYaR1drQWie3iuq2ZweVUJiYTzLmDtjFEenQ/EZ0om', 'ivic', 'iva25', 1, 1, true);
 
+insert into public."category"
+(id, "name")
+VALUES(1, 'obično');
+
+insert into public."category"
+(id, "name")
+VALUES(2, 'bezglutensko');
+
+insert into public."category"
+(id, "name")
+VALUES(3, 'vegeterijansko');
 
 insert into public."ingredient"
-(id, "name", "energy")
-VALUES(2, 'sir', 100);
+(id, "calories", "carbs", "name", "protein", "salt", "saturated_fat", cat_id)
+VALUES(2, 100, 20, 'sir', 10, 30, 40, 1);
 
 insert into public."ingredient"
-(id, "name", "energy")
-VALUES(3, 'pileća prsa', 200);
+(id, "calories", "carbs", "name", "protein", "salt", "saturated_fat", cat_id)
+VALUES(3, 200, 10, 'pileća prsa', 30, 30, 30, 2 );
 
 insert into public."ingredient"
-(id, "name", "energy")
-VALUES(4, 'maslinovo ulje', 400);
+(id, "calories", "carbs", "name", "protein", "salt", "saturated_fat", cat_id)
+VALUES(4, 400, 10, 'maslinovo ulje',40, 20, 40, 1);
 
 insert into public."ingredient"
-(id, "name", "energy")
-VALUES(5, 'sol', 150);
+(id, "calories", "carbs", "name", "protein", "salt", "saturated_fat", cat_id)
+VALUES(5, 150, 20, 'sol', 40, 40, 30, 1);
 
 insert into public."ingredient"
-(id, "name", "energy")
-VALUES(6, 'papar', 80);
+(id, "calories", "carbs", "name", "protein", "salt", "saturated_fat", cat_id)
+VALUES(6, 80, 10, 'papar', 10, 30, 10, 1);
 
 insert into public."ingredient"
-(id, "name", "energy")
-VALUES(7, 'crvena paprika', 40);
+(id, "calories", "carbs", "name", "protein", "salt", "saturated_fat", cat_id)
+VALUES(7, 40, 50, 'crvena paprika', 40, 50, 10, 1);
 
 insert into public."ingredient"
-(id, "name", "energy")
-VALUES(8, 'rajčica', 40);
+(id, "calories", "carbs", "name", "protein", "salt", "saturated_fat", cat_id)
+VALUES(8, 40, 3, 'rajčica', 8, 14, 50, 1);
 
 insert into public."ingredient"
-(id, "name", "energy")
-VALUES(9, 'mrkva', 50);
+(id, "calories", "carbs", "name", "protein", "salt", "saturated_fat", cat_id)
+VALUES(9, 50, 5, 'mrkva', 60, 5, 20, 1);
 
 insert into public."ingredient"
-(id, "name", "energy")
-VALUES(10, 'mlijeko', 120);
+(id, "calories", "carbs", "name", "protein", "salt", "saturated_fat", cat_id)
+VALUES(10, 120, 60, 'mlijeko', 120, 15, 20, 1);
 
 insert into public."ingredient"
-(id, "name", "energy")
-VALUES(11, 'maslac', 300);
+(id, "calories", "carbs", "name", "protein", "salt", "saturated_fat", cat_id)
+VALUES(11, 300, 40, 'maslac', 15, 200, 25, 1);
 
 insert into public."ingredient"
-(id, "name", "energy")
-VALUES(12, 'brokula', 30);
+(id, "calories", "carbs", "name", "protein", "salt", "saturated_fat", cat_id)
+VALUES(12, 30, 30, 'brokula', 40, 15, 50, 1);
 
 insert into public."ingredient"
-(id, "name", "energy")
-VALUES(13, 'tjestenina', 40);
+(id, "calories", "carbs", "name", "protein", "salt", "saturated_fat", cat_id)
+VALUES(13, 40, 40, 'tjestenina', 50, 2, 30, 2);
 
 insert into public."ingredient"
-(id, "name", "energy")
-VALUES(14, 'luk', 50);
+(id, "calories", "carbs", "name", "protein", "salt", "saturated_fat", cat_id)
+VALUES(14, 50, 20, 'luk', 40, 20, 3, 1);
 
 insert into public."ingredient"
-(id, "name", "energy")
-VALUES(15, 'češnjak', 50);
+(id, "calories", "carbs", "name", "protein", "salt", "saturated_fat", cat_id)
+VALUES(15, 50, 15, 'češnjak', 24, 20, 30, 1);
 
 insert into public."ingredient"
-(id, "name", "energy")
-VALUES(16, 'brašno', 70);
+(id, "calories", "carbs", "name", "protein", "salt", "saturated_fat", cat_id)
+VALUES(16, 20, 30, 'brašno', 40, 10 ,20 ,2);
 
 insert into public."ingredient"
-(id, "name", "energy")
-VALUES(17, 'banana', 120);
+(id, "calories", "carbs", "name", "protein", "salt", "saturated_fat", cat_id)
+VALUES(17, 30, 40, 'banana', 50, 100, 20, 1);
 
 insert into public."ingredient"
-(id, "name", "energy")
-VALUES(18, 'limun', 100);
+(id, "calories", "carbs", "name", "protein", "salt", "saturated_fat", cat_id)
+VALUES(18, 100, 20, 'limun', 30, 400, 20, 1);
 
 insert into public."ingredient"
-(id, "name", "energy")
-VALUES(19, 'krumpir', 200);
+(id, "calories", "carbs", "name", "protein", "salt", "saturated_fat", cat_id)
+VALUES(19, 200, 30,'krumpir', 30, 30, 20, 1);
 
 
 insert into public."recipe"
-(id, cook_time, "name", "category", portion_size, creator_id)
-VALUES(1, 30, 'bolonjez', 'talijanska', 2, 5);
+(id, cook_time, "name", cat_id, portion_size, creator_id)
+VALUES(1, 30, 'bolonjez', 1, 2, 5);
 
 
 insert into public."recipe"
-(id, cook_time, "name", "category", portion_size, creator_id)
-VALUES(2, 60, 'lazanje', 'talijanska', 4, 5);
+(id, cook_time, "name", cat_id, portion_size, creator_id)
+VALUES(2, 60, 'lazanje', 1, 4, 5);
 
 
 insert into public."recipe"
-(id, cook_time, "name", "category", portion_size, creator_id)
-VALUES(3, 60, 'Piletina s povrćem na žaru', 'slano', 4, 5);
+(id, cook_time, "name", cat_id, portion_size, creator_id)
+VALUES(3, 60, 'Piletina s povrćem na žaru', 1, 4, 5);
 
 insert into public."recipe"
-(id, cook_time, "name", "category", portion_size, creator_id)
-VALUES(4, 60, 'Vegeterijanski pire od krumpira s povrćem', 'slano', 5, 5);
+(id, cook_time, "name", cat_id, portion_size, creator_id)
+VALUES(4, 60, 'Vegeterijanski pire od krumpira s povrćem', 3, 5, 5);
 
 insert into public."ingredient"
-(id, "name", energy)
-VALUES(1, 'meso', 200);
+(id, "calories", "carbs", "name", "protein", "salt", "saturated_fat", cat_id)
+VALUES(1, 40, 50, 'meso', 200, 20, 40, 1);
 
 
 insert into public."recipe_ingredient"
@@ -272,17 +283,10 @@ insert into public."recipe_steps_of_making"
 (recipe_id, steps_of_making_id)
 VALUES(2, 2);
 
-insert into public."diet_users"
-(users_id, diet_id)
-VALUES(4, 1);
-
-insert into public."diet_users"
-(users_id, diet_id)
-VALUES(5, 1);
 
 insert into public."cookbook"
-(id, "category", "name", creator_id)
-VALUES(1, 'talijanska', 'mesna jela', 5);
+(id, category_id, "name", creator_id)
+VALUES(1, 1, 'mesna jela', 5);
 
 insert into public."cookbook_recipes"
 (cookbook_id, recipe_id)

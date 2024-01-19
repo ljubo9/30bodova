@@ -18,12 +18,20 @@ public class ImageDTO {
         this.name = name;
     }
 
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    private int id;
     private String name;
     private byte[] data;
 
-    // Constructors, getters, and setters
     public ImageDTO() {
-        // Default constructor
     }
 
     public ImageDTO(byte[] data) {
@@ -47,6 +55,7 @@ public class ImageDTO {
         ImageDTO dto = new ImageDTO();
         dto.setName(image.getName());
         dto.setData(image.getImageData());
+        dto.setId(image.getId());
         // Map other properties accordingly
         return dto;
     }

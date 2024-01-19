@@ -1,6 +1,7 @@
 package app.recipe;
 
 import java.util.List;
+import java.util.Set;
 
 import app.dto.RecipeDTO;
 import app.roles.User;
@@ -25,7 +26,7 @@ public class Recipe {
     private int id;
     private String name;
     
-    @OneToOne
+    @ManyToOne
     private Category cat;
 
     @OneToMany
@@ -82,6 +83,17 @@ public class Recipe {
         this.portionSize = portionSize;
         this.cookTime = cookTime;
         this.creator=creator;
+    }
+
+    public Recipe( String name,int portionSize, int cookTime,User creator, Category category) {
+
+        this.name = name;
+
+        this.portionSize = portionSize;
+        this.cookTime = cookTime;
+        this.creator=creator;
+        this.cat = category;
+
     }
 
     public Recipe() {

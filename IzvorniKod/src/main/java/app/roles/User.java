@@ -56,7 +56,7 @@ public class User implements UserDetails {
 	private boolean confirmed;
 
 	
-	private User(String username, String password, String name, String surname, String email) {
+	public User(String username, String password, String name, String surname, String email) {
 		// TODO Auto-generated constructor stub
 		if (username == null || password == null ||
 		    name == null || surname == null) throw new IllegalArgumentException("All fields must be filled out");
@@ -164,7 +164,7 @@ public class User implements UserDetails {
 	public List<ConsumedRecipe> getConsumedRecipes() {
 		return consumedRecipes;
 	}
-	
+
 
 	public void setConsumedRecipes(List<ConsumedRecipe> consumedRecipes) {
 		this.consumedRecipes = consumedRecipes;
@@ -185,8 +185,5 @@ public class User implements UserDetails {
 	public void setConfirmed(boolean confirmed) {
 		this.confirmed = confirmed;
 	}
-	
-	
-	
 
 }

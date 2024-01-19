@@ -23,7 +23,10 @@ public class ResponseDTO {
     // Constructors, getters, and setters
 
     public static ResponseDTO fromEntity(Response response) {
-        ResponseDTO dto = new ResponseDTO(response);
+        ResponseDTO dto = new ResponseDTO();
+        dto.id = response.getId();
+        dto.message = response.getMessage();
+        dto.reviewId = response.getReviewId();
         return dto;
     }
 }

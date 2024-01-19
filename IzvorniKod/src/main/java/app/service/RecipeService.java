@@ -29,9 +29,10 @@ import app.repository.CookbookRepository;
 import app.repository.IngredientRepository;
 import app.repository.LabelRepository;
 import app.repository.RecipeRepository;
+import app.repository.UserRepository;
 import app.roles.Enthusiast;
+import app.roles.Role;
 import app.roles.User;
-import app.roles.UserRepository;
 
 @Service
 public class RecipeService {
@@ -97,26 +98,26 @@ public class RecipeService {
     }
 
 	public Set<Recipe> getRecipesByUsername(String username) {
-		// TODO Auto-generated method stub
 		Optional<User> u = userRepository.findUserByUsername(username);
         if (u.isEmpty()) return null;
-        return ((Enthusiast)u.get()).getRecipes();
+        if (u.get().getRole().getName().equalsIgnoreCase(Role.ENTHUSIAST.getName())) return ((Enthusiast)u.get()).getRecipes();
+        return null;
     }
 
-	public Set<Recipe> getRecipesByCategory(String category) {
+	public Set<Recipe> getRecipesByCategory(Category category) {
 		List<Recipe> recipes = recipeRepository.findAll();
 		Set<Recipe> setRecipes = new HashSet<>();
 		for (Recipe r : recipes) {
-			if (r.getCategory().equals(category)) setRecipes.add(r);
+			if (r.getCategory().getName().equals(category.getName())) setRecipes.add(r);
 		}
 		return setRecipes;
 	}
 	
-	public Set<Cookbook> getCookbooksByCategory(String category) {
+	public Set<Cookbook> getCookbooksByCategory(Category category) {
 		List<Cookbook> cookbooks = cookbookRepository.findAll();
 		Set<Cookbook> setCookbooks = new HashSet<>();
 		for (Cookbook c : cookbooks) {
-			if (c.getCategory().equals(category)) setCookbooks.add(c);
+			if (c.getCategory().getName().equals(category.getName())) setCookbooks.add(c);
 		}
 		return setCookbooks;
 	}

@@ -15,19 +15,18 @@ public class Ingredient {
 	@ManyToOne
 	private Image image;
 	
-	@OneToOne
+	@ManyToOne
 	private Category cat;
 	
 	@ManyToMany
 	private List<Label> labels;
 	
-	private int calories;
+	private int calories; // per 100 g
 	private int carbs;
 	private int protein;
 	private int salt;
 	private int saturatedFat;
 
-	private int energy; //kcal per 100g
 
 
 	public Image getImage() {
@@ -68,7 +67,7 @@ public class Ingredient {
 	}
 
 	public int getEnergy() {
-		return energy;
+		return calories;
 	}
 
 	public int getId() {

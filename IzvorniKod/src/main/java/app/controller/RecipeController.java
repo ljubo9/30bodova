@@ -30,7 +30,7 @@ import app.recipe.Ingredient;
 import app.recipe.Recipe;
 import app.roles.Enthusiast;
 import app.roles.User;
-import app.roles.UserService;
+import app.service.UserService;
 import app.service.RecipeService;
 
 @RestController
@@ -68,7 +68,6 @@ public class RecipeController {
     @PostMapping(consumes = "application/json")
     public ResponseEntity<RecipeDTO> createRecipe(@RequestBody RecipeDTO recipeDTO) {
         try {
-            // Convert the RecipeDTO to a Recipe entity and create the recipe
             Recipe createdRecipe = recipeService.createRecipe(recipeDTO.toEntity());
             RecipeDTO createdRecipeDTO = new RecipeDTO(createdRecipe);
             return new ResponseEntity<>(createdRecipeDTO, HttpStatus.CREATED);
@@ -98,7 +97,7 @@ public class RecipeController {
     }
     
     @GetMapping(path = "/cookbooks/category")
-    public ResponseEntity<Set<CookbookDTO>> getCookbooksByCategory(@RequestParam String category) {
+    public ResponseEntity<Set<CookbookDTO>> getCookbooksByCategory(@RequestParam Category category) {
     	try {
     		Set<Cookbook> cookbooks = recipeService.getCookbooksByCategory(category);
     		if (cookbooks == null) {
@@ -139,7 +138,7 @@ public class RecipeController {
     }
     
     @GetMapping(path = "/recipes/category") 
-    public ResponseEntity<Set<RecipeDTO>> getRecipesByCategory(@RequestParam String category) {
+    public ResponseEntity<Set<RecipeDTO>> getRecipesByCategory(@RequestParam Category category) {
     	try {
     		Set<Recipe> recipes = recipeService.getRecipesByCategory(category);
     		if (recipes == null) {
