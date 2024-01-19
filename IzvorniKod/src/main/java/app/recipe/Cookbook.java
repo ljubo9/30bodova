@@ -21,7 +21,7 @@ public class Cookbook {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private String category;
+    private Category category;
     @ManyToMany
     @JoinTable(
     		name = "cookbook_recipes",
@@ -33,14 +33,14 @@ public class Cookbook {
     @ManyToOne
     private User creator;
     
-    public Cookbook( String name, String category, Set<Recipe> recipes) {
+    public Cookbook( String name, Category category, Set<Recipe> recipes) {
 
         this.name = name;
         this.category = category;
         /*this.recipes = recipes;*/
     }
 
-    public Cookbook( String name, String category, User creator) {
+    public Cookbook( String name, Category category, User creator) {
 
         this.name = name;
         this.category = category;
@@ -67,11 +67,11 @@ public class Cookbook {
         this.name = name;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 

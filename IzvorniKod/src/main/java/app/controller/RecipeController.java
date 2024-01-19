@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +18,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import app.dto.CookbookDTO;
 import app.dto.IngredientDTO;
 import app.dto.RecipeDTO;
+import app.recipe.Category;
 import app.recipe.ConsumedRecipe;
 import app.recipe.Cookbook;
 import app.recipe.Ingredient;
@@ -166,7 +169,12 @@ public class RecipeController {
     	try {
     		User u = (User) userService.loadUserByUsername(username);
     		if (u == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    		Cookbook c = new Cookbook(cookbookName, cookbookCategory, u);
+    		Category cat = recipeService.findCategoryByName(cookbookCategory);
+    		if (cat == null) {
+    			cat = new Category(cookbookCategory);
+    			recipeService.addCategory(cat);
+    		}
+    		Cookbook c = new Cookbook(cookbookName, cat, u);
     		recipeService.addCookbook(c);
     		return new ResponseEntity<>(HttpStatus.OK);
     	}
@@ -351,4 +359,35 @@ public class RecipeController {
 		}
 	}
 	
+	
+	@PostMapping(path ="/ingredients/add")
+	public ResponseEntity<String> addNewIngredient(@RequestParam("name") String name,
+			@RequestParam("category") String category,
+			@RequestParam("calories") int calories,
+			@RequestParam("protein") int protein,
+			@RequestParam("carbs") int carbs,
+			@RequestParam("fat") int fat,
+			@RequestParam("sugar") int sugar,
+			@RequestParam("salt") int salt,
+			@RequestParam("saturatedFat") int saturatedFat,
+			@RequestParam("image") Optional<MultipartFile> img,
+			@RequestParam("weight") int weight,
+			@RequestParam("labels") List<String> labels) {
+		
+		recipeService.addIngredient(name,
+				category,
+				calories,
+				protein,
+				carbs,
+				fat,
+				sugar,
+				salt,
+				saturatedFat,
+				img,
+				weight,
+				labels);
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+
+
 }

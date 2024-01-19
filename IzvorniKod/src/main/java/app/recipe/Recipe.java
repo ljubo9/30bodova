@@ -13,6 +13,8 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+    
+    private Category cat;
 
     @OneToMany
     private List<StepOfMaking> stepsOfMaking;
@@ -41,15 +43,15 @@ public class Recipe {
     @JoinColumn(name = "recipe_id")
     private List<RecipeIngredient> ingredients;
 
-    private String category;
 
-    public Recipe( int id,String name, List<RecipeIngredient> ingredients,List<StepOfMaking> stepsOfMaking, int portionSize, int cookTime) {
+    public Recipe( int id,String name, List<RecipeIngredient> ingredients,List<StepOfMaking> stepsOfMaking, int portionSize, int cookTime, Category cat) {
         this.id=id;
         this.name = name;
         this.ingredients = ingredients;
         this.stepsOfMaking = stepsOfMaking;
         this.portionSize = portionSize;
         this.cookTime = cookTime;
+        this.cat = cat;
 
     }
     public Recipe( String name, List<RecipeIngredient> ingredients,List<StepOfMaking> stepsOfMaking, int portionSize, int cookTime) {
@@ -134,9 +136,10 @@ public class Recipe {
 		this.name = name;
 	}
 	
-	public String getCategory() {
-		return this.category;
+	public Category getCategory() {
+		return this.cat;
 	}
+	
 	public List<Cookbook> getCookbooks() {
 		return cookbooks;
 	}
