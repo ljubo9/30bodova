@@ -1,5 +1,7 @@
 package app.recipe;
 
+import app.dto.RecipeDTO;
+import app.dto.RecipeIngredientDTO;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,12 +24,21 @@ public class RecipeIngredient {
 	@JoinColumn(name = "recipe_id")
 	private Recipe recipe;
 	
-	private int quantity;
+	private int quantity; //grams
 	
 	public RecipeIngredient(Ingredient ingredient, Recipe recipe, int quantity) {
 		this.ingredient = ingredient;
 		this.recipe = recipe;
 		this.quantity = quantity;
+	}
+
+	public RecipeIngredient() {
+		
+	}
+	
+
+	public RecipeIngredient(RecipeIngredientDTO recipeIngredientDTO) {
+		// TODO Auto-generated constructor stub
 	}
 
 	public void setIngredient(Ingredient ingredient) {

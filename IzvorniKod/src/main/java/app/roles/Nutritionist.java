@@ -11,4 +11,14 @@ public class Nutritionist extends SpecialUser {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Nutritionist(String username, String password, String name, String surname, Role role, Image image,
+			String biography, String email) {
+		// TODO Auto-generated constructor stub
+		super(username, password, name, surname, Role.NUTRITIONIST, image, biography, email);
+
+	}
+	public Nutritionist() {
+		
+	}
+
 }

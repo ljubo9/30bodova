@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
-import CookbookEditor from './CookbookEditor'; 
+
 
 function Navigation() {
+  const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+  const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+  console.log(currentUser);
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -12,48 +15,49 @@ function Navigation() {
     navigate('/');
   };
 
-  const currentUser = sessionStorage.getItem('currentUser');
-  //console.log(currentUser)
-  //console.log(currentUser.role)
+  console.log(currentUser)
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="/">KuhajIT</Navbar.Brand>
+      {isLoggedIn ? (
+              <Navbar.Brand href="/home">KuhajIT</Navbar.Brand>
+        ) : (<Navbar.Brand href="/">KuhajIT</Navbar.Brand>)}
+
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
+            <Nav.Link as={Link} to="/choose-recipe">
+              Odaberi recept
+            </Nav.Link>
             <Nav.Link as={Link} to="/culinary-enthusiasts"> 
               Kulinarski Entuzijasti
             </Nav.Link>
-            <Nav.Link as={Link} to="/choose-recipe">
-                Choose Recipe
-            </Nav.Link>
-
+            
             <Nav.Link as={Link} to="/nutritionist">
-                Nutritionist
+                Nutricionist
             </Nav.Link>
             
-            {currentUser && currentUser.role === 'enthusiast' && (
-              <Nav.Link as={Nav.Link} to="/CookbookEditor">
-                Add cookbook
+            {currentUser && currentUser.role === 'ENTHUSIAST' && (
+              <Nav.Link as={Link} to="/cookbook-editor">
+                Dodaj kuharicu
               </Nav.Link>
             )}
-            {currentUser && currentUser.role === 'enthusiast' && (
-              <Nav.Link as={Nav.Link} to="/RecipeEditor">
-                Add recipe
+            {currentUser && currentUser.role === 'ENTHUSIAST' && (
+              <Nav.Link as={Link} to="/recipe-editor">
+                Dodaj recept
               </Nav.Link>
             )}
             {currentUser ? (
               <>
-                <Nav.Link as={Link} to={`/profile/${currentUser.username}`}>
+                <Nav.Link as={Link} to={`/user/${currentUser.username}`}>
                   {currentUser.username}
                 </Nav.Link>
                 <Button variant="dark" onClick={handleLogout}>
                   Logout
                 </Button>
                 <Nav.Link as={Link} to="/profile-edit">
-                  ProfileEdit
+                  Uređivanje profila
                 </Nav.Link>
               </>
             ) : (

@@ -1,10 +1,15 @@
-package app.roles;
+package app.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import app.roles.Enthusiast;
+import app.roles.Role;
+import app.roles.SpecialUser;
+import app.roles.User;
+import app.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -12,10 +17,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserService implements UserDetailsService{
-	
+
 	private final UserRepository userRepository;
 	private final BCryptPasswordEncoder encoder;
-
 	
 	@Autowired
 	public UserService(UserRepository userRepository, BCryptPasswordEncoder encoder) {
@@ -27,11 +31,19 @@ public class UserService implements UserDetailsService{
 		 return userRepository.findAll();
 	 }
 	 
-	 public void addUser(User user) {
-		 checkUserDataValid(user);
-		 userRepository.save(user);
+	 public boolean registerUser(User user) {
+		 try {
+			 user.setPassword(encoder.encode(user.getPassword()));
+			 checkUserDataValid(user);
+			 userRepository.save(user);
+			 return true;
+		 }
+		 catch (Exception e) {
+			 return false;
+		 }
 	 }
 	 
+
 	 public void changeInfo(User userup){
 
 		Optional<User> user1=userRepository.findById(userup.getId());
@@ -41,7 +53,7 @@ public class UserService implements UserDetailsService{
 		user.setPassword(encoder.encode(userup.getPassword()));
 		user.setSurname(userup.getSurname());
 		user.setUsername(userup.getUsername());
-		
+
 		if (userup instanceof SpecialUser) {
 			SpecialUser specialUser = (SpecialUser) user;
 			SpecialUser specialUserUp = (SpecialUser) userup;
@@ -50,11 +62,12 @@ public class UserService implements UserDetailsService{
 			specialUser.setEmail(specialUserUp.getEmail());
 			user = specialUser;
 		}
+		
 		userRepository.deleteById(user.getId());
 		checkUserDataValid(user);
 		userRepository.save(user);
 
-	 }
+	}
 
 	private void checkUserDataValid(User user) {
 		// TODO Auto-generated method stub
@@ -62,23 +75,49 @@ public class UserService implements UserDetailsService{
 			Optional<SpecialUser> optionalUserEmail = userRepository.findUserByEmail(((SpecialUser)user).getEmail());
 			if (optionalUserEmail.isPresent()) throw new IllegalStateException("Account with this email already exists");
 		}
-		
+
 		Optional<User> optionalUserUsername = userRepository.findUserByUsername(user.getUsername());
 		if (optionalUserUsername.isPresent()) throw new IllegalStateException("Account with this username already exists");
 	}
 
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	public User loadUserByUsername(String username) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
 		Optional<User> user = userRepository.findUserByUsername(username);
 		if (!user.isPresent()) return null;
-		System.out.println(user.get().getUsername());
 		return user.get();
 	}
-	
+
 	public User loadUserById(int id) {
 		Optional<User> user = userRepository.findById(id);
 		if (!user.isPresent()) return null;
 		return user.get();
+	}
+
+	public List<Enthusiast> loadAllEnthusiasts() {
+		List<User> users = userRepository.findAll();
+		List<Enthusiast> enthusiasts = new ArrayList<>();
+		for (User user : users) {
+			if (user.getRole().equals(Role.ENTHUSIAST)) {
+				System.out.println(user.getRole().getName());
+				System.out.println(user.getUsername());
+				Enthusiast en = (Enthusiast) user;
+				enthusiasts.add(en);
+			}
+		}
+		return enthusiasts;
+	}
+
+	public User loginUser(String username, String password) {
+		// TODO Auto-generated method stub
+		Optional<User> u = userRepository.findUserByUsername(username);
+		if (u.isEmpty()) return null;
+		if (!encoder.matches(password, u.get().getPassword())) return null;
+		return u.get();
+	}
+
+	public void removeUser(User oldUser) {
+		// TODO Auto-generated method stub
+		userRepository.deleteById(oldUser.getId());
 	}
 }

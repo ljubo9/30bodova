@@ -3,23 +3,37 @@ package app.recipe;
 import jakarta.persistence.*;
 
 @Entity
+
 public class Image {
 	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private String imageUrl;
-    
-    
-    public Image(String name, String imageUrl) {
-    	this.imageUrl = imageUrl;
-    }
-    
-    public Image() {
+
+
+
+
+	@Lob
+	private byte[] imageData;
+
+	public byte[] getImageData() {
+		return imageData;
+	}
+
+	public void setImageData(byte[] imageData) {
+		this.imageData = imageData;
+	}
+
+
+    public Image(String name,byte[] imageData) {
+		this.name=name;
+		this.imageData=imageData;
     	
     }
-    
+	public Image() {
+		// Optional: Initialize default values if needed
+	}
 
 	public int getId() {
 		return id;
@@ -33,14 +47,6 @@ public class Image {
 		this.name = name;
 	}
 
-	public String getImageUrl() {
-		return imageUrl;
-	}
 
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
-	}
-    
-    
     // Constructors, getters, setters
 }

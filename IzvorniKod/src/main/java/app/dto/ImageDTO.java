@@ -1,35 +1,61 @@
 package app.dto;
-import app.recipe.*;
+import app.recipe.Image;
 public class ImageDTO {
 
-    private String url;
+    public byte[] getData() {
+        return data;
+    }
 
-    // Constructors, getters, and setters
+    public void setData(byte[] data) {
+        this.data = data;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    private int id;
+    private String name;
+    private byte[] data;
+
     public ImageDTO() {
-        // Default constructor
     }
 
-    public ImageDTO(String url) {
-        this.url = url;
+    public ImageDTO(byte[] data) {
+        this.data = data;
     }
 
-    public String getUrl() {
-        return url;
-    }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
-    public Image toEntity() {
-        Image image = new Image();
-        image.setImageUrl(this.url);
+    public ImageDTO(Image image) {
+		// TODO Auto-generated constructor stub
+    	if (image != null) this.data = image.getImageData();
+	}
+
+	public Image toEntity() {
+        Image image = new Image(this.getName(),this.getData());
+
         // Set other properties accordingly
         return image;
     }
 
     public static ImageDTO fromEntity(Image image) {
         ImageDTO dto = new ImageDTO();
-        dto.setUrl(image.getImageUrl());
+        dto.setName(image.getName());
+        dto.setData(image.getImageData());
+        dto.setId(image.getId());
         // Map other properties accordingly
         return dto;
     }

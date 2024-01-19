@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Container, Form, Button } from 'react-bootstrap';
 
 const CookbookEditor = () => {
   const [cookbookName, setCookbookName] = useState('');
@@ -17,7 +17,7 @@ const CookbookEditor = () => {
 
     try {
       {/* slanje cookbook.name i cookbook.category i creatora na endpoint */}
-      const response = await fetch('https://kuhajitbackend.onrender.com/cookbooks', {
+      const response = await fetch('/cookbooks', {
         method: 'POST',
         body: formData,
       });
@@ -33,32 +33,32 @@ const CookbookEditor = () => {
   };
 
   return (
-    <div>
-      <h2>Add Cookbook</h2>
+      <Container className="mt-4 border border-black p-2">
+      <h2>Dodaj kuharicu</h2>
       <Form onSubmit={handleCookbookSubmit}>
         <Form.Group controlId="cookbookName">
-          <Form.Label>Cookbook Name</Form.Label>
+          <Form.Label className='m-2'>Ime kuharice</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Enter cookbook name"
+            placeholder="Unesi željeno ime kuharice"
             value={cookbookName}
             onChange={(e) => setCookbookName(e.target.value)}
           />
         </Form.Group>
         <Form.Group controlId="cookbookCategory">
-          <Form.Label>Cookbook Category</Form.Label>
+          <Form.Label className="m-2">Kategorija kuharice</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Enter cookbook category"
+            placeholder="Kategoriziraj kuharicu"
             value={cookbookCategory}
             onChange={(e) => setCookbookCategory(e.target.value)}
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Add Cookbook
+        <Button variant="dark" className="m-4" type="submit">
+          Dodaj kuharicu
         </Button>
       </Form>
-    </div>
+    </Container>
   );
 };
 

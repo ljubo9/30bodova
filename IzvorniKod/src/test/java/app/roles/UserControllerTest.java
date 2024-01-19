@@ -1,5 +1,6 @@
 package app.roles;
 
+import app.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.springframework.security.authentication.AuthenticationManager;

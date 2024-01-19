@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import { Button, Form, Container, Row, Col } from 'react-bootstrap';
 
@@ -6,6 +7,7 @@ const Nutritionist = () => {
   const [currentUser, setCurrentUser] = useState(null);
   const [ingredients, setIngredients] = useState([]); 
   const [categories, setCategories] = useState([]);
+  const [newCategory, setNewCategory] = useState('');
   const [labels, setLabels] = useState([]);
   const [newIngredientInfo, setNewIngredientInfo] = useState({
     name: '',
@@ -45,18 +47,19 @@ const Nutritionist = () => {
     setCurrentUser(storedUser ? JSON.parse(storedUser) : null);
 
 
-    fetch('https://kuhajitbackend.onrender.com/labels') //labele za kategoriziranje proizvoda
+    fetch('/labels') //labele za kategoriziranje proizvoda
       .then(response => response.json())
       .then(data => setLabels(data))
       .catch(error => console.error('Error fetching labels:', error));
   }, []);
 
   const fetchIngredients = () => {
-    fetch('https://kuhajitbackend.onrender.com/ingredients') // Fetching ingredients
+    fetch('/ingredients') // Fetching ingredients
       .then(response => response.json())
       .then(data => setIngredients(data))
       .catch(error => console.error('Error fetching ingredients:', error));
   };
+
 
   const addIngredient = () => {
     const formData = new FormData();
@@ -73,13 +76,18 @@ const Nutritionist = () => {
     formData.append('weight', newIngredientInfo.weight);
     formData.append('labels', newIngredientInfo.labels.join(','));
 
+    // Check if a new category is entered, and add it to the categories list
+    if (newCategory.trim() !== '') {
+      setCategories([...categories, newCategory]);
+    }
+
+    formData.append('category', newIngredientInfo.category || newCategory);
+
     newIngredientInfo.labels.forEach((label, index) => {
       formData.append(`labels[${index}]`, label);
     });
 
-    fetch('https://kuhajitbackend.onrender.com/ingredients', {
-
-
+    fetch('/ingredients/add', {
       method: 'POST',
       body: formData,
     })
@@ -91,16 +99,19 @@ const Nutritionist = () => {
       .catch(error => console.error('Error adding ingredient:', error));
   };
 
+
   return (
+    <div className="bg-light p-2 min-vh-100"> 
+
     <Container>
-      <div>
-        <button onClick={fetchIngredients}>Dohvati proizvode</button>
+      <div className="mt-2 p-2">
+        <Button onClick={fetchIngredients} variant="dark" className='mt-3'>Dohvati proizvode</Button>
       </div>
 
       <div>
         <h2>Dodaj proizvod</h2>
         <Form>
-          <Row>
+          <Row className="p-2">
             <Form.Group as={Col} controlId="ingredientName">
               <Form.Label>Ime proizvoda</Form.Label>
               <Form.Control
@@ -182,7 +193,7 @@ const Nutritionist = () => {
             </Form.Group>
 
             <Form.Group as={Col} controlId="ingredientSaturatedFat">
-              <Form.Label>Zasićene masne kiseline</Form.Label>
+              <Form.Label>Zasićene MK</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Unesi količinu zasićenih masnih kiselina"
@@ -202,7 +213,7 @@ const Nutritionist = () => {
             </Form.Group>
 
           <Form.Group controlId="ingredientImage">
-            <Form.Label>Slika proizvoda</Form.Label>
+            <Form.Label className='m-1'>Slika proizvoda</Form.Label>
             <Form.Control
               type="file"
               onChange={(e) => setNewIngredientInfo({ ...newIngredientInfo, image: e.target.files[0] })}
@@ -210,7 +221,7 @@ const Nutritionist = () => {
           </Form.Group>
 
           <Form.Group controlId="ingredientLabels">
-            <Form.Label>Labele</Form.Label>
+            <Form.Label className='m-1'>Labele</Form.Label>
             <Form.Control
               type="text"
               placeholder="Unesi labele za kategorizaciju (odovjene zarezom)"
@@ -221,7 +232,7 @@ const Nutritionist = () => {
 
           </Row>
 
-          <Button variant="primary" type="button" onClick={addIngredient}>
+          <Button variant="dark" type="button" className="mt-2 mb-2" onClick={addIngredient}>
             Dodaj proizvod
           </Button>
         </Form>
@@ -229,13 +240,16 @@ const Nutritionist = () => {
 
       <div>
         <h2>Proizvodi</h2>
-        <ul>
-          {ingredients.map((ingredient) => (
+          {!ingredients || ingredients.length === 0 ? (
+            <h4>Nema proizvoda</h4>
+          ) : (<ul>
+            {ingredients.map((ingredient) => (
             <li key={ingredient.id}>
               {ingredient.name} - {ingredient.category}
             </li>
           ))}
-        </ul>
+          </ul>
+          )}
       </div>
 
       <div>
@@ -243,7 +257,7 @@ const Nutritionist = () => {
         <Form>
           <Row>
             <Form.Group as={Col} controlId="lowCalorie">
-              <Form.Label>Limitirane kalorije</Form.Label>
+              <Form.Label className='m-2'>Limitirane kalorije</Form.Label>
               <Form.Control
                 type="number"
                 placeholder="Unesi kalorije"
@@ -253,7 +267,7 @@ const Nutritionist = () => {
             </Form.Group>
 
             <Form.Group as={Col} controlId="lowFat">
-              <Form.Label>Limitirane masti</Form.Label>
+              <Form.Label className="m-2">Limitirane masti</Form.Label>
               <Form.Control
                 type="number"
                 placeholder="Unesi masti"
@@ -263,7 +277,7 @@ const Nutritionist = () => {
             </Form.Group>
 
             <Form.Group as={Col} controlId="lowCarb">
-              <Form.Label>Limitirani ugljikohidrati</Form.Label>
+              <Form.Label className='m-2'>Limitirani ugljikohidrati</Form.Label>
               <Form.Control
                 type="number"
                 placeholder="Unesi ugljikohidrate"
@@ -274,7 +288,7 @@ const Nutritionist = () => {
           </Row>
 
           <Form.Group controlId="dietDescription">
-            <Form.Label>Opis dijete</Form.Label>
+            <Form.Label className='m-2'>Opis dijete</Form.Label>
             <Form.Control
               as="textarea"
               placeholder="Unesi opis dijete"
@@ -283,12 +297,13 @@ const Nutritionist = () => {
             />
           </Form.Group>
 
-          <Button variant="primary" type="button" onClick={createDiet}>
+          <Button variant="dark" type="button" className="mt-3" onClick={createDiet}>
             Stvori dijetu
           </Button>
         </Form>
       </div>
     </Container>
+    </div>
   );
 }
 

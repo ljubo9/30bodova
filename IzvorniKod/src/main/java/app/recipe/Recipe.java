@@ -1,9 +1,22 @@
 package app.recipe;
 
 import java.util.List;
+import java.util.Set;
 
+import app.dto.RecipeDTO;
 import app.roles.User;
-import jakarta.persistence.*;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.UniqueConstraint;
 
 @Entity
 public class Recipe {
@@ -12,11 +25,27 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private String stepsOfMaking;
+    
+    @ManyToOne
+    private Category cat;
+
+    @OneToMany
+    private List<StepOfMaking> stepsOfMaking;
+    
     private int portionSize;
     private int cookTime;
     @ManyToMany(mappedBy = "recipes")
     private List<Cookbook> cookbooks;
+
+    @ManyToMany
+
+    @JoinTable(
+            name = "recipe_diet",
+            joinColumns = @JoinColumn(name = "diet_id"),
+            inverseJoinColumns = @JoinColumn(name = "recipe_id"),
+            uniqueConstraints = @UniqueConstraint(columnNames = {"diet_id", "recipe_id"}))
+    private List<Diet> diets;
+    
     @ManyToOne
     private User creator;
     
@@ -27,29 +56,61 @@ public class Recipe {
     @JoinColumn(name = "recipe_id")
     private List<RecipeIngredient> ingredients;
 
-    public List<Image> getImages() {
-        return images;
-    }
 
-    public void setImages(List<Image> images) {
-        this.images = images;
-    }
-
-    @OneToMany
-    private List<Image> images;
-    
-    public Recipe(int id, String name, List<RecipeIngredient> ingredients, String stepsOfMaking, int portionSize, int cookTime, List<Image> images) {
-        this.id = id;
+    public Recipe( int id,String name, List<RecipeIngredient> ingredients,List<StepOfMaking> stepsOfMaking, int portionSize, int cookTime, Category cat) {
+        this.id=id;
         this.name = name;
         this.ingredients = ingredients;
         this.stepsOfMaking = stepsOfMaking;
         this.portionSize = portionSize;
         this.cookTime = cookTime;
-        this.images = images;
+        this.cat = cat;
+
+    }
+    public Recipe( String name, List<RecipeIngredient> ingredients,List<StepOfMaking> stepsOfMaking, int portionSize, int cookTime) {
+
+        this.name = name;
+        this.ingredients = ingredients;
+        this.stepsOfMaking = stepsOfMaking;
+        this.portionSize = portionSize;
+        this.cookTime = cookTime;
+
+    }
+    public Recipe( String name,int portionSize, int cookTime,User creator) {
+
+        this.name = name;
+
+        this.portionSize = portionSize;
+        this.cookTime = cookTime;
+        this.creator=creator;
     }
 
+    public Recipe( String name,int portionSize, int cookTime,User creator, Category category) {
 
-    public int getId() {
+        this.name = name;
+
+        this.portionSize = portionSize;
+        this.cookTime = cookTime;
+        this.creator=creator;
+        this.cat = category;
+
+    }
+
+    public Recipe() {
+    	
+    }
+
+    public Recipe(String name2, int portionSize2, int cookTime2) {
+		// TODO Auto-generated constructor stub
+    	this.name = name2;
+    	this.portionSize = portionSize2;
+    	this.cookTime = cookTime2;
+	}
+	public Recipe(RecipeDTO recipeDTO) {
+		// TODO Auto-generated constructor stub
+		/** needs to be implemented **/
+	}
+	public int getId() {
         return id;
     }
 
@@ -65,11 +126,11 @@ public class Recipe {
         this.ingredients = ingredients;
     }
 
-    public String getStepsOfMaking() {
+    public List<StepOfMaking> getStepsOfMaking() {
         return stepsOfMaking;
     }
 
-    public void setStepsOfMaking(String stepsOfMaking) {
+    public void setStepsOfMaking(List<StepOfMaking> stepsOfMaking) {
         this.stepsOfMaking = stepsOfMaking;
     }
 
@@ -98,15 +159,26 @@ public class Recipe {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public Category getCategory() {
+		return this.cat;
+	}
+	
+	public List<Cookbook> getCookbooks() {
+		return cookbooks;
+	}
+	public List<Diet> getDiets() {
+		return diets;
+	}
+	public User getCreator() {
+		return creator;
+	}
+	public List<Review> getReviews() {
+		return reviews;
+	}
+	
+	
     
     
 
-   /* public List<Image> getImages() {
-        return images;
-    }
-
-    public void setImages(List<Image> images) {
-        this.images = images;
-    }
-*/
 }

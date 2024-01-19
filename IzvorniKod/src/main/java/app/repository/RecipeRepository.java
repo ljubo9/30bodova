@@ -1,5 +1,6 @@
-package app.recipe;
+package app.repository;
 
+import app.recipe.Recipe;
 import app.roles.SpecialUser;
 import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -9,10 +10,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface RecipeRepository extends JpaRepository<Recipe, Long> {
+public interface RecipeRepository extends JpaRepository<Recipe, Integer> {
+    	
+	@Query("SELECT r FROM recipe WHERE r.id = ?1")
+    Optional<Recipe> findRecipeById(int id);
 
-    public interface ResponseRepository extends JpaRepository<Response, Integer> {
-        Optional<Response> findByReviewId(int reviewId);
-    }
 
 }

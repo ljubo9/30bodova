@@ -2,31 +2,18 @@
 
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 
+import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import app.recipe.Cookbook;
-import app.recipe.Recipe;
+import app.recipe.ConsumedRecipe;
+import app.recipe.Diet;
 import app.recipe.Response;
 import app.recipe.Review;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
 
-@Entity 
+  @Entity
 @Table(name="users", uniqueConstraints = @UniqueConstraint(columnNames = {"username"}))
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class User implements UserDetails {
@@ -46,14 +33,16 @@ public class User implements UserDetails {
 	private String password;
 	private String name;
 	private String surname;
-	
+	private String email;
+
+
+	@ManyToOne
+	private Diet diet;
+
+	@OneToMany(mappedBy = "creator")
+	private List<Diet> createdDiets;
 	@ManyToOne
 	private Role role;
-	
-	@OneToMany(mappedBy="creator", cascade = CascadeType.ALL)
-	private Set<Recipe> recipes;
-	@OneToMany(mappedBy = "creator", cascade = CascadeType.ALL)
-	private Set<Cookbook> cookbooks;
 
 	@OneToMany(mappedBy = "creator", cascade = CascadeType.ALL)
 	private List<Review> reviews;
@@ -61,8 +50,13 @@ public class User implements UserDetails {
 	@OneToMany(mappedBy = "creator", cascade = CascadeType.ALL)
 	private List<Response> responses;
 
+	@OneToMany
+	private List<ConsumedRecipe> consumedRecipes;
 	
-	private User(String username, String password, String name, String surname) {
+	private boolean confirmed;
+
+	
+	public User(String username, String password, String name, String surname, String email) {
 		// TODO Auto-generated constructor stub
 		if (username == null || password == null ||
 		    name == null || surname == null) throw new IllegalArgumentException("All fields must be filled out");
@@ -70,12 +64,14 @@ public class User implements UserDetails {
 		this.password = password;
 		this.name = name;
 		this.surname = surname;
+		this.email = email;
 		this.role = null;
+		this.confirmed = true;
 	}
 	
-	public User(String username, String password, String name, String surname, Role role) {
+	public User(String username, String password, String name, String surname, Role role, String email) {
 		// TODO Auto-generated constructor stub
-		this(username, password, name, surname);
+		this(username, password, name, surname, email);
 		this.role = role;
 	}
 	public User(){}
@@ -98,6 +94,10 @@ public class User implements UserDetails {
 	
 	public Role getRole() {
 		return role;
+	}
+
+	public void setId(int id){
+		this.id = id;
 	}
 
 	public void setUsername(String username) {
@@ -143,6 +143,47 @@ public class User implements UserDetails {
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
 		return true;
+	}
+
+	public List<Review> getReviews() {
+		return reviews;
+	}
+
+	public List<Response> getResponses() {
+		return responses;
+	}
+
+	public Diet getDiet() {
+		return diet;
+	}
+
+	public List<Diet> getCreatedDiets() {
+		return createdDiets;
+	}
+
+	public List<ConsumedRecipe> getConsumedRecipes() {
+		return consumedRecipes;
+	}
+
+
+	public void setConsumedRecipes(List<ConsumedRecipe> consumedRecipes) {
+		this.consumedRecipes = consumedRecipes;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public boolean isConfirmed() {
+		return confirmed;
+	}
+
+	public void setConfirmed(boolean confirmed) {
+		this.confirmed = confirmed;
 	}
 
 }
