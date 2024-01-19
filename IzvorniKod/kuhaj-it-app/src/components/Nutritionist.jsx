@@ -101,11 +101,11 @@ const Nutritionist = () => {
 
 
   return (
-    <div className="bg-secondary p-2 min-vh-100"> 
+    <div className="bg-light p-2 min-vh-100"> 
 
     <Container>
       <div className="mt-2 p-2">
-        <Button onClick={fetchIngredients} variant="dark">Dohvati proizvode</Button>
+        <Button onClick={fetchIngredients} variant="dark" className='mt-3'>Dohvati proizvode</Button>
       </div>
 
       <div>
@@ -230,19 +230,9 @@ const Nutritionist = () => {
             />
           </Form.Group>
 
-          <Form.Group as={Col} controlId="newCategory">
-              <Form.Label className='m-1'>Nova kategorija</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Unesi novu kategoriju"
-                value={newCategory}
-                onChange={(e) => setNewCategory(e.target.value)}
-              />
-            </Form.Group>
-
           </Row>
 
-          <Button variant="dark" type="button" className="m-2" onClick={addIngredient}>
+          <Button variant="dark" type="button" className="mt-2 mb-2" onClick={addIngredient}>
             Dodaj proizvod
           </Button>
         </Form>
@@ -307,7 +297,7 @@ const Nutritionist = () => {
             />
           </Form.Group>
 
-          <Button variant="dark" type="button" className="m-2" onClick={createDiet}>
+          <Button variant="dark" type="button" className="mt-3" onClick={createDiet}>
             Stvori dijetu
           </Button>
         </Form>
