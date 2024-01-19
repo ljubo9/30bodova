@@ -373,20 +373,24 @@ public class RecipeController {
 			@RequestParam("image") Optional<MultipartFile> img,
 			@RequestParam("weight") int weight,
 			@RequestParam("labels") List<String> labels) {
-		
-		recipeService.addIngredient(name,
-				category,
-				calories,
-				protein,
-				carbs,
-				fat,
-				sugar,
-				salt,
-				saturatedFat,
-				img,
-				weight,
-				labels);
-		return new ResponseEntity<>(HttpStatus.OK);
+		try {
+			recipeService.addIngredient(name,
+					category,
+					calories,
+					protein,
+					carbs,
+					fat,
+					sugar,
+					salt,
+					saturatedFat,
+					img,
+					weight,
+					labels);
+			return new ResponseEntity<>(HttpStatus.OK);
+		}
+		catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 
 

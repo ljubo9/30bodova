@@ -209,9 +209,10 @@ public class RecipeService {
 			Image image = img.isPresent() ? new Image(img.get().getName() ,img.get().getBytes()) : null;
 			Ingredient ing = new Ingredient(name, cat, calories, protein, carbs, salt, saturatedFat,
 					image, weight, label);
+			ingredientRepository.save(ing);
 		}
 		catch(Exception e) {
-			
+			throw new IllegalStateException("Could not add ingredient");
 		}
 		
 		

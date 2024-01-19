@@ -50,6 +50,7 @@ public class Ingredient {
 		// TODO Auto-generated constructor stub
 		this.name = name2;
 		this.cat = cat;
+		this.calories = calories;
 		this.carbs = (int) (carbs * ((float)weight / 100));
 		this.salt = (int) (salt * ((float)weight / 100));
 		this.saturatedFat = (int) (saturatedFat * ((float)weight / 100));
