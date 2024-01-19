@@ -157,7 +157,7 @@ public class RecipeService {
 			long days = (long)(differenceMS / 1000f / 3600f / 24f); 
 			if (days <= 7) {
 				for (RecipeIngredient i : r.getRecipe().getIngredients()) {
-					int cal = (int) ((i.getQuantity() / 100f) * i.getIngredient().getEnergy());
+					int cal = (int) ((i.getQuantity() / 100f) * i.getIngredient().getCalories());
 					if (mapa.containsKey((int)days)) {
 						mapa.put((int)days, mapa.get((int)days) + cal);
 					}
@@ -213,6 +213,7 @@ public class RecipeService {
 			ingredientRepository.save(ing);
 		}
 		catch(Exception e) {
+			e.printStackTrace();
 			throw new IllegalStateException("Could not add ingredient");
 		}
 		

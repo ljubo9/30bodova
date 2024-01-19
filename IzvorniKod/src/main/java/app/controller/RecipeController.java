@@ -388,6 +388,8 @@ public class RecipeController {
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
 		catch (Exception e) {
+			System.out.println("Could not add ingredient");
+			e.printStackTrace();
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
