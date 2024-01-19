@@ -188,5 +188,18 @@ public class UserController {
 		}
 	}
 	
-	
+	@GetMapping(path = "/user/activation/{username}")
+	public ResponseEntity<String> isActivated(@PathVariable String username) {
+		try {
+			User u = userService.loadUserByUsername(username);
+			if (u ==  null) return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
+			String r = u.isConfirmed() ? "activated" : "unactivated";
+			return new ResponseEntity<String>(r, HttpStatus.OK);
+		}
+		catch (Exception e) {
+			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 }
+
+

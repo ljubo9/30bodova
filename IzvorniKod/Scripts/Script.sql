@@ -17,17 +17,17 @@ INSERT INTO public."role"
 VALUES(4, 'ADMIN');
 
 insert into public."users"
-(dtype, id, "name", "password", "surname", "username", role_id)
-VALUES('Client', 1, 'client', '$2a$10$r7oB7KBo2dCmfRedkH5YcO8YWzdUyIcLk9/GuoWjgtRr1Y15h1tmW', 'client', 'client', 1);
+(dtype, id, "name", "password", "surname", "username", role_id, "confirmed")
+VALUES('Client', 1, 'client', '$2a$10$r7oB7KBo2dCmfRedkH5YcO8YWzdUyIcLk9/GuoWjgtRr1Y15h1tmW', 'client', 'client', 1, true);
 
 
 insert into public."users"
-(dtype, id, "name", "password", "surname", "username", "biography", "confirmed", "email", role_id)
-VALUES('Enthusiast', 2, 'enthusiast', '$2a$10$Sd3hzVJFgT.cmYHfHEDl1edqh/a3Z05SK0lLZrUNrbyNP8Z/cZGW2', 'enthusiast', 'enthusiast', 'enthusiast', false, 'enthusiast@gmail.com', 2);
+(dtype, id, "name", "password", "surname", "username", "biography", "confirmed", "email", role_id, "confirmed")
+VALUES('Enthusiast', 2, 'enthusiast', '$2a$10$Sd3hzVJFgT.cmYHfHEDl1edqh/a3Z05SK0lLZrUNrbyNP8Z/cZGW2', 'enthusiast', 'enthusiast', 'enthusiast', true, 'enthusiast@gmail.com', 2);
 
 insert into public."users"
 (dtype, id, "name", "password", "surname", "username", "biography", "confirmed", "email", role_id)
-VALUES('Nutritionist', 3, 'nutritionist', '$2a$10$vlnthKoYaXs9xXFvz2SFbOdDDKWHXax4lXv5e1Ct2WDNytgFW8mmq', 'nutritionist', 'nutritionist', 'nutritionist', false, 'nutritionist@gmail.com', 3);
+VALUES('Nutritionist', 3, 'nutritionist', '$2a$10$vlnthKoYaXs9xXFvz2SFbOdDDKWHXax4lXv5e1Ct2WDNytgFW8mmq', 'nutritionist', 'nutritionist', 'nutritionist', true, 'nutritionist@gmail.com', 3);
 
 
 insert into public."users"
@@ -45,8 +45,8 @@ insert into public."diet"
 VALUES(1, 'bolonjez dijeta', 'bolonjez dijeta', 1);
 
 insert into public."users"
-(dtype, id, "name", "password", "surname", "username", role_id, diet_id)
-VALUES('Client', 6, 'iva', '$2a$10$9dERkNAb3Y5VYaR1drQWie3iuq2ZweVUJiYTzLmDtjFEenQ/EZ0om', 'ivic', 'iva25', 1, 1);
+(dtype, id, "name", "password", "surname", "username", role_id, diet_id, "confirmed")
+VALUES('Client', 6, 'iva', '$2a$10$9dERkNAb3Y5VYaR1drQWie3iuq2ZweVUJiYTzLmDtjFEenQ/EZ0om', 'ivic', 'iva25', 1, 1, true);
 
 
 insert into public."ingredient"

@@ -53,6 +53,9 @@ public class User implements UserDetails {
 	@OneToMany
 	private List<ConsumedRecipe> consumedRecipes;
 	
+	private boolean confirmed;
+
+	
 	private User(String username, String password, String name, String surname, String email) {
 		// TODO Auto-generated constructor stub
 		if (username == null || password == null ||
@@ -63,6 +66,7 @@ public class User implements UserDetails {
 		this.surname = surname;
 		this.email = email;
 		this.role = null;
+		this.confirmed = true;
 	}
 	
 	public User(String username, String password, String name, String surname, Role role, String email) {
@@ -168,6 +172,16 @@ public class User implements UserDetails {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public boolean isConfirmed() {
+		return confirmed;
+	}
+
+	public void setConfirmed(boolean confirmed) {
+		this.confirmed = confirmed;
+	}
+	
+	
 	
 
 }
