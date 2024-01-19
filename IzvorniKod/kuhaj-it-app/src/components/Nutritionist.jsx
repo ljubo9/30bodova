@@ -32,14 +32,26 @@ const Nutritionist = () => {
   });
 
   const createDiet = () => {
-    const newDiet = {
-      lowCalorie: dietLimits.lowCalorie,
-      lowFat: dietLimits.lowFat,
-      lowCarb: dietLimits.lowCarb,
-      description: dietLimits.dietDescription,
-    };
+    const newDiet =  new FormData();
+    newDiet.append("lowCalorie", dietLimits.lowCalorie);
+    newDiet.append("lowFat", dietLimits.lowFat);
+    newDiet.append("lowCarb", dietLimits.lowCarb);
+    newDiet.append("dietDescription", dietLimits.dietDescription);
+    try {
+      fetch("/diet/add", { 
+        method: "POST",
+        body: newDiet
+      })
+    }
+    catch(error) {
+      console.error("Could not add diet: ", error);
+    }
+
+
+
 
     console.log('New Diet:', newDiet);
+
   };
 
   useEffect(() => {
@@ -47,14 +59,14 @@ const Nutritionist = () => {
     setCurrentUser(storedUser ? JSON.parse(storedUser) : null);
 
 
-    fetch('https://kuhajitbackend.onrender.com/labels') //labele za kategoriziranje proizvoda
+    fetch('/labels') //labele za kategoriziranje proizvoda
       .then(response => response.json())
       .then(data => setLabels(data))
       .catch(error => console.error('Error fetching labels:', error));
   }, []);
 
   const fetchIngredients = () => {
-    fetch('https://kuhajitbackend.onrender.com/ingredients') // Fetching ingredients
+    fetch('/ingredients') // Fetching ingredients
       .then(response => response.json())
       .then(data => setIngredients(data))
       .catch(error => console.error('Error fetching ingredients:', error));
@@ -87,7 +99,7 @@ const Nutritionist = () => {
       formData.append(`labels[${index}]`, label);
     });
 
-    fetch('/ingredients', {
+    fetch('/ingredients/add', {
       method: 'POST',
       body: formData,
     })
