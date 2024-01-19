@@ -78,10 +78,16 @@ public class ReviewController {
     	try {
     		Recipe r = recipeService.loadRecipeById(recipeId);
     		User u = (User) userService.loadUserByUsername(username);
-    		if (r == null || u == null) {
+    		if (r == null) {
     			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     		}
-    		Review rev = new Review(u, r, mark, message);
+    		Review rev;
+    		if (u == null) {
+    			rev = Review.getAnonymous(r, mark, message);
+    		}
+    		else {
+    			rev = new Review(u, r, mark, message);
+    		}
     		reviewService.addReview(rev);
     		return new ResponseEntity<>(HttpStatus.OK);
     	}
