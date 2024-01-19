@@ -10,15 +10,15 @@ public class Ingredient {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String name;
-	
-	@OneToOne
+	@ManyToOne
+
 	private Image image;
-	
+
 	private int energy; //kcal per 100g
 
-	
+
 	public Image getImage() {
 		return image;
 	}
@@ -29,11 +29,11 @@ public class Ingredient {
 
 
 	public Ingredient(String name /*, qrcode implementation */) {
-		this.name = name;	
+		this.name = name;
 	}
 
 	public Ingredient() {
-		
+
 	}
 	public int getIngredientId() {
 		return id;
@@ -42,11 +42,11 @@ public class Ingredient {
 	public String getName() {
 		return name;
 	}
-	
+
 	public int getEnergy() {
 		return energy;
 	}
-	
-	
-	
+
+
+
 }

@@ -52,9 +52,9 @@ const ProfileCulinaryEnthusiast = () => {
   return (
     <div>
       <h2>{profileData.firstName} {profileData.lastName}</h2>
-      <p>Username: {profileData.username}</p>
+      <p>Korisničko ime: {profileData.username}</p>
 
-      <h3>Cookbooks:</h3>
+      <h3>Kuharice:</h3>
       <ul>
         {cookbooksData.map((cookbook) => (
           <li key={cookbook.id}>
@@ -63,7 +63,7 @@ const ProfileCulinaryEnthusiast = () => {
         ))}
       </ul>
 
-      <h3>Recipes:</h3>
+      <h3>Recepti:</h3>
       <ul>
         {recipesData.map((recipe) => (
           <li key={recipe.id}>

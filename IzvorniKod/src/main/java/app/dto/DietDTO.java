@@ -13,7 +13,7 @@ public class DietDTO {
 	
 	public DietDTO(Diet d) {
 		this.name = d.getName();
-		this.description = d.getOpis();
+		this.description = d.getDescription();
 		this.creator = new UserDTO(d.getCreator());
 		/*
 		 * treba dovrsiti i napraviti DietIngredient i DietIngredientDTO

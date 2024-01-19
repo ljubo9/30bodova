@@ -114,12 +114,12 @@ const Recipe = () => {
       {recipe ? (
         <>
           {/* Prikaz informacija o samom receptu */}
-          <p>Recipe Name: {recipe.name}</p>
-          <p>Portion size: {recipe.portionSize}</p>
-          <p>Cook time: {recipe.cookTime}</p>
+          <p>Ime recepta: {recipe.name}</p>
+          <p>Veličina porcije {recipe.portionSize}</p>
+          <p>Vrijeme spremanja: {recipe.cookTime}</p>
 
           {/* Prikaz informacija o sastojcima */}
-          <h3>Ingredients:</h3>
+          <h3>Sastojci:</h3>
           <ul>
             {!recipe.ingredients || recipe.ingredients.length === 0 ? (
               <div>Nema sastojaka</div>
@@ -127,15 +127,15 @@ const Recipe = () => {
               <div>
                 {recipe.ingredients.map((ingredient, index) => (
                   <li key={index}>
-                    <p>Name: {ingredient.name}</p>
-                    <p>Quantity: {ingredient.quantity}</p>
+                    <p>Ime: {ingredient.name}</p>
+                    <p>Količina: {ingredient.quantity}</p>
                   </li>
                 ))}
               </div>
             )}
           </ul>
 
-          <h3>Steps of making:</h3>
+          <h3>Koraci pripreme:</h3>
           <ul>
             {!recipe.stepOfMaking || recipe.stepOfMaking.length === 0 ? (
               <div>Nema koraka pripreme</div>
@@ -143,8 +143,8 @@ const Recipe = () => {
               <div>
                 {recipe.stepOfMaking.map((stepOfMaking, index) => (
                   <li key={index}>
-                    <p>Step number: {stepOfMaking.stepNum}</p>
-                    <p>Description: {stepOfMaking.description}</p>
+                    <p>Broj koraka: {stepOfMaking.stepNum}</p>
+                    <p>Opis: {stepOfMaking.description}</p>
                     {stepOfMaking.image && (
                       <img
                         src={stepOfMaking.image}
