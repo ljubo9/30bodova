@@ -228,6 +228,8 @@ const ChooseRecipe = () => {
       </Row>
 
       {/* Second Row: Recipe Cards */}
+      {/* dodaj jos jedan red i napisi h3 Recepti:*/}
+      <h3 className="text-center">Recepti:</h3>
       <Row>
         {recepti && typeof recepti !== undefined && recepti.length > 0 && recepti.map((recipe, index) => (
           <Col md={4} key={index}>
