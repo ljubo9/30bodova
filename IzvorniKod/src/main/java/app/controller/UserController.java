@@ -109,8 +109,12 @@ public class UserController {
 			User oldUser = (User)userService.loadUserByUsername(username);
 			if (oldUser == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			userService.removeUser(oldUser);
-			oldUser.setUsername(newUsername);
-			oldUser.setPassword(newPassword);
+			if(!newUsername.isEmpty()) {
+				oldUser.setUsername(newUsername);
+			}
+			if(!newPassword.isEmpty()) {
+				oldUser.setPassword(newPassword);
+			}
 			userService.registerUser(oldUser);
 			return new ResponseEntity<>(new UserDTO(oldUser), HttpStatus.OK);
 		}
@@ -178,4 +182,19 @@ public class UserController {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	
+	
+	@GetMapping(path = "/user/activation/{username}")
+	public ResponseEntity<String> getActivationStatus(@PathVariable String username) {
+		try {
+			User u = userService.loadUserByUsername(username);
+			if (u == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			String res = u.isConfirmed() ? "activated" : "nonactivated";
+			return new ResponseEntity<>(res, HttpStatus.OK);
+		}
+		catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
 }

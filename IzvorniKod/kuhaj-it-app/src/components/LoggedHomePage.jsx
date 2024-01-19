@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Container, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import {TimeScale} from "chart.js"; 
 import CalorieChart from './CalorieChart';
 
 function LoggedHomePage() {
@@ -196,7 +197,7 @@ function LoggedHomePage() {
               </Col>
             </Row>
       )}
-      {!consumedRecipesStatistics || consumedRecipesStatistics.length === 0? (
+      {/* {!consumedRecipesStatistics || consumedRecipesStatistics.length === 0? (
         <h2>Nema statistike nutritivnih vrijednosti</h2>
       ) : (<Row className="mt-4">
       <div>
@@ -204,7 +205,7 @@ function LoggedHomePage() {
         <CalorieChart consumedRecipesStatistics={consumedRecipesStatistics} />
         </div>
       </Row>
-      )} 
+      )} */}
     </Container>
   );
   

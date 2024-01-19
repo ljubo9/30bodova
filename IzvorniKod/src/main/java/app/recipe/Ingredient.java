@@ -8,17 +8,26 @@ import java.util.List;
 public class Ingredient {
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@SequenceGenerator(
+			name = "ingredient_sequence",
+			sequenceName = "student_sequence",
+			allocationSize = 1
+	)
+	@GeneratedValue(
+			strategy = GenerationType.SEQUENCE,
+			generator = "ingredient_sequence")
+	@Column(columnDefinition = "serial", insertable = false)
 	private int id;
-
+	
 	private String name;
-	@ManyToOne
+	
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Image image;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Category cat;
 	
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	private List<Label> labels;
 	
 	private int calories; // per 100 g
@@ -66,9 +75,6 @@ public class Ingredient {
 		return name;
 	}
 
-	public int getEnergy() {
-		return calories;
-	}
 
 	public int getId() {
 		return id;

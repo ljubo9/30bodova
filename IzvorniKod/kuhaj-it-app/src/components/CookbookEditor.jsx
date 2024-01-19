@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Form, Button } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 
 const CookbookEditor = () => {
   const [cookbookName, setCookbookName] = useState('');
@@ -33,11 +33,11 @@ const CookbookEditor = () => {
   };
 
   return (
-      <Container className="mt-4 border border-black p-2">
+    <div>
       <h2>Dodaj kuharicu</h2>
       <Form onSubmit={handleCookbookSubmit}>
         <Form.Group controlId="cookbookName">
-          <Form.Label className='m-2'>Ime kuharice</Form.Label>
+          <Form.Label>Ime kuharice</Form.Label>
           <Form.Control
             type="text"
             placeholder="Unesi željeno ime kuharice"
@@ -46,7 +46,7 @@ const CookbookEditor = () => {
           />
         </Form.Group>
         <Form.Group controlId="cookbookCategory">
-          <Form.Label className="m-2">Kategorija kuharice</Form.Label>
+          <Form.Label>Kategorija kuharice</Form.Label>
           <Form.Control
             type="text"
             placeholder="Kategoriziraj kuharicu"
@@ -54,11 +54,11 @@ const CookbookEditor = () => {
             onChange={(e) => setCookbookCategory(e.target.value)}
           />
         </Form.Group>
-        <Button variant="dark" className="m-4" type="submit">
+        <Button variant="primary" type="submit">
           Dodaj kuharicu
         </Button>
       </Form>
-    </Container>
+    </div>
   );
 };
 
