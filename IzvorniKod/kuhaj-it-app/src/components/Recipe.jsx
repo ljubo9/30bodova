@@ -220,7 +220,7 @@ const Recipe = () => {
             <DatePicker
               selected={selectedDate}
               onChange={(date) => setSelectedDate(date)}
-              dateFormat="yyyy-MM-dd"
+              dateFormat="dd-MM-yyyy"
             />
             <Button variant="dark" className="m-3" onClick={handleAddToTriedRecipes}>
               Dodaj u isprobane recepte.
