@@ -18,7 +18,7 @@ VALUES(4, 'ADMIN');
 
 insert into public."users"
 (dtype, id, "name", "password", "surname", "username", role_id)
-VALUES('User', 1, 'client', '$2a$10$r7oB7KBo2dCmfRedkH5YcO8YWzdUyIcLk9/GuoWjgtRr1Y15h1tmW', 'client', 'client', 1);
+VALUES('Client', 1, 'client', '$2a$10$r7oB7KBo2dCmfRedkH5YcO8YWzdUyIcLk9/GuoWjgtRr1Y15h1tmW', 'client', 'client', 1);
 
 
 insert into public."users"
@@ -46,7 +46,7 @@ VALUES(1, 'bolonjez dijeta', 'bolonjez dijeta', 1);
 
 insert into public."users"
 (dtype, id, "name", "password", "surname", "username", role_id, diet_id)
-VALUES('User', 6, 'iva', '$2a$10$9dERkNAb3Y5VYaR1drQWie3iuq2ZweVUJiYTzLmDtjFEenQ/EZ0om', 'ivic', 'iva25', 1, 1);
+VALUES('Client', 6, 'iva', '$2a$10$9dERkNAb3Y5VYaR1drQWie3iuq2ZweVUJiYTzLmDtjFEenQ/EZ0om', 'ivic', 'iva25', 1, 1);
 
 
 insert into public."ingredient"
