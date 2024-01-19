@@ -70,14 +70,16 @@ const CalorieChart = ({ consumedRecipesStatistics }) => {
 export default CalorieChart;*/
 
 import React, { useEffect, useState } from 'react';
-import { Line } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 
 const CalorieChart = ({ consumedRecipesStatistics }) => {
   const [chartData, setChartData] = useState({});
 
   useEffect(() => {
-    const daysOfWeek = Object.keys(consumedRecipesStatistics);
-    const caloriesConsumed = Object.values(consumedRecipesStatistics);
+    //const daysOfWeek = Object.keys(consumedRecipesStatistics);
+    //const caloriesConsumed = Object.values(consumedRecipesStatistics);
+    const daysOfWeek = Object.keys({"22.01.":35, "23.01.": 45, "24.01.": 60, "25.01.": 43, "26.01.": 55, "27.01.": 20, "28.01.": 100});
+    const caloriesConsumed = Object.values({"22.01.":35, "23.01.": 45, "24.01.": 60, "25.01.": 43, "26.01.": 55, "27.01.": 20, "28.01.": 100});
 
     setChartData({
       labels: daysOfWeek,
@@ -96,7 +98,7 @@ const CalorieChart = ({ consumedRecipesStatistics }) => {
   return (
     <div>
       <h2>Graf potrošenih kalorija u zadnjih 7 dana</h2>
-      <Line
+      <Bar
         data={chartData}
         options={{
           scales: {
