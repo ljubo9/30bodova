@@ -1,22 +1,20 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
 const UserContext = createContext();
 
-export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState({
-    username: 'john_doe',
-    // other user data...
-  });
 
-  const updateUser = (newUsername) => {
-    setUser((prevUser) => ({
-      ...prevUser,
-      username: newUsername,
-    }));
-  };
+
+export const UserProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+
+    useEffect(()=>{
+      const user = sessionStorage.getItem('currentUser')
+      setUser(user)
+    },[])
+
 
   return (
-    <UserContext.Provider value={{ user, updateUser }}>
+    <UserContext.Provider value={{ user }}>
       {children}
     </UserContext.Provider>
   );
