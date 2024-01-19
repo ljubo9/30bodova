@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 import app.roles.User;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,13 +14,22 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.UniqueConstraint;
 
 @Entity
 public class Cookbook {
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@SequenceGenerator(
+			name = "cookbook_sequence",
+			sequenceName = "student_sequence",
+			allocationSize = 1
+	)
+	@GeneratedValue(
+			strategy = GenerationType.SEQUENCE,
+			generator = "cookbook_sequence")
+	@Column(columnDefinition = "serial", insertable = false)
     private int id;
     private String name;
     

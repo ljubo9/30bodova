@@ -17,7 +17,7 @@ const CookbookEditor = () => {
 
     try {
       {/* slanje cookbook.name i cookbook.category i creatora na endpoint */}
-      const response = await fetch('/cookbooks', {
+      const response = await fetch('/cookbook', {
         method: 'POST',
         body: formData,
       });
