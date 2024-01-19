@@ -55,13 +55,13 @@ const Cookbook = () => {
               <div className="mb-2">Nema recepata</div>
           ) : (
           <div className="mb-2">
-          {recipes.map((recipe, index) => (
+          {recipes.map((recipeContainer, index) => (
             <Card key={index} className="mb-3">
               <Card.Body>
                 <Card.Title>
-                  <Link to={`/recipe/${recipe.id}`}>{recipe.name}</Link>
+                  <Link to={`/recipe/${recipeContainer.recipe.id}`}>{recipeContainer.recipe.name}</Link>
                 </Card.Title>
-                {/* Dodajte ostale informacije o receptu koje želite prikazati */}
+                {/* Add other recipe information you wish to display */}
               </Card.Body>
             </Card>
           ))}
