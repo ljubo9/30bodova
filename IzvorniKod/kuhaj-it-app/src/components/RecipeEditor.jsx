@@ -103,7 +103,7 @@ const RecipeEditor = () => {
           form.append("ingredientName", ingredient.name);
           form.append("ingredientQuantity", ingredient.quantity);
           
-          const ingredientResponse = await fetch('/RecipeIngredient', {
+          const ingredientResponse = await fetch('https://kuhajitbackend.onrender.com/RecipeIngredient', {
             method: 'POST',
             body: form
           });
