@@ -50,76 +50,76 @@ VALUES('User', 6, 'iva', '$2a$10$9dERkNAb3Y5VYaR1drQWie3iuq2ZweVUJiYTzLmDtjFEenQ
 
 
 insert into public."ingredient"
-(id, "name")
-VALUES(2, 'sir');
+(id, "name", "energy")
+VALUES(2, 'sir', 100);
 
 insert into public."ingredient"
-(id, "name")
-VALUES(3, 'pileća prsa');
+(id, "name", "energy")
+VALUES(3, 'pileća prsa', 200);
 
 insert into public."ingredient"
-(id, "name")
-VALUES(4, 'maslinovo ulje');
+(id, "name", "energy")
+VALUES(4, 'maslinovo ulje', 400);
 
 insert into public."ingredient"
-(id, "name")
-VALUES(5, 'sol');
+(id, "name", "energy")
+VALUES(5, 'sol', 150);
 
 insert into public."ingredient"
-(id, "name")
-VALUES(6, 'papar');
+(id, "name", "energy")
+VALUES(6, 'papar', 80);
 
 insert into public."ingredient"
-(id, "name")
-VALUES(7, 'crvena paprika');
+(id, "name", "energy")
+VALUES(7, 'crvena paprika', 40);
 
 insert into public."ingredient"
-(id, "name")
-VALUES(8, 'rajčica');
+(id, "name", "energy")
+VALUES(8, 'rajčica', 40);
 
 insert into public."ingredient"
-(id, "name")
-VALUES(9, 'mrkva');
+(id, "name", "energy")
+VALUES(9, 'mrkva', 50);
 
 insert into public."ingredient"
-(id, "name")
-VALUES(10, 'mlijeko');
+(id, "name", "energy")
+VALUES(10, 'mlijeko', 120);
 
 insert into public."ingredient"
-(id, "name")
-VALUES(11, 'maslac');
+(id, "name", "energy")
+VALUES(11, 'maslac', 300);
 
 insert into public."ingredient"
-(id, "name")
-VALUES(12, 'brokula');
+(id, "name", "energy")
+VALUES(12, 'brokula', 30);
 
 insert into public."ingredient"
-(id, "name")
-VALUES(13, 'tjestenina');
+(id, "name", "energy")
+VALUES(13, 'tjestenina', 40);
 
 insert into public."ingredient"
-(id, "name")
-VALUES(14, 'luk');
+(id, "name", "energy")
+VALUES(14, 'luk', 50);
 
 insert into public."ingredient"
-(id, "name")
-VALUES(15, 'češnjak');
+(id, "name", "energy")
+VALUES(15, 'češnjak', 50);
 
 insert into public."ingredient"
-(id, "name")
-VALUES(16, 'brašno');
+(id, "name", "energy")
+VALUES(16, 'brašno', 70);
 
 insert into public."ingredient"
-(id, "name")
-VALUES(17, 'banana');
+(id, "name", "energy")
+VALUES(17, 'banana', 120);
 
 insert into public."ingredient"
-(id, "name")
-VALUES(18, 'limun');
+(id, "name", "energy")
+VALUES(18, 'limun', 100);
 
 insert into public."ingredient"
-(id, "name")
-VALUES(19, 'krumpir');
+(id, "name", "energy")
+VALUES(19, 'krumpir', 200);
 
 
 insert into public."recipe"
@@ -141,8 +141,8 @@ insert into public."recipe"
 VALUES(4, 60, 'Vegeterijanski pire od krumpira s povrćem', 'slano', 5, 5);
 
 insert into public."ingredient"
-(id, "name")
-VALUES(1, 'meso');
+(id, "name", energy)
+VALUES(1, 'meso', 200);
 
 
 insert into public."recipe_ingredient"
@@ -219,6 +219,42 @@ VALUES(1, 4, 6);
 insert into public."recipe_ingredient"
 ("quantity", recipe_id, ingredient_id)
 VALUES(1, 2, 2);
+
+insert into public."consumed_recipe"
+(id, "date", recipe_id, user_id)
+values(1,'2024-01-18', 3, 6);
+
+insert into public."consumed_recipe"
+(id, "date", recipe_id, user_id)
+values(2,'2024-01-18', 4, 6);
+
+insert into public."consumed_recipe"
+(id, "date", recipe_id, user_id)
+values(3,'2024-01-17', 3, 6);
+
+insert into public."consumed_recipe"
+(id, "date", recipe_id, user_id)
+values(4,'2024-01-16', 3, 6);
+
+insert into public."consumed_recipe"
+(id, "date", recipe_id, user_id)
+values(5,'2024-01-16', 4, 6);
+
+insert into public."consumed_recipe"
+(id, "date", recipe_id, user_id)
+values(6,'2024-01-16', 3, 6);
+
+insert into public."consumed_recipe"
+(id, "date", recipe_id, user_id)
+values(7,'2024-01-16', 4, 6)
+
+insert into public."consumed_recipe"
+(id, "date", recipe_id, user_id)
+values(8,'2024-01-14', 3, 6)
+
+insert into public."consumed_recipe"
+(id, "date", recipe_id, user_id)
+values(9,'2024-01-14', 4, 6)
 
 insert into public."step_of_making"
 (id, "description", step_num, recipe_id)

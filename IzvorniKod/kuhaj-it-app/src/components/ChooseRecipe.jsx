@@ -5,9 +5,11 @@ import { Link } from 'react-router-dom';
 
 
 const ChooseRecipe = () => {
+  const [recipesFromDB, setRecipesFromDB] = useState([]);
+  
+
   const [products, setProducts] = useState({});
   const [scanner, setScanner] = useState(null);
-  const [recipesFromDB, setRecipesFromDB] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState("");
   const [ingredients, setIngredients] = useState([]);
 
@@ -29,7 +31,6 @@ const ChooseRecipe = () => {
       return newProducts;
     });
   };
-
   
   useEffect(() => {
     const fetchIngredients = async () => {
@@ -98,23 +99,24 @@ const ChooseRecipe = () => {
 
 
 
-  const displayAndSortRecipes = () => {
-    const matchedRecipes = recipesFromDB.map((recipe) => {
-      const matchCount = recipe.ingredients.filter((product) => 
-        products.hasOwnProperty(product) && products[product] > 0
-      ).length;
-      return { ...recipe, matchCount };
-    });
+  // const displayAndSortRecipes = () => {
+  //   const matchedRecipes = recipesFromDB.map((recipe) => {
+  //     const matchCount = recipe.ingredients.filter((product) => 
+  //       products.hasOwnProperty(product) && products[product] > 0
+  //     ).length;
+  //     return { ...recipe, matchCount };
+  //   });
   
-    matchedRecipes.sort((a, b) => b.matchCount - a.matchCount);
-    return matchedRecipes;
-  };
+  //   matchedRecipes.sort((a, b) => b.matchCount - a.matchCount);
+  //   return matchedRecipes;
+  // };
 
-  useEffect(() => {
-    displayAndSortRecipes();
-  }, [products, recipesFromDB]);
+  // useEffect(() => {
+  //   displayAndSortRecipes();
+  // }, [products, recipesFromDB]);
+  
 
-  const sortedRecipes = displayAndSortRecipes();
+  // const sortedRecipes = displayAndSortRecipes();
 
   const addProduct = (product) => {
     if (product) {
@@ -130,7 +132,32 @@ const ChooseRecipe = () => {
     }
   };
 
+   const [recepti, setRecepti] = useState([]);
+
+  useEffect(() => {
+    if (recipesFromDB.length > 0) {
+      setRecepti(recipesFromDB);
+    }
+  }, [recipesFromDB]);
+
+  useEffect(() => {
+    setRecepti(
+      recepti.filter((recept) => {
+        recept.ingredients.forEach((ingredient) => {
+          if (products[ingredient.ingredient.name] > 0) {
+            return true;
+          }
+          // if (Object.keys(products).includes(ingredient.ingredient.name)) {
+          //   return true;
+          // }
+        });
+      })
+    )
+  }, [products]);
+
+
   return (
+    // className "flex flex-col"
     <div style={{ display: 'flex', flexDirection: 'column' }}>
       {/* First Row */}
       <div style={{ display: 'flex', flexDirection: 'row', marginBottom: '20px' }}>
@@ -192,7 +219,7 @@ const ChooseRecipe = () => {
 
       {/* Second Row: Recipe Cards */}
       <div>
-        {sortedRecipes.map((recipe, index) => (
+        {recepti && typeof recepti !== undefined && recepti.length > 0 && recepti.map((recipe, index) => (
           <div key={index} style={{ border: '1px solid #ccc', padding: '10px', margin: '10px', width: '300px' }}>
             <Link to={`/recipe/${recipe.id}`}>
               <h3>{recipe.name}</h3>
