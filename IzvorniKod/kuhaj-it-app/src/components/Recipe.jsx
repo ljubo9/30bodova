@@ -13,6 +13,7 @@ const Recipe = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [reviewResponse, setReviewResponse] = useState({});
   const currentUser = JSON.parse(sessionStorage.getItem('currentUser')) || {};
+  const isLoggedIn = sessionStorage.getItem('isLoggedIn');
 
   const fetchRecipe = async () => {
     try {
@@ -217,17 +218,20 @@ const Recipe = () => {
             </Button>
           </div>
 
-          <div>
-            <h3>Dodajte recept u isprobane:</h3>
-            <DatePicker
-              selected={selectedDate}
-              onChange={(date) => setSelectedDate(date)}
-              dateFormat="dd-MM-yyyy"
-            />
-            <Button variant="dark" className="m-3" onClick={handleAddToTriedRecipes}>
-              Dodaj u isprobane recepte.
-            </Button>
-          </div>
+          {isLoggedIn && (
+              <div>
+              <h3>Dodajte recept u isprobane:</h3>
+              <DatePicker
+                selected={selectedDate}
+                onChange={(date) => setSelectedDate(date)}
+                dateFormat="dd-MM-yyyy"
+              />
+              <Button variant="dark" className="m-3" onClick={handleAddToTriedRecipes}>
+                Dodaj u isprobane recepte.
+              </Button>
+            </div>
+        )}
+
         </>
       ) : (
         <p>Loading...</p>

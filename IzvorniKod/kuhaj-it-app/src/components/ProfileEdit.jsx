@@ -50,7 +50,7 @@ function ProfileEdit() {
   };
 
   return (
-    <div className="bg-light">
+    <div className="bg-secondary">
       <Row className="d-flex justify-content-center align-items-center p-5" style={{ height: '100vh' }}>
         <div className="col-md-6">
           <Card>
@@ -84,7 +84,7 @@ function ProfileEdit() {
               />
             </Form.Group>
 
-            <Button variant="dark" onClick={handleChangeData}>
+            <Button variant="dark" className="m-2" onClick={handleChangeData}>
               Promijeni podatke
             </Button>
           </Card>
