@@ -7,11 +7,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.3.2",
-    "react": "^18.2.0",
     "react-bootstrap": "^2.9.1",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.18.0",
@@ -22,7 +19,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "mocha-test": "mocha --require esm login.test.js",
+    "jest-test": "jest",
+    "node-test": "node your-test-file.js",
+    "wdio": "wdio run ./wdio.conf.js"
   },
   "eslintConfig": {
     "extends": [
@@ -41,6 +42,21 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ]
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.2.0",
+    "@testing-library/react": "^14.1.2",
+    "@vitejs/plugin-react": "^4.2.1",
+    "@wdio/browser-runner": "^8.28.7",
+    "@wdio/mocha-framework": "^8.28.6",
+    "@wdio/spec-reporter": "^8.28.6",
+    "react": "^18.2.0"
   }
 }
-
