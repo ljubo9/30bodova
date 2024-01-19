@@ -38,8 +38,7 @@ const CalorieChart = ({ consumedRecipesStatistics }) => {
   return (
     <div>
       <h2>Graf potrošenih kalorija u zadnjih 7 dana</h2>
-<<<<<<< HEAD
-      {haveData ? (
+      {haveData && (
         <Bar
           data={chartData}
           options={{
@@ -57,22 +56,13 @@ const CalorieChart = ({ consumedRecipesStatistics }) => {
               y: {
                 beginAtZero: true,
               },
-=======
-      <Line
-        data={chartData}
-        options={{
-          scales: {
-            x: {
-              type: 'category',
-              labels: chartData.labels,
->>>>>>> b7d04871140da877e34b907db35b71b99a2db23c
             },
             y: {
               beginAtZero: true,
             },
-          },
-        }}
-      />
+          }}
+        />
+  )}
     </div>
   );
 };
