@@ -102,20 +102,20 @@ public class RecipeService {
         return ((Enthusiast)u.get()).getRecipes();
     }
 
-	public Set<Recipe> getRecipesByCategory(String category) {
+	public Set<Recipe> getRecipesByCategory(Category category) {
 		List<Recipe> recipes = recipeRepository.findAll();
 		Set<Recipe> setRecipes = new HashSet<>();
 		for (Recipe r : recipes) {
-			if (r.getCategory().equals(category)) setRecipes.add(r);
+			if (r.getCategory().getName().equals(category.getName())) setRecipes.add(r);
 		}
 		return setRecipes;
 	}
 	
-	public Set<Cookbook> getCookbooksByCategory(String category) {
+	public Set<Cookbook> getCookbooksByCategory(Category category) {
 		List<Cookbook> cookbooks = cookbookRepository.findAll();
 		Set<Cookbook> setCookbooks = new HashSet<>();
 		for (Cookbook c : cookbooks) {
-			if (c.getCategory().equals(category)) setCookbooks.add(c);
+			if (c.getCategory().getName().equals(category.getName())) setCookbooks.add(c);
 		}
 		return setCookbooks;
 	}

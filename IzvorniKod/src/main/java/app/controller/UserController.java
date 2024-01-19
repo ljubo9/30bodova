@@ -144,20 +144,7 @@ public class UserController {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	
-	@GetMapping(path = "/statistic/user/{username}")
-	public ResponseEntity<List<ConsumedRecipe>> getConsumedRecipes(@PathVariable String username) {
-		try {
-			User u = (User) userService.loadUserByUsername(username);
-			if (u == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-			return new ResponseEntity<>(u.getConsumedRecipes(), HttpStatus.OK);
-		}
-		catch (Exception e) {
-			System.out.println("Could not fetch consumedd recipes: ");
-			e.printStackTrace();
-			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}
+
 	
 	@GetMapping(path = "/followed-enthusiasts/{username}")
 	public ResponseEntity<List<SpecialUserDTO>> getFollowedEnthusiasts(@PathVariable String username) {
@@ -191,6 +178,4 @@ public class UserController {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	
-	
 }

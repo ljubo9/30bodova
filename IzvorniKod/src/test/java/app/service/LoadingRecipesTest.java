@@ -1,5 +1,6 @@
 package app.service;
 
+import app.recipe.Category;
 import app.recipe.Recipe;
 import app.repository.RecipeRepository;
 import app.roles.User;
@@ -27,8 +28,8 @@ public class LoadingRecipesTest {
 
     @Test
     public void loadRecipesUsernameValidTest(){
-        User newUser = new User("newUsername", "newPassword", "newName", "newSurname");
-        User otherUser = new User("otherUsername", "otherPassword", "otherName", "otherSurname");
+        User newUser = new User("newUsername", "newPassword", "newName", "newSurname", "newEmail@mail.com");
+        User otherUser = new User("otherUsername", "otherPassword", "otherName", "otherSurname", "otherEmail@mail.com");
         Recipe tortillas = new Recipe("Mexican tortillas", 4, 60, newUser);
         Recipe chilli = new Recipe("Chilli con carne", 2, 120, newUser);
         Recipe enchiladas = new Recipe("Chicken enchiladas", 4, 45, otherUser);
@@ -46,10 +47,11 @@ public class LoadingRecipesTest {
 
     @Test
     public void loadRecipesCategoryValidTest(){
-        User newUser = new User("newUsername", "newPassword", "newName", "newSurname");
-        Recipe tortillas = new Recipe("Mexican tortillas", 4, 60, newUser, "mexican");
-        Recipe chilli = new Recipe("Chilli con carne", 2, 120, newUser, "mexican");
-        Recipe enchiladas = new Recipe("Chicken enchiladas", 4, 45, newUser, "salty");
+        Category mex = new Category("mexican");
+        User newUser = new User("newUsername", "newPassword", "newName", "newSurname", "newEmail@mail.com");
+        Recipe tortillas = new Recipe("Mexican tortillas", 4, 60, newUser, mex);
+        Recipe chilli = new Recipe("Chilli con carne", 2, 120, newUser, mex);
+        Recipe enchiladas = new Recipe("Chicken enchiladas", 4, 45, newUser, new Category("salty"));
 
         List<Recipe> recipesList = new ArrayList<>();
         recipesList.add(tortillas);
@@ -58,7 +60,7 @@ public class LoadingRecipesTest {
 
         when(recipeRepository.findAll()).thenReturn(recipesList);
 
-        Set<Recipe> mexicanRecipes = recipeService.getRecipesByCategory("mexican");
+        Set<Recipe> mexicanRecipes = recipeService.getRecipesByCategory(mex);
         Set<Recipe> recipes = new HashSet<>();
         recipes.add(tortillas);
         recipes.add(chilli);

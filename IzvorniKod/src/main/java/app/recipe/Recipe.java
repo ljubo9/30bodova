@@ -92,7 +92,7 @@ public class Recipe {
         this.portionSize = portionSize;
         this.cookTime = cookTime;
         this.creator=creator;
-        this.category = category;
+        this.cat = category;
 
     }
 
