@@ -12,7 +12,8 @@ public class Ingredient {
 	private int id;
 	
 	private String name;
-	@OneToOne
+	@ManyToOne
+
 	private Image image;
 
 	
