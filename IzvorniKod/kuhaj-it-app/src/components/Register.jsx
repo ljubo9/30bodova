@@ -35,7 +35,6 @@ const Register = () => {
       name: firstName,
       surname: lastName,
       role: selectedRole.toUpperCase(),
-      status: 'pending',
       ...(selectedRole === 'nutritionist' || selectedRole === 'enthusiast'
         ? {
             email: email,
