@@ -27,9 +27,6 @@ function Navigation() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/choose-recipe">
-              Odaberi recept
-            </Nav.Link>
             <Nav.Link as={Link} to="/culinary-enthusiasts"> 
               Kulinarski Entuzijasti
             </Nav.Link>
@@ -52,6 +49,9 @@ function Navigation() {
             )}
             {currentUser ? (
               <>
+                <Nav.Link as={Link} to="/choose-recipe">
+                  Odaberi recept
+                </Nav.Link>
                 <Nav.Link as={Link} to={`/user/${currentUser.username}`}>
                   {currentUser.username}
                 </Nav.Link>

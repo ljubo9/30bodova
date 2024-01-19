@@ -7,8 +7,16 @@ import java.util.Date;
 @Entity
 public class ConsumedRecipe {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	@SequenceGenerator(
+			name = "consumed_recipe_sequence",
+			sequenceName = "student_sequence",
+			allocationSize = 1
+	)
+	@GeneratedValue(
+			strategy = GenerationType.SEQUENCE,
+			generator = "consumed_recipe_sequence")
+	@Column(columnDefinition = "serial", insertable = false)
     private int id;
     @ManyToOne
     Recipe recipe;

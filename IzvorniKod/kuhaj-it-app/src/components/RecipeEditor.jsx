@@ -15,32 +15,17 @@ const RecipeEditor = () => {
   const [steps, setSteps] = useState([{ number: 1, description: '', image: null }]);
   const [cookbooks, setCookbooks] = useState([]);
   const [selectedCookbook, setSelectedCookbook] = useState('');
-  const [mainCategory, setMainCategory] = useState('');
-  const [subcategory, setSubcategory] = useState('');
-
-  const categories = {
-    Slano: ['Obično', 'Vegetarijansko', 'Vegansko', 'Bezglutensko'],
-    Slatko: ['Čokoladno', 'Voćno', 'Bezglutensko', 'Bez laktoze', 'Dijabetes', 'Dijeta'],
-  };
-
-  const handleMainCategoryChange = (e) => {
-    setMainCategory(e.target.value);
-    setSubcategory(''); // Reset subcategory when main category changes
-  };
-
-  const handleSubcategoryChange = (e) => {
-    setSubcategory(e.target.value);
-  };
 
   useEffect(() => {
     const fetchCookbooks = async () => {
       try {
         //dohvaćanje kuharica po id-u entuzijasta
         console.log(currentUser)
-        const response = await fetch(`/cookbook/${currentUser.username}`);
+        const response = await fetch(`https://kuhajitbackend.onrender.com/cookbook/${currentUser.username}`);
         if (response.ok) {
           const cookbooksData = await response.json();
           setCookbooks(cookbooksData);
+          console.log(cookbooksData);
         } else {
           console.error('Greška prilikom dohvaćanja kuharica.');
         }
@@ -91,7 +76,7 @@ const RecipeEditor = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('/recipe', {
+      const response = await fetch('https://kuhajitbackend.onrender.com/recipe', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -108,7 +93,7 @@ const RecipeEditor = () => {
 
         //svaka namirnica se pojedinačno šalje na back, šalje se recipe.id i sve informaicje o namirnici
         for (const ingredient of ingredients) {
-          const ingredientResponse = await fetch('/RecipeIngredient', {
+          const ingredientResponse = await fetch('https://kuhajitbackend.onrender.com/RecipeIngredient', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -127,7 +112,7 @@ const RecipeEditor = () => {
         }
         //svaki stepOfMaking se pojedinačno šalje...
         for (const step of steps) {
-          const stepResponse = await fetch('/StepOfMaking', {
+          const stepResponse = await fetch('https://kuhajitbackend.onrender.com/StepOfMaking', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -146,7 +131,7 @@ const RecipeEditor = () => {
         }
         //ako je uopće odabrana kuharica,na endpoint cookbook se šalje id recepta i id kuharice i onda se taj recept doda u recepte od kuharice
         if (selectedCookbook) {
-          const cookbookResponse = await fetch('/cookbook', {
+          const cookbookResponse = await fetch('https://kuhajitbackend.onrender.com/cookbook', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -195,31 +180,18 @@ const RecipeEditor = () => {
         </Form.Group>
 
         <Form.Group as={Row} controlId="formRecipeCategory">
-        <Form.Label column sm={2}>
-          Kategorija:
-        </Form.Label>
-        <Col sm={4}>
-          <Form.Control as="select" value={mainCategory} onChange={handleMainCategoryChange}>
-            <option value="">Odaberi kategoriju</option>
-            {Object.keys(categories).map((category) => (
-              <option key={category} value={category}>
-                {category}
-              </option>
-            ))}
-          </Form.Control>
-        </Col>
-        <Col sm={4}>
-          <Form.Control as="select" value={subcategory} onChange={handleSubcategoryChange} disabled={!mainCategory}>
-            <option value="">Odaberi podkategoriju</option>
-            {mainCategory &&
-              categories[mainCategory].map((sub) => (
-                <option key={sub} value={sub}>
-                  {sub}
-                </option>
-              ))}
-          </Form.Control>
-        </Col>
-      </Form.Group>
+          <Form.Label column sm={2}>
+            Kategorija:
+          </Form.Label>
+          <Col sm={10}>
+            <Form.Control
+              type="text"
+              name="category"
+              value={recipeData.category}
+              onChange={(e) => handleInputChange(e, null, null)}
+            />
+          </Col>
+        </Form.Group>
 
         {/* ... (similar structure for other form fields) */}
 
