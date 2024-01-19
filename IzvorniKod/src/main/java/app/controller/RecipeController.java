@@ -65,11 +65,15 @@ public class RecipeController {
         }
     }
 
-    @PostMapping(consumes = "application/json")
-    public ResponseEntity<RecipeDTO> createRecipe(@RequestBody RecipeDTO recipeDTO) {
+    @PostMapping(path = "/recipe")
+    public ResponseEntity<RecipeDTO> createRecipe(@RequestParam("category") String category,
+    		@RequestParam("cookTime") int cookTime,
+    		@RequestParam("portionSize") int portionSize,
+    		@RequestParam("name") int name
+    		) {
         try {
-            Recipe createdRecipe = recipeService.createRecipe(recipeDTO.toEntity());
-            RecipeDTO createdRecipeDTO = new RecipeDTO(createdRecipe);
+            Recipe newRecipe = new Recipe();
+           // RecipeDTO createdRecipeDTO = new RecipeDTO(createdRecipe);
             return new ResponseEntity<>(createdRecipeDTO, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -281,14 +285,14 @@ public class RecipeController {
 	}
 	
 	@GetMapping(path = "/recipes/user/{username}")
-	public ResponseEntity<Set<Recipe>> getConsumedRecipes(@PathVariable String username) {
+	public ResponseEntity<Set<RecipeDTO>> getConsumedRecipes(@PathVariable String username) {
 		try {
 			User u = (User)userService.loadUserByUsername(username);
 			if (u == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			List<ConsumedRecipe> consumed = u.getConsumedRecipes();
-			Set<Recipe> recipes = new HashSet<>();
+			Set<RecipeDTO> recipes = new HashSet<>();
 			for (ConsumedRecipe r : consumed) {
-				recipes.add(r.getRecipe());
+				recipes.add(new RecipeDTO(r.getRecipe()));
 			}
 			return new ResponseEntity<>(recipes, HttpStatus.OK);
 		}

@@ -19,8 +19,6 @@ const RecipeEditor = () => {
   useEffect(() => {
     const fetchCookbooks = async () => {
       try {
-        //dohvaćanje kuharica po id-u entuzijasta
-        console.log(currentUser)
         const response = await fetch(`/cookbook/get/${currentUser.id}`);
         if (response.ok) {
           const cookbooksData = await response.json();
@@ -76,22 +74,25 @@ const RecipeEditor = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('/recipe', {
+      console.log(recipeData);
+      const form = new FormData();
+
+      form.append("category", recipeData.category);
+      form.append("cookTime", recipeData.cookTime);
+      form.append("portionSize", recipeData.portionSize);
+      form.append("name", recipeData.name);
+
+
+
+      const response = await fetch(`/recipe/${currentUser.username}`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ...recipeData,
-          username: currentUser.username,
-        }),
+        body: form
       });
 
       if (response.ok) {
         const responseData = await response.json();
         console.log(responseData.id);
 
-        //svaka namirnica se pojedinačno šalje na back, šalje se recipe.id i sve informaicje o namirnici
         for (const ingredient of ingredients) {
           const ingredientResponse = await fetch('/RecipeIngredient', {
             method: 'POST',
@@ -110,7 +111,7 @@ const RecipeEditor = () => {
             console.error('Greška u zahtjevu za namirnicama');
           }
         }
-        //svaki stepOfMaking se pojedinačno šalje...
+
         for (const step of steps) {
           const stepResponse = await fetch('/StepOfMaking', {
             method: 'POST',
@@ -129,7 +130,7 @@ const RecipeEditor = () => {
             console.error('Greška u zahtjevu za koracima pripreme');
           }
         }
-        //ako je uopće odabrana kuharica,na endpoint cookbook se šalje id recepta i id kuharice i onda se taj recept doda u recepte od kuharice
+
         if (selectedCookbook) {
           const cookbookResponse = await fetch('/cookbook', {
             method: 'POST',
@@ -139,7 +140,6 @@ const RecipeEditor = () => {
             body: JSON.stringify({
               recipeId: responseData.id,
               cookbookId: selectedCookbook,
-              // selectedCookbook je zapravo id kuharice
             }),
           });
 
@@ -149,9 +149,6 @@ const RecipeEditor = () => {
             console.error('Greška prilikom dodavanja recepta u kuharicu.');
           }
         }
-
-
-
 
       } else {
         console.error('Greška prilikom slanja recepta');
@@ -193,7 +190,33 @@ const RecipeEditor = () => {
           </Col>
         </Form.Group>
 
-        {/* ... (similar structure for other form fields) */}
+        <Form.Group as={Row} controlId="formRecipePortionSize">
+          <Form.Label column sm={2}>
+            Veličina porcije:
+          </Form.Label>
+          <Col sm={10}>
+            <Form.Control
+              type="text"
+              name="portionSize"
+              value={recipeData.portionSize}
+              onChange={(e) => handleInputChange(e, null, null)}
+            />
+          </Col>
+        </Form.Group>
+
+        <Form.Group as={Row} controlId="formRecipeCookTime">
+          <Form.Label column sm={2}>
+            Vrijeme kuhanja:
+          </Form.Label>
+          <Col sm={10}>
+            <Form.Control
+              type="text"
+              name="cookTime"
+              value={recipeData.cookTime}
+              onChange={(e) => handleInputChange(e, null, null)}
+            />
+          </Col>
+        </Form.Group>
 
         <h3>Dodaj namirnice:</h3>
         {ingredients.map((ingredient, index) => (
@@ -221,8 +244,6 @@ const RecipeEditor = () => {
         <Button type="button" onClick={addIngredientRow}>
           Dodaj namirnicu
         </Button>
-
-        {/* ... (similar structure for other form sections) */}
 
         <Form.Group controlId="formCookbook">
           <Form.Label>Odaberi kuharicu:</Form.Label>
