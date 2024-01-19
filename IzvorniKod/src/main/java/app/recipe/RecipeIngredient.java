@@ -24,7 +24,7 @@ public class RecipeIngredient {
 	@JoinColumn(name = "recipe_id")
 	private Recipe recipe;
 	
-	private int quantity;
+	private int quantity; //grams
 	
 	public RecipeIngredient(Ingredient ingredient, Recipe recipe, int quantity) {
 		this.ingredient = ingredient;

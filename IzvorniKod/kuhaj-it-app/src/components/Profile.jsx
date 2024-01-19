@@ -7,21 +7,11 @@ const Profile = () => {
 
   useEffect(() => {
     const fetchProfileData = async () => {
-      try {
-        const profileResponse = await fetch(`/user/${currentUser.username}`);
-        if (profileResponse.ok) {
-          const profileData = await profileResponse.json();
-          setProfileData(profileData);
-        } else {
-          console.error('Error fetching profile data:', profileResponse.statusText);
-        }
-      } catch (error) {
-        console.error('Error fetching data:', error.message);
-      }
+      setProfileData(currentUser)
     };
 
     fetchProfileData();
-  }, [currentUser]);
+  }, []);
 
   console.log(profileData)
 

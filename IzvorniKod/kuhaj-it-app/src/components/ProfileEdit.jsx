@@ -19,7 +19,7 @@ function ProfileEdit() {
 
   const handleChangeData = async () => {
     try {
-      const currentUser = sessionStorage.getItem('currentUser');
+      const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
       const formData = new FormData();
 
       if (userData.newUsername.trim() !== '') {
@@ -32,7 +32,7 @@ function ProfileEdit() {
 
       formData.append('oldPassword', userData.oldPassword);
       
-      const updateResponse = await fetch(`https://kuhajitbackend.onrender.com/profile/${currentUser}`, {
+      const updateResponse = await fetch(`/profile/${currentUser.username}`, {
         method: 'POST',
         body: formData,
       });

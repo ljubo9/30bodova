@@ -9,7 +9,7 @@ const Cookbook = () => {
   useEffect(() => {
     const fetchCookbookData = async () => {
       try {
-        const response = await fetch(`/cookbook/${culinaryId}`);
+        const response = await fetch(`/cookbook/get?id=${culinaryId}`);
         
         if (response.ok) {
           const data = await response.json();
@@ -48,6 +48,10 @@ const Cookbook = () => {
       <Row className="mt-4">
         <Col>
           <h3>Recepti u kuharici</h3>
+          {!recipes || recipes.length === 0? (
+              <div>Nema recepata</div>
+          ) : (
+          <div>
           {recipes.map((recipe, index) => (
             <Card key={index} className="mb-3">
               <Card.Body>
@@ -58,6 +62,8 @@ const Cookbook = () => {
               </Card.Body>
             </Card>
           ))}
+          </div>
+          )}
         </Col>
       </Row>
     </Container>

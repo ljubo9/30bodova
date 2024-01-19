@@ -19,10 +19,13 @@ function Navigation() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="/">KuhajIT</Navbar.Brand>
+        <Navbar.Brand href="/home">KuhajIT</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
+            <Nav.Link as={Link} to="/choose-recipe">
+              Odaberi recept
+            </Nav.Link>
             <Nav.Link as={Link} to="/culinary-enthusiasts"> 
               Kulinarski Entuzijasti
             </Nav.Link>
@@ -31,17 +34,17 @@ function Navigation() {
             </Nav.Link>
 
             <Nav.Link as={Link} to="/nutritionist">
-                Nutritionist
+                Nutricionist
             </Nav.Link>
             
             {currentUser && currentUser.role === 'ENTHUSIAST' && (
-              <Nav.Link as={Nav.Link} to="/CookbookEditor">
-                Add cookbook
+              <Nav.Link as={Link} to="/cookbook-editor">
+                Dodaj kuharicu
               </Nav.Link>
             )}
             {currentUser && currentUser.role === 'ENTHUSIAST' && (
-              <Nav.Link as={Nav.Link} to="/RecipeEditor">
-                Add recipe
+              <Nav.Link as={Link} to="/recipe-editor">
+                Dodaj recept
               </Nav.Link>
             )}
             {currentUser ? (
@@ -49,15 +52,11 @@ function Navigation() {
                 <Nav.Link as={Link} to={`/user/${currentUser.username}`}>
                   {currentUser.username}
                 </Nav.Link>
-                <Nav.Link as={Link} to="/choose-recipe">
-                  Choose Recipe
-                </Nav.Link>
-                <Nav.Link disabled>{currentUser.username}</Nav.Link>
                 <Button variant="dark" onClick={handleLogout}>
                   Logout
                 </Button>
                 <Nav.Link as={Link} to="/profile-edit">
-                  ProfileEdit
+                  Uređivanje profila
                 </Nav.Link>
               </>
             ) : (
