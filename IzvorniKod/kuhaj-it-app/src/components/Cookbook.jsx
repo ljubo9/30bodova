@@ -11,6 +11,7 @@ const Cookbook = () => {
       try {
         const response = await fetch(`/cookbook/get?id=${culinaryId}`);
         
+        
         if (response.ok) {
           const data = await response.json();
           setCookbookData(data);
