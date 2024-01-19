@@ -147,10 +147,9 @@ function CulinaryEnthusiast() {
 
     <Container className="bg-light p-3">
       {isLoading ? (
-        <div className="d-flex justify-content-center align-items-center">
-          <Spinner animation="border" role="status">
-          </Spinner>
-        </div>
+      <Spinner animation="border" role="status">
+      <span className="sr-only">Loading...</span>
+      </Spinner>
       ) : (
       <ListGroup>
       {filteredEnthusiasts.map((enthusiast) => (

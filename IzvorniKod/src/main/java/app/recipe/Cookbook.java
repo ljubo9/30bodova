@@ -85,14 +85,6 @@ public class Cookbook {
 		return creator;
 	}
 
-	public void setRecipes(List<Recipe> recipes) {
-		this.recipes = recipes;
-	}
-
-	public void setCreator(User creator) {
-		this.creator = creator;
-	}
-
    /* public Set<Recipe> getRecipes() {
         return recipes;
     }
@@ -101,6 +93,5 @@ public class Cookbook {
         this.recipes = recipes;
     }*/
 
-	
     
 }

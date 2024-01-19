@@ -29,10 +29,9 @@ import app.repository.CookbookRepository;
 import app.repository.IngredientRepository;
 import app.repository.LabelRepository;
 import app.repository.RecipeRepository;
-import app.repository.UserRepository;
 import app.roles.Enthusiast;
-import app.roles.Role;
 import app.roles.User;
+import app.repository.UserRepository;
 
 @Service
 public class RecipeService {
@@ -100,8 +99,7 @@ public class RecipeService {
 	public Set<Recipe> getRecipesByUsername(String username) {
 		Optional<User> u = userRepository.findUserByUsername(username);
         if (u.isEmpty()) return null;
-        if (u.get().getRole().getName().equalsIgnoreCase(Role.ENTHUSIAST.getName())) return ((Enthusiast)u.get()).getRecipes();
-        return null;
+        return ((Enthusiast)u.get()).getRecipes();
     }
 
 	public Set<Recipe> getRecipesByCategory(Category category) {
@@ -157,7 +155,7 @@ public class RecipeService {
 			long days = (long)(differenceMS / 1000f / 3600f / 24f); 
 			if (days <= 7) {
 				for (RecipeIngredient i : r.getRecipe().getIngredients()) {
-					int cal = (int) ((i.getQuantity() / 100f) * i.getIngredient().getCalories());
+					int cal = (int) ((i.getQuantity() / 100f) * i.getIngredient().getEnergy());
 					if (mapa.containsKey((int)days)) {
 						mapa.put((int)days, mapa.get((int)days) + cal);
 					}
@@ -213,7 +211,6 @@ public class RecipeService {
 			ingredientRepository.save(ing);
 		}
 		catch(Exception e) {
-			e.printStackTrace();
 			throw new IllegalStateException("Could not add ingredient");
 		}
 		

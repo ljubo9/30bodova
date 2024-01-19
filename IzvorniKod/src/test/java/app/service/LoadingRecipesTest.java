@@ -1,26 +1,19 @@
 package app.service;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.mockito.Mockito.when;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-
+import app.recipe.Category;
+import app.recipe.Recipe;
+import app.repository.RecipeRepository;
+import app.roles.User;
+import app.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
-import app.recipe.Category;
-import app.recipe.Recipe;
-import app.repository.RecipeRepository;
-import app.repository.UserRepository;
-import app.roles.Enthusiast;
-import app.roles.User;
+import java.util.*;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.when;
 
 @SpringBootTest
 public class LoadingRecipesTest {
@@ -35,22 +28,21 @@ public class LoadingRecipesTest {
 
     @Test
     public void loadRecipesUsernameValidTest(){
-        Enthusiast newUser = new Enthusiast("newUsername", "newPassword", "newName", "newSurname", null, "ja sam",  "newEmail@mail.com");
-        Enthusiast otherUser = new Enthusiast("otherUsername", "otherPassword", "otherName", "otherSurname", null, "ja nisam", "otherEmail@mail.com");
+        User newUser = new User("newUsername", "newPassword", "newName", "newSurname", "newEmail@mail.com");
+        User otherUser = new User("otherUsername", "otherPassword", "otherName", "otherSurname", "otherEmail@mail.com");
         Recipe tortillas = new Recipe("Mexican tortillas", 4, 60, newUser);
         Recipe chilli = new Recipe("Chilli con carne", 2, 120, newUser);
         Recipe enchiladas = new Recipe("Chicken enchiladas", 4, 45, otherUser);
-        Set<Recipe> listNew = new HashSet<>();
-        listNew.add(tortillas);
-        listNew.add(chilli);
-        newUser.setRecipes(listNew);
-        
+
         when(userRepository.findUserByUsername(newUser.getUsername())).thenReturn(Optional.of(newUser));
 
         Set<Recipe> fetchedSet = recipeService.getRecipesByUsername(newUser.getUsername());
+        Set<Recipe> expectedRecipes = new HashSet<>();
+        expectedRecipes.add(tortillas);
+        expectedRecipes.add(chilli);
 
         assertNotNull(fetchedSet);
-        assertEquals(listNew, fetchedSet);
+        assertEquals(expectedRecipes, fetchedSet);
     }
 
     @Test

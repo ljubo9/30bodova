@@ -14,6 +14,11 @@ public class ConsumedRecipe {
     Recipe recipe;
 
     @ManyToOne
+	@JoinTable(
+			name = "user_consumed_recipes",
+			joinColumns = @JoinColumn(name = "user_id"),
+			inverseJoinColumns = @JoinColumn(name = "recipe_id"),
+			uniqueConstraints = @UniqueConstraint(columnNames = {"user_id", "recipe_id"}))
     User user;
 
     Date date;
@@ -46,11 +51,6 @@ public class ConsumedRecipe {
 	public Date getDate() {
 		return date;
 	}
-
-	public void setRecipe(Recipe recipe) { this.recipe = recipe;}
-	public void setDate(Date date) { this.date = date;}
-
-	public void setUser(User user) { this.user = user;}
     
     
 

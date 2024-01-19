@@ -26,7 +26,7 @@ public class Recipe {
     private int id;
     private String name;
     
-    @ManyToOne
+    @OneToOne
     private Category cat;
 
     @OneToMany

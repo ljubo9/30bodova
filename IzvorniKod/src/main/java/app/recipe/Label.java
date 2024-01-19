@@ -16,10 +16,6 @@ public class Label {
 	public Label(String name) {
 		this.name = name;
 	}
-	
-	public Label() {
-		
-	}
 
 	public int getId() {
 		return id;

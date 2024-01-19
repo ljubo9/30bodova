@@ -32,26 +32,14 @@ const Nutritionist = () => {
   });
 
   const createDiet = () => {
-    const newDiet =  new FormData();
-    newDiet.append("lowCalorie", dietLimits.lowCalorie);
-    newDiet.append("lowFat", dietLimits.lowFat);
-    newDiet.append("lowCarb", dietLimits.lowCarb);
-    newDiet.append("dietDescription", dietLimits.dietDescription);
-    try {
-      fetch("/diet/add", { 
-        method: "POST",
-        body: newDiet
-      })
-    }
-    catch(error) {
-      console.error("Could not add diet: ", error);
-    }
-
-
-
+    const newDiet = {
+      lowCalorie: dietLimits.lowCalorie,
+      lowFat: dietLimits.lowFat,
+      lowCarb: dietLimits.lowCarb,
+      description: dietLimits.dietDescription,
+    };
 
     console.log('New Diet:', newDiet);
-
   };
 
   useEffect(() => {

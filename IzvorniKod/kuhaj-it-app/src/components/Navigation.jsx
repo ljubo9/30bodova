@@ -34,11 +34,9 @@ function Navigation() {
               Kulinarski Entuzijasti
             </Nav.Link>
             
-            {currentUser && currentUser.role === 'NUTRITIONIST' && (
-              <Nav.Link as={Link} to="/nutritionist">
+            <Nav.Link as={Link} to="/nutritionist">
                 Nutricionist
-              </Nav.Link>
-            )} 
+            </Nav.Link>
             
             {currentUser && currentUser.role === 'ENTHUSIAST' && (
               <Nav.Link as={Link} to="/cookbook-editor">

@@ -97,7 +97,7 @@ public class RecipeController {
     }
     
     @GetMapping(path = "/cookbooks/category")
-    public ResponseEntity<Set<CookbookDTO>> getCookbooksByCategory(@RequestParam Category category) {
+    public ResponseEntity<Set<CookbookDTO>> getCookbooksByCategory(@RequestParam String category) {
     	try {
     		Set<Cookbook> cookbooks = recipeService.getCookbooksByCategory(category);
     		if (cookbooks == null) {
@@ -138,7 +138,7 @@ public class RecipeController {
     }
     
     @GetMapping(path = "/recipes/category") 
-    public ResponseEntity<Set<RecipeDTO>> getRecipesByCategory(@RequestParam Category category) {
+    public ResponseEntity<Set<RecipeDTO>> getRecipesByCategory(@RequestParam String category) {
     	try {
     		Set<Recipe> recipes = recipeService.getRecipesByCategory(category);
     		if (recipes == null) {
@@ -388,8 +388,6 @@ public class RecipeController {
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
 		catch (Exception e) {
-			System.out.println("Could not add ingredient");
-			e.printStackTrace();
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
