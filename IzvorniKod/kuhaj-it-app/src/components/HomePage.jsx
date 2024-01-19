@@ -28,7 +28,7 @@ function HomePage() {
 
   return (
       <>
-      <Container fluid className="mt-3">
+      <Container fluid>
         <div
           style={{
             height: '100vh',
@@ -52,7 +52,7 @@ function HomePage() {
         </div>
       </Container>
       
-      <Container className="mt-3 border border-black">
+      <Container className="mt-3 mb-3 border border-black">
         <h5 className="mt-2">Najnoviji radovi:</h5>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           {Object.keys(latestChefCookbooks).map((chefId, index) => (
