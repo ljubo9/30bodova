@@ -95,7 +95,7 @@ public class RecipeController {
         }
     }
     
-    @GetMapping(path = "/cookbooks")
+    @GetMapping(path = "/cookbook/{creator}")
     public ResponseEntity<Set<CookbookDTO>> getCookbooks(@RequestParam String creator) {
     	try {
     		Set<Cookbook> cookbooks = recipeService.getCookbooksByUsername(creator);

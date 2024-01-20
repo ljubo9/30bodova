@@ -19,7 +19,7 @@ const ProfileCulinaryEnthusiast = () => {
           // profileData je profil entuzijasta
 
           // dohvaćanje kuharica po cretor.username
-          const cookbooksResponse = await fetch(`https://kuhajitbackend.onrender.com/cookbooks?creator=${username}`);
+          const cookbooksResponse = await fetch(`https://kuhajitbackend.onrender.com/cookbook/${username}`);
           if (cookbooksResponse.ok) {
             const cookbooksData = await cookbooksResponse.json();
             setCookbooksData(cookbooksData);
