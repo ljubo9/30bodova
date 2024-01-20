@@ -87,7 +87,7 @@ const RecipeEditor = () => {
 
 
 
-      const response = await fetch(`/recipe`, {
+      const response = await fetch(`https://kuhajitbackend.onrender.com/recipe`, {
         method: 'POST',
         body: form
       });
@@ -121,7 +121,7 @@ const RecipeEditor = () => {
           form.append("stepNumber", step.number);
           form.append("stepDescription", step.description);
           form.append("stepImage", step.image);
-          const stepResponse = await fetch('/StepOfMaking', {
+          const stepResponse = await fetch('https://kuhajitbackend.onrender.com/StepOfMaking', {
             method: 'POST',
             body: form
         });
