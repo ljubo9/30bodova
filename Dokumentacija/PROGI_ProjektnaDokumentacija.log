@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2024.1.3)  19 JAN 2024 20:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.11.8)  20 JAN 2024 12:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -6,9 +6,9 @@ entering extended mode
 (PROGI_ProjektnaDokumentacija.tex
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/base\report.cls
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/base\report.cls
 Document Class: report 2023/05/17 v1.4n Standard LaTeX document class
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
 File: size12.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count185
@@ -24,36 +24,36 @@ File: size12.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 \belowcaptionskip=\skip49
 \bibindent=\dimen140
 )
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
 Package: babel 2023/09/29 v3.95 The Babel package
 \babel@savecnt=\count194
 \U@D=\dimen141
 \l@unhyphenated=\language79
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
 \bbl@readstream=\read2
 \bbl@dirlevel=\count195
 
 *************************************
 * Local config file bblopts.cfg used
 *
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
 File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
  babel
 )
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/babel-croatian\croatian
-.ldf
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/babel-croatian\croatian.
+ldf
 Language: croatian 2014/03/31 v1.3m Croatian support from the babel system
 ))
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/hr\babel
--croatian.tex
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/hr\babel-
+croatian.tex
 Package babel Info: Importing font and identification data for croatian
 (babel)             from babel-hr.ini. Reported on input line 11.
 )
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \@emptytoks=\toks17
 \symAMSa=\mathgroup4
@@ -61,24 +61,25 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+))
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
 Package: amsmath 2023/05/13 v2.17o AMS math features
 \@mathmargin=\skip50
 
 For additional information on amsmath, use the `?' option.
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
 Package: amstext 2021/08/26 v2.01 AMS text
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks18
 \ex@=\dimen142
 ))
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen143
 )
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
 \inf@bad=\count196
@@ -129,7 +130,7 @@ LaTeX Info: Redefining \Relbar on input line 971.
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
 )
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/txfonts\txfonts.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/txfonts\txfonts.sty
 Package: txfonts 2008/01/22 v3.2.1
 LaTeX Font Info:    Redeclaring symbol font `operators' on input line 21.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
@@ -215,7 +216,7 @@ LaTeX Font Info:    Overwriting symbol font `largesymbolsA' in version `bold'
 LaTeX Font Info:    Redeclaring math symbol \mathsterling on input line 164.
 LaTeX Info: Redefining \not on input line 1043.
 )
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/generic/mathdots\mathdots.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/generic/mathdots\mathdots.sty
 Package: mathdots 2014/06/11 v0.9 Improve and add various macros for dots in ma
 th.
 \MDo@unit=\dimen151
@@ -223,7 +224,7 @@ th.
 \MDoprekern=\muskip17
 \MDopostkern=\muskip18
 \MDodotkern=\muskip19
-) (C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.sty
+) (C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.sty
 Package: titlesec 2023/10/27 v2.16 Sectioning titles
 \ttl@box=\box54
 \beforetitleunit=\skip53
@@ -234,7 +235,8 @@ Package: titlesec 2023/10/27 v2.16 Sectioning titles
 \titlewidth=\dimen154
 \titlewidthlast=\dimen155
 \titlewidthfirst=\dimen156
-) (C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+)
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
 Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
 \col@sep=\dimen157
 \ar@mcellbox=\box55
@@ -244,29 +246,28 @@ Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
 \backup@length=\skip56
 \ar@cellbox=\box56
 )
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/lastpage\lastpage.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/lastpage\lastpage.sty
 Package: lastpage 2023/10/14 v2.0e lastpage: 2.09 or 2e? (HMM)
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/lastpage\lastpage2e.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/lastpage\lastpage2e.sty
 Package: lastpage2e 2023/10/14 v2.0e Decide which 2e lastpage version to use (H
 MM)
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/lastpage\lastpagemodern
-.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/lastpage\lastpagemodern.
+sty
 Package: lastpagemodern 2023-10-14 v2.0e Refers to last page's name (HMM; JPG)
 \c@lastpagecount=\count274
 ) 
-))
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+)) (C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count275
 )
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/tabularray\tabularray.s
-ty (C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/tabularray\tabularray.st
+y (C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
 Package: expl3 2023-08-29 L3 programming layer (loader) 
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
-tex.def
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdft
+ex.def
 File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count276
 \l__pdf_internal_box=\box57
@@ -362,55 +363,53 @@ Package: tabularray 2023-03-01 v2023A Typeset tabulars and arrays with LaTeX3
 \l__tblr_cell_ht_dim=\dimen256
 \l__tblr_diag_box=\box81
 )
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
 Package: color 2022/01/06 v1.3d Standard LaTeX Color (DPC)
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 149.
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
 File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
-)
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
-) (C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/colortbl\colortbl.sty
+) (C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx
+)) (C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/colortbl\colortbl.sty
 Package: colortbl 2022/06/20 v1.0f Color table columns (DPC)
 \everycr=\toks25
 \minrowclearance=\skip57
-)
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\adjustbox.sty
+) (C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\adjustbox.st
+y
 Package: adjustbox 2022/10/17 v1.3a Adjusting TeX boxes (trim, clip, ...)
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.sty
 Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.tex
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.tex
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.tex
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.tex
 \XKV@toks=\toks26
 \XKV@tempa@toks=\toks27
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\keyval.tex))
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\keyval.tex))
 \XKV@depth=\count300
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
-)) (C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\adjcalc.st
-y
+)) (C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\adjcalc.sty
 Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
 -ends (calc, etex, pgfmath)
 )
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\trimclip.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\trimclip.sty
 Package: trimclip 2020/08/19 v1.2 Trim and clip general TeX material
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
 Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
 Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
 )
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
-fg
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cf
+g
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
@@ -418,8 +417,8 @@ Package graphics Info: Driver file: pdftex.def on input line 107.
 \Gin@req@height=\dimen257
 \Gin@req@width=\dimen258
 )
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/collectbox\collectbox.s
-ty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/collectbox\collectbox.st
+y
 Package: collectbox 2022/10/17 v0.4c Collect macro arguments as boxes
 \collectedbox=\box82
 )
@@ -429,7 +428,7 @@ Package: collectbox 2022/10/17 v0.4c Collect macro arguments as boxes
 \tc@ury=\dimen262
 Package trimclip Info: Using driver 'tc-pdftex.def'.
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\tc-pdftex.def
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\tc-pdftex.def
 File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
 ))
 \adjbox@Width=\dimen263
@@ -441,23 +440,22 @@ File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
 \adjbox@pdepth=\dimen269
 \adjbox@ptotalheight=\dimen270
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/ifoddpage\ifoddpage.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/ifoddpage\ifoddpage.sty
 Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
 \c@checkoddpage=\count301
-) (C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/varwidth\varwidth.sty
+) (C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/varwidth\varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box83
 \sift@deathcycles=\count302
 \@vwid@loff=\dimen271
 \@vwid@roff=\dimen272
-))
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+)) (C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
 ))
 \Gm@cnth=\count303
@@ -473,8 +471,8 @@ Package: iftex 2022/02/03 v1.0f TeX engine tests
 \Gm@layoutvoffset=\dimen280
 \Gm@dimlist=\toks28
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/kpfonts\kpfonts.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/kpfonts\kpfonts.sty
 Package: kpfonts  2023/01/18 v3.35
 \c@mv@rm=\count306
 \c@mv@boldrm=\count307
@@ -808,56 +806,54 @@ LaTeX Font Info:    Overwriting symbol font `largesymbolsA' in version `boldsf'
 LaTeX Font Info:    Redeclaring math symbol \n@tch@r on input line 1601.
 LaTeX Info: Redefining \not on input line 1603.
 )
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
 Package: hyperref 2023-07-08 v7.01b Hypertext links for LaTeX
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
-Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
 )
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
-.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.
+sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
 )
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
-ty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.st
+y
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 )
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 )
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
-keys.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinek
+eys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
 )
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.s
-ty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.st
+y
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
-) (C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+) (C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
 )
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/letltxmacro\letltxmacro
-.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/letltxmacro\letltxmacro.
+sty
 Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
-)
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty
+) (C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
-)
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+) (C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
 Package: nameref 2023-08-07 v2.53 Cross-referencing by name of section
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 )
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettit
-lestring.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitl
+estring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
 \c@section@level=\count310
@@ -865,15 +861,17 @@ Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 \@linkdim=\dimen281
 \Hy@linkcounter=\count311
 \Hy@pagecounter=\count312
- (C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
+ (C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
 File: pd1enc.def 2023-07-08 v7.01b Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
-) (C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+)
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
 \Hy@SavedSpaceFactor=\count313
- (C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
+
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
 File: puenc.def 2023-07-08 v7.01b Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
@@ -887,18 +885,18 @@ Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4434.
 \c@Hy@tempcnt=\count314
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip20
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4772.
 \XeTeXLinkMargin=\dimen282
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc
-.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc.
+sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
@@ -913,7 +911,7 @@ Package hyperref Info: Link coloring OFF on input line 6071.
 Package hyperref Info: Link coloring with OCG OFF on input line 6076.
 Package hyperref Info: PDF/A mode OFF on input line 6081.
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
@@ -922,10 +920,11 @@ package with kernel methods
 \c@Hfootnote=\count318
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
 File: hpdftex.def 2023-07-08 v7.01b Hyperref driver for pdfTeX
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
 kage
 with kernel methods
@@ -933,12 +932,12 @@ with kernel methods
 \Fld@listcount=\count319
 \c@bookmark@seq@number=\count320
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
-echeck.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfile
+check.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquec
-ounter.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniqueco
+unter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
@@ -946,7 +945,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip58
 )
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
 Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
 
 \f@nch@headwidth=\skip59
@@ -959,7 +958,7 @@ Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
 \f@nch@O@olf=\skip66
 \f@nch@O@orf=\skip67
 )
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count321
 \float@exts=\toks29
@@ -967,7 +966,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks30
 \@floatcapt=\box85
 )
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/setspace\setspace.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/setspace\setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
 )
 \@float@every@table=\toks31
@@ -975,7 +974,7 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 40.
 LaTeX Font Info:    Trying to load font information for OT1+jkp on input line 8
 5.
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/kpfonts\ot1jkp.fd
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/kpfonts\ot1jkp.fd
 File: ot1jkp.fd 2007/08/30 Fontinst v1.928 font definitions for OT1/jkp.
 )
 (PROGI_ProjektnaDokumentacija.aux (Dnevnik_promjena_dokumentacije.aux)
@@ -988,7 +987,7 @@ LaTeX Font Info:    Checking defaults for OML/jkp/m/it on input line 85.
 LaTeX Font Info:    Trying to load font information for OML+jkp on input line 8
 5.
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/kpfonts\omljkp.fd
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/kpfonts\omljkp.fd
 File: omljkp.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    ... okay on input line 85.
@@ -996,7 +995,7 @@ LaTeX Font Info:    Checking defaults for OMS/jkp/m/n on input line 85.
 LaTeX Font Info:    Trying to load font information for OMS+jkp on input line 8
 5.
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/kpfonts\omsjkp.fd
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/kpfonts\omsjkp.fd
 File: omsjkp.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    ... okay on input line 85.
@@ -1010,7 +1009,7 @@ LaTeX Font Info:    Checking defaults for OMX/jkp/m/n on input line 85.
 LaTeX Font Info:    Trying to load font information for OMX+jkp on input line 8
 5.
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/kpfonts\omxjkp.fd
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/kpfonts\omxjkp.fd
 File: omxjkp.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    ... okay on input line 85.
@@ -1018,7 +1017,7 @@ LaTeX Font Info:    Checking defaults for U/jkpexa/m/n on input line 85.
 LaTeX Font Info:    Trying to load font information for U+jkpexa on input line 
 85.
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/kpfonts\ujkpexa.fd
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/kpfonts\ujkpexa.fd
 File: ujkpexa.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    ... okay on input line 85.
@@ -1027,8 +1026,8 @@ LaTeX Font Info:    ... okay on input line 85.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 85.
 LaTeX Font Info:    ... okay on input line 85.
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
-ii
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mki
+i
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count322
 \scratchdimen=\dimen285
@@ -1042,14 +1041,14 @@ ii
 \makeMPintoPDFobject=\count327
 \everyMPtoPDFconversion=\toks33
 )
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
-ase.sty
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-ba
+se.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
-fg
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cf
+g
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 *geometry* driver: auto-detecting
@@ -1093,37 +1092,37 @@ Package hyperref Info: Link coloring ON on input line 85.
 
  [1
 
-{C:/Users/dunja/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/dunj
-a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}]
+{C:/Users/Hana/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/Hana/
+AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}]
 (PROGI_ProjektnaDokumentacija.toc
 LaTeX Font Info:    Trying to load font information for U+jkpsya on input line 
 4.
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/kpfonts\ujkpsya.fd
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/kpfonts\ujkpsya.fd
 File: ujkpsya.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    Trying to load font information for U+jkpsyb on input line 
 4.
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/kpfonts\ujkpsyb.fd
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/kpfonts\ujkpsyb.fd
 File: ujkpsyb.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    Trying to load font information for OT1+txr on input line 4
 .
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/txfonts\ot1txr.fd
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/txfonts\ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Trying to load font information for U+jkpmia on input line 
 4.
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/kpfonts\ujkpmia.fd
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/kpfonts\ujkpmia.fd
 File: ujkpmia.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    Trying to load font information for U+jkpsyc on input line 
 4.
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/kpfonts\ujkpsyc.fd
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/kpfonts\ujkpsyc.fd
 File: ujkpsyc.fd 2006/08/15 v1.0
 )
 
@@ -1139,7 +1138,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.30 ...6}Zaključak i budući rad}{68}{chapter.6}
+l.30 ...chapter}{Popis literature}{68}{chapter*.4}
                                                   % [1
 
 ])
@@ -1407,7 +1406,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 ]
-<slike/coolinarika.PNG, id=182, 1154.51324pt x 582.978pt>
+<slike/coolinarika.PNG, id=177, 1154.51324pt x 582.978pt>
 File: slike/coolinarika.PNG Graphic file (type png)
 <use slike/coolinarika.PNG>
 Package pdftex.def Info: slike/coolinarika.PNG  used on input line 14.
@@ -1417,7 +1416,7 @@ Overfull \hbox (26.18633pt too wide) in paragraph at lines 14--16
  [][] 
  []
 
-<slike/indexRecepti.PNG, id=184, 902.1705pt x 515.526pt>
+<slike/indexRecepti.PNG, id=179, 902.1705pt x 515.526pt>
 File: slike/indexRecepti.PNG Graphic file (type png)
 <use slike/indexRecepti.PNG>
 Package pdftex.def Info: slike/indexRecepti.PNG  used on input line 21.
@@ -1446,7 +1445,7 @@ l.30
 LaTeX Font Info:    Trying to load font information for TS1+jkp on input line 3
 5.
 
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/kpfonts\ts1jkp.fd
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/kpfonts\ts1jkp.fd
 File: ts1jkp.fd 2007/08/30 Fontinst v1.928 font definitions for TS1/jkp.
 )
 
@@ -1591,7 +1590,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [19]
-<dijagrami/UML_Korisnik_Klijent.png, id=371, 874.76813pt x 758.835pt>
+<dijagrami/UML_Korisnik_Klijent.png, id=366, 874.76813pt x 758.835pt>
 File: dijagrami/UML_Korisnik_Klijent.png Graphic file (type png)
 <use dijagrami/UML_Korisnik_Klijent.png>
 Package pdftex.def Info: dijagrami/UML_Korisnik_Klijent.png  used on input line
@@ -1607,7 +1606,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [20]
-<dijagrami/UML_KulinarskiEntuzijast_Nutricionist_Admin.png, id=383, 1121.69063p
+<dijagrami/UML_KulinarskiEntuzijast_Nutricionist_Admin.png, id=378, 1121.69063p
 t x 748.29562pt>
 File: dijagrami/UML_KulinarskiEntuzijast_Nutricionist_Admin.png Graphic file (t
 ype png)
@@ -1635,7 +1634,7 @@ has been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.587 				
            <./dijagrami/UML_Korisnik_Klijent.png>]
-<dijagrami/SEQ_UC4.png, id=392, 678.28406pt x 560.0925pt>
+<dijagrami/SEQ_UC4.png, id=387, 678.28406pt x 560.0925pt>
 File: dijagrami/SEQ_UC4.png Graphic file (type png)
 <use dijagrami/SEQ_UC4.png>
 Package pdftex.def Info: dijagrami/SEQ_UC4.png  used on input line 596.
@@ -1656,7 +1655,7 @@ has been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.601 	
         <./dijagrami/UML_KulinarskiEntuzijast_Nutricionist_Admin.png>]
-<dijagrami/SEQ_UC8.png, id=400, 685.05937pt x 516.42938pt>
+<dijagrami/SEQ_UC8.png, id=395, 685.05937pt x 516.42938pt>
 File: dijagrami/SEQ_UC8.png Graphic file (type png)
 <use dijagrami/SEQ_UC8.png>
 Package pdftex.def Info: dijagrami/SEQ_UC8.png  used on input line 609.
@@ -1688,12 +1687,12 @@ has been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.618 				
            <./dijagrami/SEQ_UC4.png> <./dijagrami/SEQ_UC8.png>]
-<dijagrami/SEQ_UC13.png, id=410, 834.11626pt x 582.67688pt>
+<dijagrami/SEQ_UC13.png, id=405, 834.11626pt x 582.67688pt>
 File: dijagrami/SEQ_UC13.png Graphic file (type png)
 <use dijagrami/SEQ_UC13.png>
 Package pdftex.def Info: dijagrami/SEQ_UC13.png  used on input line 621.
 (pdftex.def)             Requested size: 333.6406pt x 233.06662pt.
-<dijagrami/SEQ_UC14.png, id=411, 666.99188pt x 401.24907pt>
+<dijagrami/SEQ_UC14.png, id=406, 666.99188pt x 401.24907pt>
 File: dijagrami/SEQ_UC14.png Graphic file (type png)
 <use dijagrami/SEQ_UC14.png>
 Package pdftex.def Info: dijagrami/SEQ_UC14.png  used on input line 633.
@@ -1759,13 +1758,13 @@ Overfull \hbox (7.73766pt too wide) in paragraph at lines 3--4
 turu zas-no-vanu na doga[]dajima.
  []
 
-<slike/event_driven_architecture.PNG, id=427, 402.00188pt x 203.25937pt>
+<slike/event_driven_architecture.PNG, id=422, 402.00188pt x 203.25937pt>
 File: slike/event_driven_architecture.PNG Graphic file (type png)
 <use slike/event_driven_architecture.PNG>
 Package pdftex.def Info: slike/event_driven_architecture.PNG  used on input lin
 e 11.
 (pdftex.def)             Requested size: 160.7979pt x 81.30229pt.
-<slike/mvc.PNG, id=428, 334.851pt x 311.36325pt>
+<slike/mvc.PNG, id=423, 334.851pt x 311.36325pt>
 File: slike/mvc.PNG Graphic file (type png)
 <use slike/mvc.PNG>
 Package pdftex.def Info: slike/mvc.PNG  used on input line 26.
@@ -1795,7 +1794,7 @@ Overfull \hbox (2.32166pt too wide) in paragraph at lines 32--33
 -tavno za-mi-je-nili []zeljene
  []
 
-<slike/divide_and_conquer.PNG, id=436, 469.755pt x 364.36125pt>
+<slike/divide_and_conquer.PNG, id=431, 469.755pt x 364.36125pt>
 File: slike/divide_and_conquer.PNG Graphic file (type png)
 <use slike/divide_and_conquer.PNG>
 Package pdftex.def Info: slike/divide_and_conquer.PNG  used on input line 35.
@@ -1829,7 +1828,7 @@ has been already used, duplicate ignored
 l.45 		\item B
               aza podataka - omogućuje organiziranu pohranu podataka koje j...
  <./slike/mvc.PNG> <./slike/divide_and_conquer.PNG>]
-<slike/architecture.PNG, id=446, 378.213pt x 200.54926pt>
+<slike/architecture.PNG, id=441, 378.213pt x 200.54926pt>
 File: slike/architecture.PNG Graphic file (type png)
 <use slike/architecture.PNG>
 Package pdftex.def Info: slike/architecture.PNG  used on input line 49.
@@ -2073,11 +2072,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [36]
-<slike/er.PNG, id=496, 1280.785pt x 1928.20375pt>
+<slike/er.PNG, id=491, 995.72pt x 1606.0pt>
 File: slike/er.PNG Graphic file (type png)
 <use slike/er.PNG>
 Package pdftex.def Info: slike/er.PNG  used on input line 419.
-(pdftex.def)             Requested size: 384.23846pt x 578.46559pt.
+(pdftex.def)             Requested size: 298.7183pt x 481.80373pt.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2087,23 +2086,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[37]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[38
+[37
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4.5}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.425 				\eject
-                	 <./slike/er.PNG (PNG copy)>]
-<dijagrami/UML_dijagram_razreda_controllers.png, id=508, 889.07156pt x 767.8687
+                	 <./slike/er.PNG>]
+<dijagrami/UML_dijagram_razreda_controllers.png, id=498, 889.07156pt x 767.8687
 4pt>
 File: dijagrami/UML_dijagram_razreda_controllers.png Graphic file (type png)
 <use dijagrami/UML_dijagram_razreda_controllers.png>
@@ -2123,7 +2113,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[39
+[38
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4.6}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -2144,13 +2134,13 @@ p/m/n/12 spe-ci-fi-ka-cija su raz-reda \OT1/jkp/m/it/12 User\OT1/jkp/m/n/12 , s
 toga naslje[]duju
  []
 
-<dijagrami/UML_dijagram_razreda_models.png, id=516, 2306.6175pt x 1478.52374pt>
+<dijagrami/UML_dijagram_razreda_models.png, id=506, 2306.6175pt x 1491.32156pt>
 
 File: dijagrami/UML_dijagram_razreda_models.png Graphic file (type png)
 <use dijagrami/UML_dijagram_razreda_models.png>
 Package pdftex.def Info: dijagrami/UML_dijagram_razreda_models.png  used on inp
 ut line 459.
-(pdftex.def)             Requested size: 461.31534pt x 295.69951pt.
+(pdftex.def)             Requested size: 461.31534pt x 298.25903pt.
 
 Overfull \hbox (25.70454pt too wide) in paragraph at lines 459--461
  [][] 
@@ -2164,14 +2154,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[40]
-<dijagrami/UML_dijagram_razreda_dtos.png, id=522, 715.17188pt x 666.23906pt>
+[39]
+<dijagrami/UML_dijagram_razreda_dtos.png, id=512, 715.17188pt x 666.23906pt>
 File: dijagrami/UML_dijagram_razreda_dtos.png Graphic file (type png)
 <use dijagrami/UML_dijagram_razreda_dtos.png>
 Package pdftex.def Info: dijagrami/UML_dijagram_razreda_dtos.png  used on input
  line 469.
 (pdftex.def)             Requested size: 143.03183pt x 133.24544pt.
-<dijagrami/UML_dijagram_razreda_repositories.png, id=523, 874.01532pt x 512.665
+<dijagrami/UML_dijagram_razreda_repositories.png, id=513, 874.01532pt x 512.665
 31pt>
 File: dijagrami/UML_dijagram_razreda_repositories.png Graphic file (type png)
 <use dijagrami/UML_dijagram_razreda_repositories.png>
@@ -2187,7 +2177,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[41
+[40
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4.7}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -2201,7 +2191,7 @@ has been already used, duplicate ignored
 l.484 		\end{figure}
                      <./dijagrami/UML_dijagram_razreda_models.png> <./dijagrami
 /UML_dijagram_razreda_dtos.png>]
-<dijagrami/UML_dijagram_razreda_services.png, id=533, 843.90282pt x 587.94656pt
+<dijagrami/UML_dijagram_razreda_services.png, id=523, 843.90282pt x 587.94656pt
 >
 File: dijagrami/UML_dijagram_razreda_services.png Graphic file (type png)
 <use dijagrami/UML_dijagram_razreda_services.png>
@@ -2217,7 +2207,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[42
+[41
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4.9}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -2231,7 +2221,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.4.10})
 l.498 		\eject
                <./dijagrami/UML_dijagram_razreda_repositories.png> <./dijagrami
 /UML_dijagram_razreda_services.png>]
-<dijagrami/UML_dijagram_stanja.png, id=544, 1343.0175pt x 825.0825pt>
+<dijagrami/UML_dijagram_stanja.png, id=533, 1343.0175pt x 825.0825pt>
 File: dijagrami/UML_dijagram_stanja.png Graphic file (type png)
 <use dijagrami/UML_dijagram_stanja.png>
 Package pdftex.def Info: dijagrami/UML_dijagram_stanja.png  used on input line 
@@ -2246,7 +2236,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[43]
+[42]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -2255,14 +2245,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[44
+[43
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4.11})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.531 		\eject
                <./dijagrami/UML_dijagram_stanja.png>]
-<dijagrami/UML_dijagram_aktivnosti.png, id=557, 861.2175pt x 1828.58156pt>
+<dijagrami/UML_dijagram_aktivnosti.png, id=547, 861.2175pt x 1828.58156pt>
 File: dijagrami/UML_dijagram_aktivnosti.png Graphic file (type png)
 <use dijagrami/UML_dijagram_aktivnosti.png>
 Package pdftex.def Info: dijagrami/UML_dijagram_aktivnosti.png  used on input l
@@ -2277,19 +2267,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[45
+[44
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4.12})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.543 		\eject
                <./dijagrami/UML_dijagram_aktivnosti.png>]
-<dijagrami/UML_dijagram_komponenti.png, id=565, 1566.60281pt x 700.11563pt>
+<dijagrami/UML_dijagram_komponenti.png, id=555, 1568.86125pt x 700.11563pt>
 File: dijagrami/UML_dijagram_komponenti.png Graphic file (type png)
 <use dijagrami/UML_dijagram_komponenti.png>
 Package pdftex.def Info: dijagrami/UML_dijagram_komponenti.png  used on input l
 ine 549.
-(pdftex.def)             Requested size: 313.31502pt x 140.02065pt.
+(pdftex.def)             Requested size: 313.7667pt x 140.02065pt.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2299,7 +2289,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[46
+[45
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4.13})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -2317,7 +2307,7 @@ Overfull \hbox (10.38434pt too wide) in paragraph at lines 1--1
 
 LaTeX Font Info:    Trying to load font information for OT1+jkptt on input line
  6.
-(C:\Users\dunja\AppData\Local\Programs\MiKTeX\tex/latex/kpfonts\ot1jkptt.fd
+(C:\Users\Hana\AppData\Local\Programs\MiKTeX\tex/latex/kpfonts\ot1jkptt.fd
 File: ot1jkptt.fd 2007/01/26 Fontinst v1.928 font definitions for OT1/jkptt.
 )
 Overfull \hbox (10.0912pt too wide) in paragraph at lines 20--21
@@ -2333,7 +2323,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[47
+[46
 
 
 
@@ -2352,19 +2342,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[48]
-<slike/registerUser.PNG, id=629, 266.49562pt x 88.83188pt>
+[47]
+<slike/registerUser.PNG, id=618, 266.49562pt x 88.83188pt>
 File: slike/registerUser.PNG Graphic file (type png)
 <use slike/registerUser.PNG>
 Package pdftex.def Info: slike/registerUser.PNG  used on input line 50.
 (pdftex.def)             Requested size: 106.59636pt x 35.5321pt.
-<slike/userRegistrationTest.PNG, id=630, 672.26157pt x 397.485pt>
+<slike/userRegistrationTest.PNG, id=619, 672.26157pt x 397.485pt>
 File: slike/userRegistrationTest.PNG Graphic file (type png)
 <use slike/userRegistrationTest.PNG>
 Package pdftex.def Info: slike/userRegistrationTest.PNG  used on input line 57.
 
 (pdftex.def)             Requested size: 268.89986pt x 158.99118pt.
-<slike/JUnit_register.JPG, id=631, 448.67625pt x 186.6975pt>
+<slike/JUnit_register.JPG, id=620, 448.67625pt x 186.6975pt>
 File: slike/JUnit_register.JPG Graphic file (type jpg)
 <use slike/JUnit_register.JPG>
 Package pdftex.def Info: slike/JUnit_register.JPG  used on input line 64.
@@ -2378,7 +2368,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[49
+[48
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -2398,17 +2388,17 @@ has been already used, duplicate ignored
 l.73 
       <./slike/registerUser.PNG> <./slike/userRegistrationTest.PNG> <./slike/JU
 nit_register.JPG>]
-<slike/loginValidTest.PNG, id=642, 683.55376pt x 491.58656pt>
+<slike/loginValidTest.PNG, id=632, 683.55376pt x 491.58656pt>
 File: slike/loginValidTest.PNG Graphic file (type png)
 <use slike/loginValidTest.PNG>
 Package pdftex.def Info: slike/loginValidTest.PNG  used on input line 75.
 (pdftex.def)             Requested size: 273.41666pt x 196.63113pt.
-<slike/loginUser.PNG, id=643, 454.69875pt x 216.81pt>
+<slike/loginUser.PNG, id=633, 454.69875pt x 216.81pt>
 File: slike/loginUser.PNG Graphic file (type png)
 <use slike/loginUser.PNG>
 Package pdftex.def Info: slike/loginUser.PNG  used on input line 82.
 (pdftex.def)             Requested size: 181.87627pt x 86.72246pt.
-<slike/loginInvalidUsernameTest.PNG, id=644, 725.71124pt x 471.26062pt>
+<slike/loginInvalidUsernameTest.PNG, id=634, 725.71124pt x 471.26062pt>
 File: slike/loginInvalidUsernameTest.PNG Graphic file (type png)
 <use slike/loginInvalidUsernameTest.PNG>
 Package pdftex.def Info: slike/loginInvalidUsernameTest.PNG  used on input line
@@ -2423,7 +2413,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[50
+[49
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.4}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -2441,13 +2431,13 @@ Overfull \hbox (17.0047pt too wide) in paragraph at lines 98--100
 zbog unosa is-prav-nog ko-risni[]ckog
  []
 
-<slike/loginInvalidPasswordTest.PNG, id=654, 733.23938pt x 471.26062pt>
+<slike/loginInvalidPasswordTest.PNG, id=644, 733.23938pt x 471.26062pt>
 File: slike/loginInvalidPasswordTest.PNG Graphic file (type png)
 <use slike/loginInvalidPasswordTest.PNG>
 Package pdftex.def Info: slike/loginInvalidPasswordTest.PNG  used on input line
  102.
 (pdftex.def)             Requested size: 293.29056pt x 188.5009pt.
-<slike/JUnit_login.JPG, id=655, 475.7775pt x 259.97125pt>
+<slike/JUnit_login.JPG, id=645, 475.7775pt x 259.97125pt>
 File: slike/JUnit_login.JPG Graphic file (type jpg)
 <use slike/JUnit_login.JPG>
 Package pdftex.def Info: slike/JUnit_login.JPG  used on input line 111.
@@ -2460,7 +2450,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[51
+[50
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.6}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -2484,12 +2474,12 @@ Overfull \hbox (4.36891pt too wide) in paragraph at lines 119--120
 ini-ci-jalno sprem-ljen u opona[]sani
  []
 
-<slike/loadUserByUsername.PNG, id=665, 545.78906pt x 104.64093pt>
+<slike/loadUserByUsername.PNG, id=655, 545.78906pt x 104.64093pt>
 File: slike/loadUserByUsername.PNG Graphic file (type png)
 <use slike/loadUserByUsername.PNG>
 Package pdftex.def Info: slike/loadUserByUsername.PNG  used on input line 122.
 (pdftex.def)             Requested size: 218.31175pt x 41.85562pt.
-<slike/userRetrieveDataValidTest.PNG, id=666, 679.03688pt x 493.0922pt>
+<slike/userRetrieveDataValidTest.PNG, id=656, 679.03688pt x 493.0922pt>
 File: slike/userRetrieveDataValidTest.PNG Graphic file (type png)
 <use slike/userRetrieveDataValidTest.PNG>
 Package pdftex.def Info: slike/userRetrieveDataValidTest.PNG  used on input lin
@@ -2503,7 +2493,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[52
+[51
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.8}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -2516,12 +2506,12 @@ has been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.134 		
          <./slike/JUnit_login.JPG> <./slike/loadUserByUsername.PNG>]
-<slike/JUnit_retrieve.JPG, id=675, 454.69875pt x 211.79124pt>
+<slike/JUnit_retrieve.JPG, id=665, 454.69875pt x 211.79124pt>
 File: slike/JUnit_retrieve.JPG Graphic file (type jpg)
 <use slike/JUnit_retrieve.JPG>
 Package pdftex.def Info: slike/JUnit_retrieve.JPG  used on input line 136.
 (pdftex.def)             Requested size: 181.87627pt x 84.715pt.
-<slike/changeInfo.PNG, id=676, 638.385pt x 390.70969pt>
+<slike/changeInfo.PNG, id=666, 638.385pt x 390.70969pt>
 File: slike/changeInfo.PNG Graphic file (type png)
 <use slike/changeInfo.PNG>
 Package pdftex.def Info: slike/changeInfo.PNG  used on input line 146.
@@ -2535,7 +2525,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[53
+[52
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.10})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -2548,19 +2538,19 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.5.11})
                                                   \__shipout_drop_firstpage_...
 l.151 		
          <./slike/userRetrieveDataValidTest.PNG> <./slike/JUnit_retrieve.JPG>]
-<slike/userChangeInfoValidTest1.PNG, id=685, 613.54219pt x 483.30562pt>
+<slike/userChangeInfoValidTest1.PNG, id=675, 613.54219pt x 483.30562pt>
 File: slike/userChangeInfoValidTest1.PNG Graphic file (type png)
 <use slike/userChangeInfoValidTest1.PNG>
 Package pdftex.def Info: slike/userChangeInfoValidTest1.PNG  used on input line
  153.
 (pdftex.def)             Requested size: 245.41252pt x 193.31882pt.
-<slike/userChangeInfoValidTest2.PNG, id=686, 568.37344pt x 182.18062pt>
+<slike/userChangeInfoValidTest2.PNG, id=676, 568.37344pt x 182.18062pt>
 File: slike/userChangeInfoValidTest2.PNG Graphic file (type png)
 <use slike/userChangeInfoValidTest2.PNG>
 Package pdftex.def Info: slike/userChangeInfoValidTest2.PNG  used on input line
  160.
 (pdftex.def)             Requested size: 227.34535pt x 72.87094pt.
-<slike/JUnit_change.JPG, id=687, 476.78125pt x 180.675pt>
+<slike/JUnit_change.JPG, id=677, 476.78125pt x 180.675pt>
 File: slike/JUnit_change.JPG Graphic file (type jpg)
 <use slike/JUnit_change.JPG>
 Package pdftex.def Info: slike/JUnit_change.JPG  used on input line 167.
@@ -2574,36 +2564,36 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[54
+[53
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.12})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.172 		
-        
+l.172 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.13})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.172 		
-        
+l.172 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.14})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.172 		
-         <./slike/changeInfo.PNG> <./slike/userChangeInfoValidTest1.PNG> <./sli
-ke/userChangeInfoValidTest2.PNG>]
-<slike/loadRecipesUsernameValidTest.PNG, id=700, 971.88094pt x 484.81125pt>
+l.172 
+       <./slike/changeInfo.PNG> <./slike/userChangeInfoValidTest1.PNG> <./slike
+/userChangeInfoValidTest2.PNG>]
+<slike/loadRecipesUsernameValidTest.PNG, id=689, 971.88094pt x 484.81125pt>
 File: slike/loadRecipesUsernameValidTest.PNG Graphic file (type png)
 <use slike/loadRecipesUsernameValidTest.PNG>
 Package pdftex.def Info: slike/loadRecipesUsernameValidTest.PNG  used on input 
-line 180.
+line 178.
 (pdftex.def)             Requested size: 388.74548pt x 193.92105pt.
-<slike/getRecipesByUsername.PNG, id=701, 810.77907pt x 110.66344pt>
+<slike/getRecipesByUsername.PNG, id=690, 810.77907pt x 110.66344pt>
 File: slike/getRecipesByUsername.PNG Graphic file (type png)
 <use slike/getRecipesByUsername.PNG>
-Package pdftex.def Info: slike/getRecipesByUsername.PNG  used on input line 187
+Package pdftex.def Info: slike/getRecipesByUsername.PNG  used on input line 185
 .
 (pdftex.def)             Requested size: 324.30588pt x 44.26457pt.
 
@@ -2615,47 +2605,43 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[55
+[54
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.15})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.196 		
+l.194 		
         
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.16})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.196 		
+l.194 		
         
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.17})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.196 		
+l.194 		
          <./slike/JUnit_change.JPG> <./slike/loadRecipesUsernameValidTest.PNG> 
 <./slike/getRecipesByUsername.PNG>]
-<slike/loadRecipesCategoryValidTest.PNG, id=712, 936.49875pt x 486.31688pt>
+<slike/loadRecipesCategoryValidTest.PNG, id=702, 936.49875pt x 486.31688pt>
 File: slike/loadRecipesCategoryValidTest.PNG Graphic file (type png)
 <use slike/loadRecipesCategoryValidTest.PNG>
 Package pdftex.def Info: slike/loadRecipesCategoryValidTest.PNG  used on input 
-line 198.
+line 196.
 (pdftex.def)             Requested size: 374.59286pt x 194.5233pt.
-<slike/getRecipesByCategory.PNG, id=713, 554.07pt x 137.7647pt>
+<slike/getRecipesByCategory.PNG, id=703, 554.07pt x 137.7647pt>
 File: slike/getRecipesByCategory.PNG Graphic file (type png)
 <use slike/getRecipesByCategory.PNG>
-Package pdftex.def Info: slike/getRecipesByCategory.PNG  used on input line 205
+Package pdftex.def Info: slike/getRecipesByCategory.PNG  used on input line 203
 .
 (pdftex.def)             Requested size: 221.62407pt x 55.10489pt.
-<slike/JUnit_loadRecipes.JPG, id=714, 452.69125pt x 207.77625pt>
+<slike/JUnit_loadRecipes.JPG, id=704, 452.69125pt x 207.77625pt>
 File: slike/JUnit_loadRecipes.JPG Graphic file (type jpg)
 <use slike/JUnit_loadRecipes.JPG>
-Package pdftex.def Info: slike/JUnit_loadRecipes.JPG  used on input line 214.
+Package pdftex.def Info: slike/JUnit_loadRecipes.JPG  used on input line 212.
 (pdftex.def)             Requested size: 181.07329pt x 83.10901pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 248--249
-
- []
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2665,45 +2651,36 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[56
+[55
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.18})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.249 			
-         
+l.246 		
+        
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.19})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.249 			
-         
+l.246 		
+        
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.20})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.249 			
-          <./slike/loadRecipesCategoryValidTest.PNG> <./slike/getRecipesByCateg
-ory.PNG> <./slike/JUnit_loadRecipes.JPG>]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[57]
-Overfull \hbox (41.7368pt too wide) in paragraph at lines 265--266
+l.246 		
+         <./slike/loadRecipesCategoryValidTest.PNG> <./slike/getRecipesByCatego
+ry.PNG> <./slike/JUnit_loadRecipes.JPG>]
+Overfull \hbox (41.7368pt too wide) in paragraph at lines 247--248
 \OT1/jkp/m/n/12 nika pris-tupa apli-ka-ciji Ku-ha-jIT. Ko-mu-ni-ka-cija izme[]d
 u ra[]cunala ko-ris-nika i poslu[]ziteljskog
  []
 
-<dijagrami/UML_dijagram_razmjestaja.PNG, id=734, 728.7225pt x 606.01407pt>
+<dijagrami/UML_dijagram_razmjestaja.PNG, id=715, 728.7225pt x 606.01407pt>
 File: dijagrami/UML_dijagram_razmjestaja.PNG Graphic file (type png)
 <use dijagrami/UML_dijagram_razmjestaja.PNG>
 Package pdftex.def Info: dijagrami/UML_dijagram_razmjestaja.PNG  used on input 
-line 268.
+line 250.
 (pdftex.def)             Requested size: 291.48383pt x 242.40132pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2713,34 +2690,34 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[58
+[56
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.21})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.276 			\eject
+l.258 			\eject
                 <./dijagrami/UML_dijagram_razmjestaja.PNG>]
-<slike/Render_OVERVIEW.JPG, id=745, 1314.9125pt x 176.66pt>
+<slike/Render_OVERVIEW.JPG, id=726, 1314.9125pt x 176.66pt>
 File: slike/Render_OVERVIEW.JPG Graphic file (type jpg)
 <use slike/Render_OVERVIEW.JPG>
-Package pdftex.def Info: slike/Render_OVERVIEW.JPG  used on input line 283.
+Package pdftex.def Info: slike/Render_OVERVIEW.JPG  used on input line 265.
 (pdftex.def)             Requested size: 394.47679pt x 52.9984pt.
-<slike/Render_OVERVIEW_DATABASE.JPG, id=746, 1019.81pt x 126.4725pt>
+<slike/Render_OVERVIEW_DATABASE.JPG, id=727, 1019.81pt x 126.4725pt>
 File: slike/Render_OVERVIEW_DATABASE.JPG Graphic file (type jpg)
 <use slike/Render_OVERVIEW_DATABASE.JPG>
 Package pdftex.def Info: slike/Render_OVERVIEW_DATABASE.JPG  used on input line
- 290.
+ 272.
 (pdftex.def)             Requested size: 305.94536pt x 37.94203pt.
 
-Overfull \hbox (18.6612pt too wide) in paragraph at lines 298--300
+Overfull \hbox (18.6612pt too wide) in paragraph at lines 280--282
 \OT1/jkp/m/n/12 koji ko-mu-ni-cira sa Re-act apli-ka-ci-jom, sprem-lje-nom u []
 $[]$[][][][][][] "kon-tej-ner". Kori[]stenje
  []
 
-<slike/Dockerfile.PNG, id=750, 765.6103pt x 491.58656pt>
+<slike/Dockerfile.PNG, id=731, 765.6103pt x 491.58656pt>
 File: slike/Dockerfile.PNG Graphic file (type png)
 <use slike/Dockerfile.PNG>
-Package pdftex.def Info: slike/Dockerfile.PNG  used on input line 302.
+Package pdftex.def Info: slike/Dockerfile.PNG  used on input line 284.
 (pdftex.def)             Requested size: 306.2387pt x 196.63113pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2750,33 +2727,33 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[59
+[57
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.22})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.307 		
+l.289 		
         
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.23})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.307 		
+l.289 		
          <./slike/Render_OVERVIEW.JPG> <./slike/Render_OVERVIEW_DATABASE.JPG>]
-<slike/Render_NEW.PNG, id=760, 1019.30812pt x 165.61874pt>
+<slike/Render_NEW.PNG, id=741, 1019.30812pt x 165.61874pt>
 File: slike/Render_NEW.PNG Graphic file (type png)
 <use slike/Render_NEW.PNG>
-Package pdftex.def Info: slike/Render_NEW.PNG  used on input line 312.
+Package pdftex.def Info: slike/Render_NEW.PNG  used on input line 294.
 (pdftex.def)             Requested size: 407.71602pt x 66.2463pt.
-<slike/Render_WEB_SERVICE.PNG, id=761, 579.66562pt x 353.82187pt>
+<slike/Render_WEB_SERVICE.PNG, id=742, 579.66562pt x 353.82187pt>
 File: slike/Render_WEB_SERVICE.PNG Graphic file (type png)
 <use slike/Render_WEB_SERVICE.PNG>
-Package pdftex.def Info: slike/Render_WEB_SERVICE.PNG  used on input line 320.
+Package pdftex.def Info: slike/Render_WEB_SERVICE.PNG  used on input line 302.
 (pdftex.def)             Requested size: 231.86214pt x 141.52623pt.
-<slike/Render_ODABIR_OPCIJE.PNG, id=762, 1022.31938pt x 501.37312pt>
+<slike/Render_ODABIR_OPCIJE.PNG, id=743, 1022.31938pt x 501.37312pt>
 File: slike/Render_ODABIR_OPCIJE.PNG Graphic file (type png)
 <use slike/Render_ODABIR_OPCIJE.PNG>
-Package pdftex.def Info: slike/Render_ODABIR_OPCIJE.PNG  used on input line 329
+Package pdftex.def Info: slike/Render_ODABIR_OPCIJE.PNG  used on input line 311
 .
 (pdftex.def)             Requested size: 408.9205pt x 200.54568pt.
 
@@ -2788,36 +2765,36 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[60
+[58
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.24})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.333 		\end{figure}
+l.315 		\end{figure}
                     
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.25})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.333 		\end{figure}
+l.315 		\end{figure}
                     
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.26})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.333 		\end{figure}
+l.315 		\end{figure}
                      <./slike/Dockerfile.PNG> <./slike/Render_NEW.PNG> <./slike
 /Render_WEB_SERVICE.PNG>]
-<slike/Render_ODABIR_REPOZITORIJA.PNG, id=775, 1006.51031pt x 252.19218pt>
+<slike/Render_ODABIR_REPOZITORIJA.PNG, id=755, 1006.51031pt x 252.19218pt>
 File: slike/Render_ODABIR_REPOZITORIJA.PNG Graphic file (type png)
 <use slike/Render_ODABIR_REPOZITORIJA.PNG>
 Package pdftex.def Info: slike/Render_ODABIR_REPOZITORIJA.PNG  used on input li
-ne 338.
+ne 320.
 (pdftex.def)             Requested size: 402.59698pt x 100.87508pt.
-<slike/Render_BACKEND_1.JPG, id=776, 1055.945pt x 884.30376pt>
+<slike/Render_BACKEND_1.JPG, id=756, 1055.945pt x 884.30376pt>
 File: slike/Render_BACKEND_1.JPG Graphic file (type jpg)
 <use slike/Render_BACKEND_1.JPG>
-Package pdftex.def Info: slike/Render_BACKEND_1.JPG  used on input line 347.
+Package pdftex.def Info: slike/Render_BACKEND_1.JPG  used on input line 329.
 (pdftex.def)             Requested size: 422.37051pt x 353.71524pt.
 
 
@@ -2828,29 +2805,29 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[61
+[59
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.27})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.352 		
+l.334 		
         
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.28})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.352 		
+l.334 		
          <./slike/Render_ODABIR_OPCIJE.PNG> <./slike/Render_ODABIR_REPOZITORIJA
 .PNG>]
-Overfull \hbox (4.00563pt too wide) in paragraph at lines 355--356
+Overfull \hbox (4.00563pt too wide) in paragraph at lines 337--338
 []\OT1/jkp/m/n/12 Na slici is-pod mo[]ze se vi-djeti drugi dio po-treb-nih pos-
 tavki za pos-tav-lja-nje Spring
  []
 
-<slike/Render_BACKEND_2.JPG, id=786, 1046.91125pt x 897.3525pt>
+<slike/Render_BACKEND_2.JPG, id=766, 1046.91125pt x 897.3525pt>
 File: slike/Render_BACKEND_2.JPG Graphic file (type jpg)
 <use slike/Render_BACKEND_2.JPG>
-Package pdftex.def Info: slike/Render_BACKEND_2.JPG  used on input line 358.
+Package pdftex.def Info: slike/Render_BACKEND_2.JPG  used on input line 340.
 (pdftex.def)             Requested size: 418.75708pt x 358.93463pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2860,21 +2837,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[62
+[60
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.29})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.363 		
+l.345 		
          <./slike/Render_BACKEND_1.JPG>]
-Underfull \hbox (badness 10000) in paragraph at lines 364--365
+Underfull \hbox (badness 10000) in paragraph at lines 346--347
 
  []
 
-<slike/Render_FRONTEND_1.JPG, id=793, 1064.97874pt x 818.05624pt>
+<slike/Render_FRONTEND_1.JPG, id=774, 1064.97874pt x 818.05624pt>
 File: slike/Render_FRONTEND_1.JPG Graphic file (type jpg)
 <use slike/Render_FRONTEND_1.JPG>
-Package pdftex.def Info: slike/Render_FRONTEND_1.JPG  used on input line 372.
+Package pdftex.def Info: slike/Render_FRONTEND_1.JPG  used on input line 354.
 (pdftex.def)             Requested size: 425.98395pt x 327.21669pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2884,22 +2861,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[63
+[61
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.30})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.376 		\end{figure}
+l.358 		\end{figure}
                      <./slike/Render_BACKEND_2.JPG>]
-Overfull \hbox (10.85684pt too wide) in paragraph at lines 378--380
+Overfull \hbox (10.85684pt too wide) in paragraph at lines 360--362
 \OT1/jkp/m/n/12 ov-dje smo za ko-ri-jen-ski di-rek-to-rij oda-brali di-rek-to-r
 ij IzvorniKod/kuhaj-it-app. Drugi
  []
 
-<slike/Render_FRONTEND_2.JPG, id=800, 1055.945pt x 884.30376pt>
+<slike/Render_FRONTEND_2.JPG, id=781, 1055.945pt x 884.30376pt>
 File: slike/Render_FRONTEND_2.JPG Graphic file (type jpg)
 <use slike/Render_FRONTEND_2.JPG>
-Package pdftex.def Info: slike/Render_FRONTEND_2.JPG  used on input line 382.
+Package pdftex.def Info: slike/Render_FRONTEND_2.JPG  used on input line 364.
 (pdftex.def)             Requested size: 422.37051pt x 353.71524pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2909,21 +2886,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[64
+[62
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.31})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.387 		
+l.369 		
          <./slike/Render_FRONTEND_1.JPG>]
-Underfull \hbox (badness 10000) in paragraph at lines 388--391
+Underfull \hbox (badness 10000) in paragraph at lines 370--373
 
  []
 
-<slike/Render_PostgreSQL.PNG, id=807, 347.79938pt x 317.68687pt>
+<slike/Render_PostgreSQL.PNG, id=788, 347.79938pt x 317.68687pt>
 File: slike/Render_PostgreSQL.PNG Graphic file (type png)
 <use slike/Render_PostgreSQL.PNG>
-Package pdftex.def Info: slike/Render_PostgreSQL.PNG  used on input line 397.
+Package pdftex.def Info: slike/Render_PostgreSQL.PNG  used on input line 379.
 (pdftex.def)             Requested size: 139.11728pt x 127.07248pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2933,22 +2910,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[65
+[63
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.32})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.402 		
+l.384 		
          <./slike/Render_FRONTEND_2.JPG>]
-<slike/Render_DATABASE_1.JPG, id=814, 679.53876pt x 484.81125pt>
+<slike/Render_DATABASE_1.JPG, id=795, 679.53876pt x 484.81125pt>
 File: slike/Render_DATABASE_1.JPG Graphic file (type jpg)
 <use slike/Render_DATABASE_1.JPG>
-Package pdftex.def Info: slike/Render_DATABASE_1.JPG  used on input line 406.
+Package pdftex.def Info: slike/Render_DATABASE_1.JPG  used on input line 388.
 (pdftex.def)             Requested size: 271.81068pt x 193.92105pt.
-<slike/Render_DATABASE_2.JPG, id=815, 429.605pt x 482.80376pt>
+<slike/Render_DATABASE_2.JPG, id=796, 429.605pt x 482.80376pt>
 File: slike/Render_DATABASE_2.JPG Graphic file (type jpg)
 <use slike/Render_DATABASE_2.JPG>
-Package pdftex.def Info: slike/Render_DATABASE_2.JPG  used on input line 413.
+Package pdftex.def Info: slike/Render_DATABASE_2.JPG  used on input line 395.
 (pdftex.def)             Requested size: 171.83894pt x 193.11807pt.
 
 
@@ -2959,18 +2936,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[66
+[64
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.33})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.418 		
+l.400 		
         
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.34})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.418 		
+l.400 		
          <./slike/Render_PostgreSQL.PNG> <./slike/Render_DATABASE_1.JPG>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2980,12 +2957,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[67
+[65
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.35})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.450 			\eject
+l.432 			\eject
                 <./slike/Render_DATABASE_2.JPG>])
 \openout2 = `Zakljucak.aux'.
 
@@ -2999,7 +2976,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[68
+[66
 
 
 
@@ -3013,7 +2990,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[69])
+[67])
 \openout2 = `Literatura.aux'.
 
  (Literatura.tex
@@ -3037,7 +3014,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[70
+[68
 
 
 
@@ -3059,7 +3036,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[71
+[69
 
 
 
@@ -3073,7 +3050,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[72]
+[70]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -3082,7 +3059,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[73]
+[71]
 Underfull \hbox (badness 10000) in paragraph at lines 155--156
 
  []
@@ -3103,7 +3080,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[74]
+[72]
+<slike/githubAktivnost.png, id=873, 346.29375pt x 466.1415pt>
+File: slike/githubAktivnost.png Graphic file (type png)
+<use slike/githubAktivnost.png>
+Package pdftex.def Info: slike/githubAktivnost.png  used on input line 214.
+(pdftex.def)             Requested size: 346.2929pt x 466.14035pt.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -3112,12 +3095,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[75]
-Underfull \hbox (badness 10000) in paragraph at lines 207--208
-
- []
-
-)
+[73]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -3126,7 +3104,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[76] 
+[74
+pdfTeX warning (ext4): destination with the same identifier (name{figure.6.1}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.220 		\eject
+               <./slike/githubAktivnost.png>])
+
 enddocument/afterlastpage: lastpage setting LastPage.
 (PROGI_ProjektnaDokumentacija.aux (Dnevnik_promjena_dokumentacije.aux)
 (Opis_projektnog_zadatka.aux) (Specifikacija_programske_potpore.aux)
@@ -3138,20 +3123,16 @@ L3 programming layer <2023-08-29>
  ***********
 Package rerunfilecheck Info: File `PROGI_ProjektnaDokumentacija.out' has not ch
 anged.
-(rerunfilecheck)             Checksum: F4507B3AF2132B8458D2D284917843D8;5354.
+(rerunfilecheck)             Checksum: B7EF7043B918D6F22BAF41AD853D96BC;5194.
  ) 
 Here is how much of TeX's memory you used:
- 18366 strings out of 475248
- 336793 string characters out of 5757814
+ 18566 strings out of 475248
+ 343108 string characters out of 5758285
  2065785 words of memory out of 5000000
- 39230 multiletter control sequences out of 15000+600000
- 635109 words of font info for 204 fonts, out of 8000000 for 9000
+ 39433 multiletter control sequences out of 15000+600000
+ 635956 words of font info for 204 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  86i,12n,116p,1200b,1077s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{Hfootnote.14} has been referenced but does not exis
-t, replaced by a fixed one
-
 
 pdfTeX warning (dest): name{Hfootnote.13} has been referenced but does not exis
 t, replaced by a fixed one
@@ -3204,15 +3185,15 @@ pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 , replaced by a fixed one
 
-<C:/Users/dunja/AppData/Local/Programs/MiKTeX/fonts/type1/public/kpfonts/jkpbit
-8a.pfb><C:/Users/dunja/AppData/Local/Programs/MiKTeX/fonts/type1/public/kpfonts
-/jkpbn8a.pfb><C:/Users/dunja/AppData/Local/Programs/MiKTeX/fonts/type1/public/k
-pfonts/jkpmit8a.pfb><C:/Users/dunja/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/kpfonts/jkpmn8a.pfb><C:/Users/dunja/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/kpfonts/jkpttmn8a.pfb>
-Output written on PROGI_ProjektnaDokumentacija.pdf (77 pages, 7797210 bytes).
+<C:/Users/Hana/AppData/Local/Programs/MiKTeX/fonts/type1/public/kpfonts/jkpbit8
+a.pfb><C:/Users/Hana/AppData/Local/Programs/MiKTeX/fonts/type1/public/kpfonts/j
+kpbn8a.pfb><C:/Users/Hana/AppData/Local/Programs/MiKTeX/fonts/type1/public/kpfo
+nts/jkpmit8a.pfb><C:/Users/Hana/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/kpfonts/jkpmn8a.pfb><C:/Users/Hana/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/kpfonts/jkpttmn8a.pfb>
+Output written on PROGI_ProjektnaDokumentacija.pdf (75 pages, 7847562 bytes).
 PDF statistics:
- 992 PDF objects out of 1000 (max. 8388607)
- 312 named destinations out of 1000 (max. 500000)
- 513 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 977 PDF objects out of 1000 (max. 8388607)
+ 309 named destinations out of 1000 (max. 500000)
+ 510 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Button, Form, Container, Row, Col } from 'react-bootstrap';
+import { Button, Form, Container, Row, Col, Alert } from 'react-bootstrap';
 
 const Nutritionist = () => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -42,6 +42,7 @@ const Nutritionist = () => {
         method: "POST",
         body: newDiet
       })
+      {{ <Alert variant="sucess">Uspješno dodana dijeta!"</Alert> }}
       console.log("Diet added sucessfuly");
     }
     catch(error) {
@@ -104,6 +105,7 @@ const Nutritionist = () => {
       .then(response => response.json())
       .then(data => {
         console.log('Ingredient added successfully:', data);
+        <Alert variant="sucess">Uspješno dodan sastojak!"</Alert>
         fetchIngredients(); // Fetch ingredients after adding
       })
       .catch(error => console.error('Error adding ingredient:', error));

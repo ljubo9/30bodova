@@ -63,7 +63,7 @@ const CalorieChart = ({ consumedRecipesStatistics }) => {
           plugins: {
             legend: {
               display: true,
-              position: 'bottom',
+              position: 'top',
               font: {
                 size: 15,
               },

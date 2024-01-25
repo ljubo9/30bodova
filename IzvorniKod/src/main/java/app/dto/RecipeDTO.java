@@ -45,24 +45,30 @@ public class RecipeDTO {
     	this.id = recipe.getId();
         this.name = recipe.getName();
         this.stepsOfMaking = new ArrayList<>();
-        for (StepOfMaking s : recipe.getStepsOfMaking()) {
-        	this.stepsOfMaking.add(new StepOfMakingDTO(s));
+        if (recipe.getStepsOfMaking() != null) {
+        	for (StepOfMaking s : recipe.getStepsOfMaking()) {
+        		this.stepsOfMaking.add(new StepOfMakingDTO(s));
+        	}
         }
         this.portionSize = recipe.getPortionSize();
         this.cookTime = recipe.getCookTime();
 
         // Convert RecipeIngredient entities to RecipeIngredientDTOs
-        List<RecipeIngredientDTO> recipeIngredientDTOs = recipe.getIngredients().stream()
-                .map(RecipeIngredientDTO::fromEntity)
-                .collect(Collectors.toList());
-        this.ingredients = recipeIngredientDTOs;
+        if (recipe.getIngredients() != null) {
+        	List<RecipeIngredientDTO> recipeIngredientDTOs = recipe.getIngredients().stream()
+        			.map(RecipeIngredientDTO::fromEntity)
+        			.collect(Collectors.toList());
+        	this.ingredients = recipeIngredientDTOs;
+        }
         
-        List<ReviewDTO> reviewDTOs = recipe.getReviews().stream()
-                .map(ReviewDTO::fromEntity)
-                .collect(Collectors.toList());
-        this.reviews = reviewDTOs;
+        if (recipe.getReviews() != null) {
+        	List<ReviewDTO> reviewDTOs = recipe.getReviews().stream()
+        			.map(ReviewDTO::fromEntity)
+        			.collect(Collectors.toList());
+        	this.reviews = reviewDTOs;
+        }
         
-        this.creator = recipe.getCreator().getUsername();
+        if (recipe.getCreator() != null)  this.creator = recipe.getCreator().getUsername();
         this.category = new CategoryDTO(recipe.getCategory());
 
     }

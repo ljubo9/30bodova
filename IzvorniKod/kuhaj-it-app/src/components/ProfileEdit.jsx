@@ -23,12 +23,9 @@ function ProfileEdit() {
       const formData = new FormData();
 
 
-       formData.append('newUsername', userData.newUsername);
-
-
-
+      formData.append('newUsername', userData.newUsername);
+    
       formData.append('newPassword', userData.newPassword);
-
 
       formData.append('oldPassword', userData.oldPassword);
       

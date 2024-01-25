@@ -2,24 +2,39 @@ package app.recipe;
 
 import app.dto.RecipeDTO;
 import app.dto.RecipeIngredientDTO;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "recipe_ingredient")
 public class RecipeIngredient {
 	
+
 	@Id
+	@SequenceGenerator(
+			name = "recipeing_sequence",
+			sequenceName = "student_sequence",
+			allocationSize = 1
+	)
+	@GeneratedValue(
+			strategy = GenerationType.SEQUENCE,
+			generator = "recipeing_sequence")
+	@Column(columnDefinition = "serial", insertable = false)
+	int id;
+
+	
 	@ManyToOne
 	@JoinColumn(name = "ingredient_id")
 	private Ingredient ingredient;
 	
-	@Id
+	
 	@ManyToOne
 	@JoinColumn(name = "recipe_id")
 	private Recipe recipe;
