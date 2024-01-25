@@ -73,6 +73,13 @@
 			\item Response
 			\item Image
 			\item Recipe Image
+			\item Diet
+			\item Diet Ingredient
+			\item Diet allowed recipes
+			\item Consumed recipes
+			\item Step of making
+			\item Category
+			\item Label
 		\end{itemize}
 		
 		
@@ -161,7 +168,7 @@
 				\end{longtblr}
 				
 				\textbf{Ingredient} Entitet \textit{Ingredient} sadrži atribute važne za svaki sastojak.
-Ti atributi su: ID sastojka i ime sastojka. U vezi je \textit{One-to-Many} s entitetom \textit{Recipe Ingredient} preko ID-ja sastojka i \textit{Many-to-One} s entitetom \textit{Image} preko ID-ja fotografije.
+Ti atributi su: ID sastojka i ime sastojka. U vezi je \textit{One-to-Many} s entitetom \textit{Recipe Ingredient} preko ID-ja sastojka, \textit{Many-to-One} s entitetom \textit{Image} preko ID-ja fotografije i \textit{Label} preko ID-ja oznake.
 
 				\begin{longtblr}[
 					label=none,
@@ -174,7 +181,7 @@ Ti atributi su: ID sastojka i ime sastojka. U vezi je \textit{One-to-Many} s ent
 					\hline \SetCell[c=3]{c}{\textbf{Ingredient}}	 \\ \hline[3pt]
 					\SetCell{LightGreen}id & INT	&  Jedinstveni ID sastojka, sekvencijski generiran.  	\\\hline
 					name 	& VARCHAR &  Naziv sastojka. 	\\ \hline 
-					\SetCell{LightBlue}image\_id	& INT &   ID fotografije sastojka.	\\ \hline 
+					\SetCell{LightBlue}image\_id	& INT &   ID fotografije sastojka.	\\ \hline 						\SetCell{LightBlue}label\_id	& INT &   ID oznake sastojka.	\\ \hline 
 				\end{longtblr}	
 				
 				\textbf{Cookbook} Entitet \textit{Cookbook} sadrži atribute važne za svaku kuharicu stvorenu od kulinarskog entuzijasta na web aplikaciji KuhajIT.
@@ -365,6 +372,41 @@ Ti atributi su: ID fotografije i URL fotografije.
 					\SetCell{LightBlue}image\_id & INT & ID fotografije koraka. \\ \hline
 					\SetCell{LightBlue}recipe\_id & INT & ID recepta na koji se korak odnosi. \\ \hline
 				\end{longtblr}
+				
+				\textbf{Category} Entitet \textit{Category} sadrži atribute važne za pohranu kategorija recepata i kuharica. Ti atributi su: ID kategorije i naziv kategorije. U vezi je \textit{One-to-Many} s entitetom \textit{Recipe} preko ID-ja kuharice i \textit{One-to-Many} s entitetom Cookbook preko ID-ja kuharice.
+				
+								\begin{longtblr}[
+					label=none,
+					entry=none
+					]{
+						width = \textwidth,
+						colspec={|X[9,l]|X[6, l]|X[17, l]|}, 
+						rowhead = 1,
+					} %definicija širine tablice, širine stupaca, poravnanje i broja redaka naslova tablice
+					\hline \SetCell[c=3]{c}{\textbf{Category}}	 \\ \hline[3pt]
+					\SetCell{LightGreen}id & INT	&  ID kategorije.  	\\ \hline
+					
+					name & VARCHAR & Naziv kategorije. \\ \hline
+				\end{longtblr}
+				
+				
+				\textbf{Label} Entitet \textit{Label} sadrži atribute važne za pohranu oznaka proizvoda koje unosi nutricionist. Ti atributi su: ID oznake i naziv oznake. U vezi je \textit{One-to-Many} s entitetom \textit{Ingredient} preko ID-ja oznake.
+				
+								\begin{longtblr}[
+					label=none,
+					entry=none
+					]{
+						width = \textwidth,
+						colspec={|X[9,l]|X[6, l]|X[17, l]|}, 
+						rowhead = 1,
+					} %definicija širine tablice, širine stupaca, poravnanje i broja redaka naslova tablice
+					\hline \SetCell[c=3]{c}{\textbf{Label}}	 \\ \hline[3pt]
+					\SetCell{LightGreen}id & INT	&  ID oznake.  	\\ \hline
+					
+					name & VARCHAR & Naziv oznake. \\ \hline
+				\end{longtblr}
+				
+				
 				
 				
 				
