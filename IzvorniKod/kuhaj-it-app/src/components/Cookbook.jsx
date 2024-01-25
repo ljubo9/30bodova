@@ -9,7 +9,7 @@ const Cookbook = () => {
   useEffect(() => {
     const fetchCookbookData = async () => {
       try {
-        const response = await fetch(`https://kuhajitbackend.onrender.com/cookbook/get?id=${culinaryId}`);
+        const response = await fetch(`https://kuhajitbackend.onrender.com/cookbook/cookbook/get/{id}`);
         
         
         if (response.ok) {
